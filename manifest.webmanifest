@@ -1,0 +1,10 @@
+{
+  "name": "Minecraft Seed Explorer",
+  "short_name": "Seed Explorer",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d1915",
+  "theme_color": "#14291f",
+  "description": "Personal Minecraft Bedrock coordinate planner"
+}
