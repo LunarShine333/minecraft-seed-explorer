@@ -1,0 +1,24 @@
+{
+  "schema": "research-only",
+  "seed": "3022187552114785111",
+  "edition": "bedrock",
+  "targetVersion": null,
+  "approvedForMap": false,
+  "reason": "API does not declare/select an exact Bedrock release. No in-game validation.",
+  "capturedAt": "2026-11-04T20:21:46.293Z",
+  "provider": "https://www.mineseedfinder.com",
+  "requests": [
+    {
+      "url": "https://www.mineseedfinder.com/GetBiomes?seed=3022187552114785111&x=0&z=0&size=8&scale=16&outputformat=json",
+      "status": 200,
+      "cors": "*",
+      "body": "[\n\"BBBBBBEE\",\n\"BBBBBBEE\",\n\"BBBBBBEE\",\n\"BBBBBBEE\",\n\"vBBBtBEE\",\n\"vtttttBE\",\n\"vtttttEE\",\n\"vtttvtBE\"\n]"
+    },
+    {
+      "url": "https://www.mineseedfinder.com/scan/bedrock?seed=3022187552114785111&x=0&z=0&radius=64&max=20&types=5%2C8%2C9",
+      "status": 200,
+      "cors": "*",
+      "body": "{\"results\":[{\"distance\":45.4,\"name\":\"monument\",\"x\":184,\"z\":712},{\"distance\":46.1,\"name\":\"monument\",\"x\":-312,\"z\":-680},{\"distance\":47.0,\"name\":\"monument\",\"x\":696,\"z\":-312},{\"distance\":49.0,\"name\":\"monument\",\"x\":280,\"z\":-744},{\"distance\":56.7,\"name\":\"village\",\"x\":-904,\"z\":152},{\"distance\":59.5,\"name\":\"monument\",\"x\":-712,\"z\":-648},{\"distance\":63.0,\"name\":\"village\",\"x\":760,\"z\":680}]}\n"
+    }
+  ]
+}

@@ -2,9 +2,115 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#14291f"><link rel="manifest" href="./manifest.webmanifest"><title>Minecraft Seed Explorer</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0d1915;color:#f2f6ed;font:15px system-ui,sans-serif}header{padding:16px;background:#14291f;border-bottom:1px solid #365847}h1{font-size:20px;margin:0 0 5px}small,.muted{color:#abc2b1}.wrap{max-width:1100px;margin:auto}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;padding:14px}.map{height:min(70vh,700px);min-height:380px;position:relative;border:1px solid #42664f;border-radius:16px;overflow:hidden;background:#182a23;touch-action:none}canvas{width:100%;height:100%;display:block}.maptools{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:7px}.hint{position:absolute;bottom:10px;left:12px;color:#d6e9d9;background:#102019c9;padding:7px;border-radius:8px;font-size:12px}.panel{background:#182a23;border:1px solid #42664f;border-radius:16px;padding:15px}input,textarea,select,button{font:inherit;border-radius:9px;padding:10px;border:1px solid #4c7059;background:#0f2018;color:#fff;max-width:100%}input,textarea,select{width:100%;margin:5px 0 10px}button{cursor:pointer;background:#315b3d}button:hover{background:#417a50}.buttons{display:flex;gap:7px;flex-wrap:wrap}.buttons button{flex:1}.item{border-top:1px solid #355542;padding:10px 0;display:flex;justify-content:space-between;gap:8px}.item button{padding:5px 8px}.status{font-size:12px;color:#c2d5c6;margin-top:10px}label{font-size:13px;color:#c7d7c9}@media(max-width:720px){.layout{grid-template-columns:1fr;padding:9px;gap:9px}.map{height:62vh;min-height:330px}.panel{padding:12px}header{padding:12px}}
-</style></head><body><header><div class="wrap"><h1>🌿 Minecraft Seed Explorer</h1><small>Bedrock 26.x · Seed 3022187552114785111 · Personal coordinate planner</small></div></header>
-<main class="wrap layout"><section class="map" id="map"><canvas id="canvas"></canvas><div class="maptools"><button id="zin" aria-label="Zoom in">＋</button><button id="zout" aria-label="Zoom out">－</button><button id="home">⌖</button></div><div class="hint">Drag to pan · Pinch or scroll to zoom · Tap map for coordinates</div></section>
-<aside class="panel"><h2 style="margin-top:0">🧭 Explore coordinates</h2><p class="status">Jump to any Overworld X/Z location. Map origin (0, 0) is not a verified world spawn.</p><label>Go to X<input id="jumpx" type="number" placeholder="X"></label><label>Go to Z<input id="jumpz" type="number" placeholder="Z"></label><button id="jump" style="width:100%">Go to coordinates</button><hr style="border:0;border-top:1px solid #355542;margin:18px 0"><h2>📍 Waypoints</h2><label>Name<input id="name" placeholder="Our house"></label><label>X coordinate<input id="x" type="number" placeholder="0"></label><label>Z coordinate<input id="z" type="number" placeholder="0"></label><label>Notes<textarea id="notes" rows="2" placeholder="Optional"></textarea></label><button id="save" style="width:100%">Save waypoint</button><label>Search<input id="search" placeholder="Find saved places"></label><div id="items"></div><div class="buttons"><button id="export">Export backup</button><button id="import">Import backup</button><input type="file" id="file" accept="application/json" hidden></div><p class="status">This is a coordinate planner, not a generated biome or structure map. Markers are saved only on this device. Do not use this as a verified Chunkbase map.</p></aside></main>
-<script>
-const key='minecraft-seed-explorer-waypoints';let points=[];try{points=JSON.parse(localStorage.getItem(key)||'[]');if(!Array.isArray(points))points=[]}catch(e){}const $=id=>document.getElementById(id),c=$('canvas'),ctx=c.getContext('2d'),map=$('map');let cx=0,cz=0,scale=.09,drag=null,changed=false;function persist(){localStorage.setItem(key,JSON.stringify(points));list();draw()}function resize(){const d=devicePixelRatio||1;c.width=map.clientWidth*d;c.height=map.clientHeight*d;ctx.setTransform(d,0,0,d,0,0);draw()}function world(sx,sy){return [cx+(sx-map.clientWidth/2)/scale,cz+(sy-map.clientHeight/2)/scale]}function screen(x,z){return [map.clientWidth/2+(x-cx)*scale,map.clientHeight/2+(z-cz)*scale]}function draw(){const w=map.clientWidth,h=map.clientHeight;ctx.clearRect(0,0,w,h);ctx.fillStyle='#182a23';ctx.fillRect(0,0,w,h);const steps=[16,32,64,128,256,512,1024,2048,4096,8192,16384];const step=steps.find(v=>v*scale>=55)||16384;const [xmin,zmin]=world(0,0),[xmax,zmax]=world(w,h);ctx.font='11px system-ui';for(let x=Math.ceil(xmin/step)*step;x<=xmax;x+=step){const px=screen(x,0)[0];ctx.strokeStyle=x===0?'#8db69a':'#345344';ctx.beginPath();ctx.moveTo(px,0);ctx.lineTo(px,h);ctx.stroke();ctx.fillStyle='#a4c4ad';ctx.fillText(x,px+4,14)}for(let z=Math.ceil(zmin/step)*step;z<=zmax;z+=step){const py=screen(0,z)[1];ctx.strokeStyle=z===0?'#8db69a':'#345344';ctx.beginPath();ctx.moveTo(0,py);ctx.lineTo(w,py);ctx.stroke();ctx.fillStyle='#a4c4ad';ctx.fillText(z,5,py-4)}for(const p of points){const [x,y]=screen(p.x,p.z);if(x< -100||x>w+100||y< -100||y>h+100)continue;ctx.fillStyle='#ffcf77';ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);ctx.fill();ctx.fillStyle='#fff';ctx.fillText(p.name,x+10,y-9)}}function list(){const q=$('search').value.toLowerCase(),root=$('items');root.replaceChildren();for(const p of points.filter(p=>p.name.toLowerCase().includes(q))){const row=document.createElement('div');row.className='item';const label=document.createElement('span');label.textContent=p.name+' ('+p.x+', '+p.z+')';label.title=p.notes||'';const actions=document.createElement('div');const go=document.createElement('button');go.textContent='Go';go.onclick=()=>{cx=p.x;cz=p.z;draw()};const del=document.createElement('button');del.textContent='×';del.setAttribute('aria-label','Delete '+p.name);del.onclick=()=>{if(confirm('Delete '+p.name+'?')){points=points.filter(t=>t.id!==p.id);persist()}};actions.append(go,del);row.append(label,actions);root.append(row)}}$('save').onclick=()=>{const name=$('name').value.trim(),x=Number($('x').value),z=Number($('z').value);if(!name||!$('x').value||!$('z').value||!Number.isFinite(x)||!Number.isFinite(z)){alert('Enter a name, X and Z coordinates.');return}points.push({id:Date.now()+Math.random(),name,x,z,notes:$('notes').value});$('name').value=$('x').value=$('z').value=$('notes').value='';persist()};$('jump').onclick=()=>{const x=Number($('jumpx').value),z=Number($('jumpz').value);if(!$('jumpx').value||!$('jumpz').value||!Number.isFinite(x)||!Number.isFinite(z)){alert('Enter valid X and Z coordinates.');return}cx=x;cz=z;draw()};$('search').oninput=list;$('zin').onclick=()=>{scale=Math.min(scale*1.6,5);draw()};$('zout').onclick=()=>{scale=Math.max(scale/1.6,.001);draw()};$('home').onclick=()=>{cx=cz=0;scale=.09;draw()};map.addEventListener('pointerdown',e=>{if(e.target!==c)return;drag={x:e.clientX,y:e.clientY,cx,cz};changed=false;c.setPointerCapture(e.pointerId)});c.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>5)changed=true;cx=drag.cx-dx/scale;cz=drag.cz-dy/scale;draw()});c.addEventListener('pointerup',e=>{if(!drag)return;if(!changed){const r=c.getBoundingClientRect(),[x,z]=world(e.clientX-r.left,e.clientY-r.top);$('x').value=Math.round(x);$('z').value=Math.round(z)}drag=null});c.addEventListener('wheel',e=>{e.preventDefault();scale=Math.max(.001,Math.min(5,scale*(e.deltaY<0?1.15:1/1.15)));draw()},{passive:false});$('export').onclick=()=>{const blob=new Blob([JSON.stringify(points,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='minecraft-waypoints.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};$('import').onclick=()=>$('file').click();$('file').onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());if(!Array.isArray(data)||!data.every(p=>typeof p.name==='string'&&Number.isFinite(p.x)&&Number.isFinite(p.z)))throw Error();if(confirm('Replace your current waypoints with this backup?')){points=data;persist()}}catch(e){alert('Invalid waypoint backup.')}};window.addEventListener('resize',resize);if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});list();resize();
+#layer-controls>label{display:block;margin:8px 0}#structure-list{max-height:300px;overflow:auto}#biome-legend{max-height:160px;overflow:auto}
+</style></head><body><header><div class="wrap"><h1>🌿 Minecraft Seed Explorer</h1><small>Bedrock 26.x · Seed 3022187552114785111 · Overworld explorer</small></div></header>
+<main class="wrap layout"><section class="map" id="map"><canvas id="canvas"></canvas><div class="maptools"><button id="zin" aria-label="Zoom in">＋</button><button id="zout" aria-label="Zoom out">－</button><button id="home">⌖</button></div><div class="hint">Drag to pan · Scroll or use ＋/－ to zoom · Tap map for coordinates</div></section>
+<aside class="panel"><h2 style="margin-top:0">🌍 World data</h2>
+<p class="status">Seed <span id="world-seed"></span> · Overworld</p>
+<label>Exact Xbox version<input id="game-version" placeholder="Unknown — check title screen" maxlength="30"></label>
+<p id="data-status" class="status" role="status" aria-live="polite"></p>
+<p class="status">Automatic predictions are waiting for validation against your exact Bedrock release. Imported observations stay separate from saved waypoints.</p>
+<div class="buttons"><button id="load-data">Load world data</button><button id="clear-data">Clear layer</button></div>
+<input type="file" id="data-file" accept="application/json,.json" hidden>
+<details><summary>Data format and accuracy</summary><p class="status">World data must match this seed, exact release and Overworld. Observations are reported by the file's author. Predictions require an approved engine revision. Sample dots show measured biome points, not exact biome boundaries.</p><p><a href="./DATA_FORMAT.md" style="color:#c5e6a2">World data format</a></p></details>
+<div id="layer-controls" hidden>
+<label><input type="checkbox" id="show-biomes" checked style="width:auto"> Biome samples</label>
+<label><input type="checkbox" id="show-structures" checked style="width:auto"> Structures</label>
+<label>Biome sample Y<select id="biome-y"></select></label>
+<label>Structure filter<select id="structure-filter"><option value="">All structures</option></select></label>
+<div id="biome-legend" class="status"></div><div id="structure-list"></div>
+</div><p id="map-readout" class="status" role="status">Tap the map to inspect a coordinate.</p>
+<hr style="border:0;border-top:1px solid #355542;margin:18px 0"><h2 style="margin-top:0">🧭 Explore coordinates</h2><p class="status">Jump to any Overworld X/Z location. Map origin (0, 0) is not a verified world spawn.</p><label>Go to X<input id="jumpx" type="number" placeholder="X"></label><label>Go to Z<input id="jumpz" type="number" placeholder="Z"></label><button id="jump" style="width:100%">Go to coordinates</button><hr style="border:0;border-top:1px solid #355542;margin:18px 0"><h2>📍 Waypoints</h2><label>Name<input id="name" placeholder="Our house"></label><label>X coordinate<input id="x" type="number" placeholder="0"></label><label>Z coordinate<input id="z" type="number" placeholder="0"></label><label>Notes<textarea id="notes" rows="2" placeholder="Optional"></textarea></label><button id="save" style="width:100%">Save waypoint</button><label>Search<input id="search" placeholder="Find saved places"></label><div id="items"></div><div class="buttons"><button id="export">Export backup</button><button id="import">Import backup</button><input type="file" id="file" accept="application/json" hidden></div><p class="status">This is a coordinate planner, not a generated biome or structure map. Waypoints are saved only on this device. Imported world layers last for this session. Automatic predictions are not enabled.</p></aside></main>
+<script type="module">
+import {WORLD_SEED,MAX_FILE_BYTES,exactVersion,validateBundle,biomeAt} from './world-data.mjs';
+
+const key='minecraft-seed-explorer-waypoints';let points=[];try{points=JSON.parse(localStorage.getItem(key)||'[]');if(!Array.isArray(points))points=[]}catch(e){}const $=id=>document.getElementById(id),c=$('canvas'),ctx=c.getContext('2d'),map=$('map');let cx=0,cz=0,scale=.09,drag=null,changed=false;function persist(){localStorage.setItem(key,JSON.stringify(points));list();draw()}function resize(){const d=devicePixelRatio||1;c.width=map.clientWidth*d;c.height=map.clientHeight*d;ctx.setTransform(d,0,0,d,0,0);draw()}function world(sx,sy){return [cx+(sx-map.clientWidth/2)/scale,cz+(sy-map.clientHeight/2)/scale]}function screen(x,z){return [map.clientWidth/2+(x-cx)*scale,map.clientHeight/2+(z-cz)*scale]}function draw(){const w=map.clientWidth,h=map.clientHeight;ctx.clearRect(0,0,w,h);ctx.fillStyle='#182a23';ctx.fillRect(0,0,w,h);drawWorldLayer();const steps=[16,32,64,128,256,512,1024,2048,4096,8192,16384];const step=steps.find(v=>v*scale>=55)||16384;const [xmin,zmin]=world(0,0),[xmax,zmax]=world(w,h);ctx.font='11px system-ui';for(let x=Math.ceil(xmin/step)*step;x<=xmax;x+=step){const px=screen(x,0)[0];ctx.strokeStyle=x===0?'#8db69a':'#345344';ctx.beginPath();ctx.moveTo(px,0);ctx.lineTo(px,h);ctx.stroke();ctx.fillStyle='#a4c4ad';ctx.fillText(x,px+4,14)}for(let z=Math.ceil(zmin/step)*step;z<=zmax;z+=step){const py=screen(0,z)[1];ctx.strokeStyle=z===0?'#8db69a':'#345344';ctx.beginPath();ctx.moveTo(0,py);ctx.lineTo(w,py);ctx.stroke();ctx.fillStyle='#a4c4ad';ctx.fillText(z,5,py-4)}for(const p of points){const [x,y]=screen(p.x,p.z);if(x< -100||x>w+100||y< -100||y>h+100)continue;ctx.fillStyle='#ffcf77';ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);ctx.fill();ctx.fillStyle='#fff';ctx.fillText(p.name,x+10,y-9)}}function list(){const q=$('search').value.toLowerCase(),root=$('items');root.replaceChildren();for(const p of points.filter(p=>p.name.toLowerCase().includes(q))){const row=document.createElement('div');row.className='item';const label=document.createElement('span');label.textContent=p.name+' ('+p.x+', '+p.z+')';label.title=p.notes||'';const actions=document.createElement('div');const go=document.createElement('button');go.textContent='Go';go.onclick=()=>{cx=p.x;cz=p.z;draw()};const del=document.createElement('button');del.textContent='×';del.setAttribute('aria-label','Delete '+p.name);del.onclick=()=>{if(confirm('Delete '+p.name+'?')){points=points.filter(t=>t.id!==p.id);persist()}};actions.append(go,del);row.append(label,actions);root.append(row)}}$('save').onclick=()=>{const name=$('name').value.trim(),x=Number($('x').value),z=Number($('z').value);if(!name||!$('x').value||!$('z').value||!Number.isFinite(x)||!Number.isFinite(z)){alert('Enter a name, X and Z coordinates.');return}points.push({id:Date.now()+Math.random(),name,x,z,notes:$('notes').value});$('name').value=$('x').value=$('z').value=$('notes').value='';persist()};$('jump').onclick=()=>{const x=Number($('jumpx').value),z=Number($('jumpz').value);if(!$('jumpx').value||!$('jumpz').value||!Number.isFinite(x)||!Number.isFinite(z)){alert('Enter valid X and Z coordinates.');return}cx=x;cz=z;draw()};$('search').oninput=list;$('zin').onclick=()=>{scale=Math.min(scale*1.6,5);draw()};$('zout').onclick=()=>{scale=Math.max(scale/1.6,.001);draw()};$('home').onclick=()=>{cx=cz=0;scale=.09;draw()};map.addEventListener('pointerdown',e=>{if(e.target!==c)return;drag={x:e.clientX,y:e.clientY,cx,cz};changed=false;c.setPointerCapture(e.pointerId)});c.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>5)changed=true;cx=drag.cx-dx/scale;cz=drag.cz-dy/scale;draw()});c.addEventListener('pointerup',e=>{if(!drag)return;if(!changed){const r=c.getBoundingClientRect(),[x,z]=world(e.clientX-r.left,e.clientY-r.top);$('x').value=Math.round(x);$('z').value=Math.round(z);inspectWorld(x,z)}drag=null});c.addEventListener('wheel',e=>{e.preventDefault();scale=Math.max(.001,Math.min(5,scale*(e.deltaY<0?1.15:1/1.15)));draw()},{passive:false});$('export').onclick=()=>{const blob=new Blob([JSON.stringify(points,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='minecraft-waypoints.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};$('import').onclick=()=>$('file').click();$('file').onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());if(!Array.isArray(data)||!data.every(p=>typeof p.name==='string'&&Number.isFinite(p.x)&&Number.isFinite(p.z)))throw Error();if(confirm('Replace your current waypoints with this backup?')){points=data;persist()}}catch(e){alert('Invalid waypoint backup.')}};window.addEventListener('resize',resize);if('serviceWorker'in navigator){
+  let reloading=false;const hadController=!!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(hadController&&!reloading){reloading=true;location.reload()}});
+  navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+}
+
+
+let worldData = null;
+function initWorldData(){
+  $('world-seed').textContent=WORLD_SEED;
+  try{$('game-version').value=localStorage.getItem('mse-game-version')||''}catch{}
+  dataStatus();
+  $('game-version').oninput=()=>{worldData=null;renderLayers();draw()};
+  $('game-version').onchange=()=>{
+    try{const value=exactVersion($('game-version').value.trim());$('game-version').value=value;
+      localStorage.setItem('mse-game-version',value);worldData=null;renderLayers();draw();
+    }catch(e){worldData=null;renderLayers();draw();$('data-status').textContent=e.message}
+  };
+  $('load-data').onclick=()=>$('data-file').click();
+  $('data-file').onchange=async e=>{
+    const file=e.target.files[0];if(!file)return;
+    try{
+      if(file.size>MAX_FILE_BYTES)throw Error('World data must be 4 MB or smaller.');
+      const target={seed:WORLD_SEED,version:exactVersion($('game-version').value.trim())};
+      const next=validateBundle(JSON.parse(await file.text()),target);
+      // File reads are asynchronous: recheck selection before committing a layer.
+      if(exactVersion($('game-version').value.trim())!==target.version)throw Error('Version changed while loading. Please load the file again.');
+      worldData=next;renderLayers();draw();
+    }catch(err){$('data-status').textContent=err.message+' Previous layer was kept, if present.'}
+    finally{e.target.value=''}
+  };
+  $('clear-data').onclick=()=>{worldData=null;renderLayers();draw()};
+  for(const id of ['show-biomes','show-structures','biome-y','structure-filter'])$(id).onchange=()=>{renderStructureList();renderLegend();draw()};
+}
+function dataStatus(){
+  if(!worldData){$('data-status').removeAttribute('title');$('data-status').textContent=$('game-version').value.trim()?'No data loaded. Automatic predictions are not validated for this release.':'No data loaded. Exact Bedrock version is still unknown.';return}
+  $('data-status').textContent=(worldData.source.kind==='observed'?'Reported observations':'Predictions')+
+    ' · Bedrock '+worldData.version+' · '+worldData.source.name+' · '+worldData.structures.length+' structures';
+  $('data-status').title=worldData.source.evidence;
+}
+function renderLayers(){
+  $('layer-controls').hidden=!worldData;dataStatus();$('map-readout').textContent='Tap the map to inspect a coordinate.';
+  $('biome-y').replaceChildren();$('structure-filter').replaceChildren(new Option('All structures',''));
+  if(!worldData)return;
+  for(const y of [...new Set(worldData.biomes.map(t=>t.y))].sort((a,b)=>a-b))$('biome-y').append(new Option('Y '+y,String(y)));
+  for(const name of [...new Set(worldData.structures.map(p=>p.type))].sort())$('structure-filter').append(new Option(name,name));
+  renderLegend();renderStructureList();
+}
+function renderLegend(){
+  const root=$('biome-legend');root.replaceChildren();if(!worldData)return;
+  const entries=new Map();for(const t of worldData.biomes.filter(t=>t.y===Number($('biome-y').value)))
+    for(const p of t.palette)entries.set(p.name,p.color);
+  for(const [name,color] of entries){const row=document.createElement('div'),dot=document.createElement('span');
+    dot.textContent='● ';dot.style.color=color;row.append(dot,document.createTextNode(name));root.append(row)}
+}
+function visibleStructures(){return worldData?.structures.filter(p=>!$('structure-filter').value||p.type===$('structure-filter').value)||[]}
+function renderStructureList(){
+  const root=$('structure-list');root.replaceChildren();if(!worldData)return;
+  for(const p of visibleStructures().slice(0,100)){
+    const row=document.createElement('div');row.className='item';const name=document.createElement('span');
+    name.textContent=p.type+' ('+p.x+', '+p.z+')';const go=document.createElement('button');go.textContent='Go';
+    go.onclick=()=>{cx=p.x;cz=p.z;$('x').value=p.x;$('z').value=p.z;$('name').value=p.type;
+      $('notes').value=worldData.source.kind+' · '+worldData.source.name+' · Bedrock '+worldData.version;draw();inspectWorld(p.x,p.z)};
+    row.append(name,go);root.append(row)
+  }
+  if(visibleStructures().length>100){const note=document.createElement('p');note.className='status';note.textContent='First 100 listed; all matching structures remain on the map.';root.append(note)}
+}
+function drawWorldLayer(){
+  if(!worldData)return;
+  if($('show-biomes').checked){for(const t of worldData.biomes){if(t.y!==Number($('biome-y').value))continue;
+    for(let j=0;j<t.height;j++)for(let i=0;i<t.width;i++){
+      const [x,y]=screen(t.x+i*t.step,t.z+j*t.step);if(x<0||y<0||x>map.clientWidth||y>map.clientHeight)continue;
+      ctx.fillStyle=t.palette[t.samples[j*t.width+i]].color;ctx.beginPath();ctx.arc(x,y,Math.min(4,Math.max(1,t.step*scale*.3)),0,Math.PI*2);ctx.fill()
+    }
+  }}
+  if($('show-structures').checked){ctx.font='11px system-ui';for(const p of visibleStructures()){
+    const [x,y]=screen(p.x,p.z);if(x< -80||y< -20||x>map.clientWidth+80||y>map.clientHeight+20)continue;
+    ctx.strokeStyle=worldData.source.kind==='observed'?'#82e3ef':'#d7a2ff';ctx.lineWidth=2;ctx.strokeRect(x-5,y-5,10,10);ctx.lineWidth=1;
+    ctx.fillStyle='#e1f8ff';ctx.fillText(p.type,x+9,y+12)
+  }}
+}
+function inspectWorld(x,z){
+  const biome=biomeAt(worldData,x,z,Number($('biome-y').value));
+  const hit=$('show-structures').checked?visibleStructures().find(p=>Math.hypot(p.x-x,p.z-z)*scale<12):null;
+  $('map-readout').textContent='X '+Math.round(x)+' · Z '+Math.round(z)+
+    (biome?' · '+biome.name+' at Y '+biome.y:' · No biome sample here')+
+    (hit?' · '+hit.type+' ('+worldData.source.kind+')':'');
+}
+initWorldData();list();resize();
 </script></body></html>

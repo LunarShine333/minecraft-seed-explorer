@@ -32,3 +32,32 @@
 5. Version the service worker cache so Home Screen installs receive updates.
 
 User can provide Xbox house coordinates later; they are not required for this work.
+
+## Integration checkpoint — 2026-11-04
+
+Implemented in `world-data.mjs` and the map UI:
+- Full signed 64-bit decimal seed validation, without Number conversion.
+- Exact Bedrock release matching (26.x is intentionally rejected).
+- Provenance-aware data bundles, Y-specific biome sample layers and legends,
+  structure filtering/navigation, and isolated waypoint storage.
+- Prediction approval registry keyed by engine revision, release, edition and
+  dimension. It remains empty pending actual Bedrock game reference fixtures.
+- Versioned PWA cache with the new module precached, scoped cache cleanup,
+  network-first updates and offline fallback.
+- Regression tests for seed precision, version isolation, negative coordinates,
+  sample orientation/Y, malformed data and unapproved engines.
+
+`research/reference-probe.json` records live endpoint responses for the full
+seed, with URLs, timestamps, CORS headers and an explicit research-only status.
+It is not an approved/generated world map and is not loaded by the app.
+Reproduce with `node scripts/probe-reference.mjs` (two bounded API requests).
+
+Blocking accurate automatic maps: the exact Xbox version is unknown (user is
+away); SeedForge's Bedrock biome assumptions and documented structure shifts
+need in-game checks; SeedFinder's API cannot select a Bedrock release and its
+hosted docs differ from repository routes. No predictions were promoted to
+verified data, and no guessed biome raster was shipped.
+
+Next: obtain the exact version, pin an engine that targets it, collect real
+Bedrock/BDS fixtures at known Y and structure locations, run comparisons, then
+register only passing capabilities and connect the engine producer to bundles.
