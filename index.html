@@ -2,15 +2,15 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#14291f"><link rel="manifest" href="./manifest.webmanifest"><title>Minecraft Seed Explorer</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0d1915;color:#f2f6ed;font:15px system-ui,sans-serif}header{padding:16px;background:#14291f;border-bottom:1px solid #365847}h1{font-size:20px;margin:0 0 5px}small,.muted{color:#abc2b1}.wrap{max-width:1100px;margin:auto}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;padding:14px}.map{height:min(70vh,700px);min-height:380px;position:relative;border:1px solid #42664f;border-radius:16px;overflow:hidden;background:#182a23;touch-action:none}canvas{width:100%;height:100%;display:block}.maptools{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:7px}.hint{position:absolute;bottom:10px;left:12px;color:#d6e9d9;background:#102019c9;padding:7px;border-radius:8px;font-size:12px}.panel{background:#182a23;border:1px solid #42664f;border-radius:16px;padding:15px}input,textarea,select,button{font:inherit;border-radius:9px;padding:10px;border:1px solid #4c7059;background:#0f2018;color:#fff;max-width:100%}input,textarea,select{width:100%;margin:5px 0 10px}button{cursor:pointer;background:#315b3d}button:hover{background:#417a50}.buttons{display:flex;gap:7px;flex-wrap:wrap}.buttons button{flex:1}.item{border-top:1px solid #355542;padding:10px 0;display:flex;justify-content:space-between;gap:8px}.item button{padding:5px 8px}.status{font-size:12px;color:#c2d5c6;margin-top:10px}label{font-size:13px;color:#c7d7c9}@media(max-width:720px){.layout{grid-template-columns:1fr;padding:9px;gap:9px}.map{height:62vh;min-height:330px}.panel{padding:12px}header{padding:12px}}
-#layer-controls>label{display:block;margin:8px 0}#structure-list{max-height:300px;overflow:auto}#biome-legend{max-height:160px;overflow:auto}
-</style></head><body><header><div class="wrap"><h1>🌿 Minecraft Seed Explorer</h1><small>Bedrock 26.x · Seed 3022187552114785111 · Overworld explorer</small></div></header>
+#load-checked{flex-basis:100%}#layer-controls>label{display:block;margin:8px 0}#structure-list{max-height:300px;overflow:auto}#biome-legend{max-height:160px;overflow:auto}
+</style></head><body><header><div class="wrap"><h1>🌿 Minecraft Seed Explorer</h1><small>Bedrock 26.60 · Seed 3022187552114785111 · Overworld explorer</small></div></header>
 <main class="wrap layout"><section class="map" id="map"><canvas id="canvas"></canvas><div class="maptools"><button id="zin" aria-label="Zoom in">＋</button><button id="zout" aria-label="Zoom out">－</button><button id="home">⌖</button></div><div class="hint">Drag to pan · Scroll or use ＋/－ to zoom · Tap map for coordinates</div></section>
 <aside class="panel"><h2 style="margin-top:0">🌍 World data</h2>
 <p class="status">Seed <span id="world-seed"></span> · Overworld</p>
 <label>Exact Xbox version<input id="game-version" placeholder="Unknown — check title screen" maxlength="30"></label>
 <p id="data-status" class="status" role="status" aria-live="polite"></p>
 <p class="status">Automatic predictions are waiting for validation against your exact Bedrock release. Imported observations stay separate from saved waypoints.</p>
-<div class="buttons"><button id="load-checked">Load game-checked points (26.60)</button><button id="load-data">Load world data</button><button id="clear-data">Clear layer</button></div>
+<div class="buttons"><button id="load-checked">Load checked area (26.60)</button><button id="load-data">Load world data</button><button id="clear-data">Clear layer</button></div>
 <input type="file" id="data-file" accept="application/json,.json" hidden>
 <details><summary>Data format and accuracy</summary><p class="status">World data must match this seed, exact release and Overworld. Observations are reported by the file's author. Predictions require an approved engine revision. Sample dots show measured biome points, not exact biome boundaries.</p><p><a href="./DATA_FORMAT.md" style="color:#c5e6a2">World data format</a></p></details>
 <div id="layer-controls" hidden>
@@ -64,7 +64,7 @@ function initWorldData(){
       if(!response.ok)throw Error('Could not load checked world data. Please reconnect and try again.');
       const next=validateBundle(await response.json(),{seed:WORLD_SEED,version:'26.60'});
       if($('game-version').value.trim()!==selected)throw Error('Version changed while loading. Please try again.');
-      $('game-version').value='26.60';worldData=next;cx=cz=0;scale=4;renderLayers();draw();
+      $('game-version').value='26.60';worldData=next;cx=cz=0;scale=Math.min(map.clientWidth,map.clientHeight)/288;renderLayers();$('biome-y').value='64';renderLegend();draw();
       $('map-readout').textContent='196,608 stored biome cells in a 256 × 256 area around origin at Y -48, 0 and 64, plus 5 game locator landmarks. Other areas remain unknown.';
     }catch(error){$('data-status').textContent=error.message}
     finally{button.disabled=false}
