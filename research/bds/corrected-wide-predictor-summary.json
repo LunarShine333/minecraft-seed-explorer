@@ -1,0 +1,48 @@
+{
+  "schema": "bedrock-corrected-predictor-summary-v1",
+  "engineRevision": "294c72ab0392dd818a91d293dbd5774d4874d64b",
+  "workflowRun": 42065805185,
+  "job": 127379421348,
+  "seed": "3022187552114785111",
+  "y": 64,
+  "results": [
+    {
+      "version": "26.50",
+      "lookup": "quart",
+      "checked": 1024,
+      "matched": 1023,
+      "mismatches": 1,
+      "unknown": 0,
+      "approvedForMap": false
+    },
+    {
+      "version": "26.50",
+      "lookup": "block",
+      "checked": 1024,
+      "matched": 973,
+      "mismatches": 51,
+      "unknown": 0,
+      "approvedForMap": false
+    },
+    {
+      "version": "26.60",
+      "lookup": "quart",
+      "checked": 1024,
+      "matched": 1023,
+      "mismatches": 1,
+      "unknown": 0,
+      "approvedForMap": false
+    },
+    {
+      "version": "26.60",
+      "lookup": "block",
+      "checked": 1024,
+      "matched": 973,
+      "mismatches": 51,
+      "unknown": 0,
+      "approvedForMap": false
+    }
+  ],
+  "correction": "Initial unknown labels for snowy_slopes and jagged_peaks were diagnostic output defects, not established algorithmic mismatches.",
+  "limits": "One seed, bounded 512-by-512 area at Y64 only. No global or structure prediction approval."
+}
