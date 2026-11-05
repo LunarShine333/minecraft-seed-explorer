@@ -1,0 +1,23 @@
+name: Map data and code checks
+on:
+  push:
+    branches: [main, bedrock-data-integration]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check application and stored biome references
+        run: npm test
+      - name: Check Data3D decoder and exporter
+        run: python -m unittest discover -s tests -p 'test_*.py'
