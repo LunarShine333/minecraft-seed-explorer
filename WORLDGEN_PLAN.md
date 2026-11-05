@@ -97,3 +97,24 @@ compare version-specific biome trees and release data for non-experimental
 26.60, then produce reference samples with the full seed at explicit Y.
 Native build is available for that comparison; browser/WASM integration and
 in-game comparisons remain outstanding.
+
+## Full-seed native comparison results
+
+Ran `scripts/compare-bedrock-biomes.c` against pinned core revision
+294c72ab0392dd818a91d293dbd5774d4874d64b with the exact uint64 seed.
+Compared MC_26_50 and MC_26_60 at 4,225 points per Y, X/Z -1024 through
+1024 inclusive, spacing 32 blocks (16,900 paired samples total).
+
+| Y | Different samples | Preview ice cave samples |
+|---|---:|---:|
+| -48 | 5 | 5 |
+| 0 | 202 | 202 |
+| 64 | 0 | 0 |
+| 128 | 0 | 0 |
+
+All observed differences in this bounded sample coincide with preview ice
+caves. This is evidence of a concrete experiments mismatch underground,
+not proof that MC_26_50 is correct for stable 26.60 or that surface maps
+match globally. No actual Bedrock game outputs were compared. Do not
+approve either mode from this test alone. Keep underground generation gated.
+Harness is saved so the test can be repeated and expanded before WASM work.
