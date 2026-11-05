@@ -1,0 +1,414 @@
+{
+  "engineRevision": "294c72ab0392dd818a91d293dbd5774d4874d64b",
+  "baselineQuartMatched": 246541,
+  "fractionalMatched": 248206,
+  "netAdditionalMatches": 1665,
+  "results": [
+    {
+      "scope": "native-wide-Y64",
+      "versionMode": "26.50",
+      "lookup": "fractional",
+      "checked": 1024,
+      "matched": 1023,
+      "mismatchCount": 1,
+      "byHeight": {
+        "64": {
+          "checked": 1024,
+          "matched": 1023
+        }
+      },
+      "confusions": {
+        "minecraft:snowy_slopes -> minecraft:jagged_peaks": 1
+      },
+      "firstMismatches": [
+        {
+          "expected": {
+            "x": -136,
+            "z": 40,
+            "y": 64,
+            "biome": "minecraft:snowy_slopes"
+          },
+          "actual": {
+            "x": -136,
+            "y": 64,
+            "z": 40,
+            "biome": "minecraft:jagged_peaks"
+          }
+        }
+      ],
+      "approvedForMap": false
+    },
+    {
+      "scope": "native-wide-Y64",
+      "versionMode": "26.60",
+      "lookup": "fractional",
+      "checked": 1024,
+      "matched": 1023,
+      "mismatchCount": 1,
+      "byHeight": {
+        "64": {
+          "checked": 1024,
+          "matched": 1023
+        }
+      },
+      "confusions": {
+        "minecraft:snowy_slopes -> minecraft:jagged_peaks": 1
+      },
+      "firstMismatches": [
+        {
+          "expected": {
+            "x": -136,
+            "z": 40,
+            "y": 64,
+            "biome": "minecraft:snowy_slopes"
+          },
+          "actual": {
+            "x": -136,
+            "y": 64,
+            "z": 40,
+            "biome": "minecraft:jagged_peaks"
+          }
+        }
+      ],
+      "approvedForMap": false
+    },
+    {
+      "scope": "stored-four-heights",
+      "versionMode": "26.50",
+      "lookup": "fractional",
+      "checked": 262144,
+      "matched": 248206,
+      "mismatchCount": 13938,
+      "byHeight": {
+        "-48": {
+          "checked": 65536,
+          "matched": 63048
+        },
+        "0": {
+          "checked": 65536,
+          "matched": 61556
+        },
+        "64": {
+          "checked": 65536,
+          "matched": 61699
+        },
+        "128": {
+          "checked": 65536,
+          "matched": 61903
+        }
+      },
+      "confusions": {
+        "minecraft:deep_dark -> minecraft:meadow": 161,
+        "minecraft:meadow -> minecraft:plains": 1208,
+        "minecraft:forest -> minecraft:plains": 1467,
+        "minecraft:stony_shore -> minecraft:forest": 532,
+        "minecraft:deep_dark -> minecraft:plains": 233,
+        "minecraft:forest -> minecraft:stony_shore": 351,
+        "minecraft:plains -> minecraft:snowy_slopes": 1008,
+        "minecraft:plains -> minecraft:deep_dark": 231,
+        "minecraft:plains -> minecraft:forest": 1006,
+        "minecraft:snowy_slopes -> minecraft:plains": 1007,
+        "minecraft:plains -> minecraft:meadow": 1103,
+        "minecraft:meadow -> minecraft:deep_dark": 202,
+        "minecraft:meadow -> minecraft:forest": 182,
+        "minecraft:forest -> minecraft:deep_dark": 11,
+        "minecraft:forest -> minecraft:meadow": 158,
+        "minecraft:snowy_slopes -> minecraft:deep_dark": 213,
+        "minecraft:deep_dark -> minecraft:snowy_slopes": 194,
+        "minecraft:meadow -> minecraft:snowy_slopes": 1210,
+        "minecraft:snowy_slopes -> minecraft:meadow": 1519,
+        "minecraft:snowy_slopes -> minecraft:jagged_peaks": 840,
+        "minecraft:deep_dark -> minecraft:jagged_peaks": 90,
+        "minecraft:jagged_peaks -> minecraft:snowy_slopes": 421,
+        "minecraft:jagged_peaks -> minecraft:deep_dark": 165,
+        "minecraft:jagged_peaks -> minecraft:meadow": 136,
+        "minecraft:meadow -> minecraft:jagged_peaks": 290
+      },
+      "firstMismatches": [
+        {
+          "expected": {
+            "x": -45,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:deep_dark"
+          },
+          "actual": {
+            "x": -45,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:meadow"
+          }
+        },
+        {
+          "expected": {
+            "x": -37,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:meadow"
+          },
+          "actual": {
+            "x": -37,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:plains"
+          }
+        },
+        {
+          "expected": {
+            "x": 5,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:forest"
+          },
+          "actual": {
+            "x": 5,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:plains"
+          }
+        },
+        {
+          "expected": {
+            "x": 92,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:stony_shore"
+          },
+          "actual": {
+            "x": 92,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:forest"
+          }
+        },
+        {
+          "expected": {
+            "x": 93,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:stony_shore"
+          },
+          "actual": {
+            "x": 93,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:forest"
+          }
+        },
+        {
+          "expected": {
+            "x": 94,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:stony_shore"
+          },
+          "actual": {
+            "x": 94,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:forest"
+          }
+        },
+        {
+          "expected": {
+            "x": 95,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:stony_shore"
+          },
+          "actual": {
+            "x": 95,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:forest"
+          }
+        },
+        {
+          "expected": {
+            "x": -45,
+            "z": -127,
+            "y": -48,
+            "biome": "minecraft:deep_dark"
+          },
+          "actual": {
+            "x": -45,
+            "y": -48,
+            "z": -127,
+            "biome": "minecraft:meadow"
+          }
+        }
+      ],
+      "approvedForMap": false
+    },
+    {
+      "scope": "stored-four-heights",
+      "versionMode": "26.60",
+      "lookup": "fractional",
+      "checked": 262144,
+      "matched": 248206,
+      "mismatchCount": 13938,
+      "byHeight": {
+        "-48": {
+          "checked": 65536,
+          "matched": 63048
+        },
+        "0": {
+          "checked": 65536,
+          "matched": 61556
+        },
+        "64": {
+          "checked": 65536,
+          "matched": 61699
+        },
+        "128": {
+          "checked": 65536,
+          "matched": 61903
+        }
+      },
+      "confusions": {
+        "minecraft:deep_dark -> minecraft:meadow": 161,
+        "minecraft:meadow -> minecraft:plains": 1208,
+        "minecraft:forest -> minecraft:plains": 1467,
+        "minecraft:stony_shore -> minecraft:forest": 532,
+        "minecraft:deep_dark -> minecraft:plains": 233,
+        "minecraft:forest -> minecraft:stony_shore": 351,
+        "minecraft:plains -> minecraft:snowy_slopes": 1008,
+        "minecraft:plains -> minecraft:deep_dark": 231,
+        "minecraft:plains -> minecraft:forest": 1006,
+        "minecraft:snowy_slopes -> minecraft:plains": 1007,
+        "minecraft:plains -> minecraft:meadow": 1103,
+        "minecraft:meadow -> minecraft:deep_dark": 202,
+        "minecraft:meadow -> minecraft:forest": 182,
+        "minecraft:forest -> minecraft:deep_dark": 11,
+        "minecraft:forest -> minecraft:meadow": 158,
+        "minecraft:snowy_slopes -> minecraft:deep_dark": 213,
+        "minecraft:deep_dark -> minecraft:snowy_slopes": 194,
+        "minecraft:meadow -> minecraft:snowy_slopes": 1210,
+        "minecraft:snowy_slopes -> minecraft:meadow": 1519,
+        "minecraft:snowy_slopes -> minecraft:jagged_peaks": 840,
+        "minecraft:deep_dark -> minecraft:jagged_peaks": 90,
+        "minecraft:jagged_peaks -> minecraft:snowy_slopes": 421,
+        "minecraft:jagged_peaks -> minecraft:deep_dark": 165,
+        "minecraft:jagged_peaks -> minecraft:meadow": 136,
+        "minecraft:meadow -> minecraft:jagged_peaks": 290
+      },
+      "firstMismatches": [
+        {
+          "expected": {
+            "x": -45,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:deep_dark"
+          },
+          "actual": {
+            "x": -45,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:meadow"
+          }
+        },
+        {
+          "expected": {
+            "x": -37,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:meadow"
+          },
+          "actual": {
+            "x": -37,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:plains"
+          }
+        },
+        {
+          "expected": {
+            "x": 5,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:forest"
+          },
+          "actual": {
+            "x": 5,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:plains"
+          }
+        },
+        {
+          "expected": {
+            "x": 92,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:stony_shore"
+          },
+          "actual": {
+            "x": 92,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:forest"
+          }
+        },
+        {
+          "expected": {
+            "x": 93,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:stony_shore"
+          },
+          "actual": {
+            "x": 93,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:forest"
+          }
+        },
+        {
+          "expected": {
+            "x": 94,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:stony_shore"
+          },
+          "actual": {
+            "x": 94,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:forest"
+          }
+        },
+        {
+          "expected": {
+            "x": 95,
+            "z": -128,
+            "y": -48,
+            "biome": "minecraft:stony_shore"
+          },
+          "actual": {
+            "x": 95,
+            "y": -48,
+            "z": -128,
+            "biome": "minecraft:forest"
+          }
+        },
+        {
+          "expected": {
+            "x": -45,
+            "z": -127,
+            "y": -48,
+            "biome": "minecraft:deep_dark"
+          },
+          "actual": {
+            "x": -45,
+            "y": -48,
+            "z": -127,
+            "biome": "minecraft:meadow"
+          }
+        }
+      ],
+      "approvedForMap": false
+    }
+  ],
+  "approvedForMap": false,
+  "limits": "Same seed and same existing fixtures, not independent seeds or a global accuracy estimate."
+}
