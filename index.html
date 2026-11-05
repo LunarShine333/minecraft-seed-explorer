@@ -10,7 +10,7 @@
 <label>Exact Xbox version<input id="game-version" placeholder="Unknown — check title screen" maxlength="30"></label>
 <p id="data-status" class="status" role="status" aria-live="polite"></p>
 <p class="status">Automatic predictions are waiting for validation against your exact Bedrock release. Imported observations stay separate from saved waypoints.</p>
-<div class="buttons"><button id="load-data">Load world data</button><button id="clear-data">Clear layer</button></div>
+<div class="buttons"><button id="load-checked">Load game-checked points (26.60)</button><button id="load-data">Load world data</button><button id="clear-data">Clear layer</button></div>
 <input type="file" id="data-file" accept="application/json,.json" hidden>
 <details><summary>Data format and accuracy</summary><p class="status">World data must match this seed, exact release and Overworld. Observations are reported by the file's author. Predictions require an approved engine revision. Sample dots show measured biome points, not exact biome boundaries.</p><p><a href="./DATA_FORMAT.md" style="color:#c5e6a2">World data format</a></p></details>
 <div id="layer-controls" hidden>
@@ -54,6 +54,20 @@ function initWorldData(){
       worldData=next;renderLayers();draw();
     }catch(err){$('data-status').textContent=err.message+' Previous layer was kept, if present.'}
     finally{e.target.value=''}
+  };
+  $('load-checked').onclick=async()=>{
+    const button=$('load-checked');button.disabled=true;
+    try{
+      const selected=$('game-version').value.trim();
+      if(selected&&exactVersion(selected)!=='26.60')throw Error('These checked points are for Bedrock 26.60. Select that release to load them.');
+      const response=await fetch('./data/bedrock-26.60-checked-area.json');
+      if(!response.ok)throw Error('Could not load checked world data. Please reconnect and try again.');
+      const next=validateBundle(await response.json(),{seed:WORLD_SEED,version:'26.60'});
+      if($('game-version').value.trim()!==selected)throw Error('Version changed while loading. Please try again.');
+      $('game-version').value='26.60';worldData=next;cx=cz=0;scale=4;renderLayers();draw();
+      $('map-readout').textContent='36 game-read biome points near origin, plus 5 game locator landmarks. Other areas remain unknown.';
+    }catch(error){$('data-status').textContent=error.message}
+    finally{button.disabled=false}
   };
   $('clear-data').onclick=()=>{worldData=null;renderLayers();draw()};
   for(const id of ['show-biomes','show-structures','biome-y','structure-filter'])$(id).onchange=()=>{renderStructureList();renderLegend();draw()};
