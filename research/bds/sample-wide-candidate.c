@@ -21,7 +21,13 @@ int main(int argc, char **argv) {
         int id = !strcmp(argv[2], "quart") ? getBiomeAt(&g, 4, quart(x), quart(y), quart(z)) :
             getBiomeAt(&g, 1, x, y, z);
         const char *name = biome2str(mc, id);
-        if (!name) name = "unknown";
+        if (!name) {
+            switch (id) {
+            case snowy_slopes: name = "snowy_slopes"; break;
+            case jagged_peaks: name = "jagged_peaks"; break;
+            default: name = "unknown"; break;
+            }
+        }
         printf("%s{\"x\":%d,\"y\":%d,\"z\":%d,\"biome\":\"minecraft:%s\"}",
             first ? "" : ",", x, y, z, name);
         first = 0;
