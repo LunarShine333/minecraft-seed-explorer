@@ -1,0 +1,44 @@
+name: Recheck candidate biome names
+on:
+  push:
+    branches: [bedrock-data-integration]
+    paths: ['.github/workflows/candidate-diagnostic.yml', 'research/bds/sample-wide-candidate.c']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: FragrantResult186/cubiomes-bedrock
+          ref: 294c72ab0392dd818a91d293dbd5774d4874d64b
+          path: candidate
+      - name: Compile diagnostic
+        run: |
+          make -C candidate -j2
+          gcc -O2 -Icandidate research/bds/sample-wide-candidate.c candidate/libcubiomes.a -lm -o /tmp/sample-candidate
+      - name: Compare corrected names with native game samples
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          refs=json.load(open('research/bds/wide-area-api-reference.json'))
+          coords=''.join(f"{p['x']} {p['y']} {p['z']}\n" for p in refs)
+          for version in ['26.50','26.60']:
+            for mode in ['quart','block']:
+              output=json.loads(subprocess.run(['/tmp/sample-candidate',version,mode],input=coords,text=True,capture_output=True,check=True).stdout)
+              assert len(output)==len(refs)
+              mismatch=[]
+              for p,q in zip(refs,output):
+                assert (p['x'],p['y'],p['z'])==(q['x'],q['y'],q['z'])
+                norm=lambda s:s.replace('minecraft:stone_beach','minecraft:stony_shore').replace('minecraft:stone_shore','minecraft:stony_shore')
+                if norm(p['biome'])!=norm(q['biome']):mismatch.append({'expected':p,'actual':q})
+              print('CORRECTED_RESULT '+json.dumps({'version':version,'lookup':mode,'checked':len(refs),'matched':len(refs)-len(mismatch),'mismatches':len(mismatch),'unknown':sum(p['biome']=='minecraft:unknown' for p in output),'approvedForMap':False}))
+              open(f'/tmp/corrected-{version}-{mode}.json','w').write(json.dumps({'checked':len(refs),'matched':len(refs)-len(mismatch),'mismatches':mismatch,'approvedForMap':False},indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: corrected-candidate-results
+          path: /tmp/corrected-*.json
