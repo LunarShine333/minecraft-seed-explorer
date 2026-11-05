@@ -1,0 +1,24 @@
+{
+  "RandomSeed": "3022187552114785111",
+  "Generator": 1,
+  "experiments": {
+    "experiments_ever_used": 0,
+    "saved_with_toggled_experiments": 0
+  },
+  "lastOpenedWithVersion": [
+    1,
+    26,
+    61,
+    1,
+    0
+  ],
+  "MinimumCompatibleClientVersion": [
+    1,
+    26,
+    60,
+    0,
+    0
+  ],
+  "NetworkVersion": 2225,
+  "source": "Decoded actual test-world level.dat, little-endian NBT, payload 3059 bytes; all bytes consumed."
+}

@@ -1,0 +1,30 @@
+name: Recheck candidate biome names
+on:
+  push:
+    branches: [bedrock-data-integration]
+    paths: ['.github/workflows/candidate-diagnostic.yml', 'research/bds/sample-wide-candidate.c', 'scripts/compare-candidate-heights.py']
+  pull_request:
+    paths: ['.github/workflows/candidate-diagnostic.yml', 'research/bds/sample-wide-candidate.c', 'scripts/compare-candidate-heights.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: FragrantResult186/cubiomes-bedrock
+          ref: 294c72ab0392dd818a91d293dbd5774d4874d64b
+          path: candidate
+      - name: Compile diagnostic
+        run: |
+          make -C candidate -j2
+          gcc -O2 -Icandidate research/bds/sample-wide-candidate.c candidate/libcubiomes.a -lm -o /tmp/sample-candidate
+      - name: Compare native samples and all four stored heights
+        run: python scripts/compare-candidate-heights.py /tmp/sample-candidate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: corrected-candidate-results
+          path: candidate-results/*.json

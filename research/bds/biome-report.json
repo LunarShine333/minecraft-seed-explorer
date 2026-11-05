@@ -1,0 +1,65 @@
+{
+  "schema": "bedrock-validation-report-v1",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "engine": {
+    "id": "fragrant-bedrock-26.50-mode",
+    "revision": "294c72ab0392dd818a91d293dbd5774d4874d64b"
+  },
+  "checked": 36,
+  "passed": 29,
+  "mismatches": [
+    {
+      "x": 0,
+      "y": -48,
+      "z": 0,
+      "expected": "minecraft:meadow",
+      "actual": "minecraft:deep_dark"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "z": 0,
+      "expected": "minecraft:plains",
+      "actual": "minecraft:meadow"
+    },
+    {
+      "x": -16,
+      "y": 0,
+      "z": 16,
+      "expected": "minecraft:meadow",
+      "actual": "minecraft:plains"
+    },
+    {
+      "x": -16,
+      "y": 64,
+      "z": 16,
+      "expected": "minecraft:meadow",
+      "actual": "minecraft:plains"
+    },
+    {
+      "x": 0,
+      "y": 64,
+      "z": 16,
+      "expected": "minecraft:meadow",
+      "actual": "minecraft:plains"
+    },
+    {
+      "x": 0,
+      "y": 128,
+      "z": 0,
+      "expected": "minecraft:meadow",
+      "actual": "minecraft:plains"
+    },
+    {
+      "x": 16,
+      "y": 128,
+      "z": 0,
+      "expected": "minecraft:plains",
+      "actual": "minecraft:meadow"
+    }
+  ],
+  "approvedForMap": false,
+  "scope": "supplied biome points only; no structure validation",
+  "matchesSuppliedReferences": false
+}

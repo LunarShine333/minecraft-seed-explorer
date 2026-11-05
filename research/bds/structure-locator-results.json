@@ -1,0 +1,246 @@
+{
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "serverBuild": "1.26.61.1 / 53069370",
+  "source": "Official native console /locate structure TYPE false; vanilla pack stack; no visual block inspection",
+  "queries": {
+    "origin": [
+      0,
+      64,
+      0
+    ],
+    "additionalOrigins": [
+      [
+        -2048,
+        64,
+        -2048
+      ],
+      [
+        2048,
+        64,
+        -2048
+      ],
+      [
+        -2048,
+        64,
+        2048
+      ],
+      [
+        2048,
+        64,
+        2048
+      ]
+    ],
+    "additionalTypes": [
+      "village",
+      "monument",
+      "ruined_portal",
+      "trial_chambers",
+      "ancient_city",
+      "shipwreck"
+    ]
+  },
+  "hits": [
+    {
+      "type": "stronghold",
+      "x": 658,
+      "z": 2338
+    },
+    {
+      "type": "trial_chambers",
+      "x": 169,
+      "z": 249
+    },
+    {
+      "type": "trail_ruins",
+      "x": 654,
+      "z": 14
+    },
+    {
+      "type": "pillager_outpost",
+      "x": 1768,
+      "z": 728
+    },
+    {
+      "type": "mansion",
+      "x": -4920,
+      "z": -2984
+    },
+    {
+      "type": "shipwreck",
+      "x": -344,
+      "z": -152
+    },
+    {
+      "type": "buried_treasure",
+      "x": 136,
+      "z": -120
+    },
+    {
+      "type": "mineshaft",
+      "x": -256,
+      "z": -256
+    },
+    {
+      "type": "temple",
+      "x": 872,
+      "z": 632
+    },
+    {
+      "type": "village",
+      "x": -1848,
+      "z": -1928
+    },
+    {
+      "type": "monument",
+      "x": -312,
+      "z": -680
+    },
+    {
+      "type": "ruined_portal",
+      "x": -2552,
+      "z": -2408
+    },
+    {
+      "type": "trial_chambers",
+      "x": -1975,
+      "z": -2007
+    },
+    {
+      "type": "ancient_city",
+      "x": -2552,
+      "z": -2920
+    },
+    {
+      "type": "shipwreck",
+      "x": -1272,
+      "z": -840
+    },
+    {
+      "type": "village",
+      "x": 2952,
+      "z": -776
+    },
+    {
+      "type": "monument",
+      "x": 2248,
+      "z": -2344
+    },
+    {
+      "type": "ruined_portal",
+      "x": 2184,
+      "z": -2168
+    },
+    {
+      "type": "trial_chambers",
+      "x": 1961,
+      "z": -2167
+    },
+    {
+      "type": "ancient_city",
+      "x": 552,
+      "z": -2664
+    },
+    {
+      "type": "shipwreck",
+      "x": 1992,
+      "z": -2152
+    },
+    {
+      "type": "village",
+      "x": -1624,
+      "z": 2312
+    },
+    {
+      "type": "monument",
+      "x": -2808,
+      "z": 2888
+    },
+    {
+      "type": "ruined_portal",
+      "x": -2552,
+      "z": 2200
+    },
+    {
+      "type": "trial_chambers",
+      "x": -2007,
+      "z": 1719
+    },
+    {
+      "type": "ancient_city",
+      "x": 152,
+      "z": 3144
+    },
+    {
+      "type": "shipwreck",
+      "x": -2936,
+      "z": 2840
+    },
+    {
+      "type": "village",
+      "x": 1800,
+      "z": 1768
+    },
+    {
+      "type": "monument",
+      "x": 184,
+      "z": 712
+    },
+    {
+      "type": "ruined_portal",
+      "x": 2024,
+      "z": 2008
+    },
+    {
+      "type": "trial_chambers",
+      "x": 1913,
+      "z": 1879
+    },
+    {
+      "type": "ancient_city",
+      "x": 3208,
+      "z": 1208
+    },
+    {
+      "type": "shipwreck",
+      "x": 1624,
+      "z": 1752
+    }
+  ],
+  "rawResults": [
+    "[2026-11-04 20:20:36:874 INFO] The nearest minecraft:stronghold is at block 658, (y?), 2338 (2428 blocks away)",
+    "[2026-11-04 20:20:36:874 INFO] The nearest minecraft:trial_chambers is at block 169, (y?), 249 (300 blocks away)",
+    "[2026-11-04 20:20:36:882 INFO] The nearest minecraft:trail_ruins is at block 654, (y?), 14 (654 blocks away)",
+    "[2026-11-04 20:20:36:889 INFO] The nearest minecraft:pillager_outpost is at block 1768, (y?), 728 (1912 blocks away)",
+    "[2026-11-04 20:20:36:960 INFO] The nearest minecraft:mansion is at block -4920, (y?), -2984 (5754 blocks away)",
+    "[2026-11-04 20:20:36:964 INFO] The nearest minecraft:shipwreck is at block -344, (y?), -152 (376 blocks away)",
+    "[2026-11-04 20:20:36:964 ERROR] No valid structure found within a reasonable distance",
+    "[2026-11-04 20:20:36:965 INFO] The nearest minecraft:buried_treasure is at block 136, (y?), -120 (181 blocks away)",
+    "[2026-11-04 20:20:36:967 INFO] The nearest minecraft:mineshaft is at block -256, (y?), -256 (362 blocks away)",
+    "[2026-11-04 20:20:36:974 INFO] The nearest minecraft:temple is at block 872, (y?), 632 (1076 blocks away)",
+    "[2026-11-04 20:20:49:676 INFO] The nearest minecraft:village is at block -1848, (y?), -1928 (233 blocks away)",
+    "[2026-11-04 20:20:49:777 INFO] The nearest minecraft:monument is at block -312, (y?), -680 (2210 blocks away)",
+    "[2026-11-04 20:20:49:777 INFO] The nearest minecraft:ruined_portal is at block -2552, (y?), -2408 (619 blocks away)",
+    "[2026-11-04 20:20:49:827 INFO] The nearest minecraft:trial_chambers is at block -1975, (y?), -2007 (83 blocks away)",
+    "[2026-11-04 20:20:49:886 INFO] The nearest minecraft:ancient_city is at block -2552, (y?), -2920 (1007 blocks away)",
+    "[2026-11-04 20:20:49:959 INFO] The nearest minecraft:shipwreck is at block -1272, (y?), -840 (1435 blocks away)",
+    "[2026-11-04 20:20:50:047 INFO] The nearest minecraft:village is at block 2952, (y?), -776 (1560 blocks away)",
+    "[2026-11-04 20:20:50:111 INFO] The nearest minecraft:monument is at block 2248, (y?), -2344 (357 blocks away)",
+    "[2026-11-04 20:20:50:132 INFO] The nearest minecraft:ruined_portal is at block 2184, (y?), -2168 (181 blocks away)",
+    "[2026-11-04 20:20:50:183 INFO] The nearest minecraft:trial_chambers is at block 1961, (y?), -2167 (147 blocks away)",
+    "[2026-11-04 20:20:50:270 INFO] The nearest minecraft:ancient_city is at block 552, (y?), -2664 (1617 blocks away)",
+    "[2026-11-04 20:20:50:286 INFO] The nearest minecraft:shipwreck is at block 1992, (y?), -2152 (118 blocks away)",
+    "[2026-11-04 20:20:50:388 INFO] The nearest minecraft:village is at block -1624, (y?), 2312 (499 blocks away)",
+    "[2026-11-04 20:20:50:455 INFO] The nearest minecraft:monument is at block -2808, (y?), 2888 (1132 blocks away)",
+    "[2026-11-04 20:20:50:481 INFO] The nearest minecraft:ruined_portal is at block -2552, (y?), 2200 (526 blocks away)",
+    "[2026-11-04 20:20:50:532 INFO] The nearest minecraft:trial_chambers is at block -2007, (y?), 1719 (331 blocks away)",
+    "[2026-11-04 20:20:50:710 INFO] The nearest minecraft:ancient_city is at block 152, (y?), 3144 (2457 blocks away)",
+    "[2026-11-04 20:20:50:729 INFO] The nearest minecraft:shipwreck is at block -2936, (y?), 2840 (1189 blocks away)",
+    "[2026-11-04 20:20:50:730 INFO] The nearest minecraft:village is at block 1800, (y?), 1768 (374 blocks away)",
+    "[2026-11-04 20:20:50:837 INFO] The nearest minecraft:monument is at block 184, (y?), 712 (2293 blocks away)",
+    "[2026-11-04 20:20:50:837 INFO] The nearest minecraft:ruined_portal is at block 2024, (y?), 2008 (46 blocks away)",
+    "[2026-11-04 20:20:50:885 INFO] The nearest minecraft:trial_chambers is at block 1913, (y?), 1879 (216 blocks away)",
+    "[2026-11-04 20:20:50:960 INFO] The nearest minecraft:ancient_city is at block 3208, (y?), 1208 (1432 blocks away)",
+    "[2026-11-04 20:20:50:990 INFO] The nearest minecraft:shipwreck is at block 1624, (y?), 1752 (517 blocks away)"
+  ]
+}

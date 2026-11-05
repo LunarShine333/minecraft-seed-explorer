@@ -32,3 +32,118 @@
 5. Version the service worker cache so Home Screen installs receive updates.
 
 User can provide Xbox house coordinates later; they are not required for this work.
+
+## Integration checkpoint — 2026-11-04
+
+Implemented in `world-data.mjs` and the map UI:
+- Full signed 64-bit decimal seed validation, without Number conversion.
+- Exact Bedrock release matching (26.x is intentionally rejected).
+- Provenance-aware data bundles, Y-specific biome sample layers and legends,
+  structure filtering/navigation, and isolated waypoint storage.
+- Prediction approval registry keyed by engine revision, release, edition and
+  dimension. It remains empty pending actual Bedrock game reference fixtures.
+- Versioned PWA cache with the new module precached, scoped cache cleanup,
+  network-first updates and offline fallback.
+- Regression tests for seed precision, version isolation, negative coordinates,
+  sample orientation/Y, malformed data and unapproved engines.
+
+`research/reference-probe.json` records live endpoint responses for the full
+seed, with URLs, timestamps, CORS headers and an explicit research-only status.
+It is not an approved/generated world map and is not loaded by the app.
+Reproduce with `node scripts/probe-reference.mjs` (two bounded API requests).
+
+Blocking accurate automatic maps: the exact Xbox version is unknown (user is
+away); SeedForge's Bedrock biome assumptions and documented structure shifts
+need in-game checks; SeedFinder's API cannot select a Bedrock release and its
+hosted docs differ from repository routes. No predictions were promoted to
+verified data, and no guessed biome raster was shipped.
+
+Next: obtain the exact version, pin an engine that targets it, collect real
+Bedrock/BDS fixtures at known Y and structure locations, run comparisons, then
+register only passing capabilities and connect the engine producer to bundles.
+
+## Xbox version confirmed
+
+User checked the title screen at home and reported **v26.60**. Target Bedrock
+release is now **26.60**, seed **3022187552114785111**. Earlier notes describing
+the release as unknown are historical. The installed version does not establish
+when existing chunks were generated or whether world experiments are enabled.
+Do not approve an engine simply because the target version is now known.
+
+Next validation should distinguish normal 26.60 generation from experimental
+world settings and pre-existing chunks. Investigate FragrantResult186's
+cubiomes-viewer-bedrock release notes, which mention 26.60 preview support;
+preview support alone is not proof of compatibility with stable Xbox 26.60.
+
+## Experiments-off engine investigation
+
+User confirmed **Experiments are OFF**. Stable Bedrock 26.60 is the target.
+
+Inspected and successfully built FragrantResult186/cubiomes-bedrock revision
+`294c72ab0392dd818a91d293dbd5774d4874d64b` using `make -j2` and GCC.
+Build success is not accuracy validation. Findings:
+
+- `biomes.h` labels `MC_26_60` as **preview 26.60.29** and adds `ice_caves`.
+- `biomenoise.c` selects `btree266` for `mc >= MC_26_60` unconditionally.
+- `generator.h` exposes flags for large biomes, beta ocean and ocean variants;
+  no experiments-off switch is declared there. Stable-versus-preview mapping
+  therefore needs explicit investigation, not just selecting MC_NEWEST.
+- GCC warns about possible double free/use-after-free in `getSpawn`;
+  do not invoke that path before inspecting/fixing it. The map still treats
+  origin as origin, not a verified spawn.
+
+No candidate outputs were approved for the user map. Next bounded step:
+compare version-specific biome trees and release data for non-experimental
+26.60, then produce reference samples with the full seed at explicit Y.
+Native build is available for that comparison; browser/WASM integration and
+in-game comparisons remain outstanding.
+
+## Full-seed native comparison results
+
+Ran `scripts/compare-bedrock-biomes.c` against pinned core revision
+294c72ab0392dd818a91d293dbd5774d4874d64b with the exact uint64 seed.
+Compared MC_26_50 and MC_26_60 at 4,225 points per Y, X/Z -1024 through
+1024 inclusive, spacing 32 blocks (16,900 paired samples total).
+
+| Y | Different samples | Preview ice cave samples |
+|---|---:|---:|
+| -48 | 5 | 5 |
+| 0 | 202 | 202 |
+| 64 | 0 | 0 |
+| 128 | 0 | 0 |
+
+All observed differences in this bounded sample coincide with preview ice
+caves. This is evidence of a concrete experiments mismatch underground,
+not proof that MC_26_50 is correct for stable 26.60 or that surface maps
+match globally. No actual Bedrock game outputs were compared. Do not
+approve either mode from this test alone. Keep underground generation gated.
+Harness is saved so the test can be repeated and expanded before WASM work.
+
+## Game-reference comparison harness
+
+Added `scripts/validate-engine.mjs` and regression coverage. Run:
+`node scripts/validate-engine.mjs game-reference.json engine-output.json report.json`.
+
+Reference schema: `bedrock-game-reference-v1`; output schema:
+`bedrock-engine-output-v1`. Both declare string seed, exact version, edition,
+dimension, `experiments:false`, and `biomes:[{x,y,z,biome:"minecraft:..."}]`.
+Reference source requires `type:"xbox"` or `"bedrock-dedicated-server"` and
+an evidence string. Engine output requires `engine:{id,revision}`.
+
+Missing coordinates and wrong Y produce mismatches; duplicate points,
+wrong world settings and missing provenance are rejected. Reports retain
+full seed identity and explicitly do not auto-approve an engine. All 9 Node
+tests pass. Synthetic unit tests are not actual game reference evidence.
+Real game fixtures and structure validation remain outstanding.
+
+## World creation date and latest sampling check
+
+User reports the Xbox world was created **October 16, 2026**. Do not infer an
+exact original game version from the date alone. Current version remains 26.60,
+Experiments off; already generated Xbox chunks may reflect earlier generation.
+The disposable current-release server map is not a direct read of the Xbox save.
+
+Retested core's genBiomeNoiseChunkSection with X/Y/Z iteration order and a
+persistent per-chunk cache through sections -4..19. Raw quart results still
+matched 935/1156 saved API references, identical to independent quart sampling.
+Chunk-generation traversal order does not fix the observed mismatch.

@@ -1,0 +1,230 @@
+{
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "edition": "bedrock",
+  "dimension": "overworld",
+  "experiments": false,
+  "schema": "bedrock-engine-output-v1",
+  "engine": {
+    "id": "fragrant-bedrock-26.50-mode",
+    "revision": "294c72ab0392dd818a91d293dbd5774d4874d64b"
+  },
+  "biomes": [
+    {
+      "x": -16,
+      "y": -48,
+      "z": -16,
+      "biome": "minecraft:deep_dark"
+    },
+    {
+      "x": 0,
+      "y": -48,
+      "z": -16,
+      "biome": "minecraft:deep_dark"
+    },
+    {
+      "x": 16,
+      "y": -48,
+      "z": -16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": -16,
+      "y": -48,
+      "z": 0,
+      "biome": "minecraft:deep_dark"
+    },
+    {
+      "x": 0,
+      "y": -48,
+      "z": 0,
+      "biome": "minecraft:deep_dark"
+    },
+    {
+      "x": 16,
+      "y": -48,
+      "z": 0,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": -16,
+      "y": -48,
+      "z": 16,
+      "biome": "minecraft:deep_dark"
+    },
+    {
+      "x": 0,
+      "y": -48,
+      "z": 16,
+      "biome": "minecraft:deep_dark"
+    },
+    {
+      "x": 16,
+      "y": -48,
+      "z": 16,
+      "biome": "minecraft:deep_dark"
+    },
+    {
+      "x": -16,
+      "y": 0,
+      "z": -16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "z": -16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": -16,
+      "y": 0,
+      "z": 0,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "biome": "minecraft:meadow"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "z": 0,
+      "biome": "minecraft:meadow"
+    },
+    {
+      "x": -16,
+      "y": 0,
+      "z": 16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 16,
+      "biome": "minecraft:meadow"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "z": 16,
+      "biome": "minecraft:meadow"
+    },
+    {
+      "x": -16,
+      "y": 64,
+      "z": -16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 0,
+      "y": 64,
+      "z": -16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 16,
+      "y": 64,
+      "z": -16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": -16,
+      "y": 64,
+      "z": 0,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 0,
+      "y": 64,
+      "z": 0,
+      "biome": "minecraft:meadow"
+    },
+    {
+      "x": 16,
+      "y": 64,
+      "z": 0,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": -16,
+      "y": 64,
+      "z": 16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 0,
+      "y": 64,
+      "z": 16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 16,
+      "y": 64,
+      "z": 16,
+      "biome": "minecraft:meadow"
+    },
+    {
+      "x": -16,
+      "y": 128,
+      "z": -16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 0,
+      "y": 128,
+      "z": -16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 16,
+      "y": 128,
+      "z": -16,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": -16,
+      "y": 128,
+      "z": 0,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 0,
+      "y": 128,
+      "z": 0,
+      "biome": "minecraft:plains"
+    },
+    {
+      "x": 16,
+      "y": 128,
+      "z": 0,
+      "biome": "minecraft:meadow"
+    },
+    {
+      "x": -16,
+      "y": 128,
+      "z": 16,
+      "biome": "minecraft:meadow"
+    },
+    {
+      "x": 0,
+      "y": 128,
+      "z": 16,
+      "biome": "minecraft:meadow"
+    },
+    {
+      "x": 16,
+      "y": 128,
+      "z": 16,
+      "biome": "minecraft:meadow"
+    }
+  ]
+}

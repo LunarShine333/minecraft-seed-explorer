@@ -1,0 +1,26 @@
+{
+  "seed": "3022187552114785111",
+  "referencePoints": 1156,
+  "modeDescriptions": [
+    "unchanged SHA Voronoi",
+    "raw low32",
+    "SHA low32",
+    "byte-swapped SHA result",
+    "SHA byte-swapped full seed",
+    "sign-extended raw low32",
+    "SHA sign-extended low32",
+    "byte-swapped SHA of byte-swapped seed"
+  ],
+  "results": [
+    896,
+    902,
+    908,
+    900,
+    892,
+    902,
+    908,
+    911
+  ],
+  "approvedForMap": false,
+  "interpretation": "None match all game points. Do not adopt a fitted transform. Alternate lucasraicu/minecraft-seed-searcher repository pins the same core revision and is not independent engine validation."
+}

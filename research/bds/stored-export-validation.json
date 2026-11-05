@@ -1,0 +1,20 @@
+{
+  "source": "Stopped copied official Bedrock test-world DB; seed 3022187552114785111, experiments off; existing provenance applies.",
+  "bounds": {
+    "xMin": -128,
+    "xMax": 127,
+    "zMin": -128,
+    "zMax": 127,
+    "y": [
+      -48,
+      0,
+      64
+    ]
+  },
+  "exportedCells": 196608,
+  "matchingExistingCellsByNameAndColor": 196608,
+  "pythonTestsPassed": 7,
+  "applicationBundleValidator": "passed",
+  "coverageExpanded": false,
+  "globalPredictionApproved": false
+}

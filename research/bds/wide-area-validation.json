@@ -1,0 +1,15 @@
+{
+  "chunks": 1024,
+  "storedCells": 262144,
+  "apiChecks": 1024,
+  "matches": 1024,
+  "missingChunks": 0,
+  "bounds": {
+    "xMin": -256,
+    "xMax": 255,
+    "zMin": -256,
+    "zMax": 255,
+    "y": 64
+  },
+  "previousCenterCellsUnchanged": 65536
+}
