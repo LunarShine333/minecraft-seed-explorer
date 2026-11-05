@@ -3,6 +3,8 @@ on:
   push:
     branches: [bedrock-data-integration]
     paths: ['.github/workflows/candidate-diagnostic.yml', 'research/bds/sample-wide-candidate.c']
+  pull_request:
+    paths: ['.github/workflows/candidate-diagnostic.yml', 'research/bds/sample-wide-candidate.c']
   workflow_dispatch:
 permissions:
   contents: read
