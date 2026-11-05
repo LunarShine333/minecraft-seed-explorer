@@ -1,0 +1,4 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {pinchView} from '../map-gestures.mjs';
+test('centered pinch doubles scale while preserving world center',()=>{assert.deepEqual(pinchView({cx:100,cz:-20,scale:2,distance:100,midpoint:{x:200,y:150}},{x:200,y:150},200,400,300),{cx:100,cz:-20,scale:4})});
+test('moving midpoint pans while pinching',()=>{assert.deepEqual(pinchView({cx:100,cz:-20,scale:2,distance:100,midpoint:{x:200,y:150}},{x:240,y:130},200,400,300),{cx:90,cz:-15,scale:4})});
+test('off-center anchor stays fixed and zoom respects limits',()=>{const start={cx:0,cz:0,scale:2,distance:100,midpoint:{x:100,y:150}};const next=pinchView(start,{x:300,y:150},200,400,300);assert.equal(next.cx,-75);assert.equal(next.cx+(300-200)/next.scale,-50);assert.equal(pinchView(start,{x:100,y:150},1e9,400,300).scale,5);assert.equal(pinchView(start,{x:100,y:150},0,400,300).scale,.001)});
