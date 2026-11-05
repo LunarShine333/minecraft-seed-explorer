@@ -118,3 +118,20 @@ not proof that MC_26_50 is correct for stable 26.60 or that surface maps
 match globally. No actual Bedrock game outputs were compared. Do not
 approve either mode from this test alone. Keep underground generation gated.
 Harness is saved so the test can be repeated and expanded before WASM work.
+
+## Game-reference comparison harness
+
+Added `scripts/validate-engine.mjs` and regression coverage. Run:
+`node scripts/validate-engine.mjs game-reference.json engine-output.json report.json`.
+
+Reference schema: `bedrock-game-reference-v1`; output schema:
+`bedrock-engine-output-v1`. Both declare string seed, exact version, edition,
+dimension, `experiments:false`, and `biomes:[{x,y,z,biome:"minecraft:..."}]`.
+Reference source requires `type:"xbox"` or `"bedrock-dedicated-server"` and
+an evidence string. Engine output requires `engine:{id,revision}`.
+
+Missing coordinates and wrong Y produce mismatches; duplicate points,
+wrong world settings and missing provenance are rejected. Reports retain
+full seed identity and explicitly do not auto-approve an engine. All 9 Node
+tests pass. Synthetic unit tests are not actual game reference evidence.
+Real game fixtures and structure validation remain outstanding.
