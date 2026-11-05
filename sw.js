@@ -1,6 +1,6 @@
-const CACHE = 'minecraft-seed-explorer-v2-world-data';
+const CACHE = 'minecraft-seed-explorer-v3-checked-points';
 const PREFIX = 'minecraft-seed-explorer-';
-const ASSETS = ['./', './index.html', './world-data.mjs', './manifest.webmanifest', './DATA_FORMAT.md'];
+const ASSETS = ['./', './index.html', './world-data.mjs', './manifest.webmanifest', './DATA_FORMAT.md', './data/bedrock-26.60-checked-area.json'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
