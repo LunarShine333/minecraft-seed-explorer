@@ -9,10 +9,10 @@ def normalize(name):
     return {'minecraft:stone_beach': 'minecraft:stony_shore',
             'minecraft:stone_shore': 'minecraft:stony_shore'}.get(name, name)
 
-def compare(binary, refs, version, scope):
+def compare(binary, refs, version, scope, mode='quart'):
     rows=list(refs)
     coords=''.join(f"{p['x']} {p['y']} {p['z']}\n" for p in rows)
-    output=json.loads(subprocess.run([binary,version,'quart'],input=coords,text=True,
+    output=json.loads(subprocess.run([binary,version,mode],input=coords,text=True,
                                     capture_output=True,check=True).stdout)
     if len(output)!=len(rows):raise ValueError('Missing candidate points')
     mismatches=[]
@@ -25,13 +25,13 @@ def compare(binary, refs, version, scope):
             failures[y]+=1
             confusions[normalize(expected['biome'])+' -> '+normalize(actual['biome'])]+=1
             mismatches.append({'expected':expected,'actual':actual})
-    report={'scope':scope,'versionMode':version,'lookup':'quart','checked':len(rows),
+    report={'scope':scope,'versionMode':version,'lookup':mode,'checked':len(rows),
             'matched':len(rows)-len(mismatches),'mismatchCount':len(mismatches),
             'byHeight':{y:{'checked':n,'matched':n-failures[y]} for y,n in totals.items()},
             'confusions':dict(confusions),'firstMismatches':mismatches[:8],
             'approvedForMap':False}
     result=Path('candidate-results');result.mkdir(exist_ok=True)
-    (result/f'{scope}-{version}.json').write_text(json.dumps({**report,'mismatches':mismatches},indent=2))
+    (result/f'{scope}-{version}-{mode}.json').write_text(json.dumps({**report,'mismatches':mismatches},indent=2))
     print('MULTI_HEIGHT_RESULT '+json.dumps(report),flush=True)
 
 def stored_points(bundle):
@@ -42,7 +42,7 @@ def stored_points(bundle):
                    'y':tile['y'],'biome':tile['palette'][palette]['name']}
 
 def main():
-    if len(sys.argv)!=2:raise SystemExit('Usage: compare-candidate-heights.py /path/to/binary')
+    if len(sys.argv) not in [2,3]:raise SystemExit('Usage: compare-candidate-heights.py /path/to/binary')
     native=json.loads(Path('research/bds/wide-area-api-reference.json').read_text())
     bundle=json.loads(Path('data/bedrock-26.60-checked-area.json').read_text())
     if bundle['seed']!='3022187552114785111' or bundle['version']!='26.60':
@@ -51,7 +51,7 @@ def main():
     if len(points)!=262144 or sorted({p['y'] for p in points})!=[-48,0,64,128]:
         raise ValueError('Unexpected stored reference coverage')
     for version in ['26.50','26.60']:
-        compare(sys.argv[1],native,version,'native-wide-Y64')
-        compare(sys.argv[1],points,version,'stored-four-heights')
+        compare(sys.argv[1],native,version,'native-wide-Y64',sys.argv[2] if len(sys.argv)==3 else 'quart')
+        compare(sys.argv[1],points,version,'stored-four-heights',sys.argv[2] if len(sys.argv)==3 else 'quart')
 
 if __name__=='__main__':main()
