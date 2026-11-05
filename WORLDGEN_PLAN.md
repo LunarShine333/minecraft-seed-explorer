@@ -74,3 +74,26 @@ Next validation should distinguish normal 26.60 generation from experimental
 world settings and pre-existing chunks. Investigate FragrantResult186's
 cubiomes-viewer-bedrock release notes, which mention 26.60 preview support;
 preview support alone is not proof of compatibility with stable Xbox 26.60.
+
+## Experiments-off engine investigation
+
+User confirmed **Experiments are OFF**. Stable Bedrock 26.60 is the target.
+
+Inspected and successfully built FragrantResult186/cubiomes-bedrock revision
+`294c72ab0392dd818a91d293dbd5774d4874d64b` using `make -j2` and GCC.
+Build success is not accuracy validation. Findings:
+
+- `biomes.h` labels `MC_26_60` as **preview 26.60.29** and adds `ice_caves`.
+- `biomenoise.c` selects `btree266` for `mc >= MC_26_60` unconditionally.
+- `generator.h` exposes flags for large biomes, beta ocean and ocean variants;
+  no experiments-off switch is declared there. Stable-versus-preview mapping
+  therefore needs explicit investigation, not just selecting MC_NEWEST.
+- GCC warns about possible double free/use-after-free in `getSpawn`;
+  do not invoke that path before inspecting/fixing it. The map still treats
+  origin as origin, not a verified spawn.
+
+No candidate outputs were approved for the user map. Next bounded step:
+compare version-specific biome trees and release data for non-experimental
+26.60, then produce reference samples with the full seed at explicit Y.
+Native build is available for that comparison; browser/WASM integration and
+in-game comparisons remain outstanding.
