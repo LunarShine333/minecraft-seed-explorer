@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "edition": "bedrock",
+  "dimension": "overworld",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "source": {
+    "kind": "observed",
+    "name": "Official Bedrock Dedicated Server /locate results",
+    "evidence": "Fresh vanilla world, no packs or experiments; server 1.26.61.1, build 53069370, commit 86f7b32281709abd4444adb52887796af061c7bd. Commands: execute positioned X 64 Z run locate structure TYPE false. These are native game locator coordinates, not visual block-level confirmation; Y is unknown. Existing Xbox chunks may have older generation."
+  },
+  "structures": [
+    {
+      "type": "village",
+      "x": 760,
+      "z": 680
+    },
+    {
+      "type": "village",
+      "x": -904,
+      "z": 152
+    },
+    {
+      "type": "monument",
+      "x": 184,
+      "z": 712
+    },
+    {
+      "type": "ruined_portal",
+      "x": 264,
+      "z": 152
+    },
+    {
+      "type": "ancient_city",
+      "x": 552,
+      "z": -2664
+    }
+  ],
+  "biomes": []
+}
