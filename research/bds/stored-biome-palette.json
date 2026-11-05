@@ -26,5 +26,17 @@
   "190": {
     "name": "minecraft:deep_dark",
     "color": "#354a50"
+  },
+  "0": {
+    "name": "minecraft:ocean",
+    "color": "#3b6da8"
+  },
+  "7": {
+    "name": "minecraft:river",
+    "color": "#467fac"
+  },
+  "44": {
+    "name": "minecraft:cold_ocean",
+    "color": "#315b86"
   }
 }
