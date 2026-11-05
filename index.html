@@ -44,7 +44,7 @@ details[open]>summary{margin-bottom:12px}
 <label>Exact Xbox version<input id="game-version" placeholder="Unknown — check title screen" maxlength="30"></label>
 <p id="data-status" class="status" role="status" aria-live="polite"></p>
 <p class="status">Automatic predictions are waiting for validation against your exact Bedrock release. Imported observations stay separate from saved waypoints.</p>
-<label>Checked map area<select id="checked-area"><option value="local">256 × 256 · four heights</option><option value="wide">512 × 512 · Y 64</option></select></label><div class="buttons"><button id="load-checked">Load checked area (26.60)</button><button id="load-data">Load world data</button><button id="clear-data">Clear layer</button><button id="fit-landmarks" style="flex-basis:100%" disabled>Fit known landmarks</button></div>
+<label>Checked map area<select id="checked-area"><option value="local">256 × 256 · four heights</option><option value="wide">512 × 512 · Y 64</option><option value="cherry">🌸 Cherry Grove · 64 × 64 · Y 103</option></select></label><div class="buttons"><button id="load-checked">Load checked area (26.60)</button><button id="load-data">Load world data</button><button id="clear-data">Clear layer</button><button id="fit-landmarks" style="flex-basis:100%" disabled>Fit known landmarks</button></div>
 <input type="file" id="data-file" accept="application/json,.json" hidden>
 <details><summary>Data format and accuracy</summary><p class="status">World data must match this seed, exact release and Overworld. Observations are reported by the file's author. Predictions require an approved engine revision. Sample dots show measured biome points, not exact biome boundaries.</p><p><a href="./DATA_FORMAT.md" style="color:#c5e6a2">World data format</a></p></details>
 <div id="layer-controls" hidden>
@@ -122,12 +122,12 @@ function initWorldData(){
     try{
       const selected=$('game-version').value.trim();
       if(selected&&exactVersion(selected)!=='26.60')throw Error('These checked points are for Bedrock 26.60. Select that release to load them.');
-      const response=await fetch(area==='wide'?'./data/bedrock-26.60-wide-area.json':'./data/bedrock-26.60-checked-area.json');
+      const response=await fetch(area==='cherry'?'./data/bedrock-26.60-cherry-grove.json':area==='wide'?'./data/bedrock-26.60-wide-area.json':'./data/bedrock-26.60-checked-area.json');
       if(!response.ok)throw Error('Could not load checked world data. Please reconnect and try again.');
       const next=validateBundle(await response.json(),{seed:WORLD_SEED,version:'26.60'});
       if($('game-version').value.trim()!==selected||$('checked-area').value!==area)throw Error('Selection changed while loading. Please try again.');
-      $('game-version').value='26.60';worldData=next;cx=cz=0;scale=Math.min(map.clientWidth,map.clientHeight)/(area==='wide'?576:288);renderLayers();$('biome-y').value='64';renderLegend();draw();
-      $('map-readout').textContent=worldData.biomes.reduce((n,t)=>n+t.samples.length,0).toLocaleString()+' stored biome cells in a '+(area==='wide'?'512 × 512':'256 × 256')+' area around origin at Y '+worldData.biomes.map(t=>t.y).join(', ')+', plus '+worldData.structures.length+' game locator landmarks. Other areas remain unknown.';
+      $('game-version').value='26.60';worldData=next;cx=area==='cherry'?-2336:0;cz=area==='cherry'?-288:0;scale=Math.min(map.clientWidth,map.clientHeight)/(area==='cherry'?80:area==='wide'?576:288);renderLayers();$('biome-y').value=area==='cherry'?'103':'64';renderLegend();draw();
+      $('map-readout').textContent=worldData.biomes.reduce((n,t)=>n+t.samples.length,0).toLocaleString()+' stored biome cells in a '+(area==='cherry'?'64 × 64':area==='wide'?'512 × 512':'256 × 256')+' area centered at X '+cx+', Z '+cz+' at Y '+worldData.biomes.map(t=>t.y).join(', ')+', plus '+worldData.structures.length+' game locator landmarks. Other areas remain unknown.';
     }catch(error){$('data-status').textContent=error.message}
     finally{button.disabled=false}
   };
