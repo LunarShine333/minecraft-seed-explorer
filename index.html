@@ -91,7 +91,7 @@ function initWorldData(){
       const next=validateBundle(await response.json(),{seed:WORLD_SEED,version:'26.60'});
       if($('game-version').value.trim()!==selected)throw Error('Version changed while loading. Please try again.');
       $('game-version').value='26.60';worldData=next;cx=cz=0;scale=Math.min(map.clientWidth,map.clientHeight)/288;renderLayers();$('biome-y').value='64';renderLegend();draw();
-      $('map-readout').textContent='196,608 stored biome cells in a 256 × 256 area around origin at Y -48, 0 and 64, plus 5 game locator landmarks. Other areas remain unknown.';
+      $('map-readout').textContent='196,608 stored biome cells in a 256 × 256 area around origin at Y -48, 0 and 64, plus '+worldData.structures.length+' game locator landmarks. Other areas remain unknown.';
     }catch(error){$('data-status').textContent=error.message}
     finally{button.disabled=false}
   };
@@ -124,7 +124,7 @@ function renderStructureList(){
   const root=$('structure-list');root.replaceChildren();if(!worldData)return;
   for(const p of visibleStructures().slice(0,100)){
     const row=document.createElement('div');row.className='item';const name=document.createElement('span');
-    name.textContent=p.type+' ('+p.x+', '+p.z+')';const go=document.createElement('button');go.textContent='Go';
+    name.textContent=p.type.replaceAll('_',' ')+' ('+p.x+', '+p.z+') · '+Math.round(Math.hypot(p.x,p.z)).toLocaleString()+' blocks from (0, 0)'+(p.y===undefined?' · Y unknown':' · Y '+p.y);const go=document.createElement('button');go.textContent='Go';
     go.onclick=()=>{cx=p.x;cz=p.z;$('x').value=p.x;$('z').value=p.z;$('name').value=p.type;
       $('notes').value=worldData.source.kind+' · '+worldData.source.name+' · Bedrock '+worldData.version;draw();inspectWorld(p.x,p.z)};
     row.append(name,go);root.append(row)
