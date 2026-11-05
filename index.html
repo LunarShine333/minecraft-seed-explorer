@@ -65,7 +65,7 @@ function initWorldData(){
       const next=validateBundle(await response.json(),{seed:WORLD_SEED,version:'26.60'});
       if($('game-version').value.trim()!==selected)throw Error('Version changed while loading. Please try again.');
       $('game-version').value='26.60';worldData=next;cx=cz=0;scale=4;renderLayers();draw();
-      $('map-readout').textContent='36 game-read biome points near origin, plus 5 game locator landmarks. Other areas remain unknown.';
+      $('map-readout').textContent='12,288 stored biome cells in a 64 × 64 area around origin at Y -48, 0 and 64, plus 5 game locator landmarks. Other areas remain unknown.';
     }catch(error){$('data-status').textContent=error.message}
     finally{button.disabled=false}
   };
