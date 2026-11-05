@@ -93,3 +93,22 @@ export function biomeAt(bundle, x, z, y) {
   }
   return null;
 }
+
+/** Closest stored cell/sample inside supplied tiles, never a world-wide claim. */
+export function nearestBiome(bundle, name, x, z, y) {
+  if (!Number.isFinite(x) || !Number.isFinite(z)) throw new Error('Invalid search center.');
+  let best=null, bestDistance=Infinity;
+  for (const tile of bundle?.biomes || []) {
+    if (tile.y !== y) continue;
+    const matches=new Set(tile.palette.flatMap((p,i)=>p.name===name?[i]:[]));
+    if (!matches.size) continue;
+    for(let index=0;index<tile.samples.length;index++) {
+      if(!matches.has(tile.samples[index]))continue;
+      const sx=tile.x+(index%tile.width)*tile.step;
+      const sz=tile.z+Math.floor(index/tile.width)*tile.step;
+      const distance=(sx-x)**2+(sz-z)**2;
+      if(distance<bestDistance){bestDistance=distance;best={name,x:sx,z:sz,y:tile.y,step:tile.step,distance:Math.sqrt(distance)}}
+    }
+  }
+  return best;
+}
