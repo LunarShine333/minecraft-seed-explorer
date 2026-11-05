@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "edition": "bedrock",
+  "dimension": "overworld",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "source": {
+    "kind": "observed",
+    "name": "Official Bedrock server: measured biome points and locator landmarks",
+    "evidence": "Fresh vanilla world, no packs or experiments; server 1.26.61.1, build 53069370, commit 86f7b32281709abd4444adb52887796af061c7bd. Commands: execute positioned X 64 Z run locate structure TYPE false. These are native game locator coordinates, not visual block-level confirmation; Y is unknown. Existing Xbox chunks may have older generation. Biomes: stable Script API Dimension.getBiome, read-only pack, 36 actual readings at Y -48,0,64,128. Samples cover only the displayed points around origin, not full terrain."
+  },
+  "structures": [
+    {
+      "type": "village",
+      "x": 760,
+      "z": 680
+    },
+    {
+      "type": "village",
+      "x": -904,
+      "z": 152
+    },
+    {
+      "type": "monument",
+      "x": 184,
+      "z": 712
+    },
+    {
+      "type": "ruined_portal",
+      "x": 264,
+      "z": 152
+    },
+    {
+      "type": "ancient_city",
+      "x": 552,
+      "z": -2664
+    }
+  ],
+  "biomes": [
+    {
+      "x": -16,
+      "z": -16,
+      "y": -48,
+      "width": 3,
+      "height": 3,
+      "step": 16,
+      "palette": [
+        {
+          "name": "minecraft:plains",
+          "color": "#8dbb52"
+        },
+        {
+          "name": "minecraft:meadow",
+          "color": "#83b65a"
+        },
+        {
+          "name": "minecraft:deep_dark",
+          "color": "#354a50"
+        }
+      ],
+      "samples": [
+        2,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "x": -16,
+      "z": -16,
+      "y": 0,
+      "width": 3,
+      "height": 3,
+      "step": 16,
+      "palette": [
+        {
+          "name": "minecraft:plains",
+          "color": "#8dbb52"
+        },
+        {
+          "name": "minecraft:meadow",
+          "color": "#83b65a"
+        },
+        {
+          "name": "minecraft:deep_dark",
+          "color": "#354a50"
+        }
+      ],
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "x": -16,
+      "z": -16,
+      "y": 64,
+      "width": 3,
+      "height": 3,
+      "step": 16,
+      "palette": [
+        {
+          "name": "minecraft:plains",
+          "color": "#8dbb52"
+        },
+        {
+          "name": "minecraft:meadow",
+          "color": "#83b65a"
+        },
+        {
+          "name": "minecraft:deep_dark",
+          "color": "#354a50"
+        }
+      ],
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "x": -16,
+      "z": -16,
+      "y": 128,
+      "width": 3,
+      "height": 3,
+      "step": 16,
+      "palette": [
+        {
+          "name": "minecraft:plains",
+          "color": "#8dbb52"
+        },
+        {
+          "name": "minecraft:meadow",
+          "color": "#83b65a"
+        },
+        {
+          "name": "minecraft:deep_dark",
+          "color": "#354a50"
+        }
+      ],
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}
