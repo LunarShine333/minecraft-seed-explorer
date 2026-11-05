@@ -1,4 +1,4 @@
-const CACHE = 'minecraft-seed-explorer-v7-structure-search';
+const CACHE = 'minecraft-seed-explorer-v8-four-heights';
 const PREFIX = 'minecraft-seed-explorer-';
 const ASSETS = ['./', './index.html', './world-data.mjs', './map-gestures.mjs', './structure-search.mjs', './manifest.webmanifest', './DATA_FORMAT.md', './data/bedrock-26.60-checked-area.json'];
 self.addEventListener('install', event => {
