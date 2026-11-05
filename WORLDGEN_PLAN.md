@@ -61,3 +61,16 @@ verified data, and no guessed biome raster was shipped.
 Next: obtain the exact version, pin an engine that targets it, collect real
 Bedrock/BDS fixtures at known Y and structure locations, run comparisons, then
 register only passing capabilities and connect the engine producer to bundles.
+
+## Xbox version confirmed
+
+User checked the title screen at home and reported **v26.60**. Target Bedrock
+release is now **26.60**, seed **3022187552114785111**. Earlier notes describing
+the release as unknown are historical. The installed version does not establish
+when existing chunks were generated or whether world experiments are enabled.
+Do not approve an engine simply because the target version is now known.
+
+Next validation should distinguish normal 26.60 generation from experimental
+world settings and pre-existing chunks. Investigate FragrantResult186's
+cubiomes-viewer-bedrock release notes, which mention 26.60 preview support;
+preview support alone is not proof of compatibility with stable Xbox 26.60.
