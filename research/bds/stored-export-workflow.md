@@ -27,7 +27,7 @@ python scripts/export_stored_biomes.py \
   --x -128 --z -128 --width 256 --height 256 --step 1 --y -48 0 64
 ```
 
-The included palette covers only seven IDs encountered in the checked region.
+The included palette covers ten IDs encountered in the checked regions. Ocean (0), river (7) and cold ocean (44) were directly paired with native Script API names in the 512 × 512 chunk-center checks.
 ID 25 uses `minecraft:stony_shore`, equivalent to the native API's `stone_beach`
 label in our checks. Never guess a name for a new numeric ID.
 
