@@ -1,0 +1,14 @@
+{
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "checked": 320,
+  "matched": 320,
+  "mismatches": [],
+  "scope": "held-out high-altitude points only; no global prediction approval",
+  "mappingCorrection": {
+    "biomeId": 25,
+    "nativeBedrockName": "minecraft:stone_beach",
+    "previousDisplayAlias": "minecraft:stony_shore",
+    "affectedComparisons": 5
+  }
+}
