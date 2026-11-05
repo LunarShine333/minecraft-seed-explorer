@@ -1,30 +1,38 @@
-# Checked-area release status
+# Checked tile atlas release status
 
-This is a usable bounded Bedrock map for seed 3022187552114785111 and target release 26.60, not the finished full-world Seed Explorer.
+Personal Overworld site: exact seed `3022187552114785111`, Xbox target Bedrock
+26.60, experiments off. Original Xbox chunk generation release remains unknown.
 
 ## Available
 
-- 256 × 256 blocks at Y -48, 0, 64 and 128; 262144 stored cells.
-- Alternative 512 × 512-block view at Y64; 262144 stored cells.
-- 36 selected native locator landmarks across 13 types, with unknown Y explicit.
-- Biome finder, structure search, distance sorting, coordinate jumps, waypoints and backups.
-- Responsive map layout, mouse/pointer controls, pinch gesture implementation and offline assets.
+- Continuous checked mode loads adjoining tiles on pan/zoom or sample Y changes.
+- 29 native-data tiles: 512 × 512 at Y64, 256 × 256 at Y-48/0/128,
+  and 64 × 64 Cherry Grove at Y103. Geographic coverage remains bounded.
+- 36 selected native locator landmarks across 13 types; Y unknown.
+- Approximate home property marker at X128 Z24; not verified in-game.
+- Biome finder (visible loaded tiles in continuous mode), structure search,
+  coordinate jumps, device waypoints/backups and existing full-area imports.
+- Request deduplication, four concurrent loads, bounded tile cache and
+  stale-viewport protection. Service worker caches requested tiles for offline
+  reuse; regions never downloaded are unavailable offline.
 
-## Verification
+## Verification and limits
 
-Stored wide data matched all 1024 native chunk-center samples. The 65536 overlapping Y64 cells match the smaller map. Automated application/data checks and decoder/export checks are configured in GitHub Actions. Passing app checks does not certify the candidate generator: prediction remains disabled.
+31 Node and 10 Python tests pass. All 462848 tiled cells retain their original
+native-source biome names/colors. Original native evidence remains in each tile
+file. Browser preview confirms automatic loading and Cherry Grove navigation.
+Physical Safari/iPhone/iPad testing remains outstanding.
 
-The four-height candidate comparison matches 246541/262144 cells using quart lookup; fractional sampling matches 248206/262144 but introduces new errors. Alternative Voronoi/hash modes perform worse. These are diagnostic results for one seed and existing bounded fixtures, not a global accuracy estimate.
+The source world used official BDS 1.26.61.1 build 53069370, experiments off;
+these are current test-world observations, not reads of the user's Xbox save.
+Older Xbox chunks may differ. Unknown areas and missing sample heights stay
+unknown. Coverage has been reorganized for streaming, not expanded globally.
 
-## Still unfinished
+No prediction engine is approved. Default quart matched 246541/262144 cells;
+fractional sampling matched 248206/262144 with new errors. Alternate Voronoi
+hashes were worse. These rejected experiments must not be used as validated
+world maps. Full-world generation and exhaustive structure discovery are
+unfinished. The user wants Safari/Add to Home Screen, no separate app package
+or custom icon.
 
-- Exact full-world biome and structure prediction.
-- Physical iPhone/iPad and Safari gesture testing.
-- Home-screen icons and final installation experience.
-- Merge to main and GitHub Pages publication of the development branch.
-
-The test world uses official BDS 1.26.61.1 with experiments off. Older Xbox chunks may reflect the unknown original generation version. Imported layers are session-only; waypoints are stored only on the current device. An empty region is unknown, not evidence of no biomes or structures.
-
-## Publishing boundary
-
-PR #1 contains the reviewable changes. It has not been merged or deployed. Publishing this checked-area release would not complete the full-world accuracy objective.
+See WORLDGEN_PLAN.md for the resumable implementation checkpoint.

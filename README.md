@@ -2,10 +2,11 @@
 
 Personal Bedrock Overworld explorer for seed `3022187552114785111`.
 
-The current app supports coordinate navigation, locally saved waypoints and
-provenance-aware imported world data. It does **not yet calculate validated
-biome or structure predictions automatically**. The exact Xbox release and
-in-game engine comparisons are still needed.
+The current app loads adjoining checked biome tiles as you pan/zoom, and supports
+coordinate navigation, an approximate home marker, device waypoints and
+provenance-aware imported world data. Checked coverage remains bounded. It does **not yet calculate validated
+biome or structure predictions automatically**. Xbox target is 26.60 with experiments off; native BDS observations use
+1.26.61.1. Older Xbox chunks may differ.
 
 - [World data format and accuracy gates](DATA_FORMAT.md)
 - [Generator research and next integration steps](WORLDGEN_PLAN.md)
