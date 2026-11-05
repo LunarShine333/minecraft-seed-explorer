@@ -52,10 +52,11 @@ details[open]>summary{margin-bottom:12px}
 <label><input type="checkbox" id="show-structures" checked style="width:auto"> Structures</label>
 <label>Biome sample Y<select id="biome-y"></select></label>
 <label>Structure filter<select id="structure-filter"><option value="">All structures</option></select></label>
-<div id="biome-legend" class="status"></div><div id="structure-list"></div>
+<div id="biome-legend" class="status"></div><label>Search known structures<input id="structure-search" type="search" placeholder="Village, trial chambers, coordinates…"></label><button id="structure-center" style="width:100%">Search from map center</button><p id="structure-summary" class="status" aria-live="polite"></p><div id="structure-list"></div>
 </div><p id="map-readout" class="status" role="status">Tap the map to inspect a coordinate.</p>
 <hr style="border:0;border-top:1px solid #355542;margin:18px 0"><h2 style="margin-top:0">🧭 Explore coordinates</h2><p class="status">Jump to any Overworld X/Z location. Map origin (0, 0) is not a verified world spawn.</p><div class="coordinate-pair"><label>Go to X<input id="jumpx" type="number" placeholder="X"></label><label>Go to Z<input id="jumpz" type="number" placeholder="Z"></label></div><button id="jump" style="width:100%">Go to coordinates</button><details open><summary>📍 Saved waypoints</summary><label>Name<input id="name" placeholder="Our house"></label><div class="coordinate-pair"><label>X coordinate<input id="x" type="number" placeholder="0"></label><label>Z coordinate<input id="z" type="number" placeholder="0"></label></div><label>Notes<textarea id="notes" rows="2" placeholder="Optional"></textarea></label><button id="save" style="width:100%">Save waypoint</button><label>Search<input id="search" placeholder="Find saved places"></label><div id="items"></div><div class="buttons"><button id="export">Export backup</button><button id="import">Import backup</button><input type="file" id="file" accept="application/json" hidden></div><p class="status">This is a coordinate planner, not a generated biome or structure map. Waypoints are saved only on this device. Imported world layers last for this session. Automatic predictions are not enabled.</p></details></aside></main>
 <script type="module">
+import {findStructures} from './structure-search.mjs';
 import {pinchView} from './map-gestures.mjs';
 import {WORLD_SEED,MAX_FILE_BYTES,exactVersion,validateBundle,biomeAt,nearestBiome} from './world-data.mjs';
 
@@ -92,6 +93,7 @@ c.addEventListener('wheel',e=>{e.preventDefault();scale=Math.max(.001,Math.min(5
 
 
 let worldData = null;
+let structureCenter={x:0,z:0};
 function initWorldData(){
   $('world-seed').textContent=WORLD_SEED;
   try{$('game-version').value=localStorage.getItem('mse-game-version')||'26.60'}catch{}
@@ -136,6 +138,8 @@ function initWorldData(){
     scale=Math.max(.001,Math.min(5,(map.clientWidth-80)/Math.max(64,maxX-minX),(map.clientHeight-80)/Math.max(64,maxZ-minZ)));
     draw();$('map-readout').textContent='Showing '+entries.length+' selected known landmarks. Biome coverage remains limited to the stored area.';
   };
+  $('structure-search').oninput=()=>{renderStructureList();draw()};
+  $('structure-center').onclick=()=>{structureCenter={x:cx,z:cz};renderStructureList();draw()};
   $('clear-data').onclick=()=>{worldData=null;renderLayers();draw()};
   for(const id of ['show-biomes','show-structures','biome-y','structure-filter'])$(id).onchange=()=>{renderStructureList();renderLegend();draw()};
 }
@@ -168,12 +172,14 @@ function focusBiome(name){
   $('notes').value='Closest mapped '+(result.step===1?'cell':'sample')+' at Y '+result.y+' · '+worldData.source.name+' · Bedrock '+worldData.version;
   draw();$('map-readout').textContent='Closest mapped '+$('name').value+': X '+result.x+', Y '+result.y+', Z '+result.z+' · '+Math.round(result.distance)+' blocks from the previous map center. Search covers loaded data only.';
 }
-function visibleStructures(){return worldData?.structures.filter(p=>!$('structure-filter').value||p.type===$('structure-filter').value)||[]}
+function visibleStructures(){return findStructures(worldData?.structures||[],{query:$('structure-search').value,type:$('structure-filter').value,...structureCenter})}
 function renderStructureList(){
   const root=$('structure-list');root.replaceChildren();if(!worldData)return;
-  for(const p of visibleStructures().slice(0,100)){
+  const entries=visibleStructures();$('structure-summary').textContent=entries.length+' known landmarks · nearest to X '+Math.round(structureCenter.x)+', Z '+Math.round(structureCenter.z)+'. Loaded data only.';
+  if(!entries.length){const empty=document.createElement('p');empty.className='status';empty.textContent='No matching landmarks in the loaded data. Other locations may exist outside this dataset.';root.append(empty)}
+  for(const p of entries.slice(0,100)){
     const row=document.createElement('div');row.className='item';const name=document.createElement('span');
-    name.textContent=p.type.replaceAll('_',' ')+' ('+p.x+', '+p.z+') · '+Math.round(Math.hypot(p.x,p.z)).toLocaleString()+' blocks from (0, 0)'+(p.y===undefined?' · Y unknown':' · Y '+p.y);const go=document.createElement('button');go.textContent='Go';
+    name.textContent=p.type.replaceAll('_',' ')+' ('+p.x+', '+p.z+') · '+Math.round(p.distance).toLocaleString()+' blocks from search center'+(p.y===undefined?' · Y unknown':' · Y '+p.y);const go=document.createElement('button');go.textContent='Go';
     go.onclick=()=>{cx=p.x;cz=p.z;$('x').value=p.x;$('z').value=p.z;$('name').value=p.type;
       $('notes').value=worldData.source.kind+' · '+worldData.source.name+' · Bedrock '+worldData.version;draw();inspectWorld(p.x,p.z)};
     row.append(name,go);root.append(row)
