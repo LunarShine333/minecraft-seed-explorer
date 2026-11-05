@@ -1,5 +1,12 @@
 # Wider-area predictor check
 
+> Correction: the initial sampler could not name snowy_slopes or jagged_peaks.
+> All 95 quart-lookup differences below were `minecraft:unknown` outputs for those
+> two expected types. These counts do not establish 95 algorithmic errors.
+> The sampler now supplies the omitted names and a separate pinned-source workflow
+> reruns the comparison. Original reports remain historical evidence, not approval.
+
+
 Candidate: FragrantResult186/cubiomes-bedrock, revision
 `294c72ab0392dd818a91d293dbd5774d4874d64b`.
 
