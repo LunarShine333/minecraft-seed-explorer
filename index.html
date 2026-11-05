@@ -3,8 +3,42 @@
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0d1915;color:#f2f6ed;font:15px system-ui,sans-serif}header{padding:16px;background:#14291f;border-bottom:1px solid #365847}h1{font-size:20px;margin:0 0 5px}small,.muted{color:#abc2b1}.wrap{max-width:1100px;margin:auto}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;padding:14px}.map{height:min(70vh,700px);min-height:380px;position:relative;border:1px solid #42664f;border-radius:16px;overflow:hidden;background:#182a23;touch-action:none}canvas{width:100%;height:100%;display:block}.maptools{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:7px}.hint{position:absolute;bottom:10px;left:12px;color:#d6e9d9;background:#102019c9;padding:7px;border-radius:8px;font-size:12px}.panel{background:#182a23;border:1px solid #42664f;border-radius:16px;padding:15px}input,textarea,select,button{font:inherit;border-radius:9px;padding:10px;border:1px solid #4c7059;background:#0f2018;color:#fff;max-width:100%}input,textarea,select{width:100%;margin:5px 0 10px}button{cursor:pointer;background:#315b3d}button:hover{background:#417a50}.buttons{display:flex;gap:7px;flex-wrap:wrap}.buttons button{flex:1}.item{border-top:1px solid #355542;padding:10px 0;display:flex;justify-content:space-between;gap:8px}.item button{padding:5px 8px}.status{font-size:12px;color:#c2d5c6;margin-top:10px}label{font-size:13px;color:#c7d7c9}@media(max-width:720px){.layout{grid-template-columns:1fr;padding:9px;gap:9px}.map{height:62vh;min-height:330px}.panel{padding:12px}header{padding:12px}}
 #load-checked{flex-basis:100%}#layer-controls>label{display:block;margin:8px 0}#structure-list{max-height:300px;overflow:auto}#biome-legend{max-height:160px;overflow:auto}
-.biome-row{display:flex;align-items:center;gap:6px;margin:5px 0}.biome-row>span{flex:1}.biome-row>span:first-child{flex:0}.biome-row button{padding:4px 7px;font-size:12px}\n</style></head><body><header><div class="wrap"><h1>🌿 Minecraft Seed Explorer</h1><small>Bedrock 26.60 · Seed 3022187552114785111 · Overworld explorer</small></div></header>
-<main class="wrap layout"><section class="map" id="map"><canvas id="canvas"></canvas><div class="maptools"><button id="zin" aria-label="Zoom in">＋</button><button id="zout" aria-label="Zoom out">－</button><button id="home">⌖</button></div><div class="hint">Drag to pan · Pinch, scroll or use ＋/－ to zoom · Tap map for coordinates</div></section>
+.biome-row{display:flex;align-items:center;gap:6px;margin:5px 0}.biome-row>span{flex:1}.biome-row>span:first-child{flex:0}.biome-row button{padding:4px 7px;font-size:12px}
+
+/* Map-first layout with compact, independently scrolling tools. */
+:root{color-scheme:dark}
+.wrap{max-width:1440px}
+header{padding:18px 24px}
+.layout{grid-template-columns:minmax(0,1fr) 340px;gap:20px;padding:20px;align-items:start}
+.map{height:calc(100dvh - 124px);min-height:440px;position:sticky;top:20px}
+.panel{max-height:calc(100dvh - 124px);overflow-y:auto;scrollbar-gutter:stable;padding:20px}
+h2{font-size:17px;letter-spacing:.01em;margin:0 0 14px}
+.status{line-height:1.65;overflow-wrap:anywhere}
+label{display:block;font-weight:500}
+button{min-height:40px;transition:background .15s}
+button:disabled{opacity:.5;cursor:default}
+input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #b5d98a;outline-offset:3px}
+input[type=checkbox]{accent-color:#b5d98a}
+details{border:1px solid #355542;border-radius:10px;padding:11px 12px;margin:14px 0}
+summary{cursor:pointer;font-size:13px;color:#d9e6d3;font-weight:600}
+details[open]>summary{margin-bottom:12px}
+.coordinate-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#data-status,#map-readout{padding:11px 12px;background:#102019;border-radius:10px;border-left:3px solid #8bbd75}
+#layer-controls{margin-top:18px}
+#biome-legend{max-height:220px;padding:6px 0}
+.biome-row{padding:5px 0;border-bottom:1px solid #294536}
+.biome-row button,.item button{min-width:44px;min-height:36px}
+#structure-list{max-height:240px;margin-top:12px}
+.item{align-items:center;line-height:1.5;font-size:13px}
+.item>span{min-width:0;overflow-wrap:anywhere}
+.item>button{flex-shrink:0}
+.maptools button{width:42px;height:42px;padding:6px}
+.hint{max-width:calc(100% - 24px);line-height:1.5;pointer-events:none}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr) 300px;gap:12px;padding:12px}.panel{padding:16px}.map{top:12px}}
+@media(max-width:720px){header{padding:16px}.layout{grid-template-columns:1fr;padding:12px;gap:12px}.map{position:relative;top:auto;height:58dvh;min-height:320px}.panel{max-height:none;overflow:visible;padding:18px}h1{font-size:19px}.hint{font-size:11px}button{min-height:44px}#structure-list{max-height:240px}}
+@media(prefers-reduced-motion:reduce){button{transition:none}}
+</style></head><body><header><div class="wrap"><h1>🌿 Minecraft Seed Explorer</h1><small>Bedrock 26.60 · Seed 3022187552114785111 · Overworld explorer</small></div></header>
+<main class="wrap layout"><section class="map" id="map"><canvas id="canvas"></canvas><div class="maptools"><button id="zin" aria-label="Zoom in">＋</button><button id="zout" aria-label="Zoom out">－</button><button id="home" aria-label="Return to map origin">⌖</button></div><div class="hint">Drag to pan · Pinch, scroll or use ＋/－ to zoom · Tap map for coordinates</div></section>
 <aside class="panel"><h2 style="margin-top:0">🌍 World data</h2>
 <p class="status">Seed <span id="world-seed"></span> · Overworld</p>
 <label>Exact Xbox version<input id="game-version" placeholder="Unknown — check title screen" maxlength="30"></label>
@@ -20,7 +54,7 @@
 <label>Structure filter<select id="structure-filter"><option value="">All structures</option></select></label>
 <div id="biome-legend" class="status"></div><div id="structure-list"></div>
 </div><p id="map-readout" class="status" role="status">Tap the map to inspect a coordinate.</p>
-<hr style="border:0;border-top:1px solid #355542;margin:18px 0"><h2 style="margin-top:0">🧭 Explore coordinates</h2><p class="status">Jump to any Overworld X/Z location. Map origin (0, 0) is not a verified world spawn.</p><label>Go to X<input id="jumpx" type="number" placeholder="X"></label><label>Go to Z<input id="jumpz" type="number" placeholder="Z"></label><button id="jump" style="width:100%">Go to coordinates</button><hr style="border:0;border-top:1px solid #355542;margin:18px 0"><h2>📍 Waypoints</h2><label>Name<input id="name" placeholder="Our house"></label><label>X coordinate<input id="x" type="number" placeholder="0"></label><label>Z coordinate<input id="z" type="number" placeholder="0"></label><label>Notes<textarea id="notes" rows="2" placeholder="Optional"></textarea></label><button id="save" style="width:100%">Save waypoint</button><label>Search<input id="search" placeholder="Find saved places"></label><div id="items"></div><div class="buttons"><button id="export">Export backup</button><button id="import">Import backup</button><input type="file" id="file" accept="application/json" hidden></div><p class="status">This is a coordinate planner, not a generated biome or structure map. Waypoints are saved only on this device. Imported world layers last for this session. Automatic predictions are not enabled.</p></aside></main>
+<hr style="border:0;border-top:1px solid #355542;margin:18px 0"><h2 style="margin-top:0">🧭 Explore coordinates</h2><p class="status">Jump to any Overworld X/Z location. Map origin (0, 0) is not a verified world spawn.</p><div class="coordinate-pair"><label>Go to X<input id="jumpx" type="number" placeholder="X"></label><label>Go to Z<input id="jumpz" type="number" placeholder="Z"></label></div><button id="jump" style="width:100%">Go to coordinates</button><details open><summary>📍 Saved waypoints</summary><label>Name<input id="name" placeholder="Our house"></label><div class="coordinate-pair"><label>X coordinate<input id="x" type="number" placeholder="0"></label><label>Z coordinate<input id="z" type="number" placeholder="0"></label></div><label>Notes<textarea id="notes" rows="2" placeholder="Optional"></textarea></label><button id="save" style="width:100%">Save waypoint</button><label>Search<input id="search" placeholder="Find saved places"></label><div id="items"></div><div class="buttons"><button id="export">Export backup</button><button id="import">Import backup</button><input type="file" id="file" accept="application/json" hidden></div><p class="status">This is a coordinate planner, not a generated biome or structure map. Waypoints are saved only on this device. Imported world layers last for this session. Automatic predictions are not enabled.</p></details></aside></main>
 <script type="module">
 import {pinchView} from './map-gestures.mjs';
 import {WORLD_SEED,MAX_FILE_BYTES,exactVersion,validateBundle,biomeAt,nearestBiome} from './world-data.mjs';
