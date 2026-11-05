@@ -135,3 +135,15 @@ wrong world settings and missing provenance are rejected. Reports retain
 full seed identity and explicitly do not auto-approve an engine. All 9 Node
 tests pass. Synthetic unit tests are not actual game reference evidence.
 Real game fixtures and structure validation remain outstanding.
+
+## World creation date and latest sampling check
+
+User reports the Xbox world was created **October 16, 2026**. Do not infer an
+exact original game version from the date alone. Current version remains 26.60,
+Experiments off; already generated Xbox chunks may reflect earlier generation.
+The disposable current-release server map is not a direct read of the Xbox save.
+
+Retested core's genBiomeNoiseChunkSection with X/Y/Z iteration order and a
+persistent per-chunk cache through sections -4..19. Raw quart results still
+matched 935/1156 saved API references, identical to independent quart sampling.
+Chunk-generation traversal order does not fix the observed mismatch.
