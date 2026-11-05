@@ -3,8 +3,11 @@
 > Correction: the initial sampler could not name snowy_slopes or jagged_peaks.
 > All 95 quart-lookup differences below were `minecraft:unknown` outputs for those
 > two expected types. These counts do not establish 95 algorithmic errors.
-> The sampler now supplies the omitted names and a separate pinned-source workflow
-> reruns the comparison. Original reports remain historical evidence, not approval.
+> The sampler now supplies the omitted names. GitHub diagnostic run 42065805185
+> completed successfully: corrected quart lookup matches 1,023/1,024, with one
+> remaining mismatch; corrected block lookup matches 973/1,024, with 51 mismatches.
+> Both tested release modes produced these same corrected counts at Y64.
+> See corrected-wide-predictor-summary.json and the run's result artifacts. Original reports remain historical evidence, not approval.
 
 
 Candidate: FragrantResult186/cubiomes-bedrock, revision
