@@ -1,6 +1,6 @@
-const CACHE = 'minecraft-seed-explorer-v9-wide-area';
+const CACHE = 'minecraft-seed-explorer-v10-cherry-grove';
 const PREFIX = 'minecraft-seed-explorer-';
-const ASSETS = ['./', './index.html', './world-data.mjs', './map-gestures.mjs', './structure-search.mjs', './manifest.webmanifest', './DATA_FORMAT.md', './data/bedrock-26.60-checked-area.json', './data/bedrock-26.60-wide-area.json'];
+const ASSETS = ['./', './index.html', './world-data.mjs', './map-gestures.mjs', './structure-search.mjs', './manifest.webmanifest', './DATA_FORMAT.md', './data/bedrock-26.60-checked-area.json', './data/bedrock-26.60-wide-area.json', './data/bedrock-26.60-cherry-grove.json'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
