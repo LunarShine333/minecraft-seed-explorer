@@ -10,7 +10,7 @@
 <label>Exact Xbox version<input id="game-version" placeholder="Unknown — check title screen" maxlength="30"></label>
 <p id="data-status" class="status" role="status" aria-live="polite"></p>
 <p class="status">Automatic predictions are waiting for validation against your exact Bedrock release. Imported observations stay separate from saved waypoints.</p>
-<div class="buttons"><button id="load-checked">Load checked area (26.60)</button><button id="load-data">Load world data</button><button id="clear-data">Clear layer</button></div>
+<div class="buttons"><button id="load-checked">Load checked area (26.60)</button><button id="load-data">Load world data</button><button id="clear-data">Clear layer</button><button id="fit-landmarks" style="flex-basis:100%" disabled>Fit known landmarks</button></div>
 <input type="file" id="data-file" accept="application/json,.json" hidden>
 <details><summary>Data format and accuracy</summary><p class="status">World data must match this seed, exact release and Overworld. Observations are reported by the file's author. Predictions require an approved engine revision. Sample dots show measured biome points, not exact biome boundaries.</p><p><a href="./DATA_FORMAT.md" style="color:#c5e6a2">World data format</a></p></details>
 <div id="layer-controls" hidden>
@@ -60,7 +60,7 @@ c.addEventListener('wheel',e=>{e.preventDefault();scale=Math.max(.001,Math.min(5
 let worldData = null;
 function initWorldData(){
   $('world-seed').textContent=WORLD_SEED;
-  try{$('game-version').value=localStorage.getItem('mse-game-version')||''}catch{}
+  try{$('game-version').value=localStorage.getItem('mse-game-version')||'26.60'}catch{}
   dataStatus();
   $('game-version').oninput=()=>{worldData=null;renderLayers();draw()};
   $('game-version').onchange=()=>{
@@ -95,6 +95,13 @@ function initWorldData(){
     }catch(error){$('data-status').textContent=error.message}
     finally{button.disabled=false}
   };
+  $('fit-landmarks').onclick=()=>{
+    const entries=visibleStructures();if(!entries.length)return;
+    const xs=entries.map(p=>p.x),zs=entries.map(p=>p.z),minX=Math.min(...xs),maxX=Math.max(...xs),minZ=Math.min(...zs),maxZ=Math.max(...zs);
+    cx=(minX+maxX)/2;cz=(minZ+maxZ)/2;
+    scale=Math.max(.001,Math.min(5,(map.clientWidth-80)/Math.max(64,maxX-minX),(map.clientHeight-80)/Math.max(64,maxZ-minZ)));
+    draw();$('map-readout').textContent='Showing '+entries.length+' selected known landmarks. Biome coverage remains limited to the stored area.';
+  };
   $('clear-data').onclick=()=>{worldData=null;renderLayers();draw()};
   for(const id of ['show-biomes','show-structures','biome-y','structure-filter'])$(id).onchange=()=>{renderStructureList();renderLegend();draw()};
 }
@@ -105,7 +112,7 @@ function dataStatus(){
   $('data-status').title=worldData.source.evidence;
 }
 function renderLayers(){
-  $('layer-controls').hidden=!worldData;dataStatus();$('map-readout').textContent='Tap the map to inspect a coordinate.';
+  $('fit-landmarks').disabled=!worldData?.structures.length;$('layer-controls').hidden=!worldData;dataStatus();$('map-readout').textContent='Tap the map to inspect a coordinate.';
   $('biome-y').replaceChildren();$('structure-filter').replaceChildren(new Option('All structures',''));
   if(!worldData)return;
   for(const y of [...new Set(worldData.biomes.map(t=>t.y))].sort((a,b)=>a-b))$('biome-y').append(new Option('Y '+y,String(y)));
@@ -115,7 +122,7 @@ function renderLayers(){
 function renderLegend(){
   const root=$('biome-legend');root.replaceChildren();if(!worldData)return;
   const entries=new Map();for(const t of worldData.biomes.filter(t=>t.y===Number($('biome-y').value)))
-    for(const p of t.palette)entries.set(p.name,p.color);
+    for(const index of new Set(t.samples)){const p=t.palette[index];entries.set(p.name,p.color)}
   for(const [name,color] of entries){const row=document.createElement('div'),dot=document.createElement('span');
     dot.textContent='● ';dot.style.color=color;row.append(dot,document.createTextNode(name));root.append(row)}
 }
