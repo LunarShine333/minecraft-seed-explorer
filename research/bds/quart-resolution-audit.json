@@ -1,0 +1,68 @@
+{
+  "schema": "bedrock-quart-resolution-audit-v1",
+  "checkedCells": 262144,
+  "perHeight": [
+    {
+      "y": -48,
+      "fourByFourSquares": 4096,
+      "mixedSquares": 304,
+      "minimumErrorsForConstantFourByFourLookup": 1231,
+      "firstMixedSquare": {
+        "x": -44,
+        "z": -128,
+        "y": -48,
+        "counts": {
+          "minecraft:meadow": 10,
+          "minecraft:deep_dark": 6
+        }
+      }
+    },
+    {
+      "y": 0,
+      "fourByFourSquares": 4096,
+      "mixedSquares": 480,
+      "minimumErrorsForConstantFourByFourLookup": 1911,
+      "firstMixedSquare": {
+        "x": -128,
+        "z": -128,
+        "y": 0,
+        "counts": {
+          "minecraft:plains": 15,
+          "minecraft:meadow": 1
+        }
+      }
+    },
+    {
+      "y": 64,
+      "fourByFourSquares": 4096,
+      "mixedSquares": 460,
+      "minimumErrorsForConstantFourByFourLookup": 1926,
+      "firstMixedSquare": {
+        "x": -128,
+        "z": -128,
+        "y": 64,
+        "counts": {
+          "minecraft:plains": 15,
+          "minecraft:meadow": 1
+        }
+      }
+    },
+    {
+      "y": 128,
+      "fourByFourSquares": 4096,
+      "mixedSquares": 459,
+      "minimumErrorsForConstantFourByFourLookup": 1756,
+      "firstMixedSquare": {
+        "x": -128,
+        "z": -128,
+        "y": 128,
+        "counts": {
+          "minecraft:plains": 5,
+          "minecraft:meadow": 11
+        }
+      }
+    }
+  ],
+  "minimumErrorsForConstantFourByFourLookup": 6824,
+  "limits": "Lower bound applies only to an aligned, horizontally constant 4x4 block lookup at each selected Y. It does not establish the correct Bedrock sampling algorithm or approval for another predictor."
+}
