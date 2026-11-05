@@ -1,0 +1,457 @@
+{
+  "schemaVersion": 1,
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "edition": "bedrock",
+  "dimension": "overworld",
+  "source": {
+    "kind": "observed",
+    "name": "Official Bedrock server: checked tile atlas",
+    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 × 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 × 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove 64 × 64 native API cells. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
+  },
+  "structures": [
+    {
+      "type": "buried_treasure",
+      "x": 136,
+      "z": -120
+    },
+    {
+      "type": "trial_chambers",
+      "x": 169,
+      "z": 249
+    },
+    {
+      "type": "ruined_portal",
+      "x": 264,
+      "z": 152
+    },
+    {
+      "type": "mineshaft",
+      "x": -256,
+      "z": -256
+    },
+    {
+      "type": "shipwreck",
+      "x": -344,
+      "z": -152
+    },
+    {
+      "type": "trail_ruins",
+      "x": 654,
+      "z": 14
+    },
+    {
+      "type": "monument",
+      "x": 184,
+      "z": 712
+    },
+    {
+      "type": "monument",
+      "x": -312,
+      "z": -680
+    },
+    {
+      "type": "village",
+      "x": -904,
+      "z": 152
+    },
+    {
+      "type": "village",
+      "x": 760,
+      "z": 680
+    },
+    {
+      "type": "temple",
+      "x": 872,
+      "z": 632
+    },
+    {
+      "type": "shipwreck",
+      "x": -1272,
+      "z": -840
+    },
+    {
+      "type": "pillager_outpost",
+      "x": 1768,
+      "z": 728
+    },
+    {
+      "type": "shipwreck",
+      "x": 1624,
+      "z": 1752
+    },
+    {
+      "type": "stronghold",
+      "x": 658,
+      "z": 2338
+    },
+    {
+      "type": "village",
+      "x": 1800,
+      "z": 1768
+    },
+    {
+      "type": "trial_chambers",
+      "x": -2007,
+      "z": 1719
+    },
+    {
+      "type": "village",
+      "x": -1848,
+      "z": -1928
+    },
+    {
+      "type": "trial_chambers",
+      "x": 1913,
+      "z": 1879
+    },
+    {
+      "type": "ancient_city",
+      "x": 552,
+      "z": -2664
+    },
+    {
+      "type": "trial_chambers",
+      "x": -1975,
+      "z": -2007
+    },
+    {
+      "type": "village",
+      "x": -1624,
+      "z": 2312
+    },
+    {
+      "type": "ruined_portal",
+      "x": 2024,
+      "z": 2008
+    },
+    {
+      "type": "trial_chambers",
+      "x": 1961,
+      "z": -2167
+    },
+    {
+      "type": "shipwreck",
+      "x": 1992,
+      "z": -2152
+    },
+    {
+      "type": "village",
+      "x": 2952,
+      "z": -776
+    },
+    {
+      "type": "ruined_portal",
+      "x": 2184,
+      "z": -2168
+    },
+    {
+      "type": "ancient_city",
+      "x": 152,
+      "z": 3144
+    },
+    {
+      "type": "monument",
+      "x": 2248,
+      "z": -2344
+    },
+    {
+      "type": "ruined_portal",
+      "x": -2552,
+      "z": 2200
+    },
+    {
+      "type": "ancient_city",
+      "x": 3208,
+      "z": 1208
+    },
+    {
+      "type": "ruined_portal",
+      "x": -2552,
+      "z": -2408
+    },
+    {
+      "type": "ancient_city",
+      "x": -2552,
+      "z": -2920
+    },
+    {
+      "type": "monument",
+      "x": -2808,
+      "z": 2888
+    },
+    {
+      "type": "shipwreck",
+      "x": -2936,
+      "z": 2840
+    },
+    {
+      "type": "mansion",
+      "x": -4920,
+      "z": -2984
+    }
+  ],
+  "tiles": [
+    {
+      "id": "64_-256_-256",
+      "path": "./data/tiles/64_-256_-256.json",
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_-256",
+      "path": "./data/tiles/64_-128_-256.json",
+      "x": -128,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_0_-256",
+      "path": "./data/tiles/64_0_-256.json",
+      "x": 0,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_128_-256",
+      "path": "./data/tiles/64_128_-256.json",
+      "x": 128,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-256_-128",
+      "path": "./data/tiles/64_-256_-128.json",
+      "x": -256,
+      "z": -128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_-128",
+      "path": "./data/tiles/64_-128_-128.json",
+      "x": -128,
+      "z": -128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_0_-128",
+      "path": "./data/tiles/64_0_-128.json",
+      "x": 0,
+      "z": -128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_128_-128",
+      "path": "./data/tiles/64_128_-128.json",
+      "x": 128,
+      "z": -128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-256_0",
+      "path": "./data/tiles/64_-256_0.json",
+      "x": -256,
+      "z": 0,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_0",
+      "path": "./data/tiles/64_-128_0.json",
+      "x": -128,
+      "z": 0,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_0_0",
+      "path": "./data/tiles/64_0_0.json",
+      "x": 0,
+      "z": 0,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_128_0",
+      "path": "./data/tiles/64_128_0.json",
+      "x": 128,
+      "z": 0,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-256_128",
+      "path": "./data/tiles/64_-256_128.json",
+      "x": -256,
+      "z": 128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_128",
+      "path": "./data/tiles/64_-128_128.json",
+      "x": -128,
+      "z": 128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_0_128",
+      "path": "./data/tiles/64_0_128.json",
+      "x": 0,
+      "z": 128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_128_128",
+      "path": "./data/tiles/64_128_128.json",
+      "x": 128,
+      "z": 128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "-48_-128_-128",
+      "path": "./data/tiles/-48_-128_-128.json",
+      "x": -128,
+      "z": -128,
+      "y": -48,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "-48_0_-128",
+      "path": "./data/tiles/-48_0_-128.json",
+      "x": 0,
+      "z": -128,
+      "y": -48,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "-48_-128_0",
+      "path": "./data/tiles/-48_-128_0.json",
+      "x": -128,
+      "z": 0,
+      "y": -48,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "-48_0_0",
+      "path": "./data/tiles/-48_0_0.json",
+      "x": 0,
+      "z": 0,
+      "y": -48,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "0_-128_-128",
+      "path": "./data/tiles/0_-128_-128.json",
+      "x": -128,
+      "z": -128,
+      "y": 0,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "0_0_-128",
+      "path": "./data/tiles/0_0_-128.json",
+      "x": 0,
+      "z": -128,
+      "y": 0,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "0_-128_0",
+      "path": "./data/tiles/0_-128_0.json",
+      "x": -128,
+      "z": 0,
+      "y": 0,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "0_0_0",
+      "path": "./data/tiles/0_0_0.json",
+      "x": 0,
+      "z": 0,
+      "y": 0,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "128_-128_-128",
+      "path": "./data/tiles/128_-128_-128.json",
+      "x": -128,
+      "z": -128,
+      "y": 128,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "128_0_-128",
+      "path": "./data/tiles/128_0_-128.json",
+      "x": 0,
+      "z": -128,
+      "y": 128,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "128_-128_0",
+      "path": "./data/tiles/128_-128_0.json",
+      "x": -128,
+      "z": 0,
+      "y": 128,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "128_0_0",
+      "path": "./data/tiles/128_0_0.json",
+      "x": 0,
+      "z": 0,
+      "y": 128,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "103_-2368_-320",
+      "path": "./data/tiles/103_-2368_-320.json",
+      "x": -2368,
+      "z": -320,
+      "y": 103,
+      "width": 64,
+      "height": 64
+    }
+  ]
+}

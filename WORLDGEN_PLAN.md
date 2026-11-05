@@ -147,3 +147,45 @@ Retested core's genBiomeNoiseChunkSection with X/Y/Z iteration order and a
 persistent per-chunk cache through sections -4..19. Raw quart results still
 matched 935/1156 saved API references, identical to independent quart sampling.
 Chunk-generation traversal order does not fix the observed mismatch.
+
+## Continuous checked tile checkpoint — 2026-11-05
+
+Implemented a viewport-driven checked atlas in `checked-tiles.mjs`. The page
+opens in continuous mode, requests adjoining stored tiles as the viewport or
+sample height changes, and keeps unknown areas blank. Tile requests use four
+workers, shared in-flight requests and a 32-tile LRU. UI generation tokens reject
+stale viewport results after newer requests, clearing or switching layers.
+Existing imports and device waypoint storage remain supported.
+
+`node scripts/build-checked-tiles.mjs` reproducibly splits the existing native
+bundles into 29 files (128 × 128 maximum), with no fitted predictions:
+16 Y64 tiles, four each at Y-48/0/128, and one Y103 Cherry Grove tile.
+Every file retains its original source evidence; the catalog describes the
+combined coverage. This reorganizes **462848 existing distinct height cells**;
+it does not expand their geographic footprint or solve global generation.
+The tile catalog can grow without changing rendering code. Full-seed identity,
+exact target release and tile bounds are validated before display.
+
+Added a separate approximate home marker at X128 Z24 (house, garden and barn),
+without adding, replacing or deleting any device waypoint. Home returns to Y64.
+No app packaging or custom icon work is planned.
+
+Validation: 31 Node tests and 10 Python decoder/export tests pass. New tests
+compare every tile cell/name/color against its original native source, exercise
+adjoining negative-coordinate edges, cache reuse/eviction, network failure and
+retry, concurrent view snapshots, and reject wrong seed/height/provenance.
+Browser preview confirmed initial automatic loading, unknown regions at a
+coordinate jump, and the Y103 Cherry Grove loading in continuous mode.
+Physical Safari/iPhone/iPad testing remains outstanding.
+
+Next: expand checked coverage through native test-world acquisition and append
+new tiles, while investigating Bedrock-specific climate/access behavior with
+new evidence. Do not rerun rejected fitted quart/Voronoi experiments. The
+retained scratch `bds-validation/bedrock_server` is truncated (61669376 bytes;
+ELF section headers expected at 265500360). The existing official ZIP was intact:
+restored a separate 265500488-byte executable with successful ZIP CRC validation
+to `/workspace/scratch/d1fee5f737c4/bds-restored/bedrock_server` (SHA256
+`d75212f20511eac3e3a1a45c5b57646d697a33038d5e41fa92113e1fbc14efab`).
+It was not executed in this increment. Reuse the intact official archive if the
+restored scratch executable is missing; no fresh download is needed. Never
+substitute candidate predictions for missing native regions.
