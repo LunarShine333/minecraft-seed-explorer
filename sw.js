@@ -1,4 +1,4 @@
-const CACHE = 'minecraft-seed-explorer-v5-biome-finder';
+const CACHE = 'minecraft-seed-explorer-v6-organized-layout';
 const PREFIX = 'minecraft-seed-explorer-';
 const ASSETS = ['./', './index.html', './world-data.mjs', './map-gestures.mjs', './manifest.webmanifest', './DATA_FORMAT.md', './data/bedrock-26.60-checked-area.json'];
 self.addEventListener('install', event => {
