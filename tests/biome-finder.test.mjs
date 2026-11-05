@@ -1,0 +1,6 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {nearestBiome} from '../world-data.mjs';
+const tile={x:-16,z:-16,y:64,width:2,height:2,step:16,palette:[{name:'forest',color:'#008800'},{name:'plains',color:'#88bb44'}],samples:[0,1,1,0]};
+test('finder chooses the closest known cell using negative and positive coordinates',()=>{const r=nearestBiome({biomes:[tile]},'forest',-14,-13,64);assert.equal(r.x,-16);assert.equal(r.z,-16);assert.equal(r.distance,Math.sqrt(13));assert.equal(nearestBiome({biomes:[tile]},'forest',4,5,64).x,0)});
+test('missing biome or height remains unknown',()=>{assert.equal(nearestBiome({biomes:[tile]},'ocean',0,0,64),null);assert.equal(nearestBiome({biomes:[tile]},'forest',0,0,-48),null);assert.equal(nearestBiome(null,'forest',0,0,64),null)});
+test('coarse grids return only recorded sample coordinates',()=>{const r=nearestBiome({biomes:[tile]},'plains',-10,-10,64);assert.ok((r.x===0&&r.z===-16)||(r.x===-16&&r.z===0));assert.equal(r.step,16)});
+test('all matching tiles and duplicate palette entries are considered',()=>{const other={...tile,x:100,palette:[...tile.palette,{name:'forest',color:'#008000'}],samples:[2,2,2,2]};assert.equal(nearestBiome({biomes:[tile,other]},'forest',100,-16,64).x,100);assert.throws(()=>nearestBiome({biomes:[tile]},'forest',NaN,0,64))});
