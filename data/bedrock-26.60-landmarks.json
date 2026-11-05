@@ -7,23 +7,18 @@
   "source": {
     "kind": "observed",
     "name": "Official Bedrock Dedicated Server /locate results",
-    "evidence": "Fresh vanilla world, no packs or experiments; server 1.26.61.1, build 53069370, commit 86f7b32281709abd4444adb52887796af061c7bd. Commands: execute positioned X 64 Z run locate structure TYPE false. These are native game locator coordinates, not visual block-level confirmation; Y is unknown. Existing Xbox chunks may have older generation."
+    "evidence": "Fresh vanilla world, no packs or experiments; server 1.26.61.1, build 53069370, commit 86f7b32281709abd4444adb52887796af061c7bd. Commands: execute positioned X 64 Z run locate structure TYPE false. These are native game locator coordinates, not visual block-level confirmation; Y is unknown. Existing Xbox chunks may have older generation. Expanded native locator checks from origin and four X/Z points at ±2048. A failed ocean_ruin search is not proof of absence. Selected results only, not exhaustive coverage."
   },
   "structures": [
     {
-      "type": "village",
-      "x": 760,
-      "z": 680
+      "type": "buried_treasure",
+      "x": 136,
+      "z": -120
     },
     {
-      "type": "village",
-      "x": -904,
-      "z": 152
-    },
-    {
-      "type": "monument",
-      "x": 184,
-      "z": 712
+      "type": "trial_chambers",
+      "x": 169,
+      "z": 249
     },
     {
       "type": "ruined_portal",
@@ -31,9 +26,169 @@
       "z": 152
     },
     {
+      "type": "mineshaft",
+      "x": -256,
+      "z": -256
+    },
+    {
+      "type": "shipwreck",
+      "x": -344,
+      "z": -152
+    },
+    {
+      "type": "trail_ruins",
+      "x": 654,
+      "z": 14
+    },
+    {
+      "type": "monument",
+      "x": 184,
+      "z": 712
+    },
+    {
+      "type": "monument",
+      "x": -312,
+      "z": -680
+    },
+    {
+      "type": "village",
+      "x": -904,
+      "z": 152
+    },
+    {
+      "type": "village",
+      "x": 760,
+      "z": 680
+    },
+    {
+      "type": "temple",
+      "x": 872,
+      "z": 632
+    },
+    {
+      "type": "shipwreck",
+      "x": -1272,
+      "z": -840
+    },
+    {
+      "type": "pillager_outpost",
+      "x": 1768,
+      "z": 728
+    },
+    {
+      "type": "shipwreck",
+      "x": 1624,
+      "z": 1752
+    },
+    {
+      "type": "stronghold",
+      "x": 658,
+      "z": 2338
+    },
+    {
+      "type": "village",
+      "x": 1800,
+      "z": 1768
+    },
+    {
+      "type": "trial_chambers",
+      "x": -2007,
+      "z": 1719
+    },
+    {
+      "type": "village",
+      "x": -1848,
+      "z": -1928
+    },
+    {
+      "type": "trial_chambers",
+      "x": 1913,
+      "z": 1879
+    },
+    {
       "type": "ancient_city",
       "x": 552,
       "z": -2664
+    },
+    {
+      "type": "trial_chambers",
+      "x": -1975,
+      "z": -2007
+    },
+    {
+      "type": "village",
+      "x": -1624,
+      "z": 2312
+    },
+    {
+      "type": "ruined_portal",
+      "x": 2024,
+      "z": 2008
+    },
+    {
+      "type": "trial_chambers",
+      "x": 1961,
+      "z": -2167
+    },
+    {
+      "type": "shipwreck",
+      "x": 1992,
+      "z": -2152
+    },
+    {
+      "type": "village",
+      "x": 2952,
+      "z": -776
+    },
+    {
+      "type": "ruined_portal",
+      "x": 2184,
+      "z": -2168
+    },
+    {
+      "type": "ancient_city",
+      "x": 152,
+      "z": 3144
+    },
+    {
+      "type": "monument",
+      "x": 2248,
+      "z": -2344
+    },
+    {
+      "type": "ruined_portal",
+      "x": -2552,
+      "z": 2200
+    },
+    {
+      "type": "ancient_city",
+      "x": 3208,
+      "z": 1208
+    },
+    {
+      "type": "ruined_portal",
+      "x": -2552,
+      "z": -2408
+    },
+    {
+      "type": "ancient_city",
+      "x": -2552,
+      "z": -2920
+    },
+    {
+      "type": "monument",
+      "x": -2808,
+      "z": 2888
+    },
+    {
+      "type": "shipwreck",
+      "x": -2936,
+      "z": 2840
+    },
+    {
+      "type": "mansion",
+      "x": -4920,
+      "z": -2984
     }
   ],
   "biomes": []
