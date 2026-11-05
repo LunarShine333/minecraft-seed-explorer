@@ -182,7 +182,10 @@ Next: expand checked coverage through native test-world acquisition and append
 new tiles, while investigating Bedrock-specific climate/access behavior with
 new evidence. Do not rerun rejected fitted quart/Voronoi experiments. The
 retained scratch `bds-validation/bedrock_server` is truncated (61669376 bytes;
-ELF section headers expected at 265500360), so it must be restored from a complete
-official download before attempting any native execution. It was not executed
-in this increment. This does not block the tile-loading implementation. Never
+ELF section headers expected at 265500360). The existing official ZIP was intact:
+restored a separate 265500488-byte executable with successful ZIP CRC validation
+to `/workspace/scratch/d1fee5f737c4/bds-restored/bedrock_server` (SHA256
+`d75212f20511eac3e3a1a45c5b57646d697a33038d5e41fa92113e1fbc14efab`).
+It was not executed in this increment. Reuse the intact official archive if the
+restored scratch executable is missing; no fresh download is needed. Never
 substitute candidate predictions for missing native regions.
