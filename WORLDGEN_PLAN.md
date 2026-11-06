@@ -189,3 +189,60 @@ to `/workspace/scratch/d1fee5f737c4/bds-restored/bedrock_server` (SHA256
 It was not executed in this increment. Reuse the intact official archive if the
 restored scratch executable is missing; no fresh download is needed. Never
 substitute candidate predictions for missing native regions.
+
+## Native route expansion checkpoint — 2026-11-05
+
+Collected **589824 direct native API biome readings** in a fresh disposable
+BDS 1.26.61.1 build 53069370 world: 573440 route/destination cells plus an
+independent 16384-cell control. Seed was the exact configured decimal string;
+`level.dat` verifies it, default generator, and all experiments off. No blocks
+were modified; only temporary ticking areas loaded chunks. Server stopped cleanly.
+No Xbox save was accessed. Original Xbox generation release remains unknown.
+
+Published atlas content prepared in this increment:
+- **34 new Y64 tiles**, forming a continuous 2176 × 256 strip at X -2432..-257,
+  Z -384..-129, adjoining the original 512 × 512 map. Total Y64 coverage:
+  **819200 cells across 50 tiles**. This is a sampled biome strip, not a safe
+  walking route or a height/surface terrain model.
+- **128 × 128 at Y103** around the native Cherry Grove point. All 4096 cells
+  of the old patch match exactly; it is superseded only in the atlas catalog,
+  while its original import file remains available. Net additional distinct
+  height cells: **569344**. Atlas total: **1032192 cells across 63 tiles**.
+- Independent native Y64 control matches all 16384 prior stored cells, retaining
+  the documented stone_beach/stony_shore name alias. No fitted output is used.
+- Added a direct Cherry Grove navigation button/marker and Fit checked biome
+  coverage. Existing saved waypoints are unchanged. Unknown terrain stays blank.
+
+Evidence is committed as `research/bds/cherry-route-native.log.gz`, with exact
+settings, per-tile provenance and SHA256 in `cherry-route-manifest.json`.
+`research/bds/cherry-route-probe.js` is the read-only acquisition script.
+Re-export from retained evidence (no running game required):
+
+```
+python scripts/import_native_route.py --log research/bds/cherry-route-native.log.gz --settings research/bds/cherry-route-settings.json
+node scripts/build-checked-tiles.mjs
+```
+
+The importer rejects incomplete/aborted runs, missing/duplicate rows, unexpected
+seed/version/experiments, invalid palette indices and failed prior-fixture
+comparisons before writing outputs. Atlas builder checks all overlap cells
+before replacing a smaller tile. 34 Node tests and 14 Python tests pass,
+including every exported cell against the retained native evidence and a
+continuous pan path along the strip. Browser preview confirmed 50 streamed
+Y64 tiles and direct navigation to the enlarged native Y103 destination.
+Physical Safari/device gesture testing remains outstanding.
+
+Scratch acquisition environment: `/workspace/scratch/d1fee5f737c4/bds-route`;
+world `seed-explorer-route`. Full official ZIP is again available at
+`/workspace/scratch/d1fee5f737c4/bds-official.zip` (98093051 bytes). The first
+download was incomplete; a normal HTTP range resume completed it and ZIP
+extraction succeeded. Prior scratch directory `5f64400feb0f` had expired.
+Do not rely on scratch survival: code, settings and measured cells are in GitHub.
+
+Next useful increment: widen native coverage near home or the Cherry Grove,
+then add further useful destinations. A compact overview/LOD layer and a global
+request pool would help if the catalog grows much larger. The precise full-world
+engine remains unresolved; investigate only with new Bedrock-specific evidence,
+without repeating rejected quart/fractional/Voronoi fitting. No engine capability
+has been approved. BDS 1.26.61.1 observations retain the 26.60 target/older-chunk
+caveats; passing these tests does not establish a global Xbox prediction engine.

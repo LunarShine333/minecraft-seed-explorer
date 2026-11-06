@@ -1,5 +1,6 @@
 import {validateBundle, WORLD_SEED} from './world-data.mjs';
 export const HOME = Object.freeze({x:128,z:24,name:'Home property (approximate)'});
+export const CHERRY = Object.freeze({x:-2336,y:103,z:-288,name:'Cherry Grove (native Y103)'});
 const target={seed:WORLD_SEED,version:'26.60'};
 export function validateCatalog(raw){
   const base=validateBundle({...raw,biomes:[]},target);
