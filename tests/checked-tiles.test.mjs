@@ -10,7 +10,7 @@ const native={64:read('data/bedrock-26.60-wide-area.json'),103:read('data/bedroc
 for(const t of read('data/bedrock-26.60-checked-area.json').biomes)if(t.y!==64)native[t.y]={biomes:[t]};
 test('the expanded atlas retains every original native cell, palette and provenance',async()=>{
   const store=new CheckedTileStore(catalog,async path=>read(path));
-  assert.equal(catalog.tiles.length,63);
+  assert.equal(catalog.tiles.length,111);
   let cells=0;
   for(const entry of store.catalog.tiles){
     const tile=await store.tile(entry);
@@ -27,7 +27,7 @@ test('adjoining tile boundaries, negative coordinates and unknown regions',()=>{
   const c=validateCatalog(catalog);
   assert.equal(visibleTiles(c,{minX:-256,minZ:-256,maxX:-128,maxZ:-128},64).length,1);
   assert.equal(visibleTiles(c,{minX:-129,minZ:-256,maxX:-127,maxZ:-128},64).length,2);
-  assert.equal(visibleTiles(c,{minX:256,minZ:256,maxX:512,maxZ:512},64).length,0);
+  assert.equal(visibleTiles(c,{minX:768,minZ:768,maxX:1024,maxZ:1024},64).length,0);
   assert.equal(visibleTiles(c,whole,103).length,1);
   assert.equal(visibleTiles(c,whole,104).length,0);
 });
@@ -64,6 +64,7 @@ test('concurrent viewport snapshots remain independent even when responses finis
   const releases=new Map();const store=new CheckedTileStore(catalog,path=>new Promise(resolve=>releases.set(path,()=>resolve(read(path)))));
   const a=catalog.tiles[0],b=catalog.tiles[1],bounds=t=>({minX:t.x,minZ:t.z,maxX:t.x+1,maxZ:t.z+1});
   const early=store.view(bounds(a),64),later=store.view(bounds(b),64);
+  await new Promise(resolve=>setImmediate(resolve));
   releases.get(b.path)();const result=await later;assert.equal(result.bundle.biomes[0].x,b.x);
   releases.get(a.path)();assert.equal((await early).bundle.biomes[0].x,a.x);
 });

@@ -1,0 +1,33 @@
+{
+  "headerVersion": 10,
+  "payloadBytes": 3036,
+  "settings": {
+    "Generator": 1,
+    "InventoryVersion": "1.26.61",
+    "LevelName": "seed-explorer-home",
+    "MinimumCompatibleClientVersion": [
+      1,
+      26,
+      60,
+      0,
+      0
+    ],
+    "NetworkVersion": 2225,
+    "RandomSeed": "3022187552114785111",
+    "StorageVersion": 10,
+    "WorldVersion": 1,
+    "editorLevelMigrationVersion": 0,
+    "experiments": {
+      "experiments_ever_used": 0,
+      "saved_with_toggled_experiments": 0
+    },
+    "isRandomSeedAllowed": 0,
+    "lastOpenedWithVersion": [
+      1,
+      26,
+      61,
+      1,
+      0
+    ]
+  }
+}

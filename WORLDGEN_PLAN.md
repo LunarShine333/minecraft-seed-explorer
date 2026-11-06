@@ -246,3 +246,57 @@ engine remains unresolved; investigate only with new Bedrock-specific evidence,
 without repeating rejected quart/fractional/Voronoi fitting. No engine capability
 has been approved. BDS 1.26.61.1 observations retain the 26.60 target/older-chunk
 caveats; passing these tests does not establish a global Xbox prediction engine.
+
+## Home-area expansion and progressive streaming — 2026-11-05
+
+Added **48 native Y64 tiles / 786432 new cells**, expanding the home-area square
+from 512 × 512 to **1024 × 1024**, X/Z -256..767. Together with the existing
+Cherry Grove strip, Y64 now has **1605632 cells across 98 tiles**. Complete atlas:
+**1818624 distinct height cells / 111 tiles**, with other sample heights unchanged.
+The new area includes biome observations around existing locator landmarks at
+(264,152), (184,712) and (760,680); it does not add or validate new structures.
+
+Acquired **802816 direct native API readings** in fresh disposable world
+`seed-explorer-home`, official BDS 1.26.61.1 build 53069370: 48 new tiles plus
+one independent 16384-cell control. The control matches all prior native control
+cells. level.dat confirms exact string seed, default generator and experiments
+off. No block edits or Xbox save access; server stopped cleanly. Evidence,
+settings, manifest, control and probe are under `research/bds/home-area-*`.
+Re-export without a running server:
+
+```
+python scripts/import_native_home.py --log research/bds/home-area-native.log.gz --settings research/bds/home-area-settings.json
+node scripts/build-checked-tiles.mjs
+```
+
+The native row/settings validator is shared with the route importer. The home
+exporter additionally checks the complete expected footprint and independent
+control before writing any files. All 802816 readings are compared with committed
+outputs in tests, and re-export reproduces all bundle bytes and the manifest.
+
+Replaced independent per-view request bursts with one **four-request pool shared
+across views and store instances**. View cancellation immediately stops further
+enqueueing; queued requests with no live consumer are skipped. Queued tiles still
+needed by a newer view are shared, and already active requests may finish into
+the cache. Each validated tile is delivered progressively; the UI batches paints
+with requestAnimationFrame and rejects stale/cancelled snapshots. Height changes
+show the correct pending Y and clear the old legend immediately. Waypoints and
+prediction gates remain unchanged.
+
+**40 Node tests and 18 Python tests pass.** New concurrency tests cover shared
+caps, progressive delivery before a slow tile, cancelled queued work, sharing
+with a newer viewport, and already-aborted views. Browser preview confirmed
+98/98 Y64 tiles rendering after navigation interrupted by a Cherry Grove jump,
+then returning to home and fitting coverage. Physical Safari testing is still
+outstanding; Chrome preview is not an iPhone/iPad verification.
+
+Scratch server/resources remain at `/workspace/scratch/d1fee5f737c4/bds-route`;
+its current configuration selects the disposable home world and home probe.
+The old route probe remains committed for reproducibility. If scratch expires,
+restore official BDS assets and use the committed scripts; no Xbox save is needed.
+
+Next: a compact overview/LOD layer to keep wide zooms light before adding many
+more native tiles, plus biome destination discovery. The full-world generator
+remains unresolved and no rejected fitted sampling experiments were repeated.
+Only native observed cells are published; older Xbox chunks may differ from
+this 1.26.61.1 source while the user's target stays 26.60, experiments off.

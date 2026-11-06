@@ -6,25 +6,28 @@ Personal Overworld site: exact seed `3022187552114785111`, Xbox target Bedrock
 ## Available
 
 - Continuous checked mode loads adjoining tiles on pan/zoom or sample Y changes.
-- 63 native-data tiles: original 512 × 512 plus an adjoining 2176 × 256 strip
-  at Y64 (819200 cells); 256 × 256 at Y-48/0/128; and 128 × 128 Cherry Grove
-  at Y103. Total 1032192 distinct height cells. Coverage remains bounded.
+- 111 native-data tiles: 1024 × 1024 home-area square plus an adjoining
+  2176 × 256 strip at Y64 (1605632 cells); 256 × 256 at Y-48/0/128; and
+  128 × 128 Cherry Grove at Y103. Total 1818624 distinct height cells.
+  Coverage remains bounded.
 - 36 selected native locator landmarks across 13 types; Y unknown.
 - Approximate home property marker at X128 Z24; not verified in-game.
 - Direct native Cherry Grove navigation and a button to fit checked coverage.
 - Biome finder (visible loaded tiles in continuous mode), structure search,
   coordinate jumps, device waypoints/backups and existing full-area imports.
-- Request deduplication, four concurrent loads, bounded tile cache and
-  stale-viewport protection. Service worker caches requested tiles for offline
+- Progressive tile display, a shared four-request concurrency cap, queued
+  cancellation, request sharing, bounded tile cache and stale-viewport protection. Service worker caches requested tiles for offline
   reuse; regions never downloaded are unavailable offline.
 
 ## Verification and limits
 
-34 Node and 14 Python tests pass. Existing 462848 cells retain their original
-biome names/colors. All 589824 newly collected API readings, including an
-independent 16384-cell control, are checked against committed native evidence.
-The control and old Cherry Grove patch match their prior native fixtures.
-Browser preview confirms streaming 50 Y64 tiles and Cherry Grove navigation.
+40 Node and 18 Python tests pass. Original source cells remain preserved. The
+home acquisition contains 802816 direct API readings, including an independent
+16384-cell control; all are checked against committed native evidence. The prior
+route acquisition and its own control remain tested. Native controls and the old
+Cherry Grove patch match their prior fixtures. Re-export is reproducible.
+Browser preview confirms streaming 98 Y64 tiles and interrupted navigation
+between home, broad coverage and the Cherry Grove at Y103.
 Physical Safari/iPhone/iPad testing remains outstanding.
 
 The source world used official BDS 1.26.61.1 build 53069370, experiments off;
