@@ -1,4 +1,4 @@
-const CACHE = 'minecraft-seed-explorer-v11-continuous-tiles';
+const CACHE = 'minecraft-seed-explorer-v12-native-cherry-route';
 const PREFIX = 'minecraft-seed-explorer-';
 const ASSETS = ['./', './index.html', './world-data.mjs', './checked-tiles.mjs', './data/checked-tiles.json', './map-gestures.mjs', './structure-search.mjs', './manifest.webmanifest', './DATA_FORMAT.md', './data/bedrock-26.60-checked-area.json', './data/bedrock-26.60-wide-area.json', './data/bedrock-26.60-cherry-grove.json'];
 self.addEventListener('install', event => {

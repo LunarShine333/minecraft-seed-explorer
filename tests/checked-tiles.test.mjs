@@ -8,16 +8,16 @@ const catalog=read('data/checked-tiles.json');
 const whole={minX:-3000,minZ:-1000,maxX:1000,maxZ:1000};
 const native={64:read('data/bedrock-26.60-wide-area.json'),103:read('data/bedrock-26.60-cherry-grove.json')};
 for(const t of read('data/bedrock-26.60-checked-area.json').biomes)if(t.y!==64)native[t.y]={biomes:[t]};
-test('all 29 tile files retain every original native cell, palette and provenance',async()=>{
+test('the expanded atlas retains every original native cell, palette and provenance',async()=>{
   const store=new CheckedTileStore(catalog,async path=>read(path));
-  assert.equal(catalog.tiles.length,29);
+  assert.equal(catalog.tiles.length,63);
   let cells=0;
   for(const entry of store.catalog.tiles){
     const tile=await store.tile(entry);
     assert.equal(tile.source.kind,'observed');assert.match(tile.source.evidence,/1.26.61.1/);
     for(let j=0;j<tile.height;j++)for(let i=0;i<tile.width;i++){
       const got=tile.palette[tile.samples[j*tile.width+i]],expected=biomeAt(native[tile.y],tile.x+i,tile.z+j,tile.y);
-      assert.equal(got.name,expected.name);assert.equal(got.color,expected.color);cells++;
+      if(expected){assert.equal(got.name,expected.name);assert.equal(got.color,expected.color);cells++;}
     }
   }
   assert.equal(cells,462848);

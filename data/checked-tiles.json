@@ -7,7 +7,7 @@
   "source": {
     "kind": "observed",
     "name": "Official Bedrock server: checked tile atlas",
-    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 × 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 × 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove 64 × 64 native API cells. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
+    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 × 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 × 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 × 128 tiles; research/bds/cherry-route-manifest.json records acquisition evidence and settings. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
   },
   "structures": [
     {
@@ -445,13 +445,319 @@
       "height": 128
     },
     {
-      "id": "103_-2368_-320",
-      "path": "./data/tiles/103_-2368_-320.json",
-      "x": -2368,
-      "z": -320,
+      "id": "64_-384_-256",
+      "path": "./data/tiles/64_-384_-256.json",
+      "x": -384,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-384_-384",
+      "path": "./data/tiles/64_-384_-384.json",
+      "x": -384,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-512_-256",
+      "path": "./data/tiles/64_-512_-256.json",
+      "x": -512,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-512_-384",
+      "path": "./data/tiles/64_-512_-384.json",
+      "x": -512,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-640_-256",
+      "path": "./data/tiles/64_-640_-256.json",
+      "x": -640,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-640_-384",
+      "path": "./data/tiles/64_-640_-384.json",
+      "x": -640,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-768_-256",
+      "path": "./data/tiles/64_-768_-256.json",
+      "x": -768,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-768_-384",
+      "path": "./data/tiles/64_-768_-384.json",
+      "x": -768,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-896_-256",
+      "path": "./data/tiles/64_-896_-256.json",
+      "x": -896,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-896_-384",
+      "path": "./data/tiles/64_-896_-384.json",
+      "x": -896,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1024_-256",
+      "path": "./data/tiles/64_-1024_-256.json",
+      "x": -1024,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1024_-384",
+      "path": "./data/tiles/64_-1024_-384.json",
+      "x": -1024,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1152_-256",
+      "path": "./data/tiles/64_-1152_-256.json",
+      "x": -1152,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1152_-384",
+      "path": "./data/tiles/64_-1152_-384.json",
+      "x": -1152,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1280_-256",
+      "path": "./data/tiles/64_-1280_-256.json",
+      "x": -1280,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1280_-384",
+      "path": "./data/tiles/64_-1280_-384.json",
+      "x": -1280,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1408_-256",
+      "path": "./data/tiles/64_-1408_-256.json",
+      "x": -1408,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1408_-384",
+      "path": "./data/tiles/64_-1408_-384.json",
+      "x": -1408,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1536_-256",
+      "path": "./data/tiles/64_-1536_-256.json",
+      "x": -1536,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1536_-384",
+      "path": "./data/tiles/64_-1536_-384.json",
+      "x": -1536,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1664_-256",
+      "path": "./data/tiles/64_-1664_-256.json",
+      "x": -1664,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1664_-384",
+      "path": "./data/tiles/64_-1664_-384.json",
+      "x": -1664,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1792_-256",
+      "path": "./data/tiles/64_-1792_-256.json",
+      "x": -1792,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1792_-384",
+      "path": "./data/tiles/64_-1792_-384.json",
+      "x": -1792,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1920_-256",
+      "path": "./data/tiles/64_-1920_-256.json",
+      "x": -1920,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1920_-384",
+      "path": "./data/tiles/64_-1920_-384.json",
+      "x": -1920,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-2048_-256",
+      "path": "./data/tiles/64_-2048_-256.json",
+      "x": -2048,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-2048_-384",
+      "path": "./data/tiles/64_-2048_-384.json",
+      "x": -2048,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-2176_-256",
+      "path": "./data/tiles/64_-2176_-256.json",
+      "x": -2176,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-2176_-384",
+      "path": "./data/tiles/64_-2176_-384.json",
+      "x": -2176,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-2304_-256",
+      "path": "./data/tiles/64_-2304_-256.json",
+      "x": -2304,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-2304_-384",
+      "path": "./data/tiles/64_-2304_-384.json",
+      "x": -2304,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-2432_-256",
+      "path": "./data/tiles/64_-2432_-256.json",
+      "x": -2432,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-2432_-384",
+      "path": "./data/tiles/64_-2432_-384.json",
+      "x": -2432,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "103_-2432_-384",
+      "path": "./data/tiles/103_-2432_-384.json",
+      "x": -2432,
+      "z": -384,
       "y": 103,
-      "width": 64,
-      "height": 64
+      "width": 128,
+      "height": 128
     }
   ]
 }

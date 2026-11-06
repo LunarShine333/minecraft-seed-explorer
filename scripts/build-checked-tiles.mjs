@@ -1,4 +1,4 @@
-import {readFileSync, mkdirSync, writeFileSync} from 'node:fs';
+import {readFileSync, mkdirSync, writeFileSync, existsSync} from 'node:fs';
 import {validateBundle, WORLD_SEED} from '../world-data.mjs';
 const target={seed:WORLD_SEED,version:'26.60'};
 const read=p=>validateBundle(JSON.parse(readFileSync(p,'utf8')),target);
@@ -19,4 +19,29 @@ for(const bundle of [wide,local,cherry])for(const t of bundle.biomes){
     tiles.push({id,path,x:tile.x,z:tile.z,y:tile.y,width,height});
   }
 }
-writeFileSync('data/checked-tiles.json',JSON.stringify({schemaVersion:1,...target,edition:'bedrock',dimension:'overworld',source:{kind:'observed',name:'Official Bedrock server: checked tile atlas',evidence:'BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 × 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 × 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove 64 × 64 native API cells. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file.'},structures:wide.structures,tiles},null,2)+'\n');
+// Append complete native acquisitions. Supersede smaller tiles only after every
+// overlapping cell agrees; preserve the legacy source files for imports.
+const extensionPath='research/bds/cherry-route-manifest.json';
+if(existsSync(extensionPath)){
+  const extension=JSON.parse(readFileSync(extensionPath,'utf8'));
+  if(extension.seed!==target.seed||extension.version!==target.version||extension.experiments!==false)throw Error('Wrong extension world settings');
+  for(const entry of extension.tiles){
+    const bundle=read(entry.path),next=bundle.biomes[0];
+    if(bundle.source.kind!=='observed'||bundle.biomes.length!==1||next.step!==1||['x','z','y','width','height'].some(k=>next[k]!==entry[k]))throw Error('Invalid native extension tile');
+    for(let i=tiles.length-1;i>=0;i--){
+      const old=tiles[i];if(old.y!==entry.y)continue;
+      const overlap=old.x<entry.x+entry.width&&old.x+old.width>entry.x&&old.z<entry.z+entry.height&&old.z+old.height>entry.z;
+      if(!overlap)continue;
+      const prior=read(old.path).biomes[0];
+      for(let z=Math.max(old.z,entry.z);z<Math.min(old.z+old.height,entry.z+entry.height);z++)for(let x=Math.max(old.x,entry.x);x<Math.min(old.x+old.width,entry.x+entry.width);x++){
+        const a=prior.palette[prior.samples[(z-old.z)*old.width+x-old.x]].name;
+        const b=next.palette[next.samples[(z-entry.z)*entry.width+x-entry.x]].name;
+        if(a!==b)throw Error('Native overlap mismatch at '+x+','+entry.y+','+z);
+      }
+      if(old.x>=entry.x&&old.z>=entry.z&&old.x+old.width<=entry.x+entry.width&&old.z+old.height<=entry.z+entry.height)tiles.splice(i,1);
+      else throw Error('Partly overlapping atlas tiles require splitting first');
+    }
+    tiles.push(entry);
+  }
+}
+writeFileSync('data/checked-tiles.json',JSON.stringify({schemaVersion:1,...target,edition:'bedrock',dimension:'overworld',source:{kind:'observed',name:'Official Bedrock server: checked tile atlas',evidence:'BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 × 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 × 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 × 128 tiles; research/bds/cherry-route-manifest.json records acquisition evidence and settings. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file.'},structures:wide.structures,tiles},null,2)+'\n');
