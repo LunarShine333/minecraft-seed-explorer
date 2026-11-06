@@ -94,33 +94,56 @@ c.addEventListener('wheel',e=>{e.preventDefault();scale=Math.max(.001,Math.min(5
 
 
 let worldData = null;
-let tileStore=null,tileEpoch=0,tileTimer=null,tileViewKey='';
-function stopTiles(){tileStore=null;tileEpoch++;tileViewKey='';clearTimeout(tileTimer);$('tile-status').textContent=''}
+let tileStore=null,tileEpoch=0,tileTimer=null,tileViewKey='',tileController=null,tileProgressFrame=0;
+function stopTiles(){
+  tileController?.abort();tileController=null;cancelAnimationFrame(tileProgressFrame);tileProgressFrame=0;
+  tileStore=null;tileEpoch++;tileViewKey='';clearTimeout(tileTimer);$('tile-status').textContent='';
+}
 async function fetchJSON(path){const response=await fetch(path);if(!response.ok)throw Error('Checked data unavailable. Reconnect and load again.');return response.json()}
+function tileView(store){
+  const [minX,minZ]=world(0,0),[maxX,maxZ]=world(map.clientWidth,map.clientHeight),bounds={minX,minZ,maxX,maxZ};
+  const y=Number($('biome-y').value),entries=visibleTiles(store.catalog,bounds,y);
+  return {bounds,y,entries,key:y+':'+entries.map(t=>t.id).join(',')};
+}
 function queueTiles(){
   if(!tileStore)return;
+  // Stop obsolete work immediately, including while the pan debounce is pending.
+  const next=tileView(tileStore);
+  if(next.key!==tileViewKey){
+    if(tileController&&!tileController.signal.aborted){tileController.abort();tileEpoch++;tileViewKey=''}
+    $('tile-status').textContent='Loading '+next.entries.length+' checked tiles at Y '+next.y+'… Unmapped areas remain unknown.';
+  }
   clearTimeout(tileTimer);tileTimer=setTimeout(updateTiles,100);
 }
 async function updateTiles(){
   const store=tileStore;if(!store)return;
-  const [minX,minZ]=world(0,0),[maxX,maxZ]=world(map.clientWidth,map.clientHeight),bounds={minX,minZ,maxX,maxZ};
-  const y=Number($('biome-y').value),entries=visibleTiles(store.catalog,bounds,y);
-  const key=y+':'+entries.map(t=>t.id).join(',');if(key===tileViewKey)return;
+  const {bounds,y,entries,key}=tileView(store);if(key===tileViewKey)return;
+  tileController?.abort();cancelAnimationFrame(tileProgressFrame);tileProgressFrame=0;
+  const controller=new AbortController();tileController=controller;
   tileViewKey=key;const epoch=++tileEpoch;
   $('tile-status').textContent='Loading '+entries.length+' visible checked tiles… Outside checked coverage remains unknown.';
-  const result=await store.view(bounds,y);
-  if(store!==tileStore||epoch!==tileEpoch)return;
-  worldData=result.bundle;renderLegend();draw();
-  $('tile-status').textContent=result.bundle.biomes.length+' checked tiles visible at Y '+y+'. '+(result.failed?result.failed+' failed to load; reconnect and load again. ':'')+'Unmapped areas are unknown. Pan to load adjoining checked tiles. Older Xbox chunks may differ.';
+  const show=result=>{
+    if(store!==tileStore||epoch!==tileEpoch||controller.signal.aborted)return;
+    worldData=result.bundle;renderLegend();draw();
+    $('tile-status').textContent=result.bundle.biomes.length+' of '+result.expected+' checked tiles loaded at Y '+y+'. '+(result.failed?result.failed+' failed to load; reconnect and load again. ':'')+'Unmapped areas are unknown. Pan to load adjoining checked tiles. Older Xbox chunks may differ.';
+  };
+  let latest=null;
+  const result=await store.view(bounds,y,{signal:controller.signal,onProgress:partial=>{
+    if(store!==tileStore||epoch!==tileEpoch||controller.signal.aborted)return;
+    latest=partial;
+    if(!tileProgressFrame)tileProgressFrame=requestAnimationFrame(()=>{tileProgressFrame=0;show(latest)});
+  }});
+  if(store!==tileStore||epoch!==tileEpoch||controller.signal.aborted)return;
+  cancelAnimationFrame(tileProgressFrame);tileProgressFrame=0;show(result);
 }
 let structureCenter={x:0,z:0};
 function initWorldData(){
   $('world-seed').textContent=WORLD_SEED;
   try{$('game-version').value=localStorage.getItem('mse-game-version')||'26.60'}catch{}
-  $('go-home').onclick=()=>{cx=HOME.x;cz=HOME.z;if(tileStore)$('biome-y').value='64';scale=Math.max(scale,1);draw();$('map-readout').textContent='Approximate home property: X 128, Z 24 · house, garden and barn. Not verified in-game.'};
+  $('go-home').onclick=()=>{cx=HOME.x;cz=HOME.z;if(tileStore){$('biome-y').value='64';renderLegend()}scale=Math.max(scale,1);draw();$('map-readout').textContent='Approximate home property: X 128, Z 24 · house, garden and barn. Not verified in-game.'};
   $('go-cherry').onclick=()=>{
     if(!tileStore){$('checked-area').value='cherry';$('load-checked').click();return}
-    cx=CHERRY.x;cz=CHERRY.z;scale=Math.max(scale,2);$('biome-y').value=String(CHERRY.y);draw();
+    cx=CHERRY.x;cz=CHERRY.z;scale=Math.max(scale,2);$('biome-y').value=String(CHERRY.y);renderLegend();draw();
     $('map-readout').textContent='Native checked Cherry Grove: X -2336, Y 103, Z -288. Older Xbox chunks may differ.';
   };
   $('fit-coverage').onclick=()=>{

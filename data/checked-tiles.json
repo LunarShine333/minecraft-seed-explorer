@@ -7,7 +7,7 @@
   "source": {
     "kind": "observed",
     "name": "Official Bedrock server: checked tile atlas",
-    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 × 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 × 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 × 128 tiles; research/bds/cherry-route-manifest.json records acquisition evidence and settings. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
+    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 × 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 × 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 × 128 tiles; research/bds/cherry-route-manifest.json and home-area-manifest.json record acquisition evidence and settings for route and home extensions. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
   },
   "structures": [
     {
@@ -756,6 +756,438 @@
       "x": -2432,
       "z": -384,
       "y": 103,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_256_-256",
+      "path": "./data/tiles/64_256_-256.json",
+      "x": 256,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_384_-256",
+      "path": "./data/tiles/64_384_-256.json",
+      "x": 384,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_-256",
+      "path": "./data/tiles/64_512_-256.json",
+      "x": 512,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_-256",
+      "path": "./data/tiles/64_640_-256.json",
+      "x": 640,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_256_-128",
+      "path": "./data/tiles/64_256_-128.json",
+      "x": 256,
+      "z": -128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_384_-128",
+      "path": "./data/tiles/64_384_-128.json",
+      "x": 384,
+      "z": -128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_-128",
+      "path": "./data/tiles/64_512_-128.json",
+      "x": 512,
+      "z": -128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_-128",
+      "path": "./data/tiles/64_640_-128.json",
+      "x": 640,
+      "z": -128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_256_0",
+      "path": "./data/tiles/64_256_0.json",
+      "x": 256,
+      "z": 0,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_384_0",
+      "path": "./data/tiles/64_384_0.json",
+      "x": 384,
+      "z": 0,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_0",
+      "path": "./data/tiles/64_512_0.json",
+      "x": 512,
+      "z": 0,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_0",
+      "path": "./data/tiles/64_640_0.json",
+      "x": 640,
+      "z": 0,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_256_128",
+      "path": "./data/tiles/64_256_128.json",
+      "x": 256,
+      "z": 128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_384_128",
+      "path": "./data/tiles/64_384_128.json",
+      "x": 384,
+      "z": 128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_128",
+      "path": "./data/tiles/64_512_128.json",
+      "x": 512,
+      "z": 128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_128",
+      "path": "./data/tiles/64_640_128.json",
+      "x": 640,
+      "z": 128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-256_256",
+      "path": "./data/tiles/64_-256_256.json",
+      "x": -256,
+      "z": 256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_256",
+      "path": "./data/tiles/64_-128_256.json",
+      "x": -128,
+      "z": 256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_0_256",
+      "path": "./data/tiles/64_0_256.json",
+      "x": 0,
+      "z": 256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_128_256",
+      "path": "./data/tiles/64_128_256.json",
+      "x": 128,
+      "z": 256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_256_256",
+      "path": "./data/tiles/64_256_256.json",
+      "x": 256,
+      "z": 256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_384_256",
+      "path": "./data/tiles/64_384_256.json",
+      "x": 384,
+      "z": 256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_256",
+      "path": "./data/tiles/64_512_256.json",
+      "x": 512,
+      "z": 256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_256",
+      "path": "./data/tiles/64_640_256.json",
+      "x": 640,
+      "z": 256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-256_384",
+      "path": "./data/tiles/64_-256_384.json",
+      "x": -256,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_384",
+      "path": "./data/tiles/64_-128_384.json",
+      "x": -128,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_0_384",
+      "path": "./data/tiles/64_0_384.json",
+      "x": 0,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_128_384",
+      "path": "./data/tiles/64_128_384.json",
+      "x": 128,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_256_384",
+      "path": "./data/tiles/64_256_384.json",
+      "x": 256,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_384_384",
+      "path": "./data/tiles/64_384_384.json",
+      "x": 384,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_384",
+      "path": "./data/tiles/64_512_384.json",
+      "x": 512,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_384",
+      "path": "./data/tiles/64_640_384.json",
+      "x": 640,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-256_512",
+      "path": "./data/tiles/64_-256_512.json",
+      "x": -256,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_512",
+      "path": "./data/tiles/64_-128_512.json",
+      "x": -128,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_0_512",
+      "path": "./data/tiles/64_0_512.json",
+      "x": 0,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_128_512",
+      "path": "./data/tiles/64_128_512.json",
+      "x": 128,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_256_512",
+      "path": "./data/tiles/64_256_512.json",
+      "x": 256,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_384_512",
+      "path": "./data/tiles/64_384_512.json",
+      "x": 384,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_512",
+      "path": "./data/tiles/64_512_512.json",
+      "x": 512,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_512",
+      "path": "./data/tiles/64_640_512.json",
+      "x": 640,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-256_640",
+      "path": "./data/tiles/64_-256_640.json",
+      "x": -256,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_640",
+      "path": "./data/tiles/64_-128_640.json",
+      "x": -128,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_0_640",
+      "path": "./data/tiles/64_0_640.json",
+      "x": 0,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_128_640",
+      "path": "./data/tiles/64_128_640.json",
+      "x": 128,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_256_640",
+      "path": "./data/tiles/64_256_640.json",
+      "x": 256,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_384_640",
+      "path": "./data/tiles/64_384_640.json",
+      "x": 384,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_640",
+      "path": "./data/tiles/64_512_640.json",
+      "x": 512,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_640",
+      "path": "./data/tiles/64_640_640.json",
+      "x": 640,
+      "z": 640,
+      "y": 64,
       "width": 128,
       "height": 128
     }
