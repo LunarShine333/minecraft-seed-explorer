@@ -7,7 +7,7 @@
   "source": {
     "kind": "observed",
     "name": "Official Bedrock server: checked tile atlas",
-    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 \u00d7 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 \u00d7 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 \u00d7 128 tiles; research/bds/cherry-route-manifest.json, home-area-manifest.json, west-area-manifest.json north-monument-manifest.json and shipwreck-approach-manifest.json record acquisition evidence and settings for native extensions. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
+    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 \u00d7 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 \u00d7 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 \u00d7 128 tiles; research/bds/cherry-route-manifest.json, home-area-manifest.json, west-area-manifest.json north-monument-manifest.json shipwreck-approach-manifest.json and eastern-temple-manifest.json record acquisition evidence and settings for native extensions. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
   },
   "structures": [
     {
@@ -2549,10 +2549,118 @@
       "y": 64,
       "width": 128,
       "height": 128
+    },
+    {
+      "id": "64_768_384",
+      "path": "./data/tiles/64_768_384.json",
+      "x": 768,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_896_384",
+      "path": "./data/tiles/64_896_384.json",
+      "x": 896,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_384",
+      "path": "./data/tiles/64_1024_384.json",
+      "x": 1024,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_768_512",
+      "path": "./data/tiles/64_768_512.json",
+      "x": 768,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_896_512",
+      "path": "./data/tiles/64_896_512.json",
+      "x": 896,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_512",
+      "path": "./data/tiles/64_1024_512.json",
+      "x": 1024,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_768_640",
+      "path": "./data/tiles/64_768_640.json",
+      "x": 768,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_896_640",
+      "path": "./data/tiles/64_896_640.json",
+      "x": 896,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_640",
+      "path": "./data/tiles/64_1024_640.json",
+      "x": 1024,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_768_768",
+      "path": "./data/tiles/64_768_768.json",
+      "x": 768,
+      "z": 768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_896_768",
+      "path": "./data/tiles/64_896_768.json",
+      "x": 896,
+      "z": 768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_768",
+      "path": "./data/tiles/64_1024_768.json",
+      "x": 1024,
+      "z": 768,
+      "y": 64,
+      "width": 128,
+      "height": 128
     }
   ],
   "overview": {
     "path": "./data/overview/index.json",
-    "revision": "14769db801c11b2a7bd49691520f2ac959b488ad18eb3a40af49cd279fcf7e9d"
+    "revision": "39a2ffd58ad820b6a81f8f65f31746b6a58c4aa26b2dea27d3e8d9e0a4977fe1"
   }
 }
