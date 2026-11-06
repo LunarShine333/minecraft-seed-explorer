@@ -699,3 +699,46 @@ chunk-generation version/older-chunk caveats remain. Full-world generation still
 unfinished. Next: widen adjoining eastern coverage or new evidence-based engine
 research. Use the committed live verifier after deployment. No server remains
 running; scratch configuration selects the completed outpost test world.
+
+## 2026-11-06 — native southern home connection
+
+Resumed main 7f811e70a7e6b2b324840f8d5ef7eb3dbbb90c04; no open PRs. The
+committed live verifier passed against the outpost release before expansion.
+Added eight directly native Y64 tiles at X -256..767 / Z768..895, joining the
+southern home edge to the existing eastern row. New continuous row spans
+X -256..1791 at these Z values. No new structure, elevation or Xbox claim.
+131072 additional cells; atlas now 292 tiles / 4784128 height cells, including
+279 Y64 tiles / 4571136 cells. Other heights and device waypoints unchanged.
+
+Official BDS 1.26.61.1 build 53069370 completed all nine jobs with DONE in fresh
+disposable seed-explorer-south-home world, then stopped cleanly. level.dat
+independently verifies exact string seed 3022187552114785111, default generator
+and experiments off. The independent 16384-cell control matches all prior home
+fixture cells. Tests compare all 147456 native readings with exports. No partial
+records, block edits or Xbox save access. Plan, read-only probe, compressed log
+and settings, control and manifest committed under research/bds/south-home-*.
+Reproduce with:
+`python scripts/import_native_area.py --runs research/bds/south-home-native-runs.json.gz --plan research/bds/south-home-plan.json`
+then `node scripts/build-checked-tiles.mjs`.
+
+77 Node / 40 Python tests pass: exact requested footprint, continuous south/east
+pan paths, unknown southern border and other heights, every native reading,
+byte-reproducible exports and every original raster pixel/unknown alpha.
+Historical unknown assertions at now-measured coordinates moved to the new
+southern border. Overview remains 40 pages (27 at Y64), revision
+d4165f808149bd4cf1b04e79cbf01e500c9be76f6fee3ee8485e81d75a957d22;
+206418 stored overview bytes vs 9930181 dense JSON bytes (not a Safari benchmark).
+Worker shell v23 retains durable checked downloads. No browser or physical
+Safari QA this data increment; device testing remains outstanding.
+
+Runtime instructions/network reference read. environment_status is not exposed
+and /etc/codex/network-policy.json is absent; no readiness/policy assertions or
+network/credential changes were made. Existing normal connector/HTTP access and
+previously authorized native assets used.
+
+Xbox target 26.60/native source 1.26.61.1, experiments off, unknown original Xbox
+chunk-generation release and older-chunk caveats retained. Full-world generation
+remains unresolved; no failed engine sampling experiments repeated. Next: useful
+native southern destinations or generation research supported by new evidence.
+Verify new deployment with scripts/verify-live-release.py; no server remains
+running. Scratch selects the finished south-home world; evidence is in GitHub.

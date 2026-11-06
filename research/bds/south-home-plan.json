@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "south-home",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native south home connection",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": -256,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": -128,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": 0,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": 128,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": 256,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": 384,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": 512,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": 640,
+      "z": 768,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "7f811e70a7e6b2b324840f8d5ef7eb3dbbb90c04",
+  "baselineRevision": "2c763204cefb853a8a541102081ef0de51c49761eca2531a9494aa843272f22e",
+  "expectedNewCells": 131072
+}
