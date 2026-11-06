@@ -563,3 +563,37 @@ or physical Safari QA this data increment; physical device testing remains open.
 Full-world generation remains unresolved; no rejected engine experiments rerun.
 Next: useful eastern native coverage or engine research with new evidence.
 No server remains running; scratch configuration selects finished resume world.
+
+## 2026-11-06 — biome discovery across the checked atlas
+
+Resumed main f61d72a308065e2bfc659e071bb97fc4d7c25978, no open PRs. Verified
+GitHub Pages completed its shipwreck deployment and live catalog has 262 tiles;
+previous run's pending deployment was propagation delay, not a publishing failure.
+
+Added Browse all checked biomes at this Y in continuous mode. It reads the
+compact, revision-validated overview index across the entire checked atlas,
+including regions outside the viewport, and lists unique biome names at the
+selected height. Go to checked sample selects the nearest recorded witness
+among those representatives, then loads its original native tile and requires
+the biome name to match before moving. This is not an exhaustive nearest-cell
+search or surface-height model. No inferred cells or candidate engine outputs.
+Existing device waypoints remain unchanged; navigation fills the waypoint form
+without saving. Height/layer changes invalidate pending UI results and disable
+old selections. Network/index/native tile failures are surfaced with retry via
+Browse or Go; index failures remain retryable. Service worker v20 precaches the
+new module and retains durable checked downloads.
+
+71 Node / 30 Python tests pass. New tests cover complete height-filtered names,
+index reuse/no raster downloads, Cherry Grove discovery from home, absent
+biomes/heights, every available representative against the original native cell,
+mismatching witness rejection and index failure/retry. Browser preview showed
+31 recorded biomes at Y64, navigated to checked Cherry Grove X -2359 Y64 Z -315,
+loaded 12/12 destination tiles, and disabled the old selection on Y103 change.
+Preview initially used stale ignored preview-dist assets; synchronized all current
+modules/data before counting these observations. No physical Safari verification.
+
+No new native cells or structure claims: 262 tiles / 4292608 height cells remain.
+Exact string seed 3022187552114785111, target Xbox 26.60, experiments off, source
+BDS 1.26.61.1 and unknown/older Xbox generation caveats retained. No BDS run or
+rejected generator experiment this increment. Full-world generation unresolved.
+Next: adjoining eastern native destination coverage or new algorithmic evidence.
