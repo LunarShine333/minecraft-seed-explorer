@@ -5,12 +5,12 @@ import {CheckedTileStore,visibleTiles,validateCatalog,HOME} from '../checked-til
 import {biomeAt} from '../world-data.mjs';
 const read=path=>JSON.parse(readFileSync(new URL('../'+path,import.meta.url),'utf8'));
 const catalog=read('data/checked-tiles.json');
-const whole={minX:-3000,minZ:-1000,maxX:1000,maxZ:1000};
+const whole={minX:-3000,minZ:-1000,maxX:2000,maxZ:1000};
 const native={64:read('data/bedrock-26.60-wide-area.json'),103:read('data/bedrock-26.60-cherry-grove.json')};
 for(const t of read('data/bedrock-26.60-checked-area.json').biomes)if(t.y!==64)native[t.y]={biomes:[t]};
 test('the expanded atlas retains every original native cell, palette and provenance',async()=>{
   const store=new CheckedTileStore(catalog,async path=>read(path));
-  assert.equal(catalog.tiles.length,262);
+  assert.equal(catalog.tiles.length,274);
   let cells=0;
   for(const entry of store.catalog.tiles){
     const tile=await store.tile(entry);
@@ -27,7 +27,7 @@ test('adjoining tile boundaries, negative coordinates and unknown regions',()=>{
   const c=validateCatalog(catalog);
   assert.equal(visibleTiles(c,{minX:-256,minZ:-256,maxX:-128,maxZ:-128},64).length,1);
   assert.equal(visibleTiles(c,{minX:-129,minZ:-256,maxX:-127,maxZ:-128},64).length,2);
-  assert.equal(visibleTiles(c,{minX:768,minZ:768,maxX:1024,maxZ:1024},64).length,0);
+  assert.equal(visibleTiles(c,{minX:1152,minZ:896,maxX:1280,maxZ:1024},64).length,0);
   assert.equal(visibleTiles(c,whole,103).length,1);
   assert.equal(visibleTiles(c,whole,104).length,0);
 });

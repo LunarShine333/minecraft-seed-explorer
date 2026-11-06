@@ -1,0 +1,82 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "eastern-temple",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native eastern temple approach",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": 768,
+      "z": 384,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": 384,
+      "y": 64
+    },
+    {
+      "x": 1024,
+      "z": 384,
+      "y": 64
+    },
+    {
+      "x": 768,
+      "z": 512,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": 512,
+      "y": 64
+    },
+    {
+      "x": 1024,
+      "z": 512,
+      "y": 64
+    },
+    {
+      "x": 768,
+      "z": 640,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": 640,
+      "y": 64
+    },
+    {
+      "x": 1024,
+      "z": 640,
+      "y": 64
+    },
+    {
+      "x": 768,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": 1024,
+      "z": 768,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "c43693c6c122652bed28e839ffceecb4ea47af36",
+  "baselineRevision": "14769db801c11b2a7bd49691520f2ac959b488ad18eb3a40af49cd279fcf7e9d",
+  "expectedNewCells": 196608
+}

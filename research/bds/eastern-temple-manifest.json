@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "nativeVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "planId": "eastern-temple",
+  "evidenceSha256": "97173f9b628028655ddf9cbae6bd4e2bc0c8ff3bad8881df3c10ebd5f07b8886",
+  "tiles": [
+    {
+      "id": "64_768_384",
+      "path": "./data/tiles/64_768_384.json",
+      "x": 768,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_896_384",
+      "path": "./data/tiles/64_896_384.json",
+      "x": 896,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_384",
+      "path": "./data/tiles/64_1024_384.json",
+      "x": 1024,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_768_512",
+      "path": "./data/tiles/64_768_512.json",
+      "x": 768,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_896_512",
+      "path": "./data/tiles/64_896_512.json",
+      "x": 896,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_512",
+      "path": "./data/tiles/64_1024_512.json",
+      "x": 1024,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_768_640",
+      "path": "./data/tiles/64_768_640.json",
+      "x": 768,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_896_640",
+      "path": "./data/tiles/64_896_640.json",
+      "x": 896,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_640",
+      "path": "./data/tiles/64_1024_640.json",
+      "x": 1024,
+      "z": 640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_768_768",
+      "path": "./data/tiles/64_768_768.json",
+      "x": 768,
+      "z": 768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_896_768",
+      "path": "./data/tiles/64_896_768.json",
+      "x": 896,
+      "z": 768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_768",
+      "path": "./data/tiles/64_1024_768.json",
+      "x": 1024,
+      "z": 768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    }
+  ],
+  "addedDistinctHeightCells": 196608,
+  "controlCells": 16384,
+  "duplicateCellsChecked": 0,
+  "completeNativeCellReadings": 212992,
+  "runReports": [
+    {
+      "runComplete": true,
+      "reportedJobs": 13,
+      "completeTileReadings": 13,
+      "discardedPartialRows": 0,
+      "controlCells": 16384
+    }
+  ],
+  "baselineCommit": "c43693c6c122652bed28e839ffceecb4ea47af36",
+  "baselineRevision": "14769db801c11b2a7bd49691520f2ac959b488ad18eb3a40af49cd279fcf7e9d",
+  "olderXboxChunksMayDiffer": true
+}

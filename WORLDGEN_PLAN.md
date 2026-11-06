@@ -597,3 +597,48 @@ Exact string seed 3022187552114785111, target Xbox 26.60, experiments off, sourc
 BDS 1.26.61.1 and unknown/older Xbox generation caveats retained. No BDS run or
 rejected generator experiment this increment. Full-world generation unresolved.
 Next: adjoining eastern native destination coverage or new algorithmic evidence.
+
+## 2026-11-06 — native eastern temple approach
+
+Resumed main c43693c6c122652bed28e839ffceecb4ea47af36; no open PRs. Verified
+live index.html, biome-destinations.mjs and sw.js byte-for-byte against main:
+the earlier biome browser deployment is complete.
+
+Added 12 directly native Y64 tiles at X 768..1151, Z 384..895. They adjoin the
+home rectangle and contain the biome slice at the earlier temple locator
+X872 Z632. No new structure locator, footprint, elevation or Xbox verification
+claim. 196608 new cells; atlas now 274 tiles / 4489216 height cells, including
+261 Y64 tiles / 4276224 cells. Other sample heights and waypoints unchanged.
+
+Official BDS 1.26.61.1 build 53069370 completed all 13 jobs with DONE in a fresh
+disposable seed-explorer-eastern-temple world, then stopped cleanly. level.dat
+independently confirms exact decimal string seed 3022187552114785111, default
+generator and experiments off. All 16384 control cells match the prior home
+fixture. Tests compare all 212992 complete readings against original native
+names. No partial records discarded, no block edits or Xbox save access.
+Plan, probe, compressed native log/settings, control and manifest are committed
+under research/bds/eastern-temple-*. Reproduce:
+`python scripts/import_native_area.py --runs research/bds/eastern-temple-native-runs.json.gz --plan research/bds/eastern-temple-plan.json`
+then `node scripts/build-checked-tiles.mjs`.
+
+73 Node / 33 Python tests pass, including exact footprint, pan continuity from
+home through the temple slice, unknown borders/heights, all native readings,
+byte-reproducible export, every original raster pixel and unknown alpha.
+Whole-atlas test view bounds expanded east to include the new tiles; old unknown
+border assertions moved to the new edge. Overview: 39 active pages (26 at Y64),
+revision 39a2ffd58ad820b6a81f8f65f31746b6a58c4aa26b2dea27d3e8d9e0a4977fe1,
+199259 stored bytes vs 9317801 dense JSON bytes (not a Safari benchmark).
+Worker shell v21, durable checked downloads retained. No browser/physical Safari
+QA in this data-only increment; device testing remains outstanding.
+
+Network runtime skill read; environment_status tool and network-policy snapshot
+were unavailable in this executor, so no credential readiness or policy change
+is inferred. Existing normal tool-mediated GitHub/Pages access worked; no proxy,
+network policy or credential changes. Native assets were already authorized.
+
+Target Xbox 26.60/source 1.26.61.1, experiments off, original Xbox generation
+version unknown and older-chunk caveats retained. Full-world generation remains
+unresolved; no rejected quart/fractional/Voronoi experiments repeated. Next:
+adjoining eastern expansion toward the known pillager outpost, or engine research
+backed by new algorithmic evidence. No server remains running; scratch selects
+the finished eastern-temple world. Native evidence survives scratch expiration.
