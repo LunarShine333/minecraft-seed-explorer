@@ -7,7 +7,7 @@
   "source": {
     "kind": "observed",
     "name": "Official Bedrock server: checked tile atlas",
-    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 \u00d7 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 \u00d7 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 \u00d7 128 tiles; research/bds/cherry-route-manifest.json, home-area-manifest.json, west-area-manifest.json north-monument-manifest.json shipwreck-approach-manifest.json eastern-temple-manifest.json outpost-approach-manifest.json and south-home-manifest.json record acquisition evidence and settings for native extensions. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
+    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 \u00d7 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 \u00d7 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 \u00d7 128 tiles; research/bds/cherry-route-manifest.json, home-area-manifest.json, west-area-manifest.json north-monument-manifest.json shipwreck-approach-manifest.json eastern-temple-manifest.json outpost-approach-manifest.json south-home-manifest.json and stronghold-approach-manifest.json record acquisition evidence and settings for native extensions. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
   },
   "structures": [
     {
@@ -2819,10 +2819,226 @@
       "y": 64,
       "width": 128,
       "height": 128
+    },
+    {
+      "id": "64_512_896",
+      "path": "./data/tiles/64_512_896.json",
+      "x": 512,
+      "z": 896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_896",
+      "path": "./data/tiles/64_640_896.json",
+      "x": 640,
+      "z": 896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1024",
+      "path": "./data/tiles/64_512_1024.json",
+      "x": 512,
+      "z": 1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1024",
+      "path": "./data/tiles/64_640_1024.json",
+      "x": 640,
+      "z": 1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1152",
+      "path": "./data/tiles/64_512_1152.json",
+      "x": 512,
+      "z": 1152,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1152",
+      "path": "./data/tiles/64_640_1152.json",
+      "x": 640,
+      "z": 1152,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1280",
+      "path": "./data/tiles/64_512_1280.json",
+      "x": 512,
+      "z": 1280,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1280",
+      "path": "./data/tiles/64_640_1280.json",
+      "x": 640,
+      "z": 1280,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1408",
+      "path": "./data/tiles/64_512_1408.json",
+      "x": 512,
+      "z": 1408,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1408",
+      "path": "./data/tiles/64_640_1408.json",
+      "x": 640,
+      "z": 1408,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1536",
+      "path": "./data/tiles/64_512_1536.json",
+      "x": 512,
+      "z": 1536,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1536",
+      "path": "./data/tiles/64_640_1536.json",
+      "x": 640,
+      "z": 1536,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1664",
+      "path": "./data/tiles/64_512_1664.json",
+      "x": 512,
+      "z": 1664,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1664",
+      "path": "./data/tiles/64_640_1664.json",
+      "x": 640,
+      "z": 1664,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1792",
+      "path": "./data/tiles/64_512_1792.json",
+      "x": 512,
+      "z": 1792,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1792",
+      "path": "./data/tiles/64_640_1792.json",
+      "x": 640,
+      "z": 1792,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1920",
+      "path": "./data/tiles/64_512_1920.json",
+      "x": 512,
+      "z": 1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1920",
+      "path": "./data/tiles/64_640_1920.json",
+      "x": 640,
+      "z": 1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_2048",
+      "path": "./data/tiles/64_512_2048.json",
+      "x": 512,
+      "z": 2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_2048",
+      "path": "./data/tiles/64_640_2048.json",
+      "x": 640,
+      "z": 2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_2176",
+      "path": "./data/tiles/64_512_2176.json",
+      "x": 512,
+      "z": 2176,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_2176",
+      "path": "./data/tiles/64_640_2176.json",
+      "x": 640,
+      "z": 2176,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_2304",
+      "path": "./data/tiles/64_512_2304.json",
+      "x": 512,
+      "z": 2304,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_2304",
+      "path": "./data/tiles/64_640_2304.json",
+      "x": 640,
+      "z": 2304,
+      "y": 64,
+      "width": 128,
+      "height": 128
     }
   ],
   "overview": {
     "path": "./data/overview/index.json",
-    "revision": "d4165f808149bd4cf1b04e79cbf01e500c9be76f6fee3ee8485e81d75a957d22"
+    "revision": "d190e64f833906404c8ce064f2a418103b1d988d21a8701ae12f5cf9dff32fab"
   }
 }

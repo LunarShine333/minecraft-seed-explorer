@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "nativeVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "planId": "stronghold-approach",
+  "evidenceSha256": "88b64e928b4938d55fc7b9d895330ca810cf5b497598591117f5fd9fece6d98d",
+  "tiles": [
+    {
+      "id": "64_512_896",
+      "path": "./data/tiles/64_512_896.json",
+      "x": 512,
+      "z": 896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_896",
+      "path": "./data/tiles/64_640_896.json",
+      "x": 640,
+      "z": 896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1024",
+      "path": "./data/tiles/64_512_1024.json",
+      "x": 512,
+      "z": 1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1024",
+      "path": "./data/tiles/64_640_1024.json",
+      "x": 640,
+      "z": 1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1152",
+      "path": "./data/tiles/64_512_1152.json",
+      "x": 512,
+      "z": 1152,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1152",
+      "path": "./data/tiles/64_640_1152.json",
+      "x": 640,
+      "z": 1152,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1280",
+      "path": "./data/tiles/64_512_1280.json",
+      "x": 512,
+      "z": 1280,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1280",
+      "path": "./data/tiles/64_640_1280.json",
+      "x": 640,
+      "z": 1280,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1408",
+      "path": "./data/tiles/64_512_1408.json",
+      "x": 512,
+      "z": 1408,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1408",
+      "path": "./data/tiles/64_640_1408.json",
+      "x": 640,
+      "z": 1408,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1536",
+      "path": "./data/tiles/64_512_1536.json",
+      "x": 512,
+      "z": 1536,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1536",
+      "path": "./data/tiles/64_640_1536.json",
+      "x": 640,
+      "z": 1536,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1664",
+      "path": "./data/tiles/64_512_1664.json",
+      "x": 512,
+      "z": 1664,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1664",
+      "path": "./data/tiles/64_640_1664.json",
+      "x": 640,
+      "z": 1664,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1792",
+      "path": "./data/tiles/64_512_1792.json",
+      "x": 512,
+      "z": 1792,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1792",
+      "path": "./data/tiles/64_640_1792.json",
+      "x": 640,
+      "z": 1792,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_1920",
+      "path": "./data/tiles/64_512_1920.json",
+      "x": 512,
+      "z": 1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_1920",
+      "path": "./data/tiles/64_640_1920.json",
+      "x": 640,
+      "z": 1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_2048",
+      "path": "./data/tiles/64_512_2048.json",
+      "x": 512,
+      "z": 2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_2048",
+      "path": "./data/tiles/64_640_2048.json",
+      "x": 640,
+      "z": 2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_2176",
+      "path": "./data/tiles/64_512_2176.json",
+      "x": 512,
+      "z": 2176,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_2176",
+      "path": "./data/tiles/64_640_2176.json",
+      "x": 640,
+      "z": 2176,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_2304",
+      "path": "./data/tiles/64_512_2304.json",
+      "x": 512,
+      "z": 2304,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_2304",
+      "path": "./data/tiles/64_640_2304.json",
+      "x": 640,
+      "z": 2304,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    }
+  ],
+  "addedDistinctHeightCells": 393216,
+  "controlCells": 16384,
+  "duplicateCellsChecked": 0,
+  "completeNativeCellReadings": 409600,
+  "runReports": [
+    {
+      "runComplete": true,
+      "reportedJobs": 25,
+      "completeTileReadings": 25,
+      "discardedPartialRows": 0,
+      "controlCells": 16384
+    }
+  ],
+  "baselineCommit": "f4a1b5c5845dfce261e365a768380f165c9a1994",
+  "baselineRevision": "d4165f808149bd4cf1b04e79cbf01e500c9be76f6fee3ee8485e81d75a957d22",
+  "olderXboxChunksMayDiffer": true
+}
