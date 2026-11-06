@@ -742,3 +742,46 @@ remains unresolved; no failed engine sampling experiments repeated. Next: useful
 native southern destinations or generation research supported by new evidence.
 Verify new deployment with scripts/verify-live-release.py; no server remains
 running. Scratch selects the finished south-home world; evidence is in GitHub.
+
+## 2026-11-06 — native southern stronghold approach
+
+Resumed main f4a1b5c5845dfce261e365a768380f165c9a1994; no open PRs. The
+committed live verifier passed against the southern-home release before this
+acquisition. Added 24 directly native Y64 tiles at X512..767 / Z896..2431,
+adjoining the southern home row and including the biome slice at the prior
+stronghold locator X658 Z2338. This is not a safe walking route, surface-height
+model, new locator observation or verified structure footprint/elevation.
+393216 added cells; atlas 316 tiles / 5177344 height cells, including 303 Y64
+tiles / 4964352 cells. Other heights and device waypoints unchanged.
+
+Official BDS 1.26.61.1 build 53069370 completed all 25 jobs with DONE in fresh
+disposable seed-explorer-stronghold-approach world, then stopped cleanly.
+level.dat independently verifies exact string seed 3022187552114785111, default
+generator and experiments off. All 16384 repeated home control cells match prior
+native observations. Tests compare all 409600 complete native readings against
+exported biome names. No partial records, block edits or Xbox save access.
+Plan, read-only probe, compressed native log/settings, control and manifest are
+under research/bds/stronghold-approach-*. Reproduce:
+`python scripts/import_native_area.py --runs research/bds/stronghold-approach-native-runs.json.gz --plan research/bds/stronghold-approach-plan.json`
+then `node scripts/build-checked-tiles.mjs`.
+
+79 Node / 42 Python tests pass: exact planned footprint, continuous southward
+pan to the prior stronghold coordinate, unknown side/end borders and heights,
+every native reading, byte-reproducible exports, every original raster pixel and
+unknown alpha. Whole-atlas test view extends south to include the new strip;
+the historical unknown southern edge assertion moved to the new boundary.
+Overview 43 active pages (30 at Y64), revision
+d190e64f833906404c8ce064f2a418103b1d988d21a8701ae12f5cf9dff32fab;
+227603 overview bytes vs 10749022 dense JSON bytes (not a Safari benchmark).
+Worker shell v24 retains durable checked downloads. No browser/physical Safari
+QA in this data increment. No failed generator experiment repeated/promoted.
+
+Runtime/network guidance read. environment_status tool unavailable and policy
+snapshot absent; no credential-readiness/network-policy claims or changes.
+Previously authorized native assets and normal HTTP/connector paths were used.
+Xbox target 26.60/native source 1.26.61.1, experiments off, unknown original Xbox
+generation release and older-chunk caveats remain. Full-world generation still
+unfinished. Next: useful new native destinations or new algorithmic evidence,
+without repeating rejected sampling fits. Verify publication with the committed
+live verifier. No server remains running; scratch selects the completed test
+world. All acquisition evidence is committed so scratch loss does not lose cells.
