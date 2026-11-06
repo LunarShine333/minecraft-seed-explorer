@@ -1,17 +1,25 @@
-# Official Bedrock reference run (not yet executed)
+# Official Bedrock reference workflow
 
-Target: stable Bedrock 26.60; no experiments; seed `3022187552114785111`.
+Target: Xbox Bedrock 26.60; no experiments; seed `3022187552114785111`.
+
+Current checkpoint: [WORLDGEN_PLAN.md](../../WORLDGEN_PLAN.md) and
+[RELEASE_STATUS.md](../../RELEASE_STATUS.md). Official BDS 1.26.61.1 build
+53069370 has been executed in disposable test worlds with prior user
+authorization. Native observations retain that exact source version; they are
+not reads of the Xbox save, whose original chunk generation version is unknown.
+Older Xbox chunks may differ. No full-world prediction engine is approved.
 The adjacent properties file is a disposable test-world configuration, never
 for the user's existing Xbox world. Do not expose its ports publicly.
 
 Official source: https://www.minecraft.net/en-us/download/server/bedrock
-The download form requires agreement to the Minecraft EULA and Microsoft
-Privacy Policy. Obtain user authorization before accepting those terms.
-No server binary has been downloaded or executed for this project yet.
+The official download form requires agreement to the Minecraft EULA and
+Microsoft Privacy Policy; existing official BDS tests/EULA have prior user
+authorization. Do not commit the server binary or temporary worlds.
 
 Before collecting references:
-1. Obtain authorized official Linux stable package; verify its actual startup
-   version matches 26.60 (not preview and not simply the latest release).
+1. Use the authorized official Linux stable package; record its actual startup
+   version/build, not preview or an assumed target-version label. Source/target
+   differences must remain explicit in every exported fixture.
 2. Extract into a new scratch directory. Do not commit server binaries or worlds.
 3. Apply the supplied properties, verify generated world's seed and disabled
    experiments, and keep access restricted to local validation.

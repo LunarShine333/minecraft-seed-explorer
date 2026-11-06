@@ -6,9 +6,10 @@ Personal Overworld site: exact seed `3022187552114785111`, Xbox target Bedrock
 ## Available
 
 - Continuous checked mode loads adjoining tiles on pan/zoom or sample Y changes.
-- 238 native-data tiles: a continuous 3200 × 1152 rectangle at Y64
-  (3686400 cells, X -2432..767 and Z -384..767); 256 × 256 at Y-48/0/128;
-  and 128 × 128 Cherry Grove at Y103. Total 3899392 distinct height cells.
+- 250 native-data tiles: a continuous 3200 × 1152 rectangle at Y64
+  (X -2432..767 and Z -384..767), plus an adjoining 512 × 384 north extension
+  (X -512..-1, Z -768..-385). Y64 totals 3883008 cells. Also 256 × 256 at
+  Y-48/0/128 and 128 × 128 Cherry Grove at Y103. Total 4096000 height cells.
   Coverage remains bounded.
 - 36 selected native locator landmarks across 13 types; Y unknown.
 - Approximate home property marker at X128 Z24; not verified in-game.
@@ -26,7 +27,7 @@ Personal Overworld site: exact seed `3022187552114785111`, Xbox target Bedrock
 
 ## Verification and limits
 
-58 Node and 25 Python tests pass. Original source cells remain preserved.
+60 Node and 27 Python tests pass. Original source cells remain preserved.
 The west extension adds 127 native tiles (2080768 cells), with three independent
 16384-cell control readings and 229376 repeated cells agreeing across runs.
 Two interrupted acquisitions retain only completed tile records; 124 partial
@@ -34,11 +35,13 @@ rows are discarded. The final resumed acquisition completed all 61 requested
 jobs and stopped cleanly. Committed evidence preserves the actual completion
 status of each run. All 2326528 complete native cell readings are checked by
 name against stored bundles, and re-export is reproducible.
-Browser preview confirms 21/21 lossless Y64 pages and a filled checked rectangle.
-All 3899392 overview pixels match their native source colors, with transparent
+The north extension adds 196608 direct native cells, with a matching independent
+16384-cell control and a single completed 13-job run. Browser preview confirms
+22/22 lossless Y64 pages and the adjoining north extension.
+All 4096000 overview pixels match their native source colors, with transparent
 unmeasured pixels. Stable page boundaries and reuse of current visible images
 avoid repeatedly loading the same pages when panning across native tile edges.
-The 34 active overview pages plus index total 174741 bytes versus 8092090 bytes
+The 35 active overview pages plus index total 178171 bytes versus 8499893 bytes
 of native JSON; this is a stored-size comparison, not a Safari network benchmark.
 Older immutable overview images remain for cached clients.
 Service-worker lifecycle tests cover upgrade migration, offline replay, corrected

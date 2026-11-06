@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "nativeVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "planId": "north-monument",
+  "evidenceSha256": "bf1b520c7993f3ccea0b9e9eea6b2a6739883a91629dbc69e29b94a963967268",
+  "tiles": [
+    {
+      "id": "64_-512_-768",
+      "path": "./data/tiles/64_-512_-768.json",
+      "x": -512,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-384_-768",
+      "path": "./data/tiles/64_-384_-768.json",
+      "x": -384,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-256_-768",
+      "path": "./data/tiles/64_-256_-768.json",
+      "x": -256,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_-768",
+      "path": "./data/tiles/64_-128_-768.json",
+      "x": -128,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-512_-640",
+      "path": "./data/tiles/64_-512_-640.json",
+      "x": -512,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-384_-640",
+      "path": "./data/tiles/64_-384_-640.json",
+      "x": -384,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-256_-640",
+      "path": "./data/tiles/64_-256_-640.json",
+      "x": -256,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_-640",
+      "path": "./data/tiles/64_-128_-640.json",
+      "x": -128,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-512_-512",
+      "path": "./data/tiles/64_-512_-512.json",
+      "x": -512,
+      "z": -512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-384_-512",
+      "path": "./data/tiles/64_-384_-512.json",
+      "x": -384,
+      "z": -512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-256_-512",
+      "path": "./data/tiles/64_-256_-512.json",
+      "x": -256,
+      "z": -512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_-512",
+      "path": "./data/tiles/64_-128_-512.json",
+      "x": -128,
+      "z": -512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    }
+  ],
+  "addedDistinctHeightCells": 196608,
+  "controlCells": 16384,
+  "duplicateCellsChecked": 0,
+  "completeNativeCellReadings": 212992,
+  "runReports": [
+    {
+      "runComplete": true,
+      "reportedJobs": 13,
+      "completeTileReadings": 13,
+      "discardedPartialRows": 0,
+      "controlCells": 16384
+    }
+  ],
+  "baselineCommit": "8d5f9e335227a3985bca466169572a335560638a",
+  "baselineRevision": "2d0b48ab5334063d938e53bd5bc84a1476b3740671d35d4304906c0cc5d7a2bd",
+  "olderXboxChunksMayDiffer": true
+}

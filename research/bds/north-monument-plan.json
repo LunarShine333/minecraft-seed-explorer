@@ -1,0 +1,82 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-monument",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north monument approach",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": -512,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -384,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -256,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -128,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -512,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": -384,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": -256,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": -128,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": -512,
+      "z": -512,
+      "y": 64
+    },
+    {
+      "x": -384,
+      "z": -512,
+      "y": 64
+    },
+    {
+      "x": -256,
+      "z": -512,
+      "y": 64
+    },
+    {
+      "x": -128,
+      "z": -512,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "8d5f9e335227a3985bca466169572a335560638a",
+  "baselineRevision": "2d0b48ab5334063d938e53bd5bc84a1476b3740671d35d4304906c0cc5d7a2bd",
+  "expectedNewCells": 196608
+}

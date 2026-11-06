@@ -441,3 +441,48 @@ No BDS execution was needed for this cache-only increment; prior acquisition
 controls and raster source comparisons were rerun. Next: useful new native
 destinations or generation research justified by new evidence. Full-world
 generation remains unresolved.
+
+## 2026-11-06 — native northern monument approach
+
+Resumed from main `8d5f9e335227a3985bca466169572a335560638a`; no open PRs.
+Added 12 directly native Y64 tiles (196608 cells), X -512..-1 / Z -768..-385.
+This 512 × 384 extension adjoins the earlier rectangle and includes the biome
+slice at the previously located monument X -312 Z -680. No new structure
+locator, footprint, Y or in-game verification claim is made.
+
+The official BDS 1.26.61.1 build 53069370 completed all 13 requested jobs in a
+new disposable `seed-explorer-north-monument` world, then stopped cleanly.
+level.dat independently confirms exact string seed `3022187552114785111`,
+default generator and experiments off. A repeated 16384-cell control matches
+the earlier home fixture. All 212992 native readings (new cells plus control)
+match exported biome names. No Xbox save access or block edits.
+
+Plan, read-only probe source, compressed original native log/settings, control
+and manifest are committed under `research/bds/north-monument-*`. Reproduce:
+
+```sh
+python scripts/import_native_area.py --runs research/bds/north-monument-native-runs.json.gz --plan research/bds/north-monument-plan.json
+node scripts/build-checked-tiles.mjs
+```
+
+The catalog now has 250 tiles, 237 at Y64: 3883008 Y64 cells / 4096000 total
+height cells. Other heights and existing device waypoints are retained. The
+lossless overview has 35 active pages, 22 at Y64, revision
+`224d8df965d1f1a1575d58beba56b610d8335b019f111df854ed573bab053de0`.
+Overview assets/index total 178171 bytes against 8499893 dense JSON bytes
+(stored size comparison only). Older immutable overview images are retained.
+
+60 Node / 27 Python tests pass. New checks cover the exact 12-tile footprint,
+all 212992 native readings, reproducible archive/export/control, northward
+panning, correct unknown borders and absent other heights. All source-color
+pixels and unknown alpha remain verified. Browser preview showed 22/22 pages
+and the contiguous north extension. Physical Safari testing remains outstanding.
+
+No generator experiments repeated or promoted. Full-world generation is still
+unresolved. Xbox target 26.60 / native source 1.26.61.1, experiments off, unknown
+original Xbox generation release and older-chunk caveats remain explicit. Next
+useful native expansion could reach the shipwreck near X -1272 Z -840 or an
+eastern destination, while generation research still needs new evidence.
+The scratch server selects the completed north-monument world and probe; no
+server remains running. Initial reference README was refreshed to prevent its
+old pre-execution instructions from being mistaken for current project status.

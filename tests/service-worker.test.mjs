@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
 const source=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
 const base='https://example.test/minecraft-seed-explorer/';
-const DATA='minecraft-seed-explorer-checked-data-v1',CURRENT='minecraft-seed-explorer-v16-preserve-checked-data';
+const DATA='minecraft-seed-explorer-checked-data-v1',CURRENT='minecraft-seed-explorer-v17-native-north-monument';
 const tile=base+'data/tiles/64_-1024_0.json',png=base+'data/overview/64_-1536_0-2d0b48ab5334063d.png';
 function harness(){
   const stores=new Map(),handlers={},calls=[];let network=async()=>new Response('online'),storageFails=false,claimed=false;
