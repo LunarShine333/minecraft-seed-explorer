@@ -486,3 +486,44 @@ eastern destination, while generation research still needs new evidence.
 The scratch server selects the completed north-monument world and probe; no
 server remains running. Initial reference README was refreshed to prevent its
 old pre-execution instructions from being mistaken for current project status.
+
+## 2026-11-06 — recover failed or stalled visible map requests
+
+Resumed from main `eeeadf27f65460d166d25b348ebd0b12f12572cf`; no open PRs.
+The viewport key previously prevented the same failed view from reloading;
+network/image work also had no deadline and could hold the shared four-request
+pool indefinitely. Added `checked-network.mjs` with 15-second request deadlines
+covering JSON headers/body and image loading. Timeout aborts fetch/image work,
+clears handlers and releases the pool slot. Whole-area imports also use this
+loader. Existing source validation remains authoritative after network success.
+
+Failed final views show Retry visible map. Manual retry resets only the view
+key, keeps the existing store/caches and preserves coordinates/height/zoom. A
+connection-restored event retries a failed view once; failures do not cause a
+background retry loop. Changing layer/view hides obsolete retry controls and
+existing epoch/cancellation checks still reject stale results. The service
+worker precaches the new loader and advances to v18; durable native downloads
+remain in the checked-data cache. No device waypoints are changed.
+
+65 Node / 27 Python tests pass. Five new tests cover exact seed strings, HTTP
+and parse errors, stalled headers/body even when abort is ignored, raster
+success/error/timeout cleanup, shared-slot release and retry with a retained
+neighbor. Browser preview used a preview-only one-shot failure for native tile
+64_0_0: 35/36 loaded with a visible gap and Retry visible map; clicking it in
+the same view produced 36/36 and hid the control. Preview fault code was never
+added to tracked source and was removed before stopping the preview. An earlier
+missing-file test confirmed failure display; restoring a file triggered preview
+live reload, so that was not counted as manual-retry proof. Physical Safari
+verification remains outstanding.
+
+Engine source audit is recorded in
+`research/bds/engine-source-audit-2026-11-06.md`. Upstream HEAD remains the
+already tested 294c72ab revision. The inspected Demeno fork is older and has no
+new block-biome access implementation. No failed quart/fractional/Voronoi
+experiments were repeated and no candidate was promoted. No BDS execution was
+needed for this loading increment; existing native references and raster
+comparisons were rerun. No new coverage: 250 tiles / 4096000 height cells.
+Seed 3022187552114785111 remains a decimal string, Xbox target 26.60/source
+1.26.61.1 with experiments off and older/unknown Xbox chunk version caveats
+remain explicit. Full-world generation is unfinished. Next: more useful native
+destination coverage or engine research backed by new algorithmic evidence.

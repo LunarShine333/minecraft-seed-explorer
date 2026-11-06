@@ -45,6 +45,7 @@ details[open]>summary{margin-bottom:12px}
 <p id="data-status" class="status" role="status" aria-live="polite"></p>
 <p class="status">Automatic predictions are waiting for validation against your exact Bedrock release. Imported observations stay separate from saved waypoints.</p>
 <label>Checked map area<select id="checked-area"><option value="continuous">Continuous checked tiles · pan to load</option><option value="local">256 × 256 · four heights</option><option value="wide">512 × 512 · Y 64</option><option value="cherry">🌸 Cherry Grove · 64 × 64 · Y 103</option></select></label><div class="buttons"><button id="go-home" style="flex-basis:100%">⌂ Home property · approximate</button><button id="go-cherry" style="flex-basis:100%">🌸 Go to checked Cherry Grove</button><button id="fit-coverage" style="flex-basis:100%" disabled>Fit checked biome coverage</button><p id="tile-status" class="status" aria-live="polite"></p><button id="load-checked">Load checked area (26.60)</button><button id="load-data">Load world data</button><button id="clear-data">Clear layer</button><button id="fit-landmarks" style="flex-basis:100%" disabled>Fit known landmarks</button></div>
+    <button id="retry-tiles" hidden>Retry visible map</button>
 <input type="file" id="data-file" accept="application/json,.json" hidden>
 <details><summary>Data format and accuracy</summary><p class="status">World data must match this seed, exact release and Overworld. Observations are reported by the file's author. Predictions require an approved engine revision. Sample dots show measured biome points, not exact biome boundaries.</p><p><a href="./DATA_FORMAT.md" style="color:#c5e6a2">World data format</a></p></details>
 <div id="layer-controls" hidden>
@@ -56,6 +57,7 @@ details[open]>summary{margin-bottom:12px}
 </div><p id="map-readout" class="status" role="status">Tap the map to inspect a coordinate.</p>
 <hr style="border:0;border-top:1px solid #355542;margin:18px 0"><h2 style="margin-top:0">🧭 Explore coordinates</h2><p class="status">Jump to any Overworld X/Z location. Map origin (0, 0) is not a verified world spawn.</p><div class="coordinate-pair"><label>Go to X<input id="jumpx" type="number" placeholder="X"></label><label>Go to Z<input id="jumpz" type="number" placeholder="Z"></label></div><button id="jump" style="width:100%">Go to coordinates</button><details open><summary>📍 Saved waypoints</summary><label>Name<input id="name" placeholder="Our house"></label><div class="coordinate-pair"><label>X coordinate<input id="x" type="number" placeholder="0"></label><label>Z coordinate<input id="z" type="number" placeholder="0"></label></div><label>Notes<textarea id="notes" rows="2" placeholder="Optional"></textarea></label><button id="save" style="width:100%">Save waypoint</button><label>Search<input id="search" placeholder="Find saved places"></label><div id="items"></div><div class="buttons"><button id="export">Export backup</button><button id="import">Import backup</button><input type="file" id="file" accept="application/json" hidden></div><p class="status">Continuous mode loads checked tiles as you pan. Coverage is still bounded; empty areas are unknown. The checked strip toward Cherry Grove is at Y 64; the enlarged Cherry Grove destination is at Y 103. Landmark lists are partial; empty areas are unknown. Waypoints are saved only on this device. Imported world layers last for this session. Automatic predictions are not enabled.</p></details></aside></main>
 <script type="module">
+import {fetchCheckedJSON,loadCheckedRaster} from './checked-network.mjs';
 import {findStructures} from './structure-search.mjs';
 import {pinchView} from './map-gestures.mjs';
 import {checkedBiomeWitness,rasterPageBounds} from './raster-overview.mjs';
@@ -99,10 +101,13 @@ let tileStore=null,tileEpoch=0,tileTimer=null,tileViewKey='',tileController=null
 function stopTiles(){
   tileController?.abort();tileController=null;cancelAnimationFrame(tileProgressFrame);tileProgressFrame=0;
   rasterPages=null;inspectionId++;$('map-resolution').textContent='';
-  tileStore=null;tileEpoch++;tileViewKey='';clearTimeout(tileTimer);$('tile-status').textContent='';
+  tileStore=null;tileEpoch++;tileViewKey='';clearTimeout(tileTimer);$('tile-status').textContent='';$('retry-tiles').hidden=true;
 }
-function loadRaster(path){return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=()=>reject(Error('Checked overview unavailable.'));image.src=path})}
-async function fetchJSON(path){const response=await fetch(path);if(!response.ok)throw Error('Checked data unavailable. Reconnect and load again.');return response.json()}
+const loadRaster=loadCheckedRaster,fetchJSON=fetchCheckedJSON;
+function retryVisibleTiles(){
+  if(!tileStore)return;
+  tileViewKey='';$('retry-tiles').hidden=true;clearTimeout(tileTimer);updateTiles();
+}
 function tileView(store){
   const [minX,minZ]=world(0,0),[maxX,maxZ]=world(map.clientWidth,map.clientHeight),bounds={minX,minZ,maxX,maxZ};
   const y=Number($('biome-y').value),overview=scale<.6&&!!store.catalog.overview;
@@ -114,6 +119,7 @@ function queueTiles(){
   // Stop obsolete work immediately, including while the pan debounce is pending.
   const next=tileView(tileStore);
   if(next.key!==tileViewKey){
+    $('retry-tiles').hidden=true;
     if(tileController&&!tileController.signal.aborted){tileController.abort();tileEpoch++;tileViewKey=''}
     $('tile-status').textContent='Loading '+next.entries.length+' checked tiles at Y '+next.y+'… Unmapped areas remain unknown.';
   }
@@ -124,13 +130,13 @@ async function updateTiles(){
   const {bounds,y,entries,key,overview}=tileView(store);if(key===tileViewKey)return;
   tileController?.abort();cancelAnimationFrame(tileProgressFrame);tileProgressFrame=0;
   const controller=new AbortController();tileController=controller;
-  tileViewKey=key;const epoch=++tileEpoch;
+  tileViewKey=key;const epoch=++tileEpoch;$('retry-tiles').hidden=true;
   $('tile-status').textContent='Loading '+entries.length+' visible checked tiles… Outside checked coverage remains unknown.';
   const show=result=>{
     if(store!==tileStore||epoch!==tileEpoch||controller.signal.aborted)return;
     worldData=result.bundle;rasterPages=result.mode==='raster'?result.rasters:null;renderLegend();draw();
     $('map-resolution').textContent=rasterPages?'Lossless checked overview · tap for biome':'Checked biome cells';
-    $('tile-status').textContent=(rasterPages?result.rasters.length:result.bundle.biomes.length)+' of '+result.expected+(rasterPages?' lossless overview pages':' checked tiles')+' loaded at Y '+y+'. '+(result.overviewUnavailable?'Overview unavailable; using checked cell tiles. ':'')+(result.failed?result.failed+' failed to load; reconnect and load again. ':'')+'Unmapped areas are unknown. Pan to load adjoining checked tiles. Older Xbox chunks may differ.';
+    $('tile-status').textContent=(rasterPages?result.rasters.length:result.bundle.biomes.length)+' of '+result.expected+(rasterPages?' lossless overview pages':' checked tiles')+' loaded at Y '+y+'. '+(result.overviewUnavailable?'Overview unavailable; using checked cell tiles. ':'')+(result.failed?result.failed+' failed to load; retry when your connection is ready. ':'')+'Unmapped areas are unknown. Pan to load adjoining checked tiles. Older Xbox chunks may differ.';
   };
   let latest=null;
   const result=await store.view(bounds,y,{overview,signal:controller.signal,onProgress:partial=>{
@@ -140,9 +146,12 @@ async function updateTiles(){
   }});
   if(store!==tileStore||epoch!==tileEpoch||controller.signal.aborted)return;
   cancelAnimationFrame(tileProgressFrame);tileProgressFrame=0;show(result);
+  $('retry-tiles').hidden=!result.failed;
 }
 let structureCenter={x:0,z:0};
 function initWorldData(){
+  $('retry-tiles').onclick=retryVisibleTiles;
+  window.addEventListener('online',()=>{if(!$('retry-tiles').hidden)retryVisibleTiles()});
   $('world-seed').textContent=WORLD_SEED;
   try{$('game-version').value=localStorage.getItem('mse-game-version')||'26.60'}catch{}
   $('go-home').onclick=()=>{cx=HOME.x;cz=HOME.z;if(tileStore){$('biome-y').value='64';renderLegend()}scale=Math.max(scale,1);draw();$('map-readout').textContent='Approximate home property: X 128, Z 24 · house, garden and barn. Not verified in-game.'};
@@ -190,9 +199,7 @@ function initWorldData(){
         cx=HOME.x;cz=HOME.z;scale=Math.min(map.clientWidth,map.clientHeight)/576;
         renderLayers();$('biome-y').replaceChildren(...[...new Set(store.catalog.tiles.map(t=>t.y))].sort((a,b)=>a-b).map(y=>new Option('Y '+y,String(y))));$('biome-y').value='64';draw();await updateTiles();return;
       }
-      const response=await fetch(area==='cherry'?'./data/bedrock-26.60-cherry-grove.json':area==='wide'?'./data/bedrock-26.60-wide-area.json':'./data/bedrock-26.60-checked-area.json');
-      if(!response.ok)throw Error('Could not load checked world data. Please reconnect and try again.');
-      const next=validateBundle(await response.json(),{seed:WORLD_SEED,version:'26.60'});
+      const next=validateBundle(await fetchJSON(area==='cherry'?'./data/bedrock-26.60-cherry-grove.json':area==='wide'?'./data/bedrock-26.60-wide-area.json':'./data/bedrock-26.60-checked-area.json'),{seed:WORLD_SEED,version:'26.60'});
       if($('game-version').value.trim()!==selected||$('checked-area').value!==area)throw Error('Selection changed while loading. Please try again.');
       stopTiles();$('game-version').value='26.60';worldData=next;cx=area==='cherry'?-2336:0;cz=area==='cherry'?-288:0;scale=Math.min(map.clientWidth,map.clientHeight)/(area==='cherry'?80:area==='wide'?576:288);renderLayers();$('biome-y').value=area==='cherry'?'103':'64';renderLegend();draw();
       $('map-readout').textContent=worldData.biomes.reduce((n,t)=>n+t.samples.length,0).toLocaleString()+' stored biome cells in a '+(area==='cherry'?'64 × 64':area==='wide'?'512 × 512':'256 × 256')+' area centered at X '+cx+', Z '+cz+' at Y '+worldData.biomes.map(t=>t.y).join(', ')+', plus '+worldData.structures.length+' game locator landmarks. Other areas remain unknown.';

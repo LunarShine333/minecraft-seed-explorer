@@ -11,6 +11,8 @@ Personal Overworld site: exact seed `3022187552114785111`, Xbox target Bedrock
   (X -512..-1, Z -768..-385). Y64 totals 3883008 cells. Also 256 × 256 at
   Y-48/0/128 and 128 × 128 Cherry Grove at Y103. Total 4096000 height cells.
   Coverage remains bounded.
+- Map requests have 15-second deadlines. Failed visible views offer Retry visible
+  map and retry on a connection-restored event without resetting the map.
 - 36 selected native locator landmarks across 13 types; Y unknown.
 - Approximate home property marker at X128 Z24; not verified in-game.
 - Direct native Cherry Grove navigation and a button to fit checked coverage.
@@ -27,7 +29,7 @@ Personal Overworld site: exact seed `3022187552114785111`, Xbox target Bedrock
 
 ## Verification and limits
 
-60 Node and 27 Python tests pass. Original source cells remain preserved.
+65 Node and 27 Python tests pass. Original source cells remain preserved.
 The west extension adds 127 native tiles (2080768 cells), with three independent
 16384-cell control readings and 229376 repeated cells agreeing across runs.
 Two interrupted acquisitions retain only completed tile records; 124 partial
@@ -45,8 +47,8 @@ The 35 active overview pages plus index total 178171 bytes versus 8499893 bytes
 of native JSON; this is a stored-size comparison, not a Safari network benchmark.
 Older immutable overview images remain for cached clients.
 Service-worker lifecycle tests cover upgrade migration, offline replay, corrected
-JSON revalidation, server/storage failures and scope boundaries. Physical
-Safari/iPhone/iPad testing remains outstanding.
+JSON revalidation, server/storage failures and scope boundaries. Browser QA also confirmed a failed visible tile recovers from 35/36 to 36/36
+using Retry visible map. Physical Safari/iPhone/iPad testing remains outstanding.
 
 The source world used official BDS 1.26.61.1 build 53069370, experiments off;
 these are current test-world observations, not reads of the user's Xbox save.
