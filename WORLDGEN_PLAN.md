@@ -642,3 +642,26 @@ unresolved; no rejected quart/fractional/Voronoi experiments repeated. Next:
 adjoining eastern expansion toward the known pillager outpost, or engine research
 backed by new algorithmic evidence. No server remains running; scratch selects
 the finished eastern-temple world. Native evidence survives scratch expiration.
+
+
+## 2026-11-06 — finish publication verification safeguards
+
+Resumed current main db426a9 and existing PR #15 rather than duplicating work.
+The eastern native expansion is verified live (22 representative application,
+metadata, native tile and raster files matched). Pages failed after remaining
+queued; retry succeeded, with no generation/code change required.
+
+The reusable read-only scripts/verify-live-release.py is now covered by three
+real local HTTP regression tests: complete release and exact seed/height/last-tile
+coverage; stale module, missing tile, truncated bytes and extra-byte failure;
+recovery without changing local files. Tests use only a temporary local HTTP
+server and do not request external services. 73 Node and 36 Python tests pass.
+The check remains representative, not exhaustive hosted-file or physical Safari
+verification. Code/data accuracy gates and device waypoints unchanged.
+
+No new native cells in this increment: 274 tiles / 4489216 height cells. Exact
+seed string 3022187552114785111, Xbox target 26.60, native source 1.26.61.1,
+experiments off and older/unknown Xbox generation version caveats remain. No BDS
+run or rejected generator experiment repeated. Full-world generation remains
+unfinished. Next: resume native expansion toward the eastern outpost or pursue
+new algorithmic evidence; do not spend another run reimplementing this verifier.
