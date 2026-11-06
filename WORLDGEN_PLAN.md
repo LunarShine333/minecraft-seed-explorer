@@ -665,3 +665,37 @@ experiments off and older/unknown Xbox generation version caveats remain. No BDS
 run or rejected generator experiment repeated. Full-world generation remains
 unfinished. Next: resume native expansion toward the eastern outpost or pursue
 new algorithmic evidence; do not spend another run reimplementing this verifier.
+
+## 2026-11-06 — native outpost approach
+
+Resumed main 099d736021e06ab764d97877d87e7a4c2e6f492e; no open PRs.
+Added 10 directly native Y64 tiles, X1152..1791 / Z640..895, adjoining the eastern
+temple area and including the biome slice at the prior outpost locator X1768
+Z728. This does not newly validate a structure, its footprint or its height.
+163840 new cells; atlas now 284 tiles / 4653056 height cells, including 271 Y64
+tiles / 4440064 cells. Other heights and device waypoints remain unchanged.
+
+Official BDS 1.26.61.1 build 53069370 completed all 11 requested jobs and DONE in
+fresh disposable world seed-explorer-outpost-approach, then stopped cleanly.
+level.dat independently verifies exact string seed 3022187552114785111, default
+generator and experiments off. The independent 16384-cell home control matches
+all prior native cells. Tests compare all 180224 complete native readings against
+exports. No incomplete records, block edits or Xbox save access. Plan, read-only
+probe, compressed native evidence/settings, control and manifest are committed
+under research/bds/outpost-approach-*. Reproduce:
+`python scripts/import_native_area.py --runs research/bds/outpost-approach-native-runs.json.gz --plan research/bds/outpost-approach-plan.json`
+then `node scripts/build-checked-tiles.mjs`.
+
+75 Node / 38 Python tests pass: exact footprint, continuous pan from home to
+outpost slice, unknown borders/heights, every native reading, byte-reproducible
+exports, every original raster pixel and unknown alpha. Overview now 40 pages
+(27 at Y64), revision 2c763204cefb853a8a541102081ef0de51c49761eca2531a9494aa843272f22e,
+204528 stored overview bytes vs 9658249 dense JSON bytes (not a Safari benchmark).
+Worker shell v22; durable checked downloads retained. No browser or physical
+Safari QA in this data increment. No engine experiment repeated or promoted.
+
+Target Xbox 26.60/source 1.26.61.1, experiments off and unknown original Xbox
+chunk-generation version/older-chunk caveats remain. Full-world generation still
+unfinished. Next: widen adjoining eastern coverage or new evidence-based engine
+research. Use the committed live verifier after deployment. No server remains
+running; scratch configuration selects the completed outpost test world.

@@ -1,0 +1,72 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "outpost-approach",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native outpost approach",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": 1152,
+      "z": 640,
+      "y": 64
+    },
+    {
+      "x": 1280,
+      "z": 640,
+      "y": 64
+    },
+    {
+      "x": 1408,
+      "z": 640,
+      "y": 64
+    },
+    {
+      "x": 1536,
+      "z": 640,
+      "y": 64
+    },
+    {
+      "x": 1664,
+      "z": 640,
+      "y": 64
+    },
+    {
+      "x": 1152,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": 1280,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": 1408,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": 1536,
+      "z": 768,
+      "y": 64
+    },
+    {
+      "x": 1664,
+      "z": 768,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "099d736021e06ab764d97877d87e7a4c2e6f492e",
+  "baselineRevision": "39a2ffd58ad820b6a81f8f65f31746b6a58c4aa26b2dea27d3e8d9e0a4977fe1",
+  "expectedNewCells": 163840
+}
