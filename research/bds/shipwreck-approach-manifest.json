@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "nativeVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "planId": "shipwreck-approach",
+  "evidenceSha256": "fbc239c59aa3b515a8a508b1dafbf3570352a7e80e396fb8aff4823c53ae85d6",
+  "tiles": [
+    {
+      "id": "64_-1280_-896",
+      "path": "./data/tiles/64_-1280_-896.json",
+      "x": -1280,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1152_-896",
+      "path": "./data/tiles/64_-1152_-896.json",
+      "x": -1152,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1024_-896",
+      "path": "./data/tiles/64_-1024_-896.json",
+      "x": -1024,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1280_-768",
+      "path": "./data/tiles/64_-1280_-768.json",
+      "x": -1280,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1152_-768",
+      "path": "./data/tiles/64_-1152_-768.json",
+      "x": -1152,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1024_-768",
+      "path": "./data/tiles/64_-1024_-768.json",
+      "x": -1024,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1280_-640",
+      "path": "./data/tiles/64_-1280_-640.json",
+      "x": -1280,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1152_-640",
+      "path": "./data/tiles/64_-1152_-640.json",
+      "x": -1152,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1024_-640",
+      "path": "./data/tiles/64_-1024_-640.json",
+      "x": -1024,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1280_-512",
+      "path": "./data/tiles/64_-1280_-512.json",
+      "x": -1280,
+      "z": -512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1152_-512",
+      "path": "./data/tiles/64_-1152_-512.json",
+      "x": -1152,
+      "z": -512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1024_-512",
+      "path": "./data/tiles/64_-1024_-512.json",
+      "x": -1024,
+      "z": -512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    }
+  ],
+  "addedDistinctHeightCells": 196608,
+  "controlCells": 32768,
+  "duplicateCellsChecked": 16384,
+  "completeNativeCellReadings": 229376,
+  "runReports": [
+    {
+      "runComplete": false,
+      "reportedJobs": 13,
+      "completeTileReadings": 12,
+      "discardedPartialRows": 92,
+      "controlCells": 16384
+    },
+    {
+      "runComplete": true,
+      "reportedJobs": 2,
+      "completeTileReadings": 2,
+      "discardedPartialRows": 0,
+      "controlCells": 16384
+    }
+  ],
+  "baselineCommit": "ae37e8e2fe552d9a77a83d549ff5cce6a7607da2",
+  "baselineRevision": "224d8df965d1f1a1575d58beba56b610d8335b019f111df854ed573bab053de0",
+  "olderXboxChunksMayDiffer": true
+}

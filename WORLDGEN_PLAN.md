@@ -527,3 +527,39 @@ Seed 3022187552114785111 remains a decimal string, Xbox target 26.60/source
 1.26.61.1 with experiments off and older/unknown Xbox chunk version caveats
 remain explicit. Full-world generation is unfinished. Next: more useful native
 destination coverage or engine research backed by new algorithmic evidence.
+
+## 2026-11-06 — restore execution and native shipwreck approach
+
+Resumed main ae37e8e2fe552d9a77a83d549ff5cce6a7607da2. Execution is available
+again; closed historical blocker draft #11. No other open implementation work.
+Added 12 directly native Y64 tiles: X -1280..-897, Z -896..-385, adjoining the
+existing rectangle at its southern edge. Includes the biome slice at the prior
+shipwreck locator X -1272 Z -840; no new structure verification is claimed.
+196608 additional cells; atlas 262 tiles / 4292608 height cells, including
+249 Y64 tiles / 4079616 cells. Native source remains 1.26.61.1 build 53069370,
+Xbox target 26.60, experiments off, exact decimal string seed, unknown original
+Xbox generation release and older-chunk caveats unchanged. Waypoints unchanged.
+
+Two fresh disposable BDS worlds were used. First run stalled after 12 complete
+records (including control); stopped cleanly, discarding 92 partial rows. Second
+run repeated the independent control and completed the remaining tile with DONE,
+then stopped cleanly. Both level.dat files independently checked exact seed,
+default generator and experiments off. 32768 control readings match the prior
+home fixture. All 229376 complete native readings match exports; no Xbox save
+access or block edits. Evidence, settings, plans, full/resume probes and manifest
+are committed under research/bds/shipwreck-approach-*.
+
+Reproduce with the plan-based importer and builder:
+`python scripts/import_native_area.py --runs research/bds/shipwreck-approach-native-runs.json.gz --plan research/bds/shipwreck-approach-plan.json`
+then `node scripts/build-checked-tiles.mjs`.
+
+67 Node / 30 Python tests pass: new exact footprint, native evidence, control,
+byte-reproducible export and continuous pan/unknown-border checks. Every original
+pixel and unknown alpha is checked. Overview now has 37 pages (24 at Y64),
+revision 14769db801c11b2a7bd49691520f2ac959b488ad18eb3a40af49cd279fcf7e9d.
+190134 overview bytes versus 8909080 dense JSON bytes (stored size only).
+Worker shell advances to v19; durable checked cache retained. No new browser
+or physical Safari QA this data increment; physical device testing remains open.
+Full-world generation remains unresolved; no rejected engine experiments rerun.
+Next: useful eastern native coverage or engine research with new evidence.
+No server remains running; scratch configuration selects finished resume world.
