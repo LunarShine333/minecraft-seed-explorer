@@ -98,3 +98,16 @@ Image paths are limited to local overview assets. Old/missing indices fall back
 to native JSON cell tiles; missing images are reported as load failures. The
 builder uses only standard-library Python and is invoked by the catalog builder.
 No prediction capability is approved by generating or loading these images.
+
+## Planned native area acquisitions
+
+`native-checked-area-plan-v1` pins the exact seed, target/source settings,
+requested 128 × 128 tile footprint and independent control fixtures.
+`import_native_area.py` accepts a `native-area-evidence-v1` archive containing
+separate original native logs and level.dat settings. Every run must pass a
+completed independent control. Only native completion records with all 128 rows
+can contribute cells; interrupted runs retain their incomplete status and report
+discarded partial rows. All overlapping cells must agree, and the union must
+cover the entire plan before output writes. The manifest records per-run counts,
+control readings, duplicate comparisons, net new cells and evidence digest.
+Legacy single-run imports still require a native DONE record by default.

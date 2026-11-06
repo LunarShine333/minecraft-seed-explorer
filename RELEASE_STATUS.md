@@ -6,9 +6,9 @@ Personal Overworld site: exact seed `3022187552114785111`, Xbox target Bedrock
 ## Available
 
 - Continuous checked mode loads adjoining tiles on pan/zoom or sample Y changes.
-- 111 native-data tiles: 1024 × 1024 home-area square plus an adjoining
-  2176 × 256 strip at Y64 (1605632 cells); 256 × 256 at Y-48/0/128; and
-  128 × 128 Cherry Grove at Y103. Total 1818624 distinct height cells.
+- 238 native-data tiles: a continuous 3200 × 1152 rectangle at Y64
+  (3686400 cells, X -2432..767 and Z -384..767); 256 × 256 at Y-48/0/128;
+  and 128 × 128 Cherry Grove at Y103. Total 3899392 distinct height cells.
   Coverage remains bounded.
 - 36 selected native locator landmarks across 13 types; Y unknown.
 - Approximate home property marker at X128 Z24; not verified in-game.
@@ -23,22 +23,27 @@ Personal Overworld site: exact seed `3022187552114785111`, Xbox target Bedrock
 
 ## Verification and limits
 
-46 Node and 20 Python tests pass. Original source cells remain preserved. The
-home acquisition contains 802816 direct API readings, including an independent
-16384-cell control; all are checked against committed native evidence. The prior
-route acquisition and its own control remain tested. Native controls and the old
-Cherry Grove patch match their prior fixtures. Re-export is reproducible.
-Browser preview confirms 13 lossless Y64 overview pages, exact tap inspection
-and biome sample navigation into detail. All 1818624 overview pixels match
-their native source colors, and all unmeasured pixels are transparent.
-The complete overview assets total 108306 bytes versus 3770357 bytes of native
-JSON; this is a stored-size comparison, not a Safari network benchmark.
+50 Node and 25 Python tests pass. Original source cells remain preserved.
+The west extension adds 127 native tiles (2080768 cells), with three independent
+16384-cell control readings and 229376 repeated cells agreeing across runs.
+Two interrupted acquisitions retain only completed tile records; 124 partial
+rows are discarded. The final resumed acquisition completed all 61 requested
+jobs and stopped cleanly. Committed evidence preserves the actual completion
+status of each run. All 2326528 complete native cell readings are checked by
+name against stored bundles, and re-export is reproducible.
+Browser preview confirms 21/21 lossless Y64 pages and a filled checked rectangle.
+All 3899392 overview pixels match their native source colors, with transparent
+unmeasured pixels. Stable page boundaries and reuse of current visible images
+avoid repeatedly loading the same pages when panning across native tile edges.
+The 34 active overview pages plus index total 174741 bytes versus 8092090 bytes
+of native JSON; this is a stored-size comparison, not a Safari network benchmark.
+Older immutable overview images remain for cached clients.
 Physical Safari/iPhone/iPad testing remains outstanding.
 
 The source world used official BDS 1.26.61.1 build 53069370, experiments off;
 these are current test-world observations, not reads of the user's Xbox save.
 Older Xbox chunks may differ. Unknown areas and missing sample heights stay
-unknown. The checked strip expands coverage toward the Cherry Grove; full-world coverage
+unknown. The checked rectangle connects home and Cherry Grove; full-world coverage
 is unfinished. It is a biome slice at the stated Y, not a safe travel route or
 a surface elevation model.
 

@@ -1,4 +1,4 @@
-const CACHE = 'minecraft-seed-explorer-v14-lossless-overviews';
+const CACHE = 'minecraft-seed-explorer-v15-native-west-rectangle';
 const PREFIX = 'minecraft-seed-explorer-';
 const ASSETS = ['./', './index.html', './world-data.mjs', './checked-tiles.mjs', './raster-overview.mjs', './data/overview/index.json', './data/checked-tiles.json', './map-gestures.mjs', './structure-search.mjs', './manifest.webmanifest', './DATA_FORMAT.md', './data/bedrock-26.60-checked-area.json', './data/bedrock-26.60-wide-area.json', './data/bedrock-26.60-cherry-grove.json'];
 self.addEventListener('install', event => {
