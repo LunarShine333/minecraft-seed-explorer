@@ -27,6 +27,6 @@ test('native route joins the home-area map continuously at Y64 without filling o
  assert.equal(visibleTiles(store.catalog,{minX:-2433,minZ:-250,maxX:-2432,maxZ:-249},64).length,0);
  assert.equal(visibleTiles(store.catalog,{minX:-1000,minZ:768,maxX:-999,maxZ:769},64).length,0);
  const all=await store.view({minX:-3000,minZ:-1000,maxX:1000,maxZ:1000},64);
- assert.equal(all.failed,0);assert.equal(all.bundle.biomes.length,225);
- assert.equal(all.bundle.biomes.reduce((n,t)=>n+t.samples.length,0),3686400);
+ assert.equal(all.failed,0);assert.equal(all.bundle.biomes.length,237);
+ assert.equal(all.bundle.biomes.reduce((n,t)=>n+t.samples.length,0),3883008);
 });

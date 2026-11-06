@@ -22,7 +22,7 @@ for(const bundle of [wide,local,cherry])for(const t of bundle.biomes){
 }
 // Append complete native acquisitions. Supersede smaller tiles only after every
 // overlapping cell agrees; preserve the legacy source files for imports.
-for(const extensionPath of ['research/bds/cherry-route-manifest.json','research/bds/home-area-manifest.json','research/bds/west-area-manifest.json']){
+for(const extensionPath of ['research/bds/cherry-route-manifest.json','research/bds/home-area-manifest.json','research/bds/west-area-manifest.json','research/bds/north-monument-manifest.json']){
 if(existsSync(extensionPath)){
   const extension=JSON.parse(readFileSync(extensionPath,'utf8'));
   if(extension.seed!==target.seed||extension.version!==target.version||extension.experiments!==false)throw Error('Wrong extension world settings');
@@ -46,7 +46,7 @@ if(existsSync(extensionPath)){
   }
 }
 }
-writeFileSync('data/checked-tiles.json',JSON.stringify({schemaVersion:1,...target,edition:'bedrock',dimension:'overworld',source:{kind:'observed',name:'Official Bedrock server: checked tile atlas',evidence:'BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 × 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 × 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 × 128 tiles; research/bds/cherry-route-manifest.json, home-area-manifest.json and west-area-manifest.json record acquisition evidence and settings for native extensions. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file.'},structures:wide.structures,tiles},null,2)+'\n');
+writeFileSync('data/checked-tiles.json',JSON.stringify({schemaVersion:1,...target,edition:'bedrock',dimension:'overworld',source:{kind:'observed',name:'Official Bedrock server: checked tile atlas',evidence:'BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 × 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 × 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 × 128 tiles; research/bds/cherry-route-manifest.json, home-area-manifest.json, west-area-manifest.json and north-monument-manifest.json record acquisition evidence and settings for native extensions. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file.'},structures:wide.structures,tiles},null,2)+'\n');
 
 // Catalog changes must never leave an old overview attached to new native data.
 const overviewBuild=spawnSync('python',['scripts/build_raster_overview.py'],{stdio:'inherit'});
