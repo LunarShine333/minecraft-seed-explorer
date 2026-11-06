@@ -1,4 +1,5 @@
-import {validateBundle, WORLD_SEED} from './world-data.mjs';
+import {validateRasterIndex,visibleRasterPages} from './raster-overview.mjs';
+import {validateBundle,biomeAt, WORLD_SEED} from './world-data.mjs';
 export const HOME = Object.freeze({x:128,z:24,name:'Home property (approximate)'});
 export const CHERRY = Object.freeze({x:-2336,y:103,z:-288,name:'Cherry Grove (native Y103)'});
 const target={seed:WORLD_SEED,version:'26.60'};
@@ -13,7 +14,12 @@ export function validateCatalog(raw){
     if(t.width<1||t.height<1||t.width>128||t.height>128)throw Error('Invalid tile size.');
     return {...t};
   });
-  return {...base,tiles};
+  let overview;
+  if(raw.overview){
+    if(raw.overview.path!=='./data/overview/index.json'||!/^[0-9a-f]{64}$/.test(raw.overview.revision))throw Error('Invalid raster overview identity.');
+    overview={...raw.overview};
+  }
+  return {...base,tiles,...(overview?{overview}:{})};
 }
 export function visibleTiles(catalog,{minX,minZ,maxX,maxZ},y){
   return catalog.tiles.filter(t=>t.y===y&&t.x<maxX&&t.x+t.width>minX&&t.z<maxZ&&t.z+t.height>minZ);
@@ -42,8 +48,8 @@ const sharedRequests=new TileRequestPool(4);
 
 /** Validated cells stream progressively; cancelled views cannot enqueue more work. */
 export class CheckedTileStore {
-  constructor(catalog,fetchJSON,{maxCached=32,requestPool=sharedRequests}={}){
-    this.catalog=validateCatalog(catalog);this.fetchJSON=fetchJSON;this.maxCached=maxCached;this.requests=requestPool;this.cache=new Map();this.pending=new Map();
+  constructor(catalog,fetchJSON,{maxCached=32,requestPool=sharedRequests,fetchRaster=null}={}){
+    this.catalog=validateCatalog(catalog);this.fetchJSON=fetchJSON;this.maxCached=maxCached;this.requests=requestPool;this.cache=new Map();this.pending=new Map();this.fetchRaster=fetchRaster;this.rasterCache=new Map();this.rasterPending=new Map();this.indexPromise=null;
   }
   async tile(entry,{signal}={}){
     if(signal?.aborted)throw cancelledRequest();
@@ -60,9 +66,56 @@ export class CheckedTileStore {
     },()=>[...job.signals].some(s=>!s?.aborted)).finally(()=>{if(this.pending.get(entry.id)===job)this.pending.delete(entry.id)});
     this.pending.set(entry.id,job);return job.promise;
   }
-  async view(bounds,y,{signal,onProgress}={}){
+  async cell(x,z,y,{signal}={}){
+    if(![x,z,y].every(Number.isSafeInteger)||Math.abs(x)>30000000||Math.abs(z)>30000000)throw Error('Invalid checked cell coordinate.');
+    const entry=this.catalog.tiles.find(t=>t.y===y&&x>=t.x&&x<t.x+t.width&&z>=t.z&&z<t.z+t.height);
+    if(!entry)return null;
+    const tile=await this.tile(entry,{signal});return {...biomeAt({biomes:[tile]},x,z,y),source:tile.source};
+  }
+  async rasterIndex(){
+    if(!this.catalog.overview||!this.fetchRaster)throw Error('Raster overview unavailable.');
+    if(!this.indexPromise)this.indexPromise=this.requests.run(async()=>validateRasterIndex(await this.fetchJSON(this.catalog.overview.path),this.catalog)).catch(error=>{this.indexPromise=null;throw error});
+    return this.indexPromise;
+  }
+  async raster(page,{signal}={}){
+    if(signal?.aborted)throw cancelledRequest();
+    if(this.rasterCache.has(page.id)){const image=this.rasterCache.get(page.id);this.rasterCache.delete(page.id);this.rasterCache.set(page.id,image);return image}
+    if(this.rasterPending.has(page.id)){const job=this.rasterPending.get(page.id);job.signals.add(signal);return job.promise}
+    const job={signals:new Set([signal])};
+    job.promise=this.requests.run(async()=>{
+      const image=await this.fetchRaster(page.path);
+      if(image.width!==page.width||image.height!==page.height)throw Error('Raster image dimensions do not match checked page.');
+      this.rasterCache.set(page.id,image);
+      while(this.rasterCache.size>16)this.rasterCache.delete(this.rasterCache.keys().next().value);
+      return image;
+    },()=>[...job.signals].some(s=>!s?.aborted)).finally(()=>{if(this.rasterPending.get(page.id)===job)this.rasterPending.delete(page.id)});
+    this.rasterPending.set(page.id,job);return job.promise;
+  }
+  async rasterView(bounds,y,{signal,onProgress}={}){
+    const index=await this.rasterIndex(),pages=visibleRasterPages(index,bounds,y),results=new Array(pages.length);let cursor=0,completed=0;
+    const snapshot=()=>({mode:'raster',bundle:{...this.catalog,biomes:[]},rasters:results.flatMap(r=>r?.image?[{...r.page,image:r.image}]:[]),expected:pages.length,completed,failed:results.filter(r=>r?.error).length,cancelled:!!signal?.aborted});
+    await Promise.all(Array.from({length:Math.min(4,pages.length)},async()=>{
+      while(cursor<pages.length&&!signal?.aborted){
+        const i=cursor++,page=pages[i];
+        try{results[i]={page,image:await this.raster(page,{signal})}}
+        catch(error){if(signal?.aborted)break;results[i]={error}}
+        if(signal?.aborted)break;
+        completed++;onProgress?.(snapshot());
+      }
+    }));
+    return snapshot();
+  }
+  async view(bounds,y,{signal,onProgress,overview=false}={}){
+    if(signal?.aborted)return {mode:overview?'raster':'detail',bundle:{...this.catalog,biomes:[]},rasters:[],expected:0,completed:0,failed:0,cancelled:true};
+    if(overview){
+      try{return await this.rasterView(bounds,y,{signal,onProgress})}
+      catch(error){
+        if(signal?.aborted)return {mode:'raster',bundle:{...this.catalog,biomes:[]},rasters:[],expected:0,completed:0,failed:0,cancelled:true};
+        return this.view(bounds,y,{signal,onProgress:r=>onProgress?.({...r,overviewUnavailable:true})}).then(r=>({...r,overviewUnavailable:true}));
+      }
+    }
     const entries=visibleTiles(this.catalog,bounds,y),results=new Array(entries.length);let cursor=0,completed=0;
-    const snapshot=()=>({bundle:{...this.catalog,biomes:results.flatMap(r=>r?.tile?[r.tile]:[])},expected:entries.length,completed,failed:results.filter(r=>r?.error).length,cancelled:!!signal?.aborted});
+    const snapshot=()=>({mode:'detail',bundle:{...this.catalog,biomes:results.flatMap(r=>r?.tile?[r.tile]:[])},expected:entries.length,completed,failed:results.filter(r=>r?.error).length,cancelled:!!signal?.aborted});
     await Promise.all(Array.from({length:Math.min(4,entries.length)},async()=>{
       while(cursor<entries.length&&!signal?.aborted){
         const i=cursor++;

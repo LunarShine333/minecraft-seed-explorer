@@ -82,3 +82,19 @@ Structure candidates without biome/terrain checks are never actual structures.
   presenting version-matched results for this world.
 
 No proprietary Chunkbase code or assets are copied.
+
+## Lossless checked raster overview
+
+`data/overview/index.json` is a separate rendering index, not an importable biome
+prediction bundle. It names 512 × 512 PNG pages, their checked tile coverage,
+exact seed/release/catalog revision, source evidence and known native biome
+witness cells. Each source cell contributes one RGBA pixel without resampling.
+Unmeasured pixels are transparent. Source JSON remains authoritative for biome
+names and provenance; the app loads the original cell tile when inspecting a
+point. Witnesses support known-sample navigation, not global nearest searches.
+
+The index must match the catalog revision and account for every checked tile.
+Image paths are limited to local overview assets. Old/missing indices fall back
+to native JSON cell tiles; missing images are reported as load failures. The
+builder uses only standard-library Python and is invoked by the catalog builder.
+No prediction capability is approved by generating or loading these images.

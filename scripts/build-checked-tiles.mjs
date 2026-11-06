@@ -1,4 +1,5 @@
 import {readFileSync, mkdirSync, writeFileSync, existsSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
 import {validateBundle, WORLD_SEED} from '../world-data.mjs';
 const target={seed:WORLD_SEED,version:'26.60'};
 const read=p=>validateBundle(JSON.parse(readFileSync(p,'utf8')),target);
@@ -46,3 +47,7 @@ if(existsSync(extensionPath)){
 }
 }
 writeFileSync('data/checked-tiles.json',JSON.stringify({schemaVersion:1,...target,edition:'bedrock',dimension:'overworld',source:{kind:'observed',name:'Official Bedrock server: checked tile atlas',evidence:'BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 × 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 × 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 × 128 tiles; research/bds/cherry-route-manifest.json and home-area-manifest.json record acquisition evidence and settings for route and home extensions. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file.'},structures:wide.structures,tiles},null,2)+'\n');
+
+// Catalog changes must never leave an old overview attached to new native data.
+const overviewBuild=spawnSync('python',['scripts/build_raster_overview.py'],{stdio:'inherit'});
+if(overviewBuild.error||overviewBuild.status!==0)throw Error('Could not rebuild lossless checked overview.');
