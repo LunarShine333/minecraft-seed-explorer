@@ -407,3 +407,37 @@ evidence. Full-world generation remains unresolved; no rejected quart,
 fractional or alternate Voronoi experiments were repeated or promoted. Target
 Xbox 26.60, source 1.26.61.1, experiments off and unknown original Xbox chunk
 version caveats remain explicit. No new structure validation is claimed.
+
+## 2026-11-06 — retain downloaded checked tiles through site updates
+
+Resumed from main `6c660076b8e18575cb4158b2d26933148b1d8cdf`; no open PRs.
+Found that activation deleted the previous app cache, including downloaded native
+tiles and overview images. Added a separate version-independent checked-data
+cache, migration of scoped GET tile JSON / revision-named PNGs before old-shell
+deletion, and recovery preservation if migration fails. Unrelated caches and
+other paths/origins are excluded. Failed installs still leave the old worker.
+
+Only revision-named immutable PNGs use cache-first loading. Native JSON,
+metadata and application assets still request current online responses; a
+network failure or non-success response falls back to a previously successful
+response. Failed responses never replace checked data. Registering fetch
+lifetime work synchronously keeps background cache writes within the worker
+event lifetime. Storage open/write failure does not block online loading.
+Existing current checked-data responses win during migration.
+
+58 Node / 25 Python tests pass. Eight new service-worker lifecycle tests run
+the actual worker source with simulated CacheStorage and network failures:
+upgrade/offline replay and unknown-cell 503; immutable PNG network avoidance;
+corrected JSON revalidation; server failure fallback; current metadata refresh;
+storage failure; scope/method boundaries; existing-response preservation; and
+failed-migration recovery (several scenarios share a test). No browser offline
+simulation or physical Safari test was performed; those remain verification
+limits. Browser storage eviction/clearing can still remove downloaded data.
+
+No new coverage or native-generation claim: 238 checked tiles / 3899392 height
+cells remain unchanged. Seed, source/target versions, experiments-off, older
+Xbox-chunk caveats, native structure evidence and device waypoints are retained.
+No BDS execution was needed for this cache-only increment; prior acquisition
+controls and raster source comparisons were rerun. Next: useful new native
+destinations or generation research justified by new evidence. Full-world
+generation remains unresolved.
