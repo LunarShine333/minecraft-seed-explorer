@@ -349,3 +349,61 @@ is still unresolved, and no rejected quart/fractional/Voronoi experiments were
 repeated or promoted. The atlas remains bounded test-world observations for the
 exact seed; Xbox target remains 26.60, experiments off, source 1.26.61.1, with
 original Xbox generation version unknown.
+
+## 2026-11-06 — fill the western checked rectangle
+
+Added 127 directly sampled native Y64 tiles (2080768 new cells). Y64 now covers
+X -2432..767, Z -384..767 continuously: 25 × 9 tiles, 3200 × 1152 cells.
+The catalog contains 238 tiles / 3899392 distinct height cells, including 225
+Y64 tiles. Other heights, the approximate home marker, all 36 partial native
+structure observations and device waypoint storage remain as before. This
+is a biome slice at the stated Y, not a safe route or surface elevation model.
+
+`research/bds/west-area-plan.json` pins the exact seed, footprint, source build,
+experiments-off setting and independent home control fixture. Disposable native
+world runs stalled twice (cause unknown); each was interrupted after retaining
+only native TILE records with all 128 rows. Partial rows (64 + 60) were discarded.
+A resumed 61-job run completed with its genuine DONE record and stopped cleanly.
+No server remains running. All three level.dat settings were independently
+checked: exact decimal seed, default generator, experiments off, source BDS
+1.26.61.1 build 53069370. No Xbox save was accessed or modified.
+
+The evidence archive preserves each run's actual completion state and settings.
+All three independent 16384-cell controls match the earlier home fixture; all
+229376 overlapping cell readings agree. Tests compare all 2326528 complete
+native readings with exported names. No incomplete row group becomes coverage.
+Reproduce with:
+
+```sh
+python scripts/import_native_area.py --runs research/bds/west-area-native-runs.json.gz --plan research/bds/west-area-plan.json
+node scripts/build-checked-tiles.mjs
+```
+
+The new plan-based importer checks controls and every overlapping cell across
+runs, then requires the full planned union before writing anything. Existing
+single-run imports remain strict by default. Full and resumed native probe
+sources are committed; the scratch server configuration currently selects the
+finished west-final world and resumed probe. Future acquisitions should use
+a new disposable world/plan rather than resampling this rectangle.
+
+The lossless overview has 34 active pages (21 at Y64), revision
+`2d0b48ab5334063d938e53bd5bc84a1476b3740671d35d4304906c0cc5d7a2bd`.
+Its 174741 stored bytes compare with 8092090 dense JSON bytes, about 97.84%
+smaller; this is not a measured network or Safari benchmark. Every native cell
+retains one original-color pixel; all unsampled pixels remain transparent. Old
+immutable image filenames are retained for cached clients. The viewport now
+keys wide views on 512-block page boundaries rather than 128-block native tile
+boundaries, and pins the current frame's images alongside the 16-image LRU.
+This allows a 21-page view to be reused without evicting its own visible images.
+
+50 Node / 25 Python tests pass, including exact footprint, all native source
+readings, control/overlap rejection, byte-reproducible exports, every raster
+pixel/unknown alpha, stable viewport keys and reuse beyond the background LRU.
+Browser preview showed the filled rectangle and 21/21 Y64 overview pages.
+Physical Safari/iPhone/iPad testing remains outstanding.
+
+Next: new native destination coverage or generation research backed by new
+evidence. Full-world generation remains unresolved; no rejected quart,
+fractional or alternate Voronoi experiments were repeated or promoted. Target
+Xbox 26.60, source 1.26.61.1, experiments off and unknown original Xbox chunk
+version caveats remain explicit. No new structure validation is claimed.

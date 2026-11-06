@@ -36,3 +36,14 @@ export function checkedBiomeWitness(pages,name,x,z,y){
   }
   return best;
 }
+
+/** Stable page geometry prevents 128-block tile edges from restarting wide views. */
+export function rasterPageBounds(catalog,bounds,y){
+  const pages=new Map();
+  for(const t of catalog.tiles){
+    if(t.y!==y)continue;
+    const x=Math.floor(t.x/512)*512,z=Math.floor(t.z/512)*512,id=`${y}_${x}_${z}`;
+    if(!pages.has(id))pages.set(id,{id,x,z,y,width:512,height:512});
+  }
+  return visibleRasterPages({pages:[...pages.values()]},bounds,y);
+}

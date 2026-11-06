@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {CheckedTileStore,validateCatalog} from '../checked-tiles.mjs';
-import {validateRasterIndex,visibleRasterPages,checkedBiomeWitness} from '../raster-overview.mjs';
+import {CheckedTileStore,validateCatalog,visibleTiles} from '../checked-tiles.mjs';
+import {validateRasterIndex,visibleRasterPages,checkedBiomeWitness,rasterPageBounds} from '../raster-overview.mjs';
 const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const catalog=validateCatalog(read('data/checked-tiles.json')),raw=read(catalog.overview.path);
 const whole={minX:-3000,minZ:-1000,maxX:1000,maxZ:1000};
@@ -10,9 +10,9 @@ const image=async()=>({width:512,height:512});
 const settle=()=>new Promise(resolve=>setImmediate(resolve));
 
 test('lossless raster index accounts for all checked tiles and preserves seed/height identity',()=>{
- const index=validateRasterIndex(raw,catalog);assert.equal(index.seed,'3022187552114785111');assert.equal(index.pages.length,26);
- assert.equal(index.pages.reduce((n,p)=>n+p.coverage.length,0),111);
- assert.equal(visibleRasterPages(index,whole,64).length,13);
+ const index=validateRasterIndex(raw,catalog);assert.equal(index.seed,'3022187552114785111');assert.equal(index.pages.length,34);
+ assert.equal(index.pages.reduce((n,p)=>n+p.coverage.length,0),238);
+ assert.equal(visibleRasterPages(index,whole,64).length,21);
  assert.equal(visibleRasterPages(index,whole,103).length,1);
  assert.equal(visibleRasterPages(index,whole,104).length,0);
 });
@@ -21,12 +21,12 @@ test('reject stale overviews, wrong worlds, unsafe paths, missing coverage and i
   const r=structuredClone(raw);mutate(r);assert.throws(()=>validateRasterIndex(r,catalog));
  }
 });
-test('wide view uses one index and 13 raster pages, then exact inspection fetches only one native tile',async()=>{
+test('wide view uses one index and 21 raster pages, then exact inspection fetches only one native tile',async()=>{
  const json=[],images=[];
  const store=new CheckedTileStore(catalog,async path=>{json.push(path);return read(path)},{fetchRaster:async path=>{images.push(path);return image()}});
  const result=await store.view(whole,64,{overview:true});
- assert.equal(result.mode,'raster');assert.equal(result.failed,0);assert.equal(result.rasters.length,13);assert.equal(result.bundle.biomes.length,0);
- assert.deepEqual(json,[catalog.overview.path]);assert.equal(images.length,13);
+ assert.equal(result.mode,'raster');assert.equal(result.failed,0);assert.equal(result.rasters.length,21);assert.equal(result.bundle.biomes.length,0);
+ assert.deepEqual(json,[catalog.overview.path]);assert.equal(images.length,21);
  const cell=await store.cell(128,24,64);assert.ok(cell.name);assert.equal(cell.source.kind,'observed');assert.equal(json.length,2);
  await store.cell(128,24,64);assert.equal(json.length,2);
  assert.equal(await store.cell(-1000,-450,64),null);assert.equal(json.length,2);
@@ -54,4 +54,18 @@ test('cancelled overview views stop new pages and do not publish stale progress'
 test('wrong image dimensions never enter the raster cache',async()=>{
  const store=new CheckedTileStore(catalog,async p=>read(p),{fetchRaster:async()=>({width:1,height:1})});
  const result=await store.view(whole,103,{overview:true});assert.equal(result.failed,1);assert.equal(result.rasters.length,0);assert.equal(store.rasterCache.size,0);
+});
+
+test('overview page selection stays stable when a pan crosses native tile edges',()=>{
+ const a={minX:10,minZ:10,maxX:200,maxZ:100},b={minX:140,minZ:10,maxX:330,maxZ:100};
+ assert.notDeepEqual(visibleTiles(catalog,a,64).map(t=>t.id),visibleTiles(catalog,b,64).map(t=>t.id));
+ assert.deepEqual(rasterPageBounds(catalog,a,64),rasterPageBounds(catalog,b,64));
+});
+test('current visible pages remain reusable when they exceed the background image cache',async()=>{
+ let fetches=0;
+ const store=new CheckedTileStore(catalog,async p=>read(p),{maxRasterCached:2,fetchRaster:async()=>{fetches++;return image()}});
+ const first=await store.view(whole,64,{overview:true}),count=first.rasters.length;
+ assert.ok(count>2);assert.equal(store.rasterCache.size,2);assert.equal(store.liveRasters.size,count);
+ await store.view(whole,64,{overview:true});assert.equal(fetches,count);
+ await store.view({minX:128,minZ:24,maxX:129,maxZ:25},64);assert.equal(store.liveRasters.size,0);
 });

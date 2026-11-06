@@ -15,7 +15,10 @@ BUILD = '53069370'
 ALIAS = {'minecraft:stone_beach': 'minecraft:stony_shore'}
 
 
-def parse_native(text, settings):
+def parse_native(text, settings, *, allow_partial=False):
+    # Partial mode returns only tiles with a real native completion record and
+    # all 128 rows; callers must retain each run's incomplete status.
+    allow_partial = allow_partial and text.count('MSE_ROUTE_DONE') == 0
     world = settings.get('settings', {})
     if world.get('RandomSeed') != SEED or world.get('Generator') != 1:
         raise ValueError('Wrong native seed or world generator')
@@ -26,7 +29,7 @@ def parse_native(text, settings):
         raise ValueError('Unexpected native world version')
     if f'Version: {VERSION}' not in text or f'Build ID: {BUILD}' not in text:
         raise ValueError('Native startup version/build evidence missing')
-    if 'MSE_ROUTE_ABORT' in text or text.count('MSE_ROUTE_DONE') != 1:
+    if 'MSE_ROUTE_ABORT' in text or text.count('MSE_ROUTE_DONE') > 1 or (not allow_partial and text.count('MSE_ROUTE_DONE') != 1):
         raise ValueError('Incomplete or aborted native run')
     starts, rows, tiles = [], {}, {}
     for line in text.splitlines():
@@ -58,7 +61,7 @@ def parse_native(text, settings):
                 if not palette or len(set(palette)) != len(palette) or any(not isinstance(n, str) or not n.startswith('minecraft:') for n in palette):
                     raise ValueError('Invalid native biome palette')
                 tiles[key] = {**item, 'palette': [ALIAS.get(n, n) for n in palette]}
-    if len(starts) != 1 or starts[0].get('seed') != SEED or starts[0].get('jobs') != len(tiles) or set(rows) != set(tiles):
+    if len(starts) != 1 or starts[0].get('seed') != SEED or (starts[0].get('jobs', 0) < len(tiles) if allow_partial else starts[0].get('jobs') != len(tiles)) or (not set(tiles).issubset(rows) if allow_partial else set(rows) != set(tiles)):
         raise ValueError('Native job identity or completion count mismatch')
     for key, tile in tiles.items():
         if set(rows[key]) != set(range(128)):
