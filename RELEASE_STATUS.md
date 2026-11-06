@@ -19,11 +19,14 @@ Personal Overworld site: exact seed `3022187552114785111`, Xbox target Bedrock
   biome sample navigation. Unknown pixels remain transparent.
 - Progressive tile display, a shared four-request concurrency cap, queued
   cancellation, request sharing, bounded tile cache and stale-viewport protection. Service worker caches requested tiles for offline
-  reuse; regions never downloaded are unavailable offline.
+  reuse across site updates; regions never downloaded are unavailable offline.
+  Revision-named overview images reuse stored bytes without a network round trip;
+  native JSON and metadata still revalidate online. Browser storage eviction or
+  clearing site data can remove offline downloads.
 
 ## Verification and limits
 
-50 Node and 25 Python tests pass. Original source cells remain preserved.
+58 Node and 25 Python tests pass. Original source cells remain preserved.
 The west extension adds 127 native tiles (2080768 cells), with three independent
 16384-cell control readings and 229376 repeated cells agreeing across runs.
 Two interrupted acquisitions retain only completed tile records; 124 partial
@@ -38,7 +41,9 @@ avoid repeatedly loading the same pages when panning across native tile edges.
 The 34 active overview pages plus index total 174741 bytes versus 8092090 bytes
 of native JSON; this is a stored-size comparison, not a Safari network benchmark.
 Older immutable overview images remain for cached clients.
-Physical Safari/iPhone/iPad testing remains outstanding.
+Service-worker lifecycle tests cover upgrade migration, offline replay, corrected
+JSON revalidation, server/storage failures and scope boundaries. Physical
+Safari/iPhone/iPad testing remains outstanding.
 
 The source world used official BDS 1.26.61.1 build 53069370, experiments off;
 these are current test-world observations, not reads of the user's Xbox save.
