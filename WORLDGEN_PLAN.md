@@ -300,3 +300,52 @@ more native tiles, plus biome destination discovery. The full-world generator
 remains unresolved and no rejected fitted sampling experiments were repeated.
 Only native observed cells are published; older Xbox chunks may differ from
 this 1.26.61.1 source while the user's target stays 26.60, experiments off.
+
+## Lossless wide-map overview checkpoint — 2026-11-05
+
+Wide views now use **lossless 512 × 512 PNG pages**, with exactly one original
+native cell per pixel and transparent unknown areas. There is no majority
+aggregation, fitted boundary, interpolation, predicted terrain or new coverage.
+All **1818624 existing native cells** retain their exact original colors.
+The full atlas has 26 image pages plus an index: **108306 stored bytes**, versus
+**3770357 bytes** for the dense tile JSON (97.1% smaller stored representation).
+This is a file-size comparison, not a measured Safari network benchmark.
+
+At scales below 0.6 screen pixels per block, the viewport streams PNG pages
+through the existing four-request pool. Fitting all Y64 coverage requires
+**13 image pages plus the compact index**, replacing 98 dense JSON tile loads.
+At closer zooms it switches back to the native cell tiles. A 16-image LRU bounds
+cached raster pages. Metadata is matched to the exact catalog revision; stale
+indices fail closed and fall back to checked cell tiles. Image filenames include
+that revision, and image dimensions are checked before display.
+
+Tap inspection always reads the corresponding original native cell tile,
+including when viewing an overview; it never infers a biome name from a color.
+Unmeasured coordinates return unknown without a tile request. Negative taps use
+block floor coordinates. The overview legend offers exact native witness cells
+for biome discovery. These are labeled known samples, not globally nearest
+occurrences; following one zooms into cell detail. Existing nearest-loaded-cell
+search remains available in detail mode. Source version/older-Xbox-chunk caveats,
+structure provenance and device waypoints are retained.
+
+`node scripts/build-checked-tiles.mjs` now also runs the standard-library Python
+raster builder, so a rebuilt catalog cannot silently retain a stale overview.
+The atlas index and PNG SHA256 digests are committed under `data/overview/`.
+No external image dependency, image generation model, paid service or native
+server run was needed: these are a rendering of existing native measurements.
+
+**46 Node tests and 20 Python tests pass.** Tests independently decode the PNGs,
+check every original native pixel, verify transparent alpha at every unmeasured
+pixel, and check each biome witness against its original native cell. Other
+checks cover catalog/version/seed identity, stale index rejection, unsafe paths,
+coverage loss, image dimensions, cancellation, fallback, and one-tile exact
+inspection. Browser preview confirmed 13/13 Y64 overview pages, native biome tap
+inspection, and navigation from a known Cherry Grove witness into detail.
+Physical Safari/iPhone/iPad testing remains outstanding.
+
+Next: expand useful native coverage and/or add more native located destinations;
+retain these lossless pages as coverage grows. The full-world Bedrock generator
+is still unresolved, and no rejected quart/fractional/Voronoi experiments were
+repeated or promoted. The atlas remains bounded test-world observations for the
+exact seed; Xbox target remains 26.60, experiments off, source 1.26.61.1, with
+original Xbox generation version unknown.

@@ -38,7 +38,7 @@ details[open]>summary{margin-bottom:12px}
 @media(max-width:720px){header{padding:16px}.layout{grid-template-columns:1fr;padding:12px;gap:12px}.map{position:relative;top:auto;height:58dvh;min-height:320px}.panel{max-height:none;overflow:visible;padding:18px}h1{font-size:19px}.hint{font-size:11px}button{min-height:44px}#structure-list{max-height:240px}}
 @media(prefers-reduced-motion:reduce){button{transition:none}}
 </style></head><body><header><div class="wrap"><h1>🌿 Minecraft Seed Explorer</h1><small>Bedrock 26.60 · Seed 3022187552114785111 · Overworld explorer</small></div></header>
-<main class="wrap layout"><section class="map" id="map"><canvas id="canvas"></canvas><div class="maptools"><button id="zin" aria-label="Zoom in">＋</button><button id="zout" aria-label="Zoom out">－</button><button id="home" aria-label="Go to approximate home property">⌖</button></div><div class="hint">Drag to pan · Pinch, scroll or use ＋/－ to zoom · Tap map for coordinates</div></section>
+<main class="wrap layout"><section class="map" id="map"><canvas id="canvas"></canvas><div class="maptools"><button id="zin" aria-label="Zoom in">＋</button><button id="zout" aria-label="Zoom out">－</button><button id="home" aria-label="Go to approximate home property">⌖</button></div><div id="map-resolution" class="hint" style="top:32px;bottom:auto;max-width:calc(100% - 80px)" aria-live="polite"></div><div class="hint">Drag to pan · Pinch, scroll or use ＋/－ to zoom · Tap map for coordinates</div></section>
 <aside class="panel"><h2 style="margin-top:0">🌍 World data</h2>
 <p class="status">Seed <span id="world-seed"></span> · Overworld</p>
 <label>Exact Xbox version<input id="game-version" placeholder="Unknown — check title screen" maxlength="30"></label>
@@ -58,6 +58,7 @@ details[open]>summary{margin-bottom:12px}
 <script type="module">
 import {findStructures} from './structure-search.mjs';
 import {pinchView} from './map-gestures.mjs';
+import {checkedBiomeWitness} from './raster-overview.mjs';
 import {CheckedTileStore,visibleTiles,HOME,CHERRY} from './checked-tiles.mjs';
 import {WORLD_SEED,MAX_FILE_BYTES,exactVersion,validateBundle,biomeAt,nearestBiome} from './world-data.mjs';
 
@@ -79,7 +80,7 @@ c.addEventListener('pointermove',e=>{
 });
 function endPointer(e,cancelled){
   if(!pointers.has(e.pointerId))return;
-  if(!cancelled&&pointers.size===1&&!pinch&&drag&&!changed){const r=c.getBoundingClientRect(),[x,z]=world(e.clientX-r.left,e.clientY-r.top);$('x').value=Math.round(x);$('z').value=Math.round(z);inspectWorld(x,z)}
+  if(!cancelled&&pointers.size===1&&!pinch&&drag&&!changed){const r=c.getBoundingClientRect(),[x,z]=world(e.clientX-r.left,e.clientY-r.top);$('x').value=Math.floor(x);$('z').value=Math.floor(z);inspectWorld(x,z)}
   pointers.delete(e.pointerId);pinch=null;drag=null;
   if(pointers.size===1){const p=[...pointers.values()][0];drag={x:p.x,y:p.y,cx,cz};changed=true}
 }
@@ -93,17 +94,20 @@ c.addEventListener('wheel',e=>{e.preventDefault();scale=Math.max(.001,Math.min(5
 }
 
 
-let worldData = null;
+let worldData = null,rasterPages=null,inspectionId=0;
 let tileStore=null,tileEpoch=0,tileTimer=null,tileViewKey='',tileController=null,tileProgressFrame=0;
 function stopTiles(){
   tileController?.abort();tileController=null;cancelAnimationFrame(tileProgressFrame);tileProgressFrame=0;
+  rasterPages=null;inspectionId++;$('map-resolution').textContent='';
   tileStore=null;tileEpoch++;tileViewKey='';clearTimeout(tileTimer);$('tile-status').textContent='';
 }
+function loadRaster(path){return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=()=>reject(Error('Checked overview unavailable.'));image.src=path})}
 async function fetchJSON(path){const response=await fetch(path);if(!response.ok)throw Error('Checked data unavailable. Reconnect and load again.');return response.json()}
 function tileView(store){
   const [minX,minZ]=world(0,0),[maxX,maxZ]=world(map.clientWidth,map.clientHeight),bounds={minX,minZ,maxX,maxZ};
   const y=Number($('biome-y').value),entries=visibleTiles(store.catalog,bounds,y);
-  return {bounds,y,entries,key:y+':'+entries.map(t=>t.id).join(',')};
+  const overview=scale<.6&&!!store.catalog.overview;
+  return {bounds,y,entries,overview,key:(overview?'raster:':'detail:')+y+':'+entries.map(t=>t.id).join(',')};
 }
 function queueTiles(){
   if(!tileStore)return;
@@ -117,18 +121,19 @@ function queueTiles(){
 }
 async function updateTiles(){
   const store=tileStore;if(!store)return;
-  const {bounds,y,entries,key}=tileView(store);if(key===tileViewKey)return;
+  const {bounds,y,entries,key,overview}=tileView(store);if(key===tileViewKey)return;
   tileController?.abort();cancelAnimationFrame(tileProgressFrame);tileProgressFrame=0;
   const controller=new AbortController();tileController=controller;
   tileViewKey=key;const epoch=++tileEpoch;
   $('tile-status').textContent='Loading '+entries.length+' visible checked tiles… Outside checked coverage remains unknown.';
   const show=result=>{
     if(store!==tileStore||epoch!==tileEpoch||controller.signal.aborted)return;
-    worldData=result.bundle;renderLegend();draw();
-    $('tile-status').textContent=result.bundle.biomes.length+' of '+result.expected+' checked tiles loaded at Y '+y+'. '+(result.failed?result.failed+' failed to load; reconnect and load again. ':'')+'Unmapped areas are unknown. Pan to load adjoining checked tiles. Older Xbox chunks may differ.';
+    worldData=result.bundle;rasterPages=result.mode==='raster'?result.rasters:null;renderLegend();draw();
+    $('map-resolution').textContent=rasterPages?'Lossless checked overview · tap for biome':'Checked biome cells';
+    $('tile-status').textContent=(rasterPages?result.rasters.length:result.bundle.biomes.length)+' of '+result.expected+(rasterPages?' lossless overview pages':' checked tiles')+' loaded at Y '+y+'. '+(result.overviewUnavailable?'Overview unavailable; using checked cell tiles. ':'')+(result.failed?result.failed+' failed to load; reconnect and load again. ':'')+'Unmapped areas are unknown. Pan to load adjoining checked tiles. Older Xbox chunks may differ.';
   };
   let latest=null;
-  const result=await store.view(bounds,y,{signal:controller.signal,onProgress:partial=>{
+  const result=await store.view(bounds,y,{overview,signal:controller.signal,onProgress:partial=>{
     if(store!==tileStore||epoch!==tileEpoch||controller.signal.aborted)return;
     latest=partial;
     if(!tileProgressFrame)tileProgressFrame=requestAnimationFrame(()=>{tileProgressFrame=0;show(latest)});
@@ -179,7 +184,7 @@ function initWorldData(){
       const selected=$('game-version').value.trim();
       if(selected&&exactVersion(selected)!=='26.60')throw Error('These checked points are for Bedrock 26.60. Select that release to load them.');
       if(area==='continuous'){
-        const store=new CheckedTileStore(await fetchJSON('./data/checked-tiles.json'),fetchJSON);
+        const store=new CheckedTileStore(await fetchJSON('./data/checked-tiles.json'),fetchJSON,{fetchRaster:loadRaster});
         if($('game-version').value.trim()!==selected||$('checked-area').value!==area)throw Error('Selection changed while loading. Please try again.');
         stopTiles();tileStore=store;$('game-version').value='26.60';worldData={...store.catalog,biomes:[]};
         cx=HOME.x;cz=HOME.z;scale=Math.min(map.clientWidth,map.clientHeight)/576;
@@ -223,12 +228,22 @@ function renderLayers(){
 }
 function renderLegend(){
   const root=$('biome-legend');root.replaceChildren();if(!worldData)return;
-  const entries=new Map();for(const t of worldData.biomes.filter(t=>t.y===Number($('biome-y').value)))
+  const entries=new Map();
+  if(rasterPages){for(const p of rasterPages)for(const w of p.witnesses)if(w.y===Number($('biome-y').value))entries.set(w.name,w.color)}
+  else for(const t of worldData.biomes.filter(t=>t.y===Number($('biome-y').value)))
     for(const index of new Set(t.samples)){const p=t.palette[index];entries.set(p.name,p.color)}
   for(const [name,color] of entries){const row=document.createElement('div'),dot=document.createElement('span');
-    row.className='biome-row';dot.textContent='● ';dot.style.color=color;const label=document.createElement('span');label.textContent=name.replace(/^minecraft:/,'').replaceAll('_',' ');const find=document.createElement('button');find.textContent='Find';find.setAttribute('aria-label','Find closest mapped '+label.textContent);find.onclick=()=>focusBiome(name);row.append(dot,label,find);root.append(row)}
+    row.className='biome-row';dot.textContent='● ';dot.style.color=color;const label=document.createElement('span');label.textContent=name.replace(/^minecraft:/,'').replaceAll('_',' ');const find=document.createElement('button');find.textContent=rasterPages?'Go':'Find';find.setAttribute('aria-label',(rasterPages?'Go to checked sample of ':'Find closest mapped ')+label.textContent);find.onclick=()=>focusBiome(name);row.append(dot,label,find);root.append(row)}
 }
 function focusBiome(name){
+  if(rasterPages){
+    const sample=checkedBiomeWitness(rasterPages,name,cx,cz,Number($('biome-y').value));
+    if(!sample)return;
+    cx=sample.x;cz=sample.z;scale=Math.max(scale,1);$('x').value=sample.x;$('z').value=sample.z;
+    $('name').value=name.replace(/^minecraft:/,'').replaceAll('_',' ');
+    $('notes').value='Known native biome cell at Y '+sample.y+' · Bedrock target 26.60, BDS source 1.26.61.1. Older Xbox chunks may differ.';
+    draw();$('map-readout').textContent='Known checked '+$('name').value+' sample: X '+sample.x+', Y '+sample.y+', Z '+sample.z+'. Other occurrences may be closer.';return;
+  }
   const result=nearestBiome(worldData,name,cx,cz,Number($('biome-y').value));
   if(!result){$('map-readout').textContent='No mapped sample for this biome at the selected Y. Unmapped areas were not searched.';return}
   cx=result.x;cz=result.z;scale=Math.max(scale,1);$('x').value=result.x;$('z').value=result.z;
@@ -263,7 +278,11 @@ function tileRaster(tile){
 }
 function drawWorldLayer(){
   if(!worldData)return;
-  if($('show-biomes').checked){for(const t of worldData.biomes){if(t.y!==Number($('biome-y').value))continue;
+  if($('show-biomes').checked&&rasterPages){
+    ctx.imageSmoothingEnabled=false;
+    for(const page of rasterPages){if(page.y!==Number($('biome-y').value))continue;const [left,top]=screen(page.x,page.z);ctx.drawImage(page.image,left,top,page.width*scale,page.height*scale)}
+  }
+  if($('show-biomes').checked&&!rasterPages){for(const t of worldData.biomes){if(t.y!==Number($('biome-y').value))continue;
     if(t.step===1){const [left,top]=screen(t.x,t.z);ctx.imageSmoothingEnabled=false;
       ctx.drawImage(tileRaster(t),left,top,t.width*scale,t.height*scale);continue;
     }
@@ -278,12 +297,21 @@ function drawWorldLayer(){
     ctx.fillStyle='#e1f8ff';ctx.fillText(p.type,x+9,y+12)
   }}
 }
-function inspectWorld(x,z){
-  const biome=biomeAt(worldData,x,z,Number($('biome-y').value));
+async function inspectWorld(x,z){
+  x=Math.floor(x);z=Math.floor(z);
+  const store=tileStore,y=Number($('biome-y').value),id=++inspectionId,view={cx,cz,scale};
+  let biome=biomeAt(worldData,x,z,y);
   const hit=$('show-structures').checked?visibleStructures().find(p=>Math.hypot(p.x-x,p.z-z)*scale<12):null;
-  $('map-readout').textContent='X '+Math.round(x)+' · Z '+Math.round(z)+
+  if(store){
+    $('map-readout').textContent='Checking native biome cell at X '+x+', Y '+y+', Z '+z+'…';
+    const current=()=>id===inspectionId&&store===tileStore&&y===Number($('biome-y').value)&&cx===view.cx&&cz===view.cz&&scale===view.scale;
+    try{biome=await store.cell(x,z,y)}
+    catch(error){if(current())$('map-readout').textContent='Checked cell could not load. Reconnect and tap again.';return}
+    if(!current())return;
+  }
+  $('map-readout').textContent='X '+x+' · Z '+z+
     (biome?' · '+biome.name+' at Y '+biome.y:' · No biome sample here')+
-    (tileStore?' · Native test-world data; older Xbox chunks may differ.':'')+
+    (store?' · Native test-world data; older Xbox chunks may differ.':'')+
     (hit?' · '+hit.type+' ('+worldData.source.kind+')':'');
 }
 initWorldData();list();resize();if($('game-version').value==='26.60')$('load-checked').click();
