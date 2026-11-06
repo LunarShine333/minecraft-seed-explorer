@@ -53,10 +53,11 @@ details[open]>summary{margin-bottom:12px}
 <label><input type="checkbox" id="show-structures" checked style="width:auto"> Structures</label>
 <label>Biome sample Y<select id="biome-y"></select></label>
 <label>Structure filter<select id="structure-filter"><option value="">All structures</option></select></label>
-<div id="biome-legend" class="status"></div><label>Search known structures<input id="structure-search" type="search" placeholder="Village, trial chambers, coordinates…"></label><button id="structure-center" style="width:100%">Search from map center</button><p id="structure-summary" class="status" aria-live="polite"></p><div id="structure-list"></div>
+<button id="browse-biomes" style="width:100%">Browse all checked biomes at this Y</button><label>Checked biome destination<select id="biome-destination" disabled><option>Browse to load destinations</option></select></label><button id="go-biome" disabled style="width:100%">Go to checked sample</button><p id="biome-discovery-status" class="status" role="status">Recorded samples across the checked atlas. Other occurrences may be closer; sample Y is not surface elevation.</p><div id="biome-legend" class="status"></div><label>Search known structures<input id="structure-search" type="search" placeholder="Village, trial chambers, coordinates…"></label><button id="structure-center" style="width:100%">Search from map center</button><p id="structure-summary" class="status" aria-live="polite"></p><div id="structure-list"></div>
 </div><p id="map-readout" class="status" role="status">Tap the map to inspect a coordinate.</p>
 <hr style="border:0;border-top:1px solid #355542;margin:18px 0"><h2 style="margin-top:0">🧭 Explore coordinates</h2><p class="status">Jump to any Overworld X/Z location. Map origin (0, 0) is not a verified world spawn.</p><div class="coordinate-pair"><label>Go to X<input id="jumpx" type="number" placeholder="X"></label><label>Go to Z<input id="jumpz" type="number" placeholder="Z"></label></div><button id="jump" style="width:100%">Go to coordinates</button><details open><summary>📍 Saved waypoints</summary><label>Name<input id="name" placeholder="Our house"></label><div class="coordinate-pair"><label>X coordinate<input id="x" type="number" placeholder="0"></label><label>Z coordinate<input id="z" type="number" placeholder="0"></label></div><label>Notes<textarea id="notes" rows="2" placeholder="Optional"></textarea></label><button id="save" style="width:100%">Save waypoint</button><label>Search<input id="search" placeholder="Find saved places"></label><div id="items"></div><div class="buttons"><button id="export">Export backup</button><button id="import">Import backup</button><input type="file" id="file" accept="application/json" hidden></div><p class="status">Continuous mode loads checked tiles as you pan. Coverage is still bounded; empty areas are unknown. The checked strip toward Cherry Grove is at Y 64; the enlarged Cherry Grove destination is at Y 103. Landmark lists are partial; empty areas are unknown. Waypoints are saved only on this device. Imported world layers last for this session. Automatic predictions are not enabled.</p></details></aside></main>
 <script type="module">
+import {checkedDestinations,checkedDestination} from './biome-destinations.mjs';
 import {fetchCheckedJSON,loadCheckedRaster} from './checked-network.mjs';
 import {findStructures} from './structure-search.mjs';
 import {pinchView} from './map-gestures.mjs';
@@ -225,6 +226,7 @@ function dataStatus(){
   $('data-status').title=worldData.source.evidence;
 }
 function renderLayers(){
+  resetDiscovery();
   $('fit-coverage').disabled=!tileStore&&!worldData?.biomes.length;
   $('fit-landmarks').disabled=!worldData?.structures.length;$('layer-controls').hidden=!worldData;dataStatus();$('map-readout').textContent='Tap the map to inspect a coordinate.';
   $('biome-y').replaceChildren();$('structure-filter').replaceChildren(new Option('All structures',''));
@@ -233,6 +235,40 @@ function renderLayers(){
   for(const name of [...new Set(worldData.structures.map(p=>p.type))].sort())$('structure-filter').append(new Option(name,name));
   renderLegend();renderStructureList();
 }
+let discoveryEpoch=0;
+function resetDiscovery(){
+  discoveryEpoch++;$('biome-destination').disabled=true;$('go-biome').disabled=true;
+  $('biome-discovery-status').textContent='Browse recorded samples at the current Y. Other occurrences may be closer; sample Y is not surface elevation.';
+}
+$('biome-y').addEventListener('change',resetDiscovery);
+$('browse-biomes').onclick=async()=>{
+  const store=tileStore,y=Number($('biome-y').value),epoch=++discoveryEpoch;
+  $('biome-destination').disabled=true;$('go-biome').disabled=true;
+  $('biome-discovery-status').textContent='Loading checked destinations…';
+  try{
+    if(!store)throw Error('Load continuous checked coverage to browse the atlas.');
+    const names=await checkedDestinations(store,y);
+    if(epoch!==discoveryEpoch||tileStore!==store||Number($('biome-y').value)!==y)return;
+    $('biome-destination').replaceChildren(...names.map(n=>new Option(n.replace(/^minecraft:/,'').replaceAll('_',' '),n)));
+    $('biome-destination').dataset.y=String(y);$('biome-destination').disabled=!names.length;$('go-biome').disabled=!names.length;
+    $('biome-discovery-status').textContent=names.length+' biomes with recorded samples across the atlas at Y '+y+'. Other occurrences may be closer.';
+  }catch(e){if(epoch===discoveryEpoch)$('biome-discovery-status').textContent=e.message}
+};
+$('go-biome').onclick=async()=>{
+  const store=tileStore,y=Number($('biome-destination').dataset.y),name=$('biome-destination').value,epoch=++discoveryEpoch;
+  $('go-biome').disabled=true;
+  try{
+    if(!store||Number($('biome-y').value)!==y)throw Error('Browse again for the current sample height.');
+    const sample=await checkedDestination(store,name,cx,cz,y);
+    if(epoch!==discoveryEpoch||tileStore!==store||Number($('biome-y').value)!==y)return;
+    if(!sample)throw Error('No recorded sample at this height.');
+    cx=sample.x;cz=sample.z;scale=Math.max(scale,1);$('x').value=sample.x;$('z').value=sample.z;
+    $('name').value=name.replace(/^minecraft:/,'').replaceAll('_',' ');
+    $('notes').value='Known native biome cell at Y '+y+' · target Bedrock 26.60, BDS source 1.26.61.1; older Xbox chunks may differ.';
+    draw();$('biome-discovery-status').textContent='Checked '+$('name').value+': X '+sample.x+', Y '+y+', Z '+sample.z+'. Other occurrences may be closer. Older Xbox chunks may differ.';
+  }catch(e){if(epoch===discoveryEpoch)$('biome-discovery-status').textContent=e.message}
+  finally{if(epoch===discoveryEpoch)$('go-biome').disabled=false}
+};
 function renderLegend(){
   const root=$('biome-legend');root.replaceChildren();if(!worldData)return;
   const entries=new Map();
