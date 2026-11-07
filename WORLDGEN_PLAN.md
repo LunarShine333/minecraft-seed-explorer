@@ -935,3 +935,7 @@ regression coverage; shell v28 preserves durable checked data and waypoints.
 No native coverage, seed, provenance or generator claims changed. Full-world
 and physical Safari validation remain open. Publication awaits PR checks/merge;
 next run verify prior cursor-zoom release and finish this increment.
+
+Continuation: added explicit late-decode-after-timeout and deferred-success
+regressions. All 88 Node and 47 Python tests pass. No physical browser validation
+claimed. Finish CI/merge and verify deployed bytes; native coverage remains398 tiles.
