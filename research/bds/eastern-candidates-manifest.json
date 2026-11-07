@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "nativeVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "planId": "eastern-candidates",
+  "evidenceSha256": "5e06985f6f072e56603ad12d351107573aeb1a6031bff112be16293d0ade5563",
+  "tiles": [
+    {
+      "id": "64_1792_-1792",
+      "path": "./data/tiles/64_1792_-1792.json",
+      "x": 1792,
+      "z": -1792,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1792_-1664",
+      "path": "./data/tiles/64_1792_-1664.json",
+      "x": 1792,
+      "z": -1664,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    }
+  ],
+  "addedDistinctHeightCells": 32768,
+  "controlCells": 16384,
+  "duplicateCellsChecked": 0,
+  "completeNativeCellReadings": 49152,
+  "runReports": [
+    {
+      "runComplete": true,
+      "reportedJobs": 3,
+      "completeTileReadings": 3,
+      "discardedPartialRows": 0,
+      "controlCells": 16384
+    }
+  ],
+  "baselineCommit": "55e725eee6b1a06d0e83bf8a3caa4aca2596dd6c",
+  "baselineRevision": "b5c4db968ad1c506d7aa5d028e738fdaa0d59d36fc5918bafc142ab86e1d8335",
+  "olderXboxChunksMayDiffer": true
+}

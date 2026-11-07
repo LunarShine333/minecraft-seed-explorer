@@ -1009,3 +1009,14 @@ plan and validation report saved. Outputs deliberately not yet installed in atla
 next export tiles/build catalog, reproduce rasters, run full tests and deploy.
 Earlier stall cause remains unknown; successful fresh run does not diagnose it.
 Source 1.26.61.1 target26.60, experiments off, old Xbox chunk caveats preserved.
+
+## 2026-11-07 — reproducible eastern native tile exports
+
+Strict importer exported two complete Y64 tiles (32768 cells), independent control,
+normalized evidence and manifest. Added byte-for-byte reproduction test for every
+export, normalized evidence and manifest; explicit counts/heights asserted. No
+partial rows, three complete records and DONE. Files are staged in data/tiles but
+not yet referenced by catalog/overview: website coverage remains 398 tiles.
+Next increment must register manifest in builder, rebuild raster/catalog, update
+coverage assertions and saved planner candidates before publishing. Do not claim
+400-tile map until integration and tests complete. No native server run this time.
