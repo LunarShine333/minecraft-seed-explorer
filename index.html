@@ -60,7 +60,7 @@ details[open]>summary{margin-bottom:12px}
 import {checkedDestinations,checkedDestination} from './biome-destinations.mjs';
 import {fetchCheckedJSON,loadCheckedRaster} from './checked-network.mjs';
 import {findStructures} from './structure-search.mjs';
-import {pinchView} from './map-gestures.mjs';
+import {pinchView,wheelView} from './map-gestures.mjs';
 import {checkedBiomeWitness,rasterPageBounds} from './raster-overview.mjs';
 import {CheckedTileStore,visibleTiles,HOME,CHERRY} from './checked-tiles.mjs';
 import {WORLD_SEED,MAX_FILE_BYTES,exactVersion,validateBundle,biomeAt,nearestBiome} from './world-data.mjs';
@@ -90,7 +90,7 @@ function endPointer(e,cancelled){
 c.addEventListener('pointerup',e=>endPointer(e,false));
 c.addEventListener('pointercancel',e=>endPointer(e,true));
 c.addEventListener('lostpointercapture',e=>endPointer(e,true));
-c.addEventListener('wheel',e=>{e.preventDefault();scale=Math.max(.001,Math.min(5,scale*(e.deltaY<0?1.15:1/1.15)));draw()},{passive:false});$('export').onclick=()=>{const blob=new Blob([JSON.stringify(points,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='minecraft-waypoints.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};$('import').onclick=()=>$('file').click();$('file').onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());if(!Array.isArray(data)||!data.every(p=>typeof p.name==='string'&&Number.isFinite(p.x)&&Number.isFinite(p.z)))throw Error();if(confirm('Replace your current waypoints with this backup?')){points=data;persist()}}catch(e){alert('Invalid waypoint backup.')}};window.addEventListener('resize',resize);if('serviceWorker'in navigator){
+c.addEventListener('wheel',e=>{e.preventDefault();const r=c.getBoundingClientRect(),next=wheelView({cx,cz,scale},{x:e.clientX-r.left,y:e.clientY-r.top},e.deltaY,e.deltaMode,map.clientWidth,map.clientHeight);cx=next.cx;cz=next.cz;scale=next.scale;draw()},{passive:false});$('export').onclick=()=>{const blob=new Blob([JSON.stringify(points,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='minecraft-waypoints.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};$('import').onclick=()=>$('file').click();$('file').onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());if(!Array.isArray(data)||!data.every(p=>typeof p.name==='string'&&Number.isFinite(p.x)&&Number.isFinite(p.z)))throw Error();if(confirm('Replace your current waypoints with this backup?')){points=data;persist()}}catch(e){alert('Invalid waypoint backup.')}};window.addEventListener('resize',resize);if('serviceWorker'in navigator){
   let reloading=false;const hadController=!!navigator.serviceWorker.controller;
   navigator.serviceWorker.addEventListener('controllerchange',()=>{if(hadController&&!reloading){reloading=true;location.reload()}});
   navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});

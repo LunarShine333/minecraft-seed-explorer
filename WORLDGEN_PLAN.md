@@ -903,3 +903,23 @@ native coverage around connected destinations or new algorithmic evidence;
 verify publication with the committed live verifier. No server remains running;
 scratch selects the completed final world. All acquisition evidence survives
 scratch expiration in the repository.
+
+## 2026-11-07 — cursor-anchored wheel and trackpad zoom
+
+Resumed main 54e0e367; no open PRs. Committed live verifier confirmed the
+398-tile connected desert release (revision 212e04a626cac23909fc0eb15ea449acc9389ac397ddebc2895b2e8d94a7acd7)
+with all representative release resources matching. New UI increment keeps the
+world coordinate under the pointer fixed during wheel/trackpad zoom, including
+scale limits, instead of pulling it toward the viewport center. Normalize pixel,
+line and page delta units; zero delta does not zoom and small trackpad movements
+produce proportional changes. Existing pinch behavior is reused. Shell cache v27;
+checked data, provenance, exact seed and device waypoints remain intact.
+
+Validation: 85 Node tests and 47 Python tests passed. New tests cover off-center
+world anchors in both directions and at limits, zero deltas, normalized units and
+small trackpad input. Tried actual Playwright Chromium and WebKit launches;
+both failed because browser executables are absent (Chromium headless shell1234,
+WebKit2336). This is not Safari/device verification. No native data or generation
+claims added. Runtime status tool and network-policy snapshot unavailable; no
+network configuration changed. Next: browser/device gesture checks and further
+native coverage or new generator evidence. Full-world generation remains open.
