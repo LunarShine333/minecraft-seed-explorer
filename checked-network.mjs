@@ -29,7 +29,17 @@ export function loadCheckedRaster(path, {Image = globalThis.Image, timeoutMs = 1
     const abort = () => {
       cleanup();image.src = '';reject(Error('Checked overview request cancelled.'));
     };
-    image.onload = () => {cleanup();resolve(image)};
+    image.onload = async () => {
+      // Decode before handing a raster to the renderer; mobile browsers can
+      // finish the download before decoding succeeds.
+      try {
+        if (typeof image.decode === 'function') await image.decode();
+        if (signal.aborted) return;
+        cleanup();resolve(image);
+      } catch {
+        cleanup();reject(Error('Checked overview could not be decoded. Retry the map.'));
+      }
+    };
     image.onerror = () => {cleanup();reject(Error('Checked overview unavailable.'))};
     signal.addEventListener('abort', abort, {once:true});
     image.src = path;

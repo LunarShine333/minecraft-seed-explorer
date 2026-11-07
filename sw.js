@@ -1,4 +1,4 @@
-const CACHE = 'minecraft-seed-explorer-v27-cursor-zoom';
+const CACHE = 'minecraft-seed-explorer-v28-decoded-rasters';
 const PREFIX = 'minecraft-seed-explorer-';
 const DATA_CACHE = 'minecraft-seed-explorer-checked-data-v1';
 const ASSETS = ['./', './index.html', './world-data.mjs', './biome-destinations.mjs', './checked-tiles.mjs', './checked-network.mjs', './raster-overview.mjs', './data/overview/index.json', './data/checked-tiles.json', './map-gestures.mjs', './structure-search.mjs', './manifest.webmanifest', './DATA_FORMAT.md', './data/bedrock-26.60-checked-area.json', './data/bedrock-26.60-wide-area.json', './data/bedrock-26.60-cherry-grove.json'];

@@ -923,3 +923,19 @@ WebKit2336). This is not Safari/device verification. No native data or generatio
 claims added. Runtime status tool and network-policy snapshot unavailable; no
 network configuration changed. Next: browser/device gesture checks and further
 native coverage or new generator evidence. Full-world generation remains open.
+
+## 2026-11-07 — bounded raster decoding
+
+Resumed main b064579; no open PRs. Raster loading now waits for browser image
+decode before handing an overview to the renderer. Decode errors become retryable
+map errors instead of a successfully cached unusable image. Existing request
+deadline also bounds stalled decoding, clears handlers and cancels the download.
+Browsers without decode retain their load-event fallback. Added failure/stall
+regression coverage; shell v28 preserves durable checked data and waypoints.
+No native coverage, seed, provenance or generator claims changed. Full-world
+and physical Safari validation remain open. Publication awaits PR checks/merge;
+next run verify prior cursor-zoom release and finish this increment.
+
+Continuation: added explicit late-decode-after-timeout and deferred-success
+regressions. All 88 Node and 47 Python tests pass. No physical browser validation
+claimed. Finish CI/merge and verify deployed bytes; native coverage remains398 tiles.
