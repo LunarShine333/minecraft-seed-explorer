@@ -950,3 +950,19 @@ blocked first request, throwing predicate and valid neighbor, proving neighbor
 completion and zero remaining active/queued requests. 89 Node and 47 Python
 tests passed. Shell v29; no native coverage, seed or provenance changes. Full
 world generation and Safari validation remain unfinished. Publication pending.
+
+## 2026-11-07 — center-first map streaming
+
+Resumed main b6e7bf4, no open PRs. Both detailed native tile and overview page
+requests now prioritize geometry nearest the viewport center, so catalog insertion
+order no longer determines which distant edge loads first. Sorting copies the
+visible list and leaves source catalog order and provenance intact. Existing
+four-request concurrency, cancellation and progressive painting remain in use.
+Added center movement/negative-coordinate/empty-list/immutability regression.
+Shell v30. No native coverage or generator accuracy claim added. Physical Safari
+validation and full-world generation remain open. PR publication pending.
+
+Continuation: integration test now loads actual native fixtures through a one-slot
+request pool across two viewport positions, verifies exact center-first HTTP order
+and full visible coverage. 91 Node and 47 Python tests pass locally. CI/merge and
+live verification follow; no additional terrain or physical Safari claims.
