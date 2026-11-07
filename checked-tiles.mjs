@@ -38,7 +38,8 @@ export class TileRequestPool {
   drain(){
     while(this.active<this.limit&&this.queue.length){
       const job=this.queue.shift();
-      if(!job.needed()){job.reject(cancelledRequest());continue}
+      try {if(!job.needed()){job.reject(cancelledRequest());continue}}
+      catch(error){job.reject(error);continue}
       this.active++;
       Promise.resolve().then(job.task).then(job.resolve,job.reject).finally(()=>{this.active--;this.drain()});
     }
