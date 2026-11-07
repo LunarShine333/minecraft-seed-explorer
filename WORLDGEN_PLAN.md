@@ -1045,3 +1045,13 @@ normalized evidence, plan, diagnostic probe and validation report saved. No atla
 outputs installed yet; catalog remains400 tiles. Next export/reproduce/register
 manifest/rebuild and test. Exact seed/source/target/experiments and Xbox caveats
 preserved. No rejected generator fit rerun, no new structure claim.
+
+## 2026-11-07 — wider eastern atlas integration
+
+Exported16 native Y64 tiles, independently checked control, normalized evidence
+and manifest. Registered manifest and rebuilt53 raster pages. Prepared atlas416
+tiles/6815744 height cells; Y64 399tiles/6537216cells. Revision
+ e3c842c9bc2f4a9674e10638d50bb8581e0b1e0afc48ae8953ed6b7775814856.
+Added full byte reproduction test. Historical unknown-border assertions moved to
+new actual boundary X2048. Full tests run before publication; no global generator
+or surface/structure claim. Publication pending CI and merge.
