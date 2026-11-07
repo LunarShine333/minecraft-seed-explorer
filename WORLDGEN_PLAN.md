@@ -1029,3 +1029,8 @@ Registered native eastern manifest, rebuilt catalog and53 raster pages. Atlas no
 Updated aggregate coverage tests and historical planner fixture baseline. 91 Node
 tests pass. Raster/native Python suite follows. Publication pending PR checks and
 merge of evidence stack; no new structure or full-world generator claim.
+
+Release continuation: consolidated evidence stack in PR29 targeting main. Added
+native cell loading/provenance and unknown border/height regression; 92 Node and
+51 Python tests pass. Final CI then publication verification required. Evidence
+PR26–28 superseded by consolidated release; no physical Safari claim.
