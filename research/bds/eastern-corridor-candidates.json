@@ -1,0 +1,17 @@
+{
+  "status": "unsampled collection candidates only",
+  "seed": "3022187552114785111",
+  "jobs": [
+    {
+      "x": 1792,
+      "z": -1792,
+      "y": 64
+    },
+    {
+      "x": 1792,
+      "z": -1664,
+      "y": 64
+    }
+  ],
+  "candidateCells": 32768
+}

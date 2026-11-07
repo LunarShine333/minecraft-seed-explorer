@@ -966,3 +966,17 @@ Continuation: integration test now loads actual native fixtures through a one-sl
 request pool across two viewport positions, verifies exact center-first HTTP order
 and full visible coverage. 91 Node and 47 Python tests pass locally. CI/merge and
 live verification follow; no additional terrain or physical Safari claims.
+
+## 2026-11-07 — unsampled native collection planner
+
+Added scripts/plan-native-extension.py to select only fully nonoverlapping
+128-block acquisition candidates at a chosen height. Rejects rounded/numeric
+seeds, unaligned/reversed/out-of-range bounds, invalid heights and oversized
+plans. Partial overlap is conservatively skipped, never counted as new coverage.
+Tests cover negative edges, partial footprints, height separation and invalid
+inputs. Existing desert vertical corridor returns zero candidates. Saved two
+eastern corridor candidates separately, explicitly unsampled; no catalog/raster
+or website coverage changes. This is collection preparation, not native evidence.
+Next: sample these candidates with the authorized native probe and independent
+home control, preserve source version/settings and only import complete records.
+Full-world generator remains unresolved; no rejected fit rerun. PR pending checks.
