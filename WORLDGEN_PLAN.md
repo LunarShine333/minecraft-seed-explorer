@@ -846,3 +846,60 @@ unfinished; no rejected candidate sampling fits repeated or promoted. Next:
 connect useful adjoining regions toward this destination, or investigate new
 algorithmic evidence. Verify publication with the live verifier. Both servers
 stopped cleanly; scratch selects the finished desert destination world.
+
+## 2026-11-06 — continuous native home-to-desert connection
+
+Resumed main 55e725eee6b1a06d0e83bf8a3caa4aca2596dd6c; no open PRs. The live
+verifier passed against the desert destination release before acquisition.
+Added 74 directly native Y64 tiles: a vertical strip X1536..1791 / Z-2048..639
+and horizontal strip X1792..3839 / Z-2048..-1793. They join the existing eastern
+outpost coverage to the previously isolated desert patch. The checked biome
+path is continuous from home through the eastern extension to the desert;
+surrounding gaps remain unknown. This does not establish surface elevation or
+a safe walking route. Y66 remains limited to its original desert patch.
+
+1212416 new cells; atlas now 398 tiles / 6520832 height cells, including 381
+Y64 tiles / 6242304 cells. Other heights and device waypoints unchanged.
+No new structure or full-world-generation claim.
+
+Official BDS 1.26.61.1 build 53069370 sampled three fresh disposable worlds.
+First run stalled after 25 complete records (including control), stopped cleanly,
+and discarded 68 partial rows. Resume stalled after nine complete records,
+stopped cleanly, and discarded 108 partial rows. A fresh final world sampled
+only missing jobs plus control, at two rows per tick instead of four: all 43
+jobs finished with genuine DONE and stopped cleanly. Earlier stall cause is
+unknown; final completion does not establish a causal fix. Original full/resume/
+final probes and actual incomplete logs/settings are retained.
+
+Each level.dat independently verifies exact string seed 3022187552114785111,
+default generator and experiments off. All 49152 control readings match the
+prior home fixture; 32768 duplicate control cells agree across runs. Tests
+compare all 1261568 complete native readings with exported biome names. The
+planned union is required before export; incomplete rows never become coverage.
+No block edits or Xbox save access. Evidence, settings, plan, probes, control
+and manifest committed under research/bds/desert-connection-*. Reproduce:
+`python scripts/import_native_area.py --runs research/bds/desert-connection-native-runs.json.gz --plan research/bds/desert-connection-plan.json`
+then `node scripts/build-checked-tiles.mjs`.
+
+83 Node / 47 Python tests pass: exact 74-tile planned footprint, continuous pan
+from home to outpost, northward to the desert latitude and east into the desert,
+unknown sides/borders/heights, each native reading, byte-reproducible evidence/
+export/manifest, every original raster pixel and unknown alpha. Historical
+outpost-edge unknown assertion moved to the actual new boundary. No browser or
+physical Safari QA in this data increment; device testing remains outstanding.
+
+Overview now 53 active pages (39 at Y64), revision
+212e04a626cac23909fc0eb15ea449acc9389ac397ddebc2895b2e8d94a7acd7;
+276571 stored overview bytes vs 13540144 dense JSON bytes (not a Safari
+benchmark). Worker shell v26 retains durable checked downloads and waypoints.
+
+Runtime/network guidance read; environment_status unavailable and policy
+snapshot absent, so no readiness/policy assertions or changes. Normal connector/
+HTTP paths and previously authorized native assets used. Xbox target 26.60,
+native source 1.26.61.1, experiments off, unknown original Xbox generation
+version and older-chunk caveats retained. No rejected generator sampling fit
+repeated or promoted. Full-world generation remains unresolved. Next: useful
+native coverage around connected destinations or new algorithmic evidence;
+verify publication with the committed live verifier. No server remains running;
+scratch selects the completed final world. All acquisition evidence survives
+scratch expiration in the repository.

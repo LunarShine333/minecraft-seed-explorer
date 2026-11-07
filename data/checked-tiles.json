@@ -7,7 +7,7 @@
   "source": {
     "kind": "observed",
     "name": "Official Bedrock server: checked tile atlas",
-    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 \u00d7 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 \u00d7 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 \u00d7 128 tiles; research/bds/cherry-route-manifest.json, home-area-manifest.json, west-area-manifest.json north-monument-manifest.json shipwreck-approach-manifest.json eastern-temple-manifest.json outpost-approach-manifest.json south-home-manifest.json stronghold-approach-manifest.json and desert-destination-manifest.json record acquisition evidence and settings for native extensions. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
+    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 \u00d7 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 \u00d7 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 \u00d7 128 tiles; research/bds/cherry-route-manifest.json, home-area-manifest.json, west-area-manifest.json north-monument-manifest.json shipwreck-approach-manifest.json eastern-temple-manifest.json outpost-approach-manifest.json south-home-manifest.json stronghold-approach-manifest.json desert-destination-manifest.json and desert-connection-manifest.json record acquisition evidence and settings for native extensions. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
   },
   "structures": [
     {
@@ -3107,10 +3107,676 @@
       "y": 66,
       "width": 128,
       "height": 128
+    },
+    {
+      "id": "64_1536_-2048",
+      "path": "./data/tiles/64_1536_-2048.json",
+      "x": 1536,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-2048",
+      "path": "./data/tiles/64_1664_-2048.json",
+      "x": 1664,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-1920",
+      "path": "./data/tiles/64_1536_-1920.json",
+      "x": 1536,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-1920",
+      "path": "./data/tiles/64_1664_-1920.json",
+      "x": 1664,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-1792",
+      "path": "./data/tiles/64_1536_-1792.json",
+      "x": 1536,
+      "z": -1792,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-1792",
+      "path": "./data/tiles/64_1664_-1792.json",
+      "x": 1664,
+      "z": -1792,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-1664",
+      "path": "./data/tiles/64_1536_-1664.json",
+      "x": 1536,
+      "z": -1664,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-1664",
+      "path": "./data/tiles/64_1664_-1664.json",
+      "x": 1664,
+      "z": -1664,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-1536",
+      "path": "./data/tiles/64_1536_-1536.json",
+      "x": 1536,
+      "z": -1536,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-1536",
+      "path": "./data/tiles/64_1664_-1536.json",
+      "x": 1664,
+      "z": -1536,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-1408",
+      "path": "./data/tiles/64_1536_-1408.json",
+      "x": 1536,
+      "z": -1408,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-1408",
+      "path": "./data/tiles/64_1664_-1408.json",
+      "x": 1664,
+      "z": -1408,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-1280",
+      "path": "./data/tiles/64_1536_-1280.json",
+      "x": 1536,
+      "z": -1280,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-1280",
+      "path": "./data/tiles/64_1664_-1280.json",
+      "x": 1664,
+      "z": -1280,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-1152",
+      "path": "./data/tiles/64_1536_-1152.json",
+      "x": 1536,
+      "z": -1152,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-1152",
+      "path": "./data/tiles/64_1664_-1152.json",
+      "x": 1664,
+      "z": -1152,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-1024",
+      "path": "./data/tiles/64_1536_-1024.json",
+      "x": 1536,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-1024",
+      "path": "./data/tiles/64_1664_-1024.json",
+      "x": 1664,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-896",
+      "path": "./data/tiles/64_1536_-896.json",
+      "x": 1536,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-896",
+      "path": "./data/tiles/64_1664_-896.json",
+      "x": 1664,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-768",
+      "path": "./data/tiles/64_1536_-768.json",
+      "x": 1536,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-768",
+      "path": "./data/tiles/64_1664_-768.json",
+      "x": 1664,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-640",
+      "path": "./data/tiles/64_1536_-640.json",
+      "x": 1536,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-640",
+      "path": "./data/tiles/64_1664_-640.json",
+      "x": 1664,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-512",
+      "path": "./data/tiles/64_1536_-512.json",
+      "x": 1536,
+      "z": -512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-512",
+      "path": "./data/tiles/64_1664_-512.json",
+      "x": 1664,
+      "z": -512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-384",
+      "path": "./data/tiles/64_1536_-384.json",
+      "x": 1536,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-384",
+      "path": "./data/tiles/64_1664_-384.json",
+      "x": 1664,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-256",
+      "path": "./data/tiles/64_1536_-256.json",
+      "x": 1536,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-256",
+      "path": "./data/tiles/64_1664_-256.json",
+      "x": 1664,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_-128",
+      "path": "./data/tiles/64_1536_-128.json",
+      "x": 1536,
+      "z": -128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_-128",
+      "path": "./data/tiles/64_1664_-128.json",
+      "x": 1664,
+      "z": -128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_0",
+      "path": "./data/tiles/64_1536_0.json",
+      "x": 1536,
+      "z": 0,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_0",
+      "path": "./data/tiles/64_1664_0.json",
+      "x": 1664,
+      "z": 0,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_128",
+      "path": "./data/tiles/64_1536_128.json",
+      "x": 1536,
+      "z": 128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_128",
+      "path": "./data/tiles/64_1664_128.json",
+      "x": 1664,
+      "z": 128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_256",
+      "path": "./data/tiles/64_1536_256.json",
+      "x": 1536,
+      "z": 256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_256",
+      "path": "./data/tiles/64_1664_256.json",
+      "x": 1664,
+      "z": 256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_384",
+      "path": "./data/tiles/64_1536_384.json",
+      "x": 1536,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_384",
+      "path": "./data/tiles/64_1664_384.json",
+      "x": 1664,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1536_512",
+      "path": "./data/tiles/64_1536_512.json",
+      "x": 1536,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1664_512",
+      "path": "./data/tiles/64_1664_512.json",
+      "x": 1664,
+      "z": 512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1792_-2048",
+      "path": "./data/tiles/64_1792_-2048.json",
+      "x": 1792,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1920_-2048",
+      "path": "./data/tiles/64_1920_-2048.json",
+      "x": 1920,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2048_-2048",
+      "path": "./data/tiles/64_2048_-2048.json",
+      "x": 2048,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2176_-2048",
+      "path": "./data/tiles/64_2176_-2048.json",
+      "x": 2176,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2304_-2048",
+      "path": "./data/tiles/64_2304_-2048.json",
+      "x": 2304,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2432_-2048",
+      "path": "./data/tiles/64_2432_-2048.json",
+      "x": 2432,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2560_-2048",
+      "path": "./data/tiles/64_2560_-2048.json",
+      "x": 2560,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2688_-2048",
+      "path": "./data/tiles/64_2688_-2048.json",
+      "x": 2688,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2816_-2048",
+      "path": "./data/tiles/64_2816_-2048.json",
+      "x": 2816,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2944_-2048",
+      "path": "./data/tiles/64_2944_-2048.json",
+      "x": 2944,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3072_-2048",
+      "path": "./data/tiles/64_3072_-2048.json",
+      "x": 3072,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3200_-2048",
+      "path": "./data/tiles/64_3200_-2048.json",
+      "x": 3200,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3328_-2048",
+      "path": "./data/tiles/64_3328_-2048.json",
+      "x": 3328,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3456_-2048",
+      "path": "./data/tiles/64_3456_-2048.json",
+      "x": 3456,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3584_-2048",
+      "path": "./data/tiles/64_3584_-2048.json",
+      "x": 3584,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3712_-2048",
+      "path": "./data/tiles/64_3712_-2048.json",
+      "x": 3712,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1792_-1920",
+      "path": "./data/tiles/64_1792_-1920.json",
+      "x": 1792,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1920_-1920",
+      "path": "./data/tiles/64_1920_-1920.json",
+      "x": 1920,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2048_-1920",
+      "path": "./data/tiles/64_2048_-1920.json",
+      "x": 2048,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2176_-1920",
+      "path": "./data/tiles/64_2176_-1920.json",
+      "x": 2176,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2304_-1920",
+      "path": "./data/tiles/64_2304_-1920.json",
+      "x": 2304,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2432_-1920",
+      "path": "./data/tiles/64_2432_-1920.json",
+      "x": 2432,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2560_-1920",
+      "path": "./data/tiles/64_2560_-1920.json",
+      "x": 2560,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2688_-1920",
+      "path": "./data/tiles/64_2688_-1920.json",
+      "x": 2688,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2816_-1920",
+      "path": "./data/tiles/64_2816_-1920.json",
+      "x": 2816,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_2944_-1920",
+      "path": "./data/tiles/64_2944_-1920.json",
+      "x": 2944,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3072_-1920",
+      "path": "./data/tiles/64_3072_-1920.json",
+      "x": 3072,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3200_-1920",
+      "path": "./data/tiles/64_3200_-1920.json",
+      "x": 3200,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3328_-1920",
+      "path": "./data/tiles/64_3328_-1920.json",
+      "x": 3328,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3456_-1920",
+      "path": "./data/tiles/64_3456_-1920.json",
+      "x": 3456,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3584_-1920",
+      "path": "./data/tiles/64_3584_-1920.json",
+      "x": 3584,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3712_-1920",
+      "path": "./data/tiles/64_3712_-1920.json",
+      "x": 3712,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
     }
   ],
   "overview": {
     "path": "./data/overview/index.json",
-    "revision": "b5c4db968ad1c506d7aa5d028e738fdaa0d59d36fc5918bafc142ab86e1d8335"
+    "revision": "212e04a626cac23909fc0eb15ea449acc9389ac397ddebc2895b2e8d94a7acd7"
   }
 }
