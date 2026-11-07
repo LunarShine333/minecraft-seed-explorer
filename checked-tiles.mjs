@@ -24,6 +24,12 @@ export function validateCatalog(raw){
 export function visibleTiles(catalog,{minX,minZ,maxX,maxZ},y){
   return catalog.tiles.filter(t=>t.y===y&&t.x<maxX&&t.x+t.width>minX&&t.z<maxZ&&t.z+t.height>minZ);
 }
+// Prioritize the point being viewed; copy so catalog order stays immutable.
+export function centerFirst(entries,bounds){
+  const x=(bounds.minX+bounds.maxX)/2,z=(bounds.minZ+bounds.maxZ)/2;
+  const distance=t=>Math.hypot(t.x+t.width/2-x,t.z+t.height/2-z);
+  return [...entries].sort((a,b)=>distance(a)-distance(b));
+}
 function cancelledRequest(){const error=new Error('Tile request is no longer needed.');error.name='AbortError';return error}
 
 /** One shared pool caps HTTP work across overlapping views and layer reloads. */
@@ -95,7 +101,7 @@ export class CheckedTileStore {
   }
   async rasterView(bounds,y,{signal,onProgress}={}){
     const generation=++this.rasterGeneration;
-    const index=await this.rasterIndex(),pages=visibleRasterPages(index,bounds,y),results=new Array(pages.length);let cursor=0,completed=0;
+    const index=await this.rasterIndex(),pages=centerFirst(visibleRasterPages(index,bounds,y),bounds),results=new Array(pages.length);let cursor=0,completed=0;
     const snapshot=()=>({mode:'raster',bundle:{...this.catalog,biomes:[]},rasters:results.flatMap(r=>r?.image?[{...r.page,image:r.image}]:[]),expected:pages.length,completed,failed:results.filter(r=>r?.error).length,cancelled:!!signal?.aborted});
     await Promise.all(Array.from({length:Math.min(4,pages.length)},async()=>{
       while(cursor<pages.length&&!signal?.aborted){
@@ -120,7 +126,7 @@ export class CheckedTileStore {
       }
     }
     this.liveRasters.clear();this.rasterGeneration++;
-    const entries=visibleTiles(this.catalog,bounds,y),results=new Array(entries.length);let cursor=0,completed=0;
+    const entries=centerFirst(visibleTiles(this.catalog,bounds,y),bounds),results=new Array(entries.length);let cursor=0,completed=0;
     const snapshot=()=>({mode:'detail',bundle:{...this.catalog,biomes:results.flatMap(r=>r?.tile?[r.tile]:[])},expected:entries.length,completed,failed:results.filter(r=>r?.error).length,cancelled:!!signal?.aborted});
     await Promise.all(Array.from({length:Math.min(4,entries.length)},async()=>{
       while(cursor<entries.length&&!signal?.aborted){
