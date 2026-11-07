@@ -985,3 +985,15 @@ Continuation: real-atlas regression reproduces the saved two candidates and zero
 jobs on the existing corridor, then simulates completed footprints and verifies
 that neither candidate is planned again. Simulation is test-only, not native
 coverage. 50 Python and 91 Node tests pass; native acquisition remains pending.
+
+## 2026-11-07 — eastern native acquisition attempt (no coverage)
+
+Prepared three-job probe: independent home control plus two saved eastern
+candidates. First setup command used the wrong working directory and exited
+before replacing the old probe; old north-monument probe briefly launched in
+the new disposable world. Its output is excluded. Corrected probe then launched
+with planId eastern-candidates and three jobs. Bounded observation produced START
+but no complete TILE/DONE records. Stopped via console, observed Quit correctly.
+No readings imported, no coverage or accuracy claim added. Saved corrected probe,
+settings and raw attempt log for diagnosis. Check tickingarea/readiness progress
+and ensure fresh world before retry. Do not treat this world as pristine.
