@@ -1081,3 +1081,8 @@ tests pass; Python raster/native suite follows. Includes original source/target,
 experiments off and old Xbox chunk caveats. Publication pending CI and merge;
 no full-world generator/structure/safe traversal claim. Next add seam integration
 assertions and publish after checks. Native server not run this increment.
+
+Release continuation: added southeast store-level tile seams, native provenance,
+unknown border/height and full16-tile viewport assertions. 94 Node and53 Python
+tests pass locally. PR33 includes PR32 evidence; CI then merge/live verification.
+Physical Safari and full-world generation remain unfinished.
