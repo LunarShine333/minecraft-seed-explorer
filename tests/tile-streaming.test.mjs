@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {CheckedTileStore,TileRequestPool} from '../checked-tiles.mjs';
+import {CheckedTileStore,TileRequestPool,centerFirst,visibleTiles} from '../checked-tiles.mjs';
 const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const catalog=read('data/checked-tiles.json'),settle=()=>new Promise(resolve=>setImmediate(resolve));
 const bounds=t=>({minX:t.x,minZ:t.z,maxX:t.x+1,maxZ:t.z+1});
@@ -28,9 +28,9 @@ test('cancelled queued work is skipped while a newer view can share a wanted que
  const old=store.view({minX:-256,minZ:-256,maxX:256,maxZ:256},64,{signal:controller.signal,onProgress:r=>updates.push(r)});
  await settle();assert.equal(calls.length,1);
  controller.abort();
- const wanted=catalog.tiles[2],fresh=store.view(bounds(wanted),64);
- release.get(catalog.tiles[0].path)();await settle();
- assert.deepEqual(calls,[catalog.tiles[0].path,wanted.path]);
+ const firstPath=calls[0],wanted=centerFirst(visibleTiles(catalog,{minX:-256,minZ:-256,maxX:256,maxZ:256},64),{minX:-256,minZ:-256,maxX:256,maxZ:256})[1],fresh=store.view(bounds(wanted),64);
+ release.get(firstPath)();await settle();
+ assert.deepEqual(calls,[firstPath,wanted.path]);
  release.get(wanted.path)();
  assert.equal((await fresh).bundle.biomes[0].x,wanted.x);
  const result=await old;assert.equal(result.cancelled,true);assert.equal(updates.length,0);
