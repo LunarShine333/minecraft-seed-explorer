@@ -1105,3 +1105,13 @@ Inspected Pages run42407532163 deploy job128508447580: build succeeded, deployme
 remained syncing_files until Timeout reached and cancellation. Retried failed jobs
 only. This is observed publication failure, not a native-data/test failure; verify
 432-tile live bytes after retry before claiming recovery. No user action needed.
+
+## 2026-11-07 — southern junction integrated atlas prepared
+
+Registered native junction manifest and rebuilt54 raster pages (40atY64).
+Prepared atlas440tiles/7208960 height cells, Y64 423tiles/6930432cells.
+Revision28a7584dacca4f5cf62bf3425c061975dabf494ad748bdb614fc3ccb534acc32.
+Updated aggregate native coverage and wide-view raster-count tests for new page.
+Native export reproduction and every raster pixel/unknown alpha checks retained.
+Publication pending CI/merge; no global generator, structure or safe-route claim.
+Next final seam checks and deployment verification, including prior Pages retry.
