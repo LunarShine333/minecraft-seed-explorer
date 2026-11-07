@@ -28,7 +28,7 @@ test('Cherry Grove can be found from home without first loading the destination 
 });
 test('every listed destination resolves to the original native biome name',async()=>{
  const {store}=fixture();
- for(const y of [-48,0,64,103,128])for(const name of await checkedDestinations(store,y)){
+ for(const y of [-48,0,64,66,103,128])for(const name of await checkedDestinations(store,y)){
   const cell=await checkedDestination(store,name,128,24,y);assert.equal(cell.name,name);assert.equal(cell.y,y);
  }
 });

@@ -5,12 +5,12 @@ import {CheckedTileStore,visibleTiles,validateCatalog,HOME} from '../checked-til
 import {biomeAt} from '../world-data.mjs';
 const read=path=>JSON.parse(readFileSync(new URL('../'+path,import.meta.url),'utf8'));
 const catalog=read('data/checked-tiles.json');
-const whole={minX:-3000,minZ:-1000,maxX:2000,maxZ:3000};
+const whole={minX:-3000,minZ:-3000,maxX:5000,maxZ:3000};
 const native={64:read('data/bedrock-26.60-wide-area.json'),103:read('data/bedrock-26.60-cherry-grove.json')};
 for(const t of read('data/bedrock-26.60-checked-area.json').biomes)if(t.y!==64)native[t.y]={biomes:[t]};
 test('the expanded atlas retains every original native cell, palette and provenance',async()=>{
   const store=new CheckedTileStore(catalog,async path=>read(path));
-  assert.equal(catalog.tiles.length,316);
+  assert.equal(catalog.tiles.length,324);
   let cells=0;
   for(const entry of store.catalog.tiles){
     const tile=await store.tile(entry);

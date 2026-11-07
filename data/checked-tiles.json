@@ -7,7 +7,7 @@
   "source": {
     "kind": "observed",
     "name": "Official Bedrock server: checked tile atlas",
-    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 \u00d7 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 \u00d7 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 \u00d7 128 tiles; research/bds/cherry-route-manifest.json, home-area-manifest.json, west-area-manifest.json north-monument-manifest.json shipwreck-approach-manifest.json eastern-temple-manifest.json outpost-approach-manifest.json south-home-manifest.json and stronghold-approach-manifest.json record acquisition evidence and settings for native extensions. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
+    "evidence": "BDS 1.26.61.1 build 53069370; exact seed, experiments off. Tiles retain original per-file provenance. Y64: decoded 512 \u00d7 512 cells, 1024 native chunk-center checks. Y-48/0/128: decoded 256 \u00d7 256 cells, decoder checked against 1156 original and 320 held-out samples. Y103: Cherry Grove native API cells. The route extension contains directly sampled 128 \u00d7 128 tiles; research/bds/cherry-route-manifest.json, home-area-manifest.json, west-area-manifest.json north-monument-manifest.json shipwreck-approach-manifest.json eastern-temple-manifest.json outpost-approach-manifest.json south-home-manifest.json stronghold-approach-manifest.json and desert-destination-manifest.json record acquisition evidence and settings for native extensions. Structures: 36 native locator positions, Y unknown, partial coverage. No prediction engine approved. Older Xbox chunks may differ. Source bundle evidence remains in each tile file."
   },
   "structures": [
     {
@@ -3035,10 +3035,82 @@
       "y": 64,
       "width": 128,
       "height": 128
+    },
+    {
+      "id": "64_3840_-2048",
+      "path": "./data/tiles/64_3840_-2048.json",
+      "x": 3840,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3968_-2048",
+      "path": "./data/tiles/64_3968_-2048.json",
+      "x": 3968,
+      "z": -2048,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3840_-1920",
+      "path": "./data/tiles/64_3840_-1920.json",
+      "x": 3840,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_3968_-1920",
+      "path": "./data/tiles/64_3968_-1920.json",
+      "x": 3968,
+      "z": -1920,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "66_3840_-2048",
+      "path": "./data/tiles/66_3840_-2048.json",
+      "x": 3840,
+      "z": -2048,
+      "y": 66,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "66_3968_-2048",
+      "path": "./data/tiles/66_3968_-2048.json",
+      "x": 3968,
+      "z": -2048,
+      "y": 66,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "66_3840_-1920",
+      "path": "./data/tiles/66_3840_-1920.json",
+      "x": 3840,
+      "z": -1920,
+      "y": 66,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "66_3968_-1920",
+      "path": "./data/tiles/66_3968_-1920.json",
+      "x": 3968,
+      "z": -1920,
+      "y": 66,
+      "width": 128,
+      "height": 128
     }
   ],
   "overview": {
     "path": "./data/overview/index.json",
-    "revision": "d190e64f833906404c8ce064f2a418103b1d988d21a8701ae12f5cf9dff32fab"
+    "revision": "b5c4db968ad1c506d7aa5d028e738fdaa0d59d36fc5918bafc142ab86e1d8335"
   }
 }

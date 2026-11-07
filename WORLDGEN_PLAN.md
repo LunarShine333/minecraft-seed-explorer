@@ -785,3 +785,64 @@ unfinished. Next: useful new native destinations or new algorithmic evidence,
 without repeating rejected sampling fits. Verify publication with the committed
 live verifier. No server remains running; scratch selects the completed test
 world. All acquisition evidence is committed so scratch loss does not lose cells.
+
+## 2026-11-06 — native desert destination
+
+Resumed main bd165dc7780e868d906528ec1209bd6c2e2b1748; no open PRs. The live
+verifier passed against the stronghold release before acquisition. Native locator
+command from X128 Y64 Z24 returned desert at X3936 Y66 Z-1992. A separate fresh
+native world directly confirms minecraft:desert at that exact coordinate.
+
+Added eight directly native tiles: 256 x 256 at X3840..4095 / Z-2048..-1793,
+at Y64 and Y66. These include desert, mesa_plateau_stone, river, stony_shore
+(alias of native stone_beach), and warm_ocean; native names are preserved.
+Desert occupies 20447 recorded Y64 cells and 20425 Y66 cells. This destination
+is separate from the continuous home atlas: the travel gap remains unknown and
+transparent. It is not a safe route or surface-height model. Existing Browse all
+checked biomes finds it at the chosen Y and verifies its original native cell.
+No new UI control or waypoint mutation. A sand-colored presentation fallback
+was added for desert; biome identities remain entirely native observations.
+
+Both fresh disposable worlds' level.dat verify exact string seed
+3022187552114785111, default generator, experiments off and native source
+1.26.61.1 build 53069370. Locator probe and raw log/settings are preserved as
+desert-locator-*. Initial calculateClosestBiomeFromSeed rejected boundingSize.x
+8192; the unnamespaced console command was also rejected. Neither failure
+produced a biome prediction. The successful command was:
+`execute positioned 128 64 24 run locate biome minecraft:desert`.
+Primary API/command references inspected:
+https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/dimension?view=minecraft-bedrock-stable
+https://learn.microsoft.com/en-us/minecraft/creator/commands/commands/locate
+Native execution, not documentation alone, establishes the recorded result.
+
+Patch acquisition completed all nine jobs with DONE and stopped cleanly. All
+16384 independent home control cells match prior observations; tests compare
+all 147456 complete native readings to exports. No partial records, block edits
+or Xbox save access. Plan, read-only probe, compressed evidence/settings, control
+and manifest are under research/bds/desert-destination-*. Reproduce:
+`python scripts/import_native_area.py --runs research/bds/desert-destination-native-runs.json.gz --plan research/bds/desert-destination-plan.json`
+then `node scripts/build-checked-tiles.mjs`.
+
+81 Node / 45 Python tests pass, with the updated locator/settings test rerun
+successfully after recording direct verification. Coverage includes the exact
+locator cell, raw log SHA256, every native reading, reproducible export, exact
+patch footprint, unknown travel gap/borders/heights, atlas biome discovery,
+every original raster pixel/unknown alpha, and all six sampled heights in biome
+destination tests. Whole-atlas bounds expanded east/north to include the patch.
+No browser or physical Safari QA in this data increment.
+
+Atlas now 324 tiles / 5308416 height cells; Y64 307 tiles / 5029888 cells,
+Y66 four tiles / 65536 cells. Other heights unchanged. Overview 45 pages (31 at
+Y64 and one at Y66), revision
+b5c4db968ad1c506d7aa5d028e738fdaa0d59d36fc5918bafc142ab86e1d8335;
+237472 stored overview bytes vs 11021990 dense JSON bytes (not a Safari
+benchmark). Worker shell v25 retains durable checked downloads and waypoints.
+
+Runtime/network instructions read; environment_status unavailable and policy
+snapshot absent, so no readiness/policy assertions or changes were made.
+Xbox target 26.60/source 1.26.61.1, experiments off, unknown original Xbox chunk
+generation release and older-chunk caveats remain. Full-world generation is
+unfinished; no rejected candidate sampling fits repeated or promoted. Next:
+connect useful adjoining regions toward this destination, or investigate new
+algorithmic evidence. Verify publication with the live verifier. Both servers
+stopped cleanly; scratch selects the finished desert destination world.
