@@ -1060,3 +1060,29 @@ Release validation: added store-level seam/edge/height/provenance checks and who
 16-tile viewport assertion (262144 cells). 93 Node and52 Python tests pass.
 PR31 consolidates PR30 acquisition; final CI then merge/live verification.
 No physical Safari or global generation claim. Check publication next run if pending.
+
+## 2026-11-07 — southeastern native acquisition
+
+Fresh disposable world completed16 new tiles at Y64, X1792..2047 Z-512..511,
+plus home control and DONE. Clean console stop. Strict importer accepted262144
+new cells and matched16384 independent control readings. Saved normalized native
+evidence/settings, plan, probe and report. No partial records. Extends the eastern
+strip toward existing eastern-home coverage. Atlas export/integration/tests remain
+next; website catalog unchanged416tiles. No prediction/structure/safe route claim.
+
+## 2026-11-07 — southeastern atlas integration prepared
+
+Exported16 southeastern native tiles, control and manifest. Registered manifest,
+rebuilt53 raster pages. Prepared atlas432tiles/7077888 height cells; Y64
+415tiles/6799360cells. Revision
+d4f61b3bad6b08bcd3dbbe530786f97801f8165dbb6f85296680e895eac2c47e.
+Added byte-for-byte native export/evidence/manifest reproduction test. 93 Node
+tests pass; Python raster/native suite follows. Includes original source/target,
+experiments off and old Xbox chunk caveats. Publication pending CI and merge;
+no full-world generator/structure/safe traversal claim. Next add seam integration
+assertions and publish after checks. Native server not run this increment.
+
+Release continuation: added southeast store-level tile seams, native provenance,
+unknown border/height and full16-tile viewport assertions. 94 Node and53 Python
+tests pass locally. PR33 includes PR32 evidence; CI then merge/live verification.
+Physical Safari and full-world generation remain unfinished.
