@@ -10,6 +10,6 @@ test('eastern native extension loads through catalog and preserves unknown borde
   assert.ok(cell);assert.equal(cell.source.kind,'observed');
   assert.match(cell.source.evidence,/eastern-candidates/);
  }
- assert.equal(await store.cell(1920,-1664,64),null);
+ assert.equal(await store.cell(2048,-1024,64),null);
  assert.equal(await store.cell(1792,-1664,103),null);
 });
