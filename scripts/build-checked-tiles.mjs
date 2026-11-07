@@ -22,7 +22,7 @@ for(const bundle of [wide,local,cherry])for(const t of bundle.biomes){
 }
 // Append complete native acquisitions. Supersede smaller tiles only after every
 // overlapping cell agrees; preserve the legacy source files for imports.
-for(const extensionPath of ['research/bds/cherry-route-manifest.json','research/bds/home-area-manifest.json','research/bds/west-area-manifest.json','research/bds/north-monument-manifest.json','research/bds/shipwreck-approach-manifest.json','research/bds/eastern-temple-manifest.json','research/bds/outpost-approach-manifest.json','research/bds/south-home-manifest.json','research/bds/stronghold-approach-manifest.json','research/bds/desert-destination-manifest.json','research/bds/desert-connection-manifest.json']){
+for(const extensionPath of ['research/bds/cherry-route-manifest.json','research/bds/home-area-manifest.json','research/bds/west-area-manifest.json','research/bds/north-monument-manifest.json','research/bds/shipwreck-approach-manifest.json','research/bds/eastern-temple-manifest.json','research/bds/outpost-approach-manifest.json','research/bds/south-home-manifest.json','research/bds/stronghold-approach-manifest.json','research/bds/desert-destination-manifest.json','research/bds/desert-connection-manifest.json','research/bds/eastern-candidates-manifest.json']){
 if(existsSync(extensionPath)){
   const extension=JSON.parse(readFileSync(extensionPath,'utf8'));
   if(extension.seed!==target.seed||extension.version!==target.version||extension.experiments!==false)throw Error('Wrong extension world settings');

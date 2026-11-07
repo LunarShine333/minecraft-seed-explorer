@@ -1020,3 +1020,12 @@ not yet referenced by catalog/overview: website coverage remains 398 tiles.
 Next increment must register manifest in builder, rebuild raster/catalog, update
 coverage assertions and saved planner candidates before publishing. Do not claim
 400-tile map until integration and tests complete. No native server run this time.
+
+## 2026-11-07 — eastern atlas integration prepared
+
+Registered native eastern manifest, rebuilt catalog and53 raster pages. Atlas now
+400 tiles/6553600 height cells, Y64 383tiles/6275072cells. Revision
+2bec3b4629c247cf31c248b64e8b654f9f26ce7c122165b8101edd890a927c43.
+Updated aggregate coverage tests and historical planner fixture baseline. 91 Node
+tests pass. Raster/native Python suite follows. Publication pending PR checks and
+merge of evidence stack; no new structure or full-world generator claim.

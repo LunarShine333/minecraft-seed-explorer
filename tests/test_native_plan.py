@@ -19,7 +19,8 @@ class PlanTests(unittest.TestCase):
   root=Path(__file__).parents[1]
   catalog=json.loads((root/'data/checked-tiles.json').read_text())
   saved=json.loads((root/'research/bds/eastern-corridor-candidates.json').read_text())
-  jobs=m.missing_jobs(catalog,1792,-1792,1920,-1536,64)
+  baseline={**catalog,'tiles':[t for t in catalog['tiles'] if not (t['x']==1792 and t['z'] in (-1792,-1664) and t['y']==64)]}
+  jobs=m.missing_jobs(baseline,1792,-1792,1920,-1536,64)
   self.assertEqual(saved['jobs'],jobs)
   self.assertEqual(saved['candidateCells'],len(jobs)*16384)
   self.assertEqual(len(jobs),2)

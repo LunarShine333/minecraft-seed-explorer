@@ -3773,10 +3773,28 @@
       "y": 64,
       "width": 128,
       "height": 128
+    },
+    {
+      "id": "64_1792_-1792",
+      "path": "./data/tiles/64_1792_-1792.json",
+      "x": 1792,
+      "z": -1792,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1792_-1664",
+      "path": "./data/tiles/64_1792_-1664.json",
+      "x": 1792,
+      "z": -1664,
+      "y": 64,
+      "width": 128,
+      "height": 128
     }
   ],
   "overview": {
     "path": "./data/overview/index.json",
-    "revision": "212e04a626cac23909fc0eb15ea449acc9389ac397ddebc2895b2e8d94a7acd7"
+    "revision": "2bec3b4629c247cf31c248b64e8b654f9f26ce7c122165b8101edd890a927c43"
   }
 }
