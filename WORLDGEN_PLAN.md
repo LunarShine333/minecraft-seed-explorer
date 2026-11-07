@@ -1060,3 +1060,12 @@ Release validation: added store-level seam/edge/height/provenance checks and who
 16-tile viewport assertion (262144 cells). 93 Node and52 Python tests pass.
 PR31 consolidates PR30 acquisition; final CI then merge/live verification.
 No physical Safari or global generation claim. Check publication next run if pending.
+
+## 2026-11-07 — southeastern native acquisition
+
+Fresh disposable world completed16 new tiles at Y64, X1792..2047 Z-512..511,
+plus home control and DONE. Clean console stop. Strict importer accepted262144
+new cells and matched16384 independent control readings. Saved normalized native
+evidence/settings, plan, probe and report. No partial records. Extends the eastern
+strip toward existing eastern-home coverage. Atlas export/integration/tests remain
+next; website catalog unchanged416tiles. No prediction/structure/safe route claim.
