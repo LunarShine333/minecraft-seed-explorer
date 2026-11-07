@@ -1034,3 +1034,14 @@ Release continuation: consolidated evidence stack in PR29 targeting main. Added
 native cell loading/provenance and unknown border/height regression; 92 Node and
 51 Python tests pass. Final CI then publication verification required. Evidence
 PR26–28 superseded by consolidated release; no physical Safari claim.
+
+## 2026-11-07 — wider eastern native acquisition
+
+Fresh disposable seed-explorer-wider-east-20261107 completed17 native tiles and
+DONE, console stop clean. Plan16 new Y64 tiles X1792..2047 Z-1536..-513,
+262144 cells, plus independent home control. Strict export_area_runs accepted all
+new cells and matched16384 home control cells; no partial records. Compressed
+normalized evidence, plan, diagnostic probe and validation report saved. No atlas
+outputs installed yet; catalog remains400 tiles. Next export/reproduce/register
+manifest/rebuild and test. Exact seed/source/target/experiments and Xbox caveats
+preserved. No rejected generator fit rerun, no new structure claim.
