@@ -1,0 +1,48 @@
+NO LOG FILE! - Failed to up file descriptor limit Operation not permitted
+NO LOG FILE! - setting up server logging...
+[2026-11-07 03:45:32:103 INFO] Starting Server
+[2026-11-07 03:45:32:103 INFO] Version: 1.26.61.1
+[2026-11-07 03:45:32:103 INFO] Session ID: b739adf8-0256-4c01-ae23-dc8cf0915e23
+[2026-11-07 03:45:32:103 INFO] Build ID: 53069370
+[2026-11-07 03:45:32:103 INFO] Branch: r/26_u6
+[2026-11-07 03:45:32:103 INFO] Commit ID: 86f7b32281709abd4444adb52887796af061c7bd
+[2026-11-07 03:45:32:103 INFO] Configuration: Publish
+[2026-11-07 03:45:32:103 INFO] Contents of server.properties: {"allow-cheats":"true","allow-list":"true","content-log-file-enabled":"true","difficulty":"peaceful","enable-lan-visibility":"false","gamemode":"creative","level-name":"seed-explorer-east-candidates-20261107","level-seed":"3022187552114785111","level-type":"DEFAULT","max-players":"1","online-mode":"true","server-name":"Seed Explorer temporary validation","server-port":"19142","server-portv6":"19143","tick-distance":"4","view-distance":"6"}
+[2026-11-07 03:45:32:104 INFO] Level Name: seed-explorer-east-candidates-20261107
+[2026-11-07 03:45:32:104 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
+[2026-11-07 03:45:32:108 INFO] No CDN config file found at: cdn_config.json for dedicated server
+[2026-11-07 03:45:32:108 INFO] Game mode: 1 Creative
+[2026-11-07 03:45:32:108 INFO] Difficulty: 0 PEACEFUL
+[2026-11-07 03:45:32:111 INFO] Content logging to console is enabled.
+[2026-11-07 03:45:32:112 INFO] 
+
+#####################################################
+#                                                   #
+#               LOADING VANILLA WORLD               #
+#                                                   #
+#####################################################
+[2026-11-07 03:45:32:721 INFO] Content logging to disk is enabled. Writing log to: ./ContentLog2026-11-07_03-45-32.txt
+[2026-11-07 03:45:32:722 INFO] Opening level 'worlds/seed-explorer-east-candidates-20261107/db'
+[2026-11-07 03:45:32:770 INFO] Accepting clients on [::]:19142
+[2026-11-07 03:45:32:806 INFO] Pack Stack - [00] Native checked route probe (id: b4610f9b-6ce0-4e97-94af-e94ca39ef81c, version: 1.0.0) @ behavior_packs/mse_route
+[2026-11-07 03:45:33:115 INFO] Signed in to signaling service successfully
+[2026-11-07 03:45:33:975 INFO] Waiting for Minecraft services...
+[2026-11-07 03:45:42:601 INFO] Server started.
+[2026-11-07 03:45:42:601 WARN] ================ ALLOW LIST WARNING ===================
+[2026-11-07 03:45:42:601 WARN] Allow list is enabled but contains no entries. 
+[2026-11-07 03:45:42:601 WARN] Use allowlist add <playername> for you and your friends so that they can access the server, or modify allowlist.json manually.
+[2026-11-07 03:45:42:601 WARN] 
+Alternatively, the allow list can be turned off by typing allowlist off or manually toggled in the server.properties file.
+[2026-11-07 03:45:42:601 WARN] =======================================================
+[2026-11-07 03:45:42:601 INFO] ================ TELEMETRY MESSAGE ===================
+[2026-11-07 03:45:42:601 INFO] Server Telemetry is currently not enabled. 
+[2026-11-07 03:45:42:601 INFO] Enabling this telemetry helps us improve the game.
+[2026-11-07 03:45:42:601 INFO] 
+[2026-11-07 03:45:42:601 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
+[2026-11-07 03:45:42:601 INFO] to the server.properties file in the handheld/src-server directory
+[2026-11-07 03:45:42:601 INFO] ======================================================
+[2026-11-07 03:45:47:566 WARN] [Scripting] MSE_ROUTE_START {"planId":"eastern-candidates","seed":"3022187552114785111","jobs":3,"width":128,"height":128}
+
+[2026-11-07 03:46:29:347 INFO] Server stop requested.
+[2026-11-07 03:46:29:393 INFO] Stopping server...
+Quit correctly

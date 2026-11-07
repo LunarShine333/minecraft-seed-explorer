@@ -985,3 +985,52 @@ Continuation: real-atlas regression reproduces the saved two candidates and zero
 jobs on the existing corridor, then simulates completed footprints and verifies
 that neither candidate is planned again. Simulation is test-only, not native
 coverage. 50 Python and 91 Node tests pass; native acquisition remains pending.
+
+## 2026-11-07 — eastern native acquisition attempt (no coverage)
+
+Prepared three-job probe: independent home control plus two saved eastern
+candidates. First setup command used the wrong working directory and exited
+before replacing the old probe; old north-monument probe briefly launched in
+the new disposable world. Its output is excluded. Corrected probe then launched
+with planId eastern-candidates and three jobs. Bounded observation produced START
+but no complete TILE/DONE records. Stopped via console, observed Quit correctly.
+No readings imported, no coverage or accuracy claim added. Saved corrected probe,
+settings and raw attempt log for diagnosis. Check tickingarea/readiness progress
+and ensure fresh world before retry. Do not treat this world as pristine.
+
+## 2026-11-07 — fresh eastern native collection succeeded
+
+Fresh seed-explorer-east-diagnostic-20261107, diagnostic probe adds JOB/WAIT/READY
+markers without changing biome sampling. All three tiles and DONE completed.
+Chunk readiness waits were 22,18,20 ticks. Console stop exited zero/Quit correctly.
+Strict export_area_runs validated level settings and all 16384 independent home
+control cells; accepted 32768 new candidate cells. Compressed normalized evidence,
+plan and validation report saved. Outputs deliberately not yet installed in atlas:
+next export tiles/build catalog, reproduce rasters, run full tests and deploy.
+Earlier stall cause remains unknown; successful fresh run does not diagnose it.
+Source 1.26.61.1 target26.60, experiments off, old Xbox chunk caveats preserved.
+
+## 2026-11-07 — reproducible eastern native tile exports
+
+Strict importer exported two complete Y64 tiles (32768 cells), independent control,
+normalized evidence and manifest. Added byte-for-byte reproduction test for every
+export, normalized evidence and manifest; explicit counts/heights asserted. No
+partial rows, three complete records and DONE. Files are staged in data/tiles but
+not yet referenced by catalog/overview: website coverage remains 398 tiles.
+Next increment must register manifest in builder, rebuild raster/catalog, update
+coverage assertions and saved planner candidates before publishing. Do not claim
+400-tile map until integration and tests complete. No native server run this time.
+
+## 2026-11-07 — eastern atlas integration prepared
+
+Registered native eastern manifest, rebuilt catalog and53 raster pages. Atlas now
+400 tiles/6553600 height cells, Y64 383tiles/6275072cells. Revision
+2bec3b4629c247cf31c248b64e8b654f9f26ce7c122165b8101edd890a927c43.
+Updated aggregate coverage tests and historical planner fixture baseline. 91 Node
+tests pass. Raster/native Python suite follows. Publication pending PR checks and
+merge of evidence stack; no new structure or full-world generator claim.
+
+Release continuation: consolidated evidence stack in PR29 targeting main. Added
+native cell loading/provenance and unknown border/height regression; 92 Node and
+51 Python tests pass. Final CI then publication verification required. Evidence
+PR26–28 superseded by consolidated release; no physical Safari claim.
