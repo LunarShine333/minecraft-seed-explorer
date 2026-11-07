@@ -997,3 +997,15 @@ but no complete TILE/DONE records. Stopped via console, observed Quit correctly.
 No readings imported, no coverage or accuracy claim added. Saved corrected probe,
 settings and raw attempt log for diagnosis. Check tickingarea/readiness progress
 and ensure fresh world before retry. Do not treat this world as pristine.
+
+## 2026-11-07 — fresh eastern native collection succeeded
+
+Fresh seed-explorer-east-diagnostic-20261107, diagnostic probe adds JOB/WAIT/READY
+markers without changing biome sampling. All three tiles and DONE completed.
+Chunk readiness waits were 22,18,20 ticks. Console stop exited zero/Quit correctly.
+Strict export_area_runs validated level settings and all 16384 independent home
+control cells; accepted 32768 new candidate cells. Compressed normalized evidence,
+plan and validation report saved. Outputs deliberately not yet installed in atlas:
+next export tiles/build catalog, reproduce rasters, run full tests and deploy.
+Earlier stall cause remains unknown; successful fresh run does not diagnose it.
+Source 1.26.61.1 target26.60, experiments off, old Xbox chunk caveats preserved.

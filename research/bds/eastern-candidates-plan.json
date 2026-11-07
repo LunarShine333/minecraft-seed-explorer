@@ -1,0 +1,32 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "eastern-candidates",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native eastern corridor extension",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": 1792,
+      "z": -1792,
+      "y": 64
+    },
+    {
+      "x": 1792,
+      "z": -1664,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "55e725eee6b1a06d0e83bf8a3caa4aca2596dd6c",
+  "baselineRevision": "b5c4db968ad1c506d7aa5d028e738fdaa0d59d36fc5918bafc142ab86e1d8335",
+  "expectedNewCells": 32768
+}
