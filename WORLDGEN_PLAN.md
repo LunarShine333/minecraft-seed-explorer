@@ -1086,3 +1086,12 @@ Release continuation: added southeast store-level tile seams, native provenance,
 unknown border/height and full16-tile viewport assertions. 94 Node and53 Python
 tests pass locally. PR33 includes PR32 evidence; CI then merge/live verification.
 Physical Safari and full-world generation remain unfinished.
+
+## 2026-11-07 — southern junction native collection
+
+Fresh disposable world completed8 new Y64 tiles X1792..2303 Z512..767, home
+control and DONE. Console stop clean. Strict importer accepted131072new cells
+and matched16384 independent control readings; no partial records. Preserved plan,
+probe, normalized evidence/settings and validation report. Catalog remains432tiles:
+export/integration/raster tests next. Patch adjoins eastern coverage; no structure,
+surface-height, safe route or full-world prediction claim. Xbox caveats retained.
