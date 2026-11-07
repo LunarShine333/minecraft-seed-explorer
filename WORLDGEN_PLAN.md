@@ -980,3 +980,8 @@ or website coverage changes. This is collection preparation, not native evidence
 Next: sample these candidates with the authorized native probe and independent
 home control, preserve source version/settings and only import complete records.
 Full-world generator remains unresolved; no rejected fit rerun. PR pending checks.
+
+Continuation: real-atlas regression reproduces the saved two candidates and zero
+jobs on the existing corridor, then simulates completed footprints and verifies
+that neither candidate is planned again. Simulation is test-only, not native
+coverage. 50 Python and 91 Node tests pass; native acquisition remains pending.
