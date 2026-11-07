@@ -43,3 +43,12 @@ test('a timed-out native tile frees the shared request slot and can later retry 
  fail=false;await store.tile(entries[0]);await store.tile(entries[1]);
  assert.deepEqual(calls,[entries[0].path,entries[1].path,entries[0].path]);
 });
+
+test('raster decoding failures reject and a stalled decode remains bounded',async()=>{
+ class Broken {set src(v){if(v)queueMicrotask(()=>this.onload?.())}decode(){return Promise.reject(Error('bad pixels'))}}
+ await assert.rejects(loadCheckedRaster('broken',{Image:Broken}),/decoded/);
+ let image;
+ class Slow {constructor(){image=this}set src(v){this.path=v;if(v)queueMicrotask(()=>this.onload?.())}decode(){return new Promise(()=>{})}}
+ await assert.rejects(loadCheckedRaster('slow',{Image:Slow,timeoutMs:10}),/timed out/);
+ assert.equal(image.path,'');assert.equal(image.onload,null);
+});
