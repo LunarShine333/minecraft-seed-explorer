@@ -1055,3 +1055,8 @@ tiles/6815744 height cells; Y64 399tiles/6537216cells. Revision
 Added full byte reproduction test. Historical unknown-border assertions moved to
 new actual boundary X2048. Full tests run before publication; no global generator
 or surface/structure claim. Publication pending CI and merge.
+
+Release validation: added store-level seam/edge/height/provenance checks and whole
+16-tile viewport assertion (262144 cells). 93 Node and52 Python tests pass.
+PR31 consolidates PR30 acquisition; final CI then merge/live verification.
+No physical Safari or global generation claim. Check publication next run if pending.
