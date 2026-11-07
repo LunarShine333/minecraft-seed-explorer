@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "desert-destination",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native desert destination",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": 3840,
+      "z": -2048,
+      "y": 64
+    },
+    {
+      "x": 3968,
+      "z": -2048,
+      "y": 64
+    },
+    {
+      "x": 3840,
+      "z": -1920,
+      "y": 64
+    },
+    {
+      "x": 3968,
+      "z": -1920,
+      "y": 64
+    },
+    {
+      "x": 3840,
+      "z": -2048,
+      "y": 66
+    },
+    {
+      "x": 3968,
+      "z": -2048,
+      "y": 66
+    },
+    {
+      "x": 3840,
+      "z": -1920,
+      "y": 66
+    },
+    {
+      "x": 3968,
+      "z": -1920,
+      "y": 66
+    }
+  ],
+  "baselineCommit": "bd165dc7780e868d906528ec1209bd6c2e2b1748",
+  "baselineRevision": "d190e64f833906404c8ce064f2a418103b1d988d21a8701ae12f5cf9dff32fab",
+  "expectedNewCells": 131072
+}

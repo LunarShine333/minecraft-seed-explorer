@@ -74,7 +74,7 @@ def parse_native(text, settings, *, allow_partial=False):
 
 def color(name, colors):
     # Colors are presentation only; all biome identities come from the game.
-    return colors.get(name, '#' + hashlib.sha256(name.encode()).hexdigest()[:6])
+    return colors.get(name, {'minecraft:desert': '#ead49a'}.get(name, '#' + hashlib.sha256(name.encode()).hexdigest()[:6]))
 
 
 def main():

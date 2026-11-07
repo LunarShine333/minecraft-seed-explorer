@@ -1,0 +1,21 @@
+{
+  "seed": "3022187552114785111",
+  "targetVersion": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "experiments": false,
+  "command": "execute positioned 128 64 24 run locate biome minecraft:desert",
+  "point": {
+    "x": 3936,
+    "y": 66,
+    "z": -1992
+  },
+  "biome": "minecraft:desert",
+  "status": "native locator point directly verified as minecraft:desert in the Y66 exported patch",
+  "logSha256": "b9f4d5c4b2d4ded149cbd45ebcdde7b900a14d74eb32d18d37360ae9be51a83c",
+  "limitations": [
+    "Initial Script API search rejected boundingSize.x=8192; no biome was inferred from that failure.",
+    "Unnamespaced command rejected; namespaced command returned the location.",
+    "Native current-release test world only; older Xbox chunks may differ."
+  ],
+  "directEvidence": "research/bds/desert-destination-native-runs.json.gz"
+}
