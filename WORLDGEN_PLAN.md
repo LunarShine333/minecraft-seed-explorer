@@ -1095,3 +1095,13 @@ and matched16384 independent control readings; no partial records. Preserved pla
 probe, normalized evidence/settings and validation report. Catalog remains432tiles:
 export/integration/raster tests next. Patch adjoins eastern coverage; no structure,
 surface-height, safe route or full-world prediction claim. Xbox caveats retained.
+
+## 2026-11-07 — junction exports and deployment timeout diagnosis
+
+Exported8 southern junction native tiles, independent control and manifest.
+Added byte-for-byte reproduction test for exports/evidence/manifest. Python suite
+54tests passed. Catalog not changed yet; junction integration remains next.
+Inspected Pages run42407532163 deploy job128508447580: build succeeded, deployment
+remained syncing_files until Timeout reached and cancellation. Retried failed jobs
+only. This is observed publication failure, not a native-data/test failure; verify
+432-tile live bytes after retry before claiming recovery. No user action needed.
