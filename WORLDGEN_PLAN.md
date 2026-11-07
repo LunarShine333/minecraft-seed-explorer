@@ -939,3 +939,14 @@ next run verify prior cursor-zoom release and finish this increment.
 Continuation: added explicit late-decode-after-timeout and deferred-success
 regressions. All 88 Node and 47 Python tests pass. No physical browser validation
 claimed. Finish CI/merge and verify deployed bytes; native coverage remains398 tiles.
+
+## 2026-11-07 — isolate request eligibility failures
+
+Resumed main 519a3f0, no open PRs. Found that an exception in a queued request's
+eligibility callback could escape drain during a preceding request's finalizer,
+leave that request unsettled and prevent following tiles from starting. Catch
+and reject that job independently, then continue draining. Regression queues a
+blocked first request, throwing predicate and valid neighbor, proving neighbor
+completion and zero remaining active/queued requests. 89 Node and 47 Python
+tests passed. Shell v29; no native coverage, seed or provenance changes. Full
+world generation and Safari validation remain unfinished. Publication pending.
