@@ -961,3 +961,8 @@ four-request concurrency, cancellation and progressive painting remain in use.
 Added center movement/negative-coordinate/empty-list/immutability regression.
 Shell v30. No native coverage or generator accuracy claim added. Physical Safari
 validation and full-world generation remain open. PR publication pending.
+
+Continuation: integration test now loads actual native fixtures through a one-slot
+request pool across two viewport positions, verifies exact center-first HTTP order
+and full visible coverage. 91 Node and 47 Python tests pass locally. CI/merge and
+live verification follow; no additional terrain or physical Safari claims.
