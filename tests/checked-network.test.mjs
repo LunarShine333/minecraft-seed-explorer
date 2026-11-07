@@ -52,3 +52,19 @@ test('raster decoding failures reject and a stalled decode remains bounded',asyn
  await assert.rejects(loadCheckedRaster('slow',{Image:Slow,timeoutMs:10}),/timed out/);
  assert.equal(image.path,'');assert.equal(image.onload,null);
 });
+
+test('a timed-out decode finishing late cannot turn failure into a usable image',async()=>{
+ let finish,image;
+ class Late {constructor(){image=this}set src(v){this.path=v;if(v)queueMicrotask(()=>this.onload?.())}decode(){return new Promise(resolve=>{finish=resolve})}}
+ await assert.rejects(loadCheckedRaster('late',{Image:Late,timeoutMs:10}),/timed out/);
+ finish();await new Promise(resolve=>setImmediate(resolve));
+ assert.equal(image.path,'');assert.equal(image.onload,null);assert.equal(image.onerror,null);
+});
+test('successful asynchronous decoding completes before raster delivery',async()=>{
+ let finish;
+ class Deferred {set src(v){if(v)queueMicrotask(()=>this.onload?.())}decode(){return new Promise(resolve=>{finish=resolve})}}
+ let delivered=false;
+ const pending=loadCheckedRaster('good',{Image:Deferred}).then(image=>{delivered=true;return image});
+ await new Promise(resolve=>setImmediate(resolve));assert.equal(delivered,false);
+ finish();const image=await pending;assert.equal(delivered,true);assert.equal(image.onload,null);
+});
