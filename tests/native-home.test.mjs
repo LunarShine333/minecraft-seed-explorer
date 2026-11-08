@@ -9,7 +9,7 @@ test('new home extension has the exact native footprint and repeats its independ
  assert.equal(manifest.tiles.length,48);assert.equal(manifest.addedDistinctHeightCells,786432);assert.equal(manifest.experiments,false);
  const a=read('research/bds/home-area-control.json'),b=read('research/bds/cherry-route-control.json');
  for(let z=-256;z<-128;z++)for(let x=-256;x<-128;x++)assert.equal(biomeAt(a,x,z,64).name,biomeAt(b,x,z,64).name);
- assert.equal(catalog.tiles.length,432);
+ assert.equal(catalog.tiles.length,440);
  const indices=new Set(catalog.tiles.filter(t=>t.y===64).map(t=>`${t.x},${t.z}`));
  for(let z=-256;z<768;z+=128)for(let x=-256;x<768;x+=128)assert.ok(indices.has(`${x},${z}`));
 });
@@ -19,7 +19,7 @@ test('home-area and landmark coordinates load measured cells while outside cells
   const result=await store.view({minX:x,minZ:z,maxX:x+1,maxZ:z+1},64);
   assert.equal(result.failed,0);assert.ok(biomeAt(result.bundle,x,z,64));
  }
- assert.equal(visibleTiles(store.catalog,{minX:1792,minZ:767,maxX:1793,maxZ:768},64).length,0);
+ assert.equal(visibleTiles(store.catalog,{minX:2304,minZ:767,maxX:2305,maxZ:768},64).length,0);
  assert.equal(visibleTiles(store.catalog,{minX:767,minZ:2432,maxX:768,maxZ:2433},64).length,0);
  const destination=await store.view({minX:-2336,minZ:-288,maxX:-2335,maxZ:-287},103);
  assert.equal(biomeAt(destination.bundle,-2336,-288,103).name,'minecraft:cherry_grove');

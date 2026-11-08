@@ -1086,3 +1086,37 @@ Release continuation: added southeast store-level tile seams, native provenance,
 unknown border/height and full16-tile viewport assertions. 94 Node and53 Python
 tests pass locally. PR33 includes PR32 evidence; CI then merge/live verification.
 Physical Safari and full-world generation remain unfinished.
+
+## 2026-11-07 — southern junction native collection
+
+Fresh disposable world completed8 new Y64 tiles X1792..2303 Z512..767, home
+control and DONE. Console stop clean. Strict importer accepted131072new cells
+and matched16384 independent control readings; no partial records. Preserved plan,
+probe, normalized evidence/settings and validation report. Catalog remains432tiles:
+export/integration/raster tests next. Patch adjoins eastern coverage; no structure,
+surface-height, safe route or full-world prediction claim. Xbox caveats retained.
+
+## 2026-11-07 — junction exports and deployment timeout diagnosis
+
+Exported8 southern junction native tiles, independent control and manifest.
+Added byte-for-byte reproduction test for exports/evidence/manifest. Python suite
+54tests passed. Catalog not changed yet; junction integration remains next.
+Inspected Pages run42407532163 deploy job128508447580: build succeeded, deployment
+remained syncing_files until Timeout reached and cancellation. Retried failed jobs
+only. This is observed publication failure, not a native-data/test failure; verify
+432-tile live bytes after retry before claiming recovery. No user action needed.
+
+## 2026-11-07 — southern junction integrated atlas prepared
+
+Registered native junction manifest and rebuilt54 raster pages (40atY64).
+Prepared atlas440tiles/7208960 height cells, Y64 423tiles/6930432cells.
+Revision28a7584dacca4f5cf62bf3425c061975dabf494ad748bdb614fc3ccb534acc32.
+Updated aggregate native coverage and wide-view raster-count tests for new page.
+Native export reproduction and every raster pixel/unknown alpha checks retained.
+Publication pending CI/merge; no global generator, structure or safe-route claim.
+Next final seam checks and deployment verification, including prior Pages retry.
+
+Release continuation: corrected historical unknown viewport to actual X2304 edge;
+added junction seams/native provenance, unknown height/border and eight-tile view
+regression. 95 Node and54 Python tests pass. Final CI then consolidated PR36 merge
+and live verification; PR34/35 superseded. Global generation/Safari remain open.

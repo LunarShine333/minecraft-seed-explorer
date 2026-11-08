@@ -16,6 +16,6 @@ test('continuous pan reaches the prior outpost slice and leaves unknown borders 
  const store=new CheckedTileStore(catalog,async p=>read(p));
  for(let x=128;x<=1768;x+=64)assert.ok(await store.cell(x,728,64));
  assert.ok(await store.cell(1768,728,64));
- for(const [x,z] of [[1792,728],[1792,639],[1768,896]])assert.equal(await store.cell(x,z,64),null);
+ for(const [x,z] of [[2304,728],[2304,639],[1768,896]])assert.equal(await store.cell(x,z,64),null);
  assert.equal(await store.cell(1768,728,103),null);
 });
