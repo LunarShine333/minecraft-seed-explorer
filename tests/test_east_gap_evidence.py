@@ -20,6 +20,8 @@ class EastGapEvidenceTests(unittest.TestCase):
         self.assertEqual(len(report['tiles']),16)
         self.assertEqual(json.loads(evidence),archive)
         self.assertEqual(export_area_runs(archive['runs'],plan),(outputs,evidence,report))
+        for path, text in outputs:
+            self.assertEqual((ROOT/path).read_bytes(),text.encode('utf-8'))
         self.assertEqual(plan['seed'],'3022187552114785111')
         # A settings mismatch must prevent exports, even with complete records.
         bad=json.loads(json.dumps(archive['runs']))
