@@ -1,0 +1,27 @@
+NO LOG FILE! - Failed to up file descriptor limit Operation not permitted
+NO LOG FILE! - setting up server logging...
+[2026-11-08 08:25:49:443 INFO] Starting Server
+[2026-11-08 08:25:49:443 INFO] Version: 1.26.61.1
+[2026-11-08 08:25:49:443 INFO] Session ID: b6f0a707-98f3-4511-81ec-3cba8ad9f612
+[2026-11-08 08:25:49:443 INFO] Build ID: 53069370
+[2026-11-08 08:25:49:443 INFO] Branch: r/26_u6
+[2026-11-08 08:25:49:443 INFO] Commit ID: 86f7b32281709abd4444adb52887796af061c7bd
+[2026-11-08 08:25:49:443 INFO] Configuration: Publish
+[2026-11-08 08:25:49:443 INFO] Contents of server.properties: {"allow-cheats":"true","allow-inbound-script-debugging":"false","allow-list":"true","allow-outbound-script-debugging":"false","block-network-ids-are-hashes":"true","chat-restriction":"None","client-side-chunk-generation-enabled":"true","compression-algorithm":"zlib","compression-threshold":"1","content-log-console-output-enabled":"true","content-log-file-enabled":"false","content-log-level":"info","default-player-permission-level":"member","difficulty":"easy","disable-custom-skins":"false","disable-persona":"false","disable-player-interaction":"false","enable-lan-visibility":"false","force-gamemode":"false","gamemode":"survival","level-name":"seed-explorer-east-gap-logged","level-seed":"3022187552114785111","max-players":"1","max-threads":"8","online-mode":"true","persistent-ticking-area-max-chunks":"100","persistent-ticking-area-max-count":"10","player-idle-timeout":"30","player-movement-action-direction-threshold":"0.85","player-position-acceptance-threshold":"0.5","script-debugger-auto-attach":"disabled","server-authoritative-block-breaking-pick-range-scalar":"1.5","server-authoritative-dismount-strict":"false","server-authoritative-entity-attack-range-tolerance":"0.5","server-authoritative-entity-attack-range-validation":"disabled","server-authoritative-entity-attack-request-validation":"disabled","server-authoritative-entity-interactions-strict":"false","server-authoritative-movement-strict":"false","server-build-radius-ratio":"Disabled","server-name":"Dedicated Server","server-port":"19142","server-portv6":"19143","server-udp-ports":"19132","texturepack-required":"false","tick-distance":"4","transient-ticking-area-max-chunks":"300","transport":"nethernet","view-distance":"32"}
+[2026-11-08 08:25:49:443 INFO] Level Name: seed-explorer-east-gap-logged
+[2026-11-08 08:25:49:443 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
+[2026-11-08 08:25:49:444 INFO] No CDN config file found at: cdn_config.json for dedicated server
+[2026-11-08 08:25:49:444 INFO] Game mode: 0 Survival
+[2026-11-08 08:25:49:444 INFO] Difficulty: 1 EASY
+[2026-11-08 08:25:49:446 INFO] Content logging to console is enabled.
+[2026-11-08 08:25:49:448 INFO] 
+
+#####################################################
+#                                                   #
+#              CREATING VANILLA WORLD               #
+#                                                   #
+#####################################################
+[2026-11-08 08:25:49:800 INFO] Opening level 'worlds/seed-explorer-east-gap-logged/db'
+[2026-11-08 08:25:49:801 INFO] Accepting clients on [::]:19142
+[2026-11-08 08:25:49:836 INFO] Pack Stack - [00] East gap native probe (id: 10d29597-f311-4861-8532-6e4594f0fee0, version: 1.0.0) @ behavior_packs/east_gap
+[2026-11-08 08:25:50:023 INFO] Signed in to signaling service successfully

@@ -11,7 +11,7 @@ const settle=()=>new Promise(resolve=>setImmediate(resolve));
 
 test('lossless raster index accounts for all checked tiles and preserves seed/height identity',()=>{
  const index=validateRasterIndex(raw,catalog);assert.equal(index.seed,'3022187552114785111');assert.equal(index.pages.length,55);
- assert.equal(index.pages.reduce((n,p)=>n+p.coverage.length,0),469);
+ assert.equal(index.pages.reduce((n,p)=>n+p.coverage.length,0),485);
  assert.equal(visibleRasterPages(index,whole,64).length,41);
  assert.equal(visibleRasterPages(index,whole,103).length,1);
  assert.equal(visibleRasterPages(index,whole,104).length,0);

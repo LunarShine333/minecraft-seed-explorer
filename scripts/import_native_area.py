@@ -4,6 +4,7 @@ The committed plan pins the exact project seed, source build, requested footprin
 and independent control fixtures. No output is written until every check passes.
 """
 import argparse
+import base64
 import gzip
 import hashlib
 import json
@@ -116,12 +117,22 @@ def export_area_runs(runs, plan):
     return outputs, evidence, report
 
 
+def read_evidence(path):
+    data = path.read_bytes()
+    if path.name.endswith('.gz.b64'):
+        data = base64.b64decode(data, validate=True)
+        return gzip.decompress(data).decode('utf-8')
+    if path.suffix == '.gz':
+        return gzip.decompress(data).decode('utf-8')
+    return data.decode('utf-8')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--runs', type=Path, required=True)
     parser.add_argument('--plan', type=Path, required=True)
     args = parser.parse_args()
-    raw = gzip.decompress(args.runs.read_bytes()).decode() if args.runs.suffix == '.gz' else args.runs.read_text()
+    raw = read_evidence(args.runs)
     archive, plan = json.loads(raw), json.loads(args.plan.read_text())
     if archive.get('schema') != 'native-area-evidence-v1' or archive.get('planId') != plan['id']:
         raise ValueError('Wrong native evidence archive')

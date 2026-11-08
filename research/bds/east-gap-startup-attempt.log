@@ -1,0 +1,45 @@
+NO LOG FILE! - Failed to up file descriptor limit Operation not permitted
+NO LOG FILE! - setting up server logging...
+[2026-11-08 07:35:07:441 INFO] Starting Server
+[2026-11-08 07:35:07:441 INFO] Version: 1.26.61.1
+[2026-11-08 07:35:07:441 INFO] Session ID: 39c90899-0e12-4d2d-95bd-f36e764f5683
+[2026-11-08 07:35:07:441 INFO] Build ID: 53069370
+[2026-11-08 07:35:07:441 INFO] Branch: r/26_u6
+[2026-11-08 07:35:07:441 INFO] Commit ID: 86f7b32281709abd4444adb52887796af061c7bd
+[2026-11-08 07:35:07:441 INFO] Configuration: Publish
+[2026-11-08 07:35:07:442 INFO] Contents of server.properties: {"allow-cheats":"true","allow-inbound-script-debugging":"false","allow-list":"true","allow-outbound-script-debugging":"false","block-network-ids-are-hashes":"true","chat-restriction":"None","client-side-chunk-generation-enabled":"true","compression-algorithm":"zlib","compression-threshold":"1","content-log-console-output-enabled":"false","content-log-file-enabled":"false","content-log-level":"info","default-player-permission-level":"member","difficulty":"easy","disable-custom-skins":"false","disable-persona":"false","disable-player-interaction":"false","enable-lan-visibility":"false","force-gamemode":"false","gamemode":"survival","level-name":"seed-explorer-east-gap-20261108","level-seed":"3022187552114785111","max-players":"1","max-threads":"8","online-mode":"true","persistent-ticking-area-max-chunks":"100","persistent-ticking-area-max-count":"10","player-idle-timeout":"30","player-movement-action-direction-threshold":"0.85","player-position-acceptance-threshold":"0.5","script-debugger-auto-attach":"disabled","server-authoritative-block-breaking-pick-range-scalar":"1.5","server-authoritative-dismount-strict":"false","server-authoritative-entity-attack-range-tolerance":"0.5","server-authoritative-entity-attack-range-validation":"disabled","server-authoritative-entity-attack-request-validation":"disabled","server-authoritative-entity-interactions-strict":"false","server-authoritative-movement-strict":"false","server-build-radius-ratio":"Disabled","server-name":"Dedicated Server","server-port":"19142","server-portv6":"19143","server-udp-ports":"19132","texturepack-required":"false","tick-distance":"4","transient-ticking-area-max-chunks":"300","transport":"nethernet","view-distance":"32"}
+[2026-11-08 07:35:07:442 INFO] Level Name: seed-explorer-east-gap-20261108
+[2026-11-08 07:35:07:442 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
+[2026-11-08 07:35:07:443 INFO] No CDN config file found at: cdn_config.json for dedicated server
+[2026-11-08 07:35:07:443 INFO] Game mode: 0 Survival
+[2026-11-08 07:35:07:443 INFO] Difficulty: 1 EASY
+[2026-11-08 07:35:07:445 WARN] Content logging to console is disabled.  Enable it with content-log-console-output-enabled=true in server.properties
+[2026-11-08 07:35:07:446 INFO] 
+
+#####################################################
+#                                                   #
+#              CREATING VANILLA WORLD               #
+#                                                   #
+#####################################################
+[2026-11-08 07:35:07:748 INFO] Opening level 'worlds/seed-explorer-east-gap-20261108/db'
+[2026-11-08 07:35:07:749 INFO] Accepting clients on [::]:19142
+[2026-11-08 07:35:07:776 INFO] Pack Stack - [00] East gap native probe (id: 10d29597-f311-4861-8532-6e4594f0fee0, version: 1.0.0) @ behavior_packs/east_gap
+[2026-11-08 07:35:07:946 INFO] Signed in to signaling service successfully
+[2026-11-08 07:35:08:441 INFO] Waiting for Minecraft services...
+[2026-11-08 07:35:18:752 INFO] Server started.
+[2026-11-08 07:35:18:752 WARN] ================ ALLOW LIST WARNING ===================
+[2026-11-08 07:35:18:752 WARN] Allow list is enabled but contains no entries. 
+[2026-11-08 07:35:18:752 WARN] Use allowlist add <playername> for you and your friends so that they can access the server, or modify allowlist.json manually.
+[2026-11-08 07:35:18:752 WARN] 
+Alternatively, the allow list can be turned off by typing allowlist off or manually toggled in the server.properties file.
+[2026-11-08 07:35:18:752 WARN] =======================================================
+[2026-11-08 07:35:18:752 INFO] ================ TELEMETRY MESSAGE ===================
+[2026-11-08 07:35:18:752 INFO] Server Telemetry is currently not enabled. 
+[2026-11-08 07:35:18:752 INFO] Enabling this telemetry helps us improve the game.
+[2026-11-08 07:35:18:752 INFO] 
+[2026-11-08 07:35:18:752 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
+[2026-11-08 07:35:18:752 INFO] to the server.properties file in the handheld/src-server directory
+[2026-11-08 07:35:18:752 INFO] ======================================================
+[2026-11-08 07:35:18:834 INFO] Server stop requested.
+[2026-11-08 07:35:18:852 INFO] Stopping server...
+Quit correctly
