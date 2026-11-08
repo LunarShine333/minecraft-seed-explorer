@@ -1183,3 +1183,5 @@ open. No native server executed in this release-validation increment.
 ## 2026-11-08 — acquisition planner footprint validation
 
 Reject malformed catalog footprints before selecting unsampled jobs: boolean or fractional coordinates, absent tile lists, invalid dimensions and heights now fail closed. Prevents damaged metadata silently scheduling duplicate acquisition. Added focused regressions; full Python suite run in this increment. No new coverage or generator claim; atlas remains469tiles. PR checks pending. Next resume native adjoining coverage from main after this tooling check.
+
+Continuation: initial PR42 CI passed. Added positive regression for unaligned small native footprints spanning four candidates and height-isolated planning, so validation does not discard legitimate partial coverage. Final-head CI required before merge. Scratch checkout/native binaries were pruned; durable source/evidence remain on GitHub. No new native acquisition or website coverage claimed this increment.
