@@ -9,6 +9,7 @@ test('panning crosses older infill, native gap and eastern tiles without a seam'
  for(const x of [1152,1216,1280,1344,1408,1472,1536]){
   const view=await store.view({minX:x,minZ:0,maxX:x+128,maxZ:128},64);
   assert.equal(view.failed,0);
+  assert.equal(view.completed,x%128===0?1:2,'all intersecting tiles must load');
   assert.equal(view.bundle.biomes.reduce((n,t)=>n+t.samples.length,0),view.completed*16384);
   for(const edge of [x,x+127]){
    const cell=await store.cell(edge,64,64);
