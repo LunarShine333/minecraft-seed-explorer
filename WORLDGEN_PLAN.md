@@ -1139,3 +1139,12 @@ Strict importer accepted229376new cells and matched16384control readings.
 Console stop clean; no partial records. Plan/probe/normalized evidence/settings/
 validation saved. No atlas outputs installed yet; catalog remains440tiles. Export,
 reproduction and raster integration tests next. No global generator/structure claim.
+
+## 2026-11-07 — eastern home infill atlas prepared
+
+Exported14 native Y64 tiles and independent control, registered manifest and
+rebuilt54raster pages. Prepared454tiles/7438336height cells, Y64
+437tiles/7159808cells. Revision95a00e329ebcab65eee18532b2e1903184cbab5ef9ddddbcfb37f05d37f0c53c.
+Added native byte reproduction test. Historical unknown assertions moved outside
+newly sampled footprint. Final seam checks/CI and merge remain before publication;
+no full-world generation or physical Safari claim. Evidence from PR38 retained.

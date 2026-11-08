@@ -16,6 +16,6 @@ test('pan eastward reaches the prior temple location while unsampled borders rem
  const store=new CheckedTileStore(catalog,async p=>read(p));
  for(let x=128;x<=1100;x+=64)assert.ok(await store.cell(x,632,64));
  assert.ok(await store.cell(872,632,64));
- for(const [x,z] of [[1152,632],[872,383],[872,896]])assert.equal(await store.cell(x,z,64),null);
+ for(const [x,z] of [[1152,632],[872,-513],[872,896]])assert.equal(await store.cell(x,z,64),null);
  assert.equal(await store.cell(872,632,103),null);
 });
