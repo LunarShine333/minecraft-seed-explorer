@@ -1,0 +1,92 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "home-east-fill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native eastern home infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": 768,
+      "z": -512,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": -512,
+      "y": 64
+    },
+    {
+      "x": 768,
+      "z": -384,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": -384,
+      "y": 64
+    },
+    {
+      "x": 768,
+      "z": -256,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": -256,
+      "y": 64
+    },
+    {
+      "x": 768,
+      "z": -128,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": -128,
+      "y": 64
+    },
+    {
+      "x": 768,
+      "z": 0,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": 0,
+      "y": 64
+    },
+    {
+      "x": 768,
+      "z": 128,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": 128,
+      "y": 64
+    },
+    {
+      "x": 768,
+      "z": 256,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": 256,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "d7fe8f861590b4278f8966b251d3651a888b9c6b",
+  "baselineRevision": "28a7584dacca4f5cf62bf3425c061975dabf494ad748bdb614fc3ccb534acc32",
+  "expectedNewCells": 229376
+}

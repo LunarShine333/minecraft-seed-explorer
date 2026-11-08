@@ -1130,3 +1130,12 @@ separate heights and disjoint small footprints remain valid. Regression exercise
 full/partial/negative/cross-bucket overlap plus original440-tile atlas. Shellv31;
 no coverage/seed/provenance/device waypoint changes. 97 Node and54 Python tests
 pass. No physical Safari validation claimed. Publication pending PR/CI.
+
+## 2026-11-07 — eastern home infill native collection
+
+Fresh disposable world completed14 new Y64 tiles within X768..1023 Z-512..511
+(two existing footprints excluded), plus independent home control and DONE.
+Strict importer accepted229376new cells and matched16384control readings.
+Console stop clean; no partial records. Plan/probe/normalized evidence/settings/
+validation saved. No atlas outputs installed yet; catalog remains440tiles. Export,
+reproduction and raster integration tests next. No global generator/structure claim.
