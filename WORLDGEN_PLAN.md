@@ -1148,3 +1148,8 @@ rebuilt54raster pages. Prepared454tiles/7438336height cells, Y64
 Added native byte reproduction test. Historical unknown assertions moved outside
 newly sampled footprint. Final seam checks/CI and merge remain before publication;
 no full-world generation or physical Safari claim. Evidence from PR38 retained.
+
+Release continuation: native corners of every new infill tile load with retained
+provenance, full16-footprint view completes (14new+2existing), unknown border and
+Y103 stay unknown. 98 Node and55 Python tests pass. Final CI then PR39 merge and
+live verification; includes PR38 evidence. Full-world and Safari remain open.
