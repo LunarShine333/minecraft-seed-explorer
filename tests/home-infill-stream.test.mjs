@@ -12,6 +12,6 @@ test('home infill streams all sixteen footprints and preserves new native proven
  const view=await store.view({minX:768,minZ:-512,maxX:1024,maxZ:512},64);
  assert.equal(view.completed,16);assert.equal(view.failed,0);
  assert.equal(view.bundle.biomes.reduce((n,t)=>n+t.samples.length,0),262144);
- assert.equal(await store.cell(1024,0,64),null);
+ assert.equal(await store.cell(1280,0,64),null);
  assert.equal(await store.cell(768,0,103),null);
 });

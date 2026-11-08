@@ -1153,3 +1153,29 @@ Release continuation: native corners of every new infill tile load with retained
 provenance, full16-footprint view completes (14new+2existing), unknown border and
 Y103 stay unknown. 98 Node and55 Python tests pass. Final CI then PR39 merge and
 live verification; includes PR38 evidence. Full-world and Safari remain open.
+
+## 2026-11-07 — middle eastern native infill acquisition
+
+Fresh disposable world completed15 new Y64 tiles within X1024..1279 Z-512..511,
+one existing footprint excluded, independent home control and DONE. Strict
+importer accepted245760new cells and matched16384control readings. Console stop
+clean; no partial records. Plan/probe/normalized evidence/settings/report saved.
+Atlas remains454tiles until export/reproduction/raster integration tests. No global
+generator, structure, safe-route or physical Safari claim. Existing caveats retained.
+
+## 2026-11-08 — middle eastern infill atlas prepared
+
+Exported15 native Y64 tiles/control/manifest, registered manifest and rebuilt55
+raster pages (41atY64). Prepared469tiles/7684096height cells; Y64
+452tiles/7405568cells. Revision0d08c7681d720043acc01dfd77613e67b80a414d6ef758b9a8424c0eef5ab1c9.
+Added native byte reproduction test; unknown assertions moved to X1280 outside
+new footprint and wide-view page counts updated. Evidence/settings/control remain
+intact. Final streaming checks/CI before publication. No global generator or
+physical Safari claim. Existing exact seed and Xbox caveats retained.
+
+Release continuation: added store-level native corner/provenance, adjoining sixteen-
+footprint view (15 new plus one existing), unknown border and unknown height
+regressions. All 99 Node and 56 Python tests pass, including full native byte
+reproduction and raster pixel/alpha checks. Final CI then PR41 merge and live
+verification; PR40 evidence included. Global generation and physical Safari remain
+open. No native server executed in this release-validation increment.
