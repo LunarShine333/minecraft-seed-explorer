@@ -23,6 +23,8 @@ class EastGapPlanTests(unittest.TestCase):
         self.assertEqual(plan['sourceVersion'],'1.26.61.1')
         self.assertIs(plan['experiments'],False)
         self.assertEqual(jobs[0],dict(x=-256,z=-256,y=64,control=True,reference='research/bds/home-area-control.json'))
+        acquired = {(j['x'],j['z'],j['y']) for j in jobs[1:]}
+        catalog = dict(catalog,tiles=[t for t in catalog['tiles'] if (t['x'],t['z'],t['y']) not in acquired])
         expected = planner.missing_jobs(catalog,1280,-512,1536,512,64)
         self.assertEqual(jobs[1:],expected)
         self.assertEqual(len(expected),16)
