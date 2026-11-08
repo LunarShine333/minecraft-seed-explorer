@@ -1130,3 +1130,26 @@ separate heights and disjoint small footprints remain valid. Regression exercise
 full/partial/negative/cross-bucket overlap plus original440-tile atlas. Shellv31;
 no coverage/seed/provenance/device waypoint changes. 97 Node and54 Python tests
 pass. No physical Safari validation claimed. Publication pending PR/CI.
+
+## 2026-11-07 — eastern home infill native collection
+
+Fresh disposable world completed14 new Y64 tiles within X768..1023 Z-512..511
+(two existing footprints excluded), plus independent home control and DONE.
+Strict importer accepted229376new cells and matched16384control readings.
+Console stop clean; no partial records. Plan/probe/normalized evidence/settings/
+validation saved. No atlas outputs installed yet; catalog remains440tiles. Export,
+reproduction and raster integration tests next. No global generator/structure claim.
+
+## 2026-11-07 — eastern home infill atlas prepared
+
+Exported14 native Y64 tiles and independent control, registered manifest and
+rebuilt54raster pages. Prepared454tiles/7438336height cells, Y64
+437tiles/7159808cells. Revision95a00e329ebcab65eee18532b2e1903184cbab5ef9ddddbcfb37f05d37f0c53c.
+Added native byte reproduction test. Historical unknown assertions moved outside
+newly sampled footprint. Final seam checks/CI and merge remain before publication;
+no full-world generation or physical Safari claim. Evidence from PR38 retained.
+
+Release continuation: native corners of every new infill tile load with retained
+provenance, full16-footprint view completes (14new+2existing), unknown border and
+Y103 stay unknown. 98 Node and55 Python tests pass. Final CI then PR39 merge and
+live verification; includes PR38 evidence. Full-world and Safari remain open.

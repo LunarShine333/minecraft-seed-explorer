@@ -10,7 +10,7 @@ const native={64:read('data/bedrock-26.60-wide-area.json'),103:read('data/bedroc
 for(const t of read('data/bedrock-26.60-checked-area.json').biomes)if(t.y!==64)native[t.y]={biomes:[t]};
 test('the expanded atlas retains every original native cell, palette and provenance',async()=>{
   const store=new CheckedTileStore(catalog,async path=>read(path));
-  assert.equal(catalog.tiles.length,440);
+  assert.equal(catalog.tiles.length,454);
   let cells=0;
   for(const entry of store.catalog.tiles){
     const tile=await store.tile(entry);
