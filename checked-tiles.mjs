@@ -14,6 +14,16 @@ export function validateCatalog(raw){
     if(t.width<1||t.height<1||t.width>128||t.height>128)throw Error('Invalid tile size.');
     return {...t};
   });
+  // Tiles may cross bucket edges; index every touched bucket at this height.
+  const occupied=new Map();
+  for(const t of tiles){
+    for(let x=Math.floor(t.x/128);x<=Math.floor((t.x+t.width-1)/128);x++)
+      for(let z=Math.floor(t.z/128);z<=Math.floor((t.z+t.height-1)/128);z++){
+        const key=`${t.y}:${x}:${z}`,neighbors=occupied.get(key)||[];
+        if(neighbors.some(n=>n.x<t.x+t.width&&n.x+n.width>t.x&&n.z<t.z+t.height&&n.z+n.height>t.z))throw Error('Overlapping checked tiles at the same height.');
+        neighbors.push(t);occupied.set(key,neighbors);
+      }
+  }
   let overview;
   if(raw.overview){
     if(raw.overview.path!=='./data/overview/index.json'||!/^[0-9a-f]{64}$/.test(raw.overview.revision))throw Error('Invalid raster overview identity.');
