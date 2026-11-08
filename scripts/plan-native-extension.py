@@ -16,7 +16,15 @@ def missing_jobs(catalog, min_x, min_z, max_x, max_z, y):
         raise ValueError('Invalid Overworld height')
     if (max_x-min_x)*(max_z-min_z)//16384 > 4096:
         raise ValueError('Plan exceeds 4096 tiles')
-    known = [t for t in catalog['tiles'] if t['y'] == y]
+    tiles = catalog.get('tiles')
+    if not isinstance(tiles, list):
+        raise ValueError('Catalog tiles must be a list')
+    for tile in tiles:
+        if not isinstance(tile, dict) or any(type(tile.get(k)) is not int for k in ('x', 'z', 'y', 'width', 'height')):
+            raise ValueError('Catalog footprint must contain integer coordinates and dimensions')
+        if not (-64 <= tile['y'] < 320 and 1 <= tile['width'] <= 128 and 1 <= tile['height'] <= 128):
+            raise ValueError('Invalid catalog footprint dimensions or height')
+    known = [t for t in tiles if t['y'] == y]
     return [dict(x=x,z=z,y=y) for z in range(min_z,max_z,128) for x in range(min_x,max_x,128)
             if not any(t['x'] < x+128 and t['x']+t['width'] > x and
                        t['z'] < z+128 and t['z']+t['height'] > z for t in known)]
