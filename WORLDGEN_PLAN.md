@@ -1179,3 +1179,7 @@ regressions. All 99 Node and 56 Python tests pass, including full native byte
 reproduction and raster pixel/alpha checks. Final CI then PR41 merge and live
 verification; PR40 evidence included. Global generation and physical Safari remain
 open. No native server executed in this release-validation increment.
+
+## 2026-11-08 — acquisition planner footprint validation
+
+Reject malformed catalog footprints before selecting unsampled jobs: boolean or fractional coordinates, absent tile lists, invalid dimensions and heights now fail closed. Prevents damaged metadata silently scheduling duplicate acquisition. Added focused regressions; full Python suite run in this increment. No new coverage or generator claim; atlas remains469tiles. PR checks pending. Next resume native adjoining coverage from main after this tooling check.
