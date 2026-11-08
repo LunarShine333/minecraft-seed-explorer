@@ -1172,3 +1172,10 @@ Added native byte reproduction test; unknown assertions moved to X1280 outside
 new footprint and wide-view page counts updated. Evidence/settings/control remain
 intact. Final streaming checks/CI before publication. No global generator or
 physical Safari claim. Existing exact seed and Xbox caveats retained.
+
+Release continuation: added store-level native corner/provenance, adjoining sixteen-
+footprint view (15 new plus one existing), unknown border and unknown height
+regressions. All 99 Node and 56 Python tests pass, including full native byte
+reproduction and raster pixel/alpha checks. Final CI then PR41 merge and live
+verification; PR40 evidence included. Global generation and physical Safari remain
+open. No native server executed in this release-validation increment.
