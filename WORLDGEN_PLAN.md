@@ -1162,3 +1162,13 @@ importer accepted245760new cells and matched16384control readings. Console stop
 clean; no partial records. Plan/probe/normalized evidence/settings/report saved.
 Atlas remains454tiles until export/reproduction/raster integration tests. No global
 generator, structure, safe-route or physical Safari claim. Existing caveats retained.
+
+## 2026-11-08 — middle eastern infill atlas prepared
+
+Exported15 native Y64 tiles/control/manifest, registered manifest and rebuilt55
+raster pages (41atY64). Prepared469tiles/7684096height cells; Y64
+452tiles/7405568cells. Revision0d08c7681d720043acc01dfd77613e67b80a414d6ef758b9a8424c0eef5ab1c9.
+Added native byte reproduction test; unknown assertions moved to X1280 outside
+new footprint and wide-view page counts updated. Evidence/settings/control remain
+intact. Final streaming checks/CI before publication. No global generator or
+physical Safari claim. Existing exact seed and Xbox caveats retained.

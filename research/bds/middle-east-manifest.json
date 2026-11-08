@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "nativeVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "planId": "middle-east",
+  "evidenceSha256": "5ac403d14b93afa5618b53d087dffc42c3e161ee321e6c44fe3b4641893bc1e0",
+  "tiles": [
+    {
+      "id": "64_1024_-512",
+      "path": "./data/tiles/64_1024_-512.json",
+      "x": 1024,
+      "z": -512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1152_-512",
+      "path": "./data/tiles/64_1152_-512.json",
+      "x": 1152,
+      "z": -512,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_-384",
+      "path": "./data/tiles/64_1024_-384.json",
+      "x": 1024,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1152_-384",
+      "path": "./data/tiles/64_1152_-384.json",
+      "x": 1152,
+      "z": -384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_-256",
+      "path": "./data/tiles/64_1024_-256.json",
+      "x": 1024,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1152_-256",
+      "path": "./data/tiles/64_1152_-256.json",
+      "x": 1152,
+      "z": -256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_-128",
+      "path": "./data/tiles/64_1024_-128.json",
+      "x": 1024,
+      "z": -128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1152_-128",
+      "path": "./data/tiles/64_1152_-128.json",
+      "x": 1152,
+      "z": -128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_0",
+      "path": "./data/tiles/64_1024_0.json",
+      "x": 1024,
+      "z": 0,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1152_0",
+      "path": "./data/tiles/64_1152_0.json",
+      "x": 1152,
+      "z": 0,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_128",
+      "path": "./data/tiles/64_1024_128.json",
+      "x": 1024,
+      "z": 128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1152_128",
+      "path": "./data/tiles/64_1152_128.json",
+      "x": 1152,
+      "z": 128,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1024_256",
+      "path": "./data/tiles/64_1024_256.json",
+      "x": 1024,
+      "z": 256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1152_256",
+      "path": "./data/tiles/64_1152_256.json",
+      "x": 1152,
+      "z": 256,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_1152_384",
+      "path": "./data/tiles/64_1152_384.json",
+      "x": 1152,
+      "z": 384,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    }
+  ],
+  "addedDistinctHeightCells": 245760,
+  "controlCells": 16384,
+  "duplicateCellsChecked": 0,
+  "completeNativeCellReadings": 262144,
+  "runReports": [
+    {
+      "runComplete": true,
+      "reportedJobs": 16,
+      "completeTileReadings": 16,
+      "discardedPartialRows": 0,
+      "controlCells": 16384
+    }
+  ],
+  "baselineCommit": "2b27c07c81f4016663f97227ff666db61bc2835d",
+  "baselineRevision": "95a00e329ebcab65eee18532b2e1903184cbab5ef9ddddbcfb37f05d37f0c53c",
+  "olderXboxChunksMayDiffer": true
+}
