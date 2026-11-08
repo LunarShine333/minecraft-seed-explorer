@@ -1115,3 +1115,8 @@ Updated aggregate native coverage and wide-view raster-count tests for new page.
 Native export reproduction and every raster pixel/unknown alpha checks retained.
 Publication pending CI/merge; no global generator, structure or safe-route claim.
 Next final seam checks and deployment verification, including prior Pages retry.
+
+Release continuation: corrected historical unknown viewport to actual X2304 edge;
+added junction seams/native provenance, unknown height/border and eight-tile view
+regression. 95 Node and54 Python tests pass. Final CI then consolidated PR36 merge
+and live verification; PR34/35 superseded. Global generation/Safari remain open.
