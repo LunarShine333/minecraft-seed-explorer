@@ -1,0 +1,97 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "middle-east",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native middle eastern infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": 1024,
+      "z": -512,
+      "y": 64
+    },
+    {
+      "x": 1152,
+      "z": -512,
+      "y": 64
+    },
+    {
+      "x": 1024,
+      "z": -384,
+      "y": 64
+    },
+    {
+      "x": 1152,
+      "z": -384,
+      "y": 64
+    },
+    {
+      "x": 1024,
+      "z": -256,
+      "y": 64
+    },
+    {
+      "x": 1152,
+      "z": -256,
+      "y": 64
+    },
+    {
+      "x": 1024,
+      "z": -128,
+      "y": 64
+    },
+    {
+      "x": 1152,
+      "z": -128,
+      "y": 64
+    },
+    {
+      "x": 1024,
+      "z": 0,
+      "y": 64
+    },
+    {
+      "x": 1152,
+      "z": 0,
+      "y": 64
+    },
+    {
+      "x": 1024,
+      "z": 128,
+      "y": 64
+    },
+    {
+      "x": 1152,
+      "z": 128,
+      "y": 64
+    },
+    {
+      "x": 1024,
+      "z": 256,
+      "y": 64
+    },
+    {
+      "x": 1152,
+      "z": 256,
+      "y": 64
+    },
+    {
+      "x": 1152,
+      "z": 384,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "2b27c07c81f4016663f97227ff666db61bc2835d",
+  "baselineRevision": "95a00e329ebcab65eee18532b2e1903184cbab5ef9ddddbcfb37f05d37f0c53c",
+  "expectedNewCells": 245760
+}

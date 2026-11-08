@@ -1153,3 +1153,12 @@ Release continuation: native corners of every new infill tile load with retained
 provenance, full16-footprint view completes (14new+2existing), unknown border and
 Y103 stay unknown. 98 Node and55 Python tests pass. Final CI then PR39 merge and
 live verification; includes PR38 evidence. Full-world and Safari remain open.
+
+## 2026-11-07 — middle eastern native infill acquisition
+
+Fresh disposable world completed15 new Y64 tiles within X1024..1279 Z-512..511,
+one existing footprint excluded, independent home control and DONE. Strict
+importer accepted245760new cells and matched16384control readings. Console stop
+clean; no partial records. Plan/probe/normalized evidence/settings/report saved.
+Atlas remains454tiles until export/reproduction/raster integration tests. No global
+generator, structure, safe-route or physical Safari claim. Existing caveats retained.
