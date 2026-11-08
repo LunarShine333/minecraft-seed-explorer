@@ -1120,3 +1120,13 @@ Release continuation: corrected historical unknown viewport to actual X2304 edge
 added junction seams/native provenance, unknown height/border and eight-tile view
 regression. 95 Node and54 Python tests pass. Final CI then consolidated PR36 merge
 and live verification; PR34/35 superseded. Global generation/Safari remain open.
+
+## 2026-11-07 — reject ambiguous same-height tile overlap
+
+Catalog validation now rejects intersecting footprints at the same height before
+loading/rendering. Spatial128-block buckets cover every touched bucket, including
+negative and unaligned edges, avoiding a full pairwise atlas scan. Touching edges,
+separate heights and disjoint small footprints remain valid. Regression exercises
+full/partial/negative/cross-bucket overlap plus original440-tile atlas. Shellv31;
+no coverage/seed/provenance/device waypoint changes. 97 Node and54 Python tests
+pass. No physical Safari validation claimed. Publication pending PR/CI.
