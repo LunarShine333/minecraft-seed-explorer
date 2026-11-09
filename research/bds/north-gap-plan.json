@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-gap",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native northern eastern infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": 1280,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": 1408,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": 1280,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": 1408,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": 1280,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": 1408,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": 1280,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": 1408,
+      "z": -640,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "4add4c9c803ee2bc000cdd88ea521160dd40d078",
+  "baselineRevision": "385d4f0aa61c555943df4477b03a8a41b833ddf2cdcff5f1fef49ca159352ab0",
+  "expectedNewCells": 131072
+}
