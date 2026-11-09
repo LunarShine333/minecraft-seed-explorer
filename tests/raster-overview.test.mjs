@@ -21,12 +21,12 @@ test('reject stale overviews, wrong worlds, unsafe paths, missing coverage and i
   const r=structuredClone(raw);mutate(r);assert.throws(()=>validateRasterIndex(r,catalog));
  }
 });
-test('wide view uses one index and 41 raster pages, then exact inspection fetches only one native tile',async()=>{
+test('wide view uses one index and 42 raster pages, then exact inspection fetches only one native tile',async()=>{
  const json=[],images=[];
  const store=new CheckedTileStore(catalog,async path=>{json.push(path);return read(path)},{fetchRaster:async path=>{images.push(path);return image()}});
  const result=await store.view(whole,64,{overview:true});
- assert.equal(result.mode,'raster');assert.equal(result.failed,0);assert.equal(result.rasters.length,41);assert.equal(result.bundle.biomes.length,0);
- assert.deepEqual(json,[catalog.overview.path]);assert.equal(images.length,41);
+ assert.equal(result.mode,'raster');assert.equal(result.failed,0);assert.equal(result.rasters.length,42);assert.equal(result.bundle.biomes.length,0);
+ assert.deepEqual(json,[catalog.overview.path]);assert.equal(images.length,42);
  const cell=await store.cell(128,24,64);assert.ok(cell.name);assert.equal(cell.source.kind,'observed');assert.equal(json.length,2);
  await store.cell(128,24,64);assert.equal(json.length,2);
  assert.equal(await store.cell(-1400,-450,64),null);assert.equal(json.length,2);
