@@ -10,10 +10,10 @@ def verify(base, root):
     index = json.loads((root / 'data/overview/index.json').read_text())
     paths = ['index.html', 'sw.js', 'data/checked-tiles.json', 'data/overview/index.json']
     paths += [p.name for p in root.glob('*.mjs')]
-    # One native tile and raster per height, plus the newest catalog tile.
+    # Verify every overview page; retain representative dense tiles per height.
     for y in sorted({t['y'] for t in catalog['tiles']}):
         paths.append(next(t['path'].removeprefix('./') for t in catalog['tiles'] if t['y'] == y))
-        paths.append(next(p['path'].removeprefix('./') for p in index['pages'] if p['y'] == y))
+    paths.extend(p['path'].removeprefix('./') for p in index['pages'])
     paths.append(catalog['tiles'][-1]['path'].removeprefix('./'))
     def check(path):
         try:
@@ -29,7 +29,7 @@ def verify(base, root):
         results = list(pool.map(check, sorted(set(paths))))
     return dict(seed=catalog['seed'], revision=index['revision'],
                 verified=all(r['matches'] for r in results), files=results,
-                scope='Application modules, metadata, representative native tiles and rasters; not every hosted file or physical Safari QA.')
+                scope='Application modules, metadata, representative native tiles and every indexed overview page; not every dense tile or physical Safari QA.')
 
 
 if __name__ == '__main__':
