@@ -4772,10 +4772,82 @@
       "y": 64,
       "width": 128,
       "height": 128
+    },
+    {
+      "id": "64_512_-1024",
+      "path": "./data/tiles/64_512_-1024.json",
+      "x": 512,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_-1024",
+      "path": "./data/tiles/64_640_-1024.json",
+      "x": 640,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_-896",
+      "path": "./data/tiles/64_512_-896.json",
+      "x": 512,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_-896",
+      "path": "./data/tiles/64_640_-896.json",
+      "x": 640,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_-768",
+      "path": "./data/tiles/64_512_-768.json",
+      "x": 512,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_-768",
+      "path": "./data/tiles/64_640_-768.json",
+      "x": 640,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_512_-640",
+      "path": "./data/tiles/64_512_-640.json",
+      "x": 512,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_640_-640",
+      "path": "./data/tiles/64_640_-640.json",
+      "x": 640,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
     }
   ],
   "overview": {
     "path": "./data/overview/index.json",
-    "revision": "2a1f53450fa52a9792b3491dccbc07b53e9affd7c18758e7d8be9df151801bad"
+    "revision": "b2966be2e075a3a9e48e6fd899f45ba3979a91090219d98ae2196ea8338ed1d9"
   }
 }
