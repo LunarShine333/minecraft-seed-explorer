@@ -1,0 +1,1 @@
+North central atlas integrated locally: 509 tiles, 8,339,456 height-specific readings. Added streaming validation. Full checks and deployment pending. Unknown areas remain unknown; no global generation claim.
