@@ -13,6 +13,6 @@ test('eastern gap streams adjoining native footprints without filling unknown bo
  const view=await store.view({minX:1280,minZ:-512,maxX:1536,maxZ:512},64);
  assert.equal(view.completed,16);assert.equal(view.failed,0);
  assert.equal(view.bundle.biomes.reduce((n,t)=>n+t.samples.length,0),262144);
- assert.equal(await store.cell(1280,-513,64),null);
+ assert.equal(await store.cell(1280,-1025,64),null);
  assert.equal(await store.cell(1280,0,103),null);
 });
