@@ -21,3 +21,24 @@ class ProbeBuildTests(unittest.TestCase):
         with self.assertRaises(ValueError):render_probe(p,self.template)
         p=copy.deepcopy(self.plan);p['jobs']=p['jobs'][1:]
         with self.assertRaises(ValueError):render_probe(p,self.template)
+
+    def test_changed_plan_updates_jobs_and_identity_without_mutating_inputs(self):
+        p=copy.deepcopy(self.plan)
+        p['id']='north-gap'
+        p['jobs']=[p['jobs'][0],dict(x=1280,z=-640,y=64)]
+        before=copy.deepcopy(p)
+        rendered=render_probe(p,self.template)
+        import re
+        jobs=json.loads(re.search(r'^const jobs=(.*);$',rendered,re.M).group(1))
+        self.assertEqual(jobs,p['jobs'])
+        self.assertIn("planId:'north-gap'",rendered)
+        self.assertNotIn("planId:'east-gap'",rendered)
+        self.assertEqual(p,before)
+        # Sampling implementation after its startup marker stays identical.
+        self.assertEqual(rendered.split('const timer=')[1],self.template.split('const timer=')[1])
+
+    def test_coordinate_validation_and_unknown_template(self):
+        for key,value in [('x',True),('z',0.5),('y',320)]:
+            p=copy.deepcopy(self.plan);p['jobs'][1][key]=value
+            with self.assertRaises(ValueError):render_probe(p,self.template)
+        with self.assertRaises(ValueError):render_probe(self.plan,'const jobs=[];')
