@@ -1,0 +1,5 @@
+# North home deployment verified
+
+Completed full75-file live byte comparison against main. All selected files match, including catalog/index, every57 indexed overview page, application modules and representative dense native tiles. Revision b2966be2e075a3a9e48e6fd899f45ba3979a91090219d98ae2196ea8338ed1d9. Prior old-catalog/404 mismatch has resolved; this check had zero failures. PR50 merge f971760456b7ccf92e75c0b965ff0d48f829dd1f adds eight adjoining tiles at Y64 X512..767 Z-1024..-513. Atlas517tiles/8470528height-specific readings, Y64 500tiles/8192000readings.
+
+105Node/72Python and final GitHub CI passed before merge. Verification covers deployed bytes, not every dense tile or physical Safari behavior. Exact seed3022187552114785111; native source1.26.61.1 versus Xbox target26.60, experiments off, original generation unknown and older chunk caveats preserved. Full-world generator unresolved. Next: implement next nonoverlapping adjoining native increment from current catalog or improve continuous browsing; do not repeat failed generator fits without new evidence.
