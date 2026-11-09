@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-home-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north home infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": 512,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": 640,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": 512,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": 640,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": 512,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": 640,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": 512,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": 640,
+      "z": -640,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "1f45036914bb2169c1c598cbc970a0892583672e",
+  "baselineRevision": "2a1f53450fa52a9792b3491dccbc07b53e9affd7c18758e7d8be9df151801bad",
+  "expectedNewCells": 131072
+}
