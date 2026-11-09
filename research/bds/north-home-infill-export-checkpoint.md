@@ -1,0 +1,5 @@
+# North home export checkpoint
+
+Reproduced all eight native tiles from normalized committed evidence:131072 cells and16384 control cells, complete nine-job run, zero partial rows. Persisted dense exports, control and manifest. Added regression checking every exported byte, deterministic re-export, exact decimal seed and wrong-seed settings rejection. All72 Python tests passed locally.
+
+Canonical gzip can be regenerated from committed .json.gz.b64 evidence; persist it with next atlas integration. Next: register north-home-infill-manifest.json in build-checked-tiles.mjs, rebuild catalog/overview pages, update aggregate counts (expected517 tiles/8470528 height-specific cells), add streaming and unknown-edge checks, then run full Node/Python and final CI. Merge/publish only after success and verify live bytes. No website change yet; current main509tiles remains the published coverage. Source1.26.61.1/target26.60 distinction, exact seed3022187552114785111 and older-Xbox caveats retained. Global generation unresolved.

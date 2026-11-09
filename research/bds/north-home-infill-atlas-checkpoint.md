@@ -1,0 +1,1 @@
+Integrated eight checked north home tiles locally. Expected517 tiles/8470528 height-specific cells. Added streaming boundary regression and updated aggregate counts. Validation running; CI and deployment pending. No global generation claim.

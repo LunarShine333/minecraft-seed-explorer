@@ -1,0 +1,3 @@
+# Integrated local validation passed
+
+105 Node tests and72 Python tests pass after registering eight controlled native tiles. Atlas517 tiles/8470528 height-specific readings; Y64 500tiles/8192000 readings. Continuous loading regression checks all new corners and unknown edges; prior unknown check moved outside newly sampled extent. Generated catalog, PNG overview pages and canonical evidence gzip persisted in the branch. Final GitHub CI, merge and full live byte verification remain pending. No publication yet. Full-world generation remains unresolved; source1.26.61.1 versus target26.60 and older-chunk caveats retained.

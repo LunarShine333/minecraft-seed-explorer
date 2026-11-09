@@ -18,6 +18,6 @@ test('continuous checked biome path joins home, outpost and desert without filli
  for(let z=728;z>=-1920;z-=64)assert.ok(await store.cell(1664,z,64));
  for(let x=1664;x<4096;x+=64)assert.ok(await store.cell(x,-1920,64));
  assert.ok(await store.cell(3936,-1992,64));
- for(const [x,z] of [[767,-1000],[2048,-1000],[3000,-1792],[3000,-2049],[4096,-1920]])assert.equal(await store.cell(x,z,64),null);
+ for(const [x,z] of [[511,-1000],[2048,-1000],[3000,-1792],[3000,-2049],[4096,-1920]])assert.equal(await store.cell(x,z,64),null);
  assert.equal(await store.cell(1664,-1000,66),null);
 });
