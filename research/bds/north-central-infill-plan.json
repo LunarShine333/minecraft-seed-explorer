@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-central-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north central infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": 768,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": 768,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": 768,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": 768,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": 896,
+      "z": -640,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "bbf1c238ceb12d308e9f04745a910e753344f229",
+  "baselineRevision": "9fdd96ba22b55ed60539a415f2a643b92d54e7f08d40b1a0e3148548e087a23a",
+  "expectedNewCells": 131072
+}
