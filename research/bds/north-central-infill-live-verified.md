@@ -1,0 +1,5 @@
+# North central deployment verified
+
+Current release revision 2a1f53450fa52a9792b3491dccbc07b53e9affd7c18758e7d8be9df151801bad is live. Compared 75 selected files against current main: all 57 indexed overview PNGs, catalog/index, application modules and representative native tiles matched. Four initial requests timed out (index.html,map-gestures.mjs,raster-overview.mjs,data/tiles/66_3840_-2048.json); individual retries returned exact matching bytes for all four. GitHub public Actions API also reported completed successful Pages deployment. Earlier old-catalog/404 mismatch is resolved.
+
+Atlas509 tiles/8339456 height-specific readings. This verifies deployed bytes, not every dense tile or physical Safari behavior. Native source1.26.61.1 remains distinct from Xbox target26.60; original generation unknown, experiments off and older-chunk caveats retained. Full-world generation still unresolved. Next implementation may expand adjoining native coverage or improve continuous browsing without approximating unknown areas.
