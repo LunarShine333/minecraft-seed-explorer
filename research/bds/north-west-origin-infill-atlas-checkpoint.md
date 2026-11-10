@@ -1,0 +1,1 @@
+Integrated four checked tiles locally. Expected537tiles/8798208height-specific readings. Streaming test covers actual nonoverlapping four-tile bounds. Tests running; finalCI/merge/deployment pending. No global generation claim.

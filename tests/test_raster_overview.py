@@ -66,7 +66,7 @@ class RasterOverviewTests(unittest.TestCase):
                 i = (sample['z']-tile['z'])*tile['width']+sample['x']-tile['x']
                 self.assertEqual(tile['palette'][tile['samples'][i]]['name'], sample['name'])
                 self.assertEqual(tile['palette'][tile['samples'][i]]['color'], sample['color'])
-        self.assertEqual(total, 8732672)
+        self.assertEqual(total, 8798208)
 
     def test_overview_is_smaller_than_dense_json_without_reducing_native_pixels(self):
         catalog = json.loads((ROOT/'data/checked-tiles.json').read_text())
