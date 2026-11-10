@@ -32,11 +32,25 @@ def verify(base, root):
                 scope='Application modules, metadata, representative native tiles and every indexed overview page; not every dense tile or physical Safari QA.')
 
 
+def verify_attempts(base, root, attempts=1):
+    """Keep every attempt; success requires one complete matching snapshot."""
+    if type(attempts) is not int or not 1 <= attempts <= 3:
+        raise ValueError('attempts must be between 1 and 3')
+    reports = []
+    for _ in range(attempts):
+        report = verify(base, root)
+        reports.append(report)
+        if report['verified']:
+            break
+    return dict(report, attempts=reports)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base', default='https://lunarshine333.github.io/minecraft-seed-explorer/')
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument('--attempts', type=int, choices=range(1,4), default=1)
     args = parser.parse_args()
-    report = verify(args.base, args.root)
+    report = verify_attempts(args.base, args.root, args.attempts)
     print(json.dumps(report, indent=2))
     raise SystemExit(0 if report['verified'] else 1)
