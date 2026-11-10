@@ -1,0 +1,1 @@
+Eight checked north base tiles integrated locally. Expected525tiles/8601600height-specific readings. Added continuous streaming regression and updated coverage counts. Full tests running; finalCI and deployment pending. No global generation claim.

@@ -1,0 +1,3 @@
+# Next native increment
+
+Planner selected eight unsampled adjoining Y64 tiles X256..511 Z-1024..-513 against published517-tile catalog. Generated read-only probe with independent home control; four probe tests passed. No readings acquired yet, no atlas changes, no accuracy claim for candidates. Next: fresh disposable official BDS world, genuineDONE, settings verification, strict control/export validation, evidence persistence, atlas integration/tests/CI before merge and live verification. Preserve exact seed, source1.26.61.1/target26.60 distinction and older chunks caveat. Global generation unresolved.

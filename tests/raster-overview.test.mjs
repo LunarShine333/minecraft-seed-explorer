@@ -10,9 +10,9 @@ const image=async()=>({width:512,height:512});
 const settle=()=>new Promise(resolve=>setImmediate(resolve));
 
 test('lossless raster index accounts for all checked tiles and preserves seed/height identity',()=>{
- const index=validateRasterIndex(raw,catalog);assert.equal(index.seed,'3022187552114785111');assert.equal(index.pages.length,57);
- assert.equal(index.pages.reduce((n,p)=>n+p.coverage.length,0),517);
- assert.equal(visibleRasterPages(index,whole,64).length,43);
+ const index=validateRasterIndex(raw,catalog);assert.equal(index.seed,'3022187552114785111');assert.equal(index.pages.length,58);
+ assert.equal(index.pages.reduce((n,p)=>n+p.coverage.length,0),525);
+ assert.equal(visibleRasterPages(index,whole,64).length,44);
  assert.equal(visibleRasterPages(index,whole,103).length,1);
  assert.equal(visibleRasterPages(index,whole,104).length,0);
 });
@@ -21,12 +21,12 @@ test('reject stale overviews, wrong worlds, unsafe paths, missing coverage and i
   const r=structuredClone(raw);mutate(r);assert.throws(()=>validateRasterIndex(r,catalog));
  }
 });
-test('wide view uses one index and 43 raster pages, then exact inspection fetches only one native tile',async()=>{
+test('wide view uses one index and 44 raster pages, then exact inspection fetches only one native tile',async()=>{
  const json=[],images=[];
  const store=new CheckedTileStore(catalog,async path=>{json.push(path);return read(path)},{fetchRaster:async path=>{images.push(path);return image()}});
  const result=await store.view(whole,64,{overview:true});
- assert.equal(result.mode,'raster');assert.equal(result.failed,0);assert.equal(result.rasters.length,43);assert.equal(result.bundle.biomes.length,0);
- assert.deepEqual(json,[catalog.overview.path]);assert.equal(images.length,43);
+ assert.equal(result.mode,'raster');assert.equal(result.failed,0);assert.equal(result.rasters.length,44);assert.equal(result.bundle.biomes.length,0);
+ assert.deepEqual(json,[catalog.overview.path]);assert.equal(images.length,44);
  const cell=await store.cell(128,24,64);assert.ok(cell.name);assert.equal(cell.source.kind,'observed');assert.equal(json.length,2);
  await store.cell(128,24,64);assert.equal(json.length,2);
  assert.equal(await store.cell(-1400,-450,64),null);assert.equal(json.length,2);
