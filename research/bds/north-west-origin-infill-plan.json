@@ -1,0 +1,42 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-west-origin-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north west origin infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": -256,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -128,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -256,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -128,
+      "z": -896,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "edea08481b552620fa7988999202afe3890d0b06",
+  "baselineRevision": "c54b46c7b9a13e1143fbf8241fa26aaf8ae24284022661a7905a4699f7e1eba7",
+  "expectedNewCells": 65536
+}

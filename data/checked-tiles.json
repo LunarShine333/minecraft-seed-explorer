@@ -4988,10 +4988,46 @@
       "y": 64,
       "width": 128,
       "height": 128
+    },
+    {
+      "id": "64_-256_-1024",
+      "path": "./data/tiles/64_-256_-1024.json",
+      "x": -256,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_-1024",
+      "path": "./data/tiles/64_-128_-1024.json",
+      "x": -128,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-256_-896",
+      "path": "./data/tiles/64_-256_-896.json",
+      "x": -256,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-128_-896",
+      "path": "./data/tiles/64_-128_-896.json",
+      "x": -128,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
     }
   ],
   "overview": {
     "path": "./data/overview/index.json",
-    "revision": "c54b46c7b9a13e1143fbf8241fa26aaf8ae24284022661a7905a4699f7e1eba7"
+    "revision": "3ea85d4e3a0483becf4e55db287e4d606208a5f22151e5051925f895f2cb1614"
   }
 }
