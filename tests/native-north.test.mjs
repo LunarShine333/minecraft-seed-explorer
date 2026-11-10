@@ -16,6 +16,6 @@ test('pan across northern joins loads measured biome slices without extending ot
  const store=new CheckedTileStore(catalog,async p=>read(p));
  for(let z=-768;z<=0;z+=64)assert.ok(await store.cell(-312,z,64));
  assert.ok(await store.cell(-312,-680,64));
- for(const [x,z] of [[-513,-680],[0,-680],[-312,-769]])assert.equal(await store.cell(x,z,64),null);
+ for(const [x,z] of [[-513,-680],[0,-1025],[-312,-769]])assert.equal(await store.cell(x,z,64),null);
  assert.equal(await store.cell(-312,-680,103),null);
 });

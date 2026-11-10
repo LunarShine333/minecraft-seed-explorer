@@ -4916,10 +4916,82 @@
       "y": 64,
       "width": 128,
       "height": 128
+    },
+    {
+      "id": "64_0_-1024",
+      "path": "./data/tiles/64_0_-1024.json",
+      "x": 0,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_128_-1024",
+      "path": "./data/tiles/64_128_-1024.json",
+      "x": 128,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_0_-896",
+      "path": "./data/tiles/64_0_-896.json",
+      "x": 0,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_128_-896",
+      "path": "./data/tiles/64_128_-896.json",
+      "x": 128,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_0_-768",
+      "path": "./data/tiles/64_0_-768.json",
+      "x": 0,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_128_-768",
+      "path": "./data/tiles/64_128_-768.json",
+      "x": 128,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_0_-640",
+      "path": "./data/tiles/64_0_-640.json",
+      "x": 0,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_128_-640",
+      "path": "./data/tiles/64_128_-640.json",
+      "x": 128,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
     }
   ],
   "overview": {
     "path": "./data/overview/index.json",
-    "revision": "8fc1d4e4e6d81fe2216cbb1a492e39989a0b2d39c79f6a526e4d4fa847e772d0"
+    "revision": "c54b46c7b9a13e1143fbf8241fa26aaf8ae24284022661a7905a4699f7e1eba7"
   }
 }

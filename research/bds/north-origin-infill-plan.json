@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-origin-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north origin infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": 0,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": 128,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": 0,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": 128,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": 0,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": 128,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": 0,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": 128,
+      "z": -640,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "d77bae45e7e8707c94a1e555e80db6c7818e6782",
+  "baselineRevision": "8fc1d4e4e6d81fe2216cbb1a492e39989a0b2d39c79f6a526e4d4fa847e772d0",
+  "expectedNewCells": 131072
+}
