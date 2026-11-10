@@ -1,0 +1,1 @@
+Integrated eight checked north origin tiles locally. Expected533tiles/8732672height-specific readings. Added streaming/unknown-edge regression. Tests running; finalCI and deployment pending. No global generation claim.
