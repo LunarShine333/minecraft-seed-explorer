@@ -1,0 +1,3 @@
+# North base live verified
+
+All76selected live files match current main, including catalog, application modules, representative dense tiles and every58overview PNG. Expected revision8fc1d4e4e6d81fe2216cbb1a492e39989a0b2d39c79f6a526e4d4fa847e772d0 verified. Earlier previous-catalog/404 result resolved. Atlas525tiles/8601600height-specific readings. This is byte verification, not physicalSafari QA or every dense tile. Source1.26.61.1/target26.60 distinction and older chunk caveats retained; full-world generation unresolved. PR52 contains tested optional bounded verification attempts, pending finalCI/merge.
