@@ -1,0 +1,3 @@
+# PR56 generated assets checkpoint
+
+Generated catalog, overview index and 58 revision PNGs, plus canonical evidence gzip committed atomically. This supersedes the earlier integration checkpoint's pending-assets warning. Full local checks passed: 110 Node tests and 80 Python tests. Rebuilt atlas contains 549 tiles and 8,994,816 height-specific readings. No merge or publication yet. Next verify final-head GitHub CI, mark ready and merge if green, then verify live deployment bytes and record release checkpoint. All native source/target version, unknown original generation, Y-specific coverage and unverified home caveats remain. Full-world generator unresolved.

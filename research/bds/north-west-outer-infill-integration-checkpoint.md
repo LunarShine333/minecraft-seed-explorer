@@ -1,0 +1,3 @@
+# PR56 integration continuation
+
+Source registration and aggregate/continuous streaming regressions committed. Local rebuilt atlas has 549 tiles / 8,994,816 height-specific readings; 110 Node tests passed. Generated catalog, overview index/PNGs and canonical evidence gzip are NOT yet committed. PR remains draft and must not merge in this intermediate state. Next regenerate evidence via import_native_area.py, run build-checked-tiles.mjs, commit all generated assets atomically, rerun full Python/Node tests and final CI, then merge and verify deployment. No publication occurred. Preserve all acquisition provenance and version caveats from preceding checkpoint.
