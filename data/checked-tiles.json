@@ -5132,10 +5132,55 @@
       "y": 64,
       "width": 128,
       "height": 128
+    },
+    {
+      "id": "64_-1024_-1024",
+      "path": "./data/tiles/64_-1024_-1024.json",
+      "x": -1024,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-896_-1024",
+      "path": "./data/tiles/64_-896_-1024.json",
+      "x": -896,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-896_-896",
+      "path": "./data/tiles/64_-896_-896.json",
+      "x": -896,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-896_-768",
+      "path": "./data/tiles/64_-896_-768.json",
+      "x": -896,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-896_-640",
+      "path": "./data/tiles/64_-896_-640.json",
+      "x": -896,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
     }
   ],
   "overview": {
     "path": "./data/overview/index.json",
-    "revision": "ab802c85085172deabc68c12dae267249e5615d9328786201cf010f325003f3d"
+    "revision": "9bddeb90f52c7339737fdf85958d65fdde0aac27fd6a140f29f52c998aa3bdc5"
   }
 }

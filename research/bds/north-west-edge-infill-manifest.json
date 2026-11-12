@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "nativeVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "planId": "north-west-edge-infill",
+  "evidenceSha256": "cf2e74e8f9677ca36ebfdbae4b4e1743121fe6fcf1b67133ea5954f899dbfd6b",
+  "tiles": [
+    {
+      "id": "64_-1024_-1024",
+      "path": "./data/tiles/64_-1024_-1024.json",
+      "x": -1024,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-896_-1024",
+      "path": "./data/tiles/64_-896_-1024.json",
+      "x": -896,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-896_-896",
+      "path": "./data/tiles/64_-896_-896.json",
+      "x": -896,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-896_-768",
+      "path": "./data/tiles/64_-896_-768.json",
+      "x": -896,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-896_-640",
+      "path": "./data/tiles/64_-896_-640.json",
+      "x": -896,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    }
+  ],
+  "addedDistinctHeightCells": 81920,
+  "controlCells": 16384,
+  "duplicateCellsChecked": 0,
+  "completeNativeCellReadings": 98304,
+  "runReports": [
+    {
+      "runComplete": true,
+      "reportedJobs": 6,
+      "completeTileReadings": 6,
+      "discardedPartialRows": 0,
+      "controlCells": 16384
+    }
+  ],
+  "baselineCommit": "133cd5c7c2f4c66b1a66a61dff5283e87c1b73ff",
+  "baselineRevision": "ab802c85085172deabc68c12dae267249e5615d9328786201cf010f325003f3d",
+  "olderXboxChunksMayDiffer": true
+}
