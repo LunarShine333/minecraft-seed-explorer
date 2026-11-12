@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "nativeVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "planId": "north-west-join-infill",
+  "evidenceSha256": "b65cebe3417a3938f7961840e3dc55b8b012344291810082d444bf36135434ac",
+  "tiles": [
+    {
+      "id": "64_-512_-1024",
+      "path": "./data/tiles/64_-512_-1024.json",
+      "x": -512,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-384_-1024",
+      "path": "./data/tiles/64_-384_-1024.json",
+      "x": -384,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-512_-896",
+      "path": "./data/tiles/64_-512_-896.json",
+      "x": -512,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-384_-896",
+      "path": "./data/tiles/64_-384_-896.json",
+      "x": -384,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    }
+  ],
+  "addedDistinctHeightCells": 65536,
+  "controlCells": 16384,
+  "duplicateCellsChecked": 0,
+  "completeNativeCellReadings": 81920,
+  "runReports": [
+    {
+      "runComplete": true,
+      "reportedJobs": 5,
+      "completeTileReadings": 5,
+      "discardedPartialRows": 0,
+      "controlCells": 16384
+    }
+  ],
+  "baselineCommit": "3ef3b82eb47663bfe3ae8b5673494a44399d252c",
+  "baselineRevision": "3ea85d4e3a0483becf4e55db287e4d606208a5f22151e5051925f895f2cb1614",
+  "olderXboxChunksMayDiffer": true
+}
