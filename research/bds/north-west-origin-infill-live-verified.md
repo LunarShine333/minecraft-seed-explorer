@@ -1,0 +1,3 @@
+# Northwest origin release verified
+
+PR54 merged3ef3b82eb47663bfe3ae8b5673494a44399d252c after108Node/78Python and finalCI42795543414success. Prior verification was interrupted by usage-limit review failure; no result was claimed. Fresh current-main comparison now passes all76selected files in one complete attempt,including every overview PNG,application modules,metadata and representative native tiles. Revision3ea85d4e3a0483becf4e55db287e4d606208a5f22151e5051925f895f2cb1614. Atlas537tiles/8798208height-specific readings. Byte verification is not physicalSafariQA or every dense tile. Exact seed/source1.26.61.1 versus target26.60/older-chunk caveats retained; global generator unresolved.
