@@ -1,0 +1,42 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-west-join-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native northwest join infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": -512,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -384,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -512,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -384,
+      "z": -896,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "3ef3b82eb47663bfe3ae8b5673494a44399d252c",
+  "baselineRevision": "3ea85d4e3a0483becf4e55db287e4d606208a5f22151e5051925f895f2cb1614",
+  "expectedNewCells": 65536
+}
