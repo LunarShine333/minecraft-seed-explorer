@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "nativeVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "planId": "north-shipwreck-infill",
+  "evidenceSha256": "30683a4e34248155e1ebec9f2dae1245bb7673c4124c5a05062142c9992fb312",
+  "tiles": [
+    {
+      "id": "64_-1280_-1024",
+      "path": "./data/tiles/64_-1280_-1024.json",
+      "x": -1280,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-1152_-1024",
+      "path": "./data/tiles/64_-1152_-1024.json",
+      "x": -1152,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    }
+  ],
+  "addedDistinctHeightCells": 32768,
+  "controlCells": 16384,
+  "duplicateCellsChecked": 0,
+  "completeNativeCellReadings": 49152,
+  "runReports": [
+    {
+      "runComplete": true,
+      "reportedJobs": 3,
+      "completeTileReadings": 3,
+      "discardedPartialRows": 0,
+      "controlCells": 16384
+    }
+  ],
+  "baselineCommit": "b5e068421ae4a99354e2cb78d5c6d22e7937b05e",
+  "baselineRevision": "9bddeb90f52c7339737fdf85958d65fdde0aac27fd6a140f29f52c998aa3bdc5",
+  "olderXboxChunksMayDiffer": true
+}
