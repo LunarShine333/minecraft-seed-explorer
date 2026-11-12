@@ -9,7 +9,7 @@ test('new home extension has the exact native footprint and repeats its independ
  assert.equal(manifest.tiles.length,48);assert.equal(manifest.addedDistinctHeightCells,786432);assert.equal(manifest.experiments,false);
  const a=read('research/bds/home-area-control.json'),b=read('research/bds/cherry-route-control.json');
  for(let z=-256;z<-128;z++)for(let x=-256;x<-128;x++)assert.equal(biomeAt(a,x,z,64).name,biomeAt(b,x,z,64).name);
- assert.equal(catalog.tiles.length,541);
+ assert.equal(catalog.tiles.length,549);
  const indices=new Set(catalog.tiles.filter(t=>t.y===64).map(t=>`${t.x},${t.z}`));
  for(let z=-256;z<768;z+=128)for(let x=-256;x<768;x+=128)assert.ok(indices.has(`${x},${z}`));
 });
