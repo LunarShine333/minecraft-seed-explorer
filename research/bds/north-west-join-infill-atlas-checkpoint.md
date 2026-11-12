@@ -1,0 +1,1 @@
+Integrated four checked northwest join tiles locally. Expected541tiles/8863744height-specific readings. Streaming regression and unknown-edge checks added. Tests running; finalCI/merge/live verification pending. No global generation claim.
