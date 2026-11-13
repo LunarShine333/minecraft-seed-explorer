@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-westward-reach-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north westward reach infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": -2304,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -2176,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -2304,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -2176,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -2304,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -2176,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -2304,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": -2176,
+      "z": -640,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "0c45fb9b7660a66dfbc776494d16b64676adb22b",
+  "baselineRevision": "b3a1420a39255086f47fa51b997b17023d093f6747523cae5b57461588a1ae53",
+  "expectedNewCells": 131072
+}
