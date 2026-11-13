@@ -11,7 +11,7 @@ def verify(root, manifest, base, fetch=None):
     root = Path(root).resolve()
     def download(path):
         with urlopen(base.rstrip('/') + '/' + path, timeout=20) as response:
-            return response.read()
+            return response.read((root / path).stat().st_size + 1)
     fetch = fetch or download
     paths = []
     for tile in manifest['tiles']:
@@ -23,8 +23,8 @@ def verify(root, manifest, base, fetch=None):
     if not paths or len(paths) != len(set(paths)):
         raise ValueError('Manifest must have unique tile paths')
     def check(path):
-        expected = (root / path).read_bytes()
         try:
+            expected = (root / path).read_bytes()
             actual = fetch(path)
             return dict(path=path, matches=actual == expected,
                         expectedSha256=hashlib.sha256(expected).hexdigest(),
