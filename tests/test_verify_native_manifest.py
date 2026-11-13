@@ -20,3 +20,9 @@ class ManifestVerificationTests(unittest.TestCase):
     def test_rejects_escaping_duplicate_and_empty_paths(self):
         for tiles in [[{'path':'../outside'}],[{'path':'a'},{'path':'a'}],[]]:
             with self.assertRaises(ValueError): m.verify('.',{'tiles':tiles},'unused')
+
+    def test_missing_local_tile_returns_failed_report(self):
+        with tempfile.TemporaryDirectory() as d:
+            report=m.verify(d,{'tiles':[{'path':'missing'}]},'unused',lambda p:b'')
+            self.assertFalse(report['verified'])
+            self.assertIn('error',report['files'][0])
