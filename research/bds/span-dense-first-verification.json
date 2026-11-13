@@ -1,0 +1,45 @@
+{
+  "verified": false,
+  "files": [
+    {
+      "path": "data/tiles/64_-2816_-1024.json",
+      "matches": false,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "data/tiles/64_-2688_-1024.json",
+      "matches": false,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "data/tiles/64_-2816_-896.json",
+      "matches": false,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "data/tiles/64_-2688_-896.json",
+      "matches": false,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "data/tiles/64_-2816_-768.json",
+      "matches": false,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "data/tiles/64_-2688_-768.json",
+      "matches": false,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "data/tiles/64_-2816_-640.json",
+      "matches": false,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "data/tiles/64_-2688_-640.json",
+      "matches": false,
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
+}
