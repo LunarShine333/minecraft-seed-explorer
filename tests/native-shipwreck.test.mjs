@@ -16,6 +16,6 @@ test('pan across shipwreck joins loads measured biome slices without extending o
  const store=new CheckedTileStore(catalog,async p=>read(p));
  for(let z=-896;z<=0;z+=64)assert.ok(await store.cell(-1272,z,64));
  assert.ok(await store.cell(-1272,-840,64));
- for(const [x,z] of [[-1537,-840],[-896,-1025],[-1272,-1025]])assert.equal(await store.cell(x,z,64),null);
+ for(const [x,z] of [[-1793,-840],[-896,-1025],[-1272,-1025]])assert.equal(await store.cell(x,z,64),null);
  assert.equal(await store.cell(-1272,-840,103),null);
 });
