@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-westward-far-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north westward far infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": -2048,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -1920,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -2048,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -1920,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -2048,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -1920,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -2048,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": -1920,
+      "z": -640,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "57f2d6a4217ecb98cfa141448226c621ca5d2dfe",
+  "baselineRevision": "8c3721863a2a3a668bb4c62890263d9db3800f54fe9994fd83d507a90a76b313",
+  "expectedNewCells": 131072
+}
