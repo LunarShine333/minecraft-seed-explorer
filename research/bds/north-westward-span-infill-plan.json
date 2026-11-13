@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-westward-span-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north westward span infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": -2816,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -2688,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -2816,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -2688,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -2816,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -2688,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -2816,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": -2688,
+      "z": -640,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "d8e9119550a64d5b4fbb23214a45a14bc0d03228",
+  "baselineRevision": "b27db09e714b66c4c84e0ed770d1ff0a3951ad442025ab73e89ccd525a3c1dab",
+  "expectedNewCells": 131072
+}

@@ -1,0 +1,5 @@
+# Span acquisition checkpoint
+
+Fresh disposable north-westward-span-retry-20261113 completed9jobs with genuine DONE and exit0 shutdown. Strict importer accepted8tiles/131072newY64readings and16384matching control cells; zero partialrows. Exact seed and experiments-off settings checked by importer. Initial misconfigured launch/log discarded; only clean retry evidence accepted. Normalized gzip-base64 evidence and exported tiles/control/manifest committed; regenerate canonicalgzip with import_native_area.py.
+
+Not registered or published. Next add deterministic/wrong-seed evidence regression, register manifest, change pending-plan expectation to no candidates, add streaming/unknown-border test, rebuild atlas, run fullchecks/finalCI, merge and both live verifiers. Atlas remains596tiles until integration. Preserve exact seed3022187552114785111, BDS1.26.61.1 versus targetXbox26.60, unknown original generation/olderchunks and approximateunverifiedhome caveats. Fullworldgenerator unresolved; no Xboxsave modifications.
