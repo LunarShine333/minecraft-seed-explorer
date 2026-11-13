@@ -10,9 +10,9 @@ const image=async()=>({width:512,height:512});
 const settle=()=>new Promise(resolve=>setImmediate(resolve));
 
 test('lossless raster index accounts for all checked tiles and preserves seed/height identity',()=>{
- const index=validateRasterIndex(raw,catalog);assert.equal(index.seed,'3022187552114785111');assert.equal(index.pages.length,59);
- assert.equal(index.pages.reduce((n,p)=>n+p.coverage.length,0),580);
- assert.equal(visibleRasterPages(index,whole,64).length,45);
+ const index=validateRasterIndex(raw,catalog);assert.equal(index.seed,'3022187552114785111');assert.equal(index.pages.length,60);
+ assert.equal(index.pages.reduce((n,p)=>n+p.coverage.length,0),588);
+ assert.equal(visibleRasterPages(index,whole,64).length,46);
  assert.equal(visibleRasterPages(index,whole,103).length,1);
  assert.equal(visibleRasterPages(index,whole,104).length,0);
 });
@@ -21,15 +21,15 @@ test('reject stale overviews, wrong worlds, unsafe paths, missing coverage and i
   const r=structuredClone(raw);mutate(r);assert.throws(()=>validateRasterIndex(r,catalog));
  }
 });
-test('wide view uses one index and 45 raster pages, then exact inspection fetches only one native tile',async()=>{
+test('wide view uses one index and 46 raster pages, then exact inspection fetches only one native tile',async()=>{
  const json=[],images=[];
  const store=new CheckedTileStore(catalog,async path=>{json.push(path);return read(path)},{fetchRaster:async path=>{images.push(path);return image()}});
  const result=await store.view(whole,64,{overview:true});
- assert.equal(result.mode,'raster');assert.equal(result.failed,0);assert.equal(result.rasters.length,45);assert.equal(result.bundle.biomes.length,0);
- assert.deepEqual(json,[catalog.overview.path]);assert.equal(images.length,45);
+ assert.equal(result.mode,'raster');assert.equal(result.failed,0);assert.equal(result.rasters.length,46);assert.equal(result.bundle.biomes.length,0);
+ assert.deepEqual(json,[catalog.overview.path]);assert.equal(images.length,46);
  const cell=await store.cell(128,24,64);assert.ok(cell.name);assert.equal(cell.source.kind,'observed');assert.equal(json.length,2);
  await store.cell(128,24,64);assert.equal(json.length,2);
- assert.equal(await store.cell(-1400,-450,64),null);assert.equal(json.length,2);
+ assert.equal(await store.cell(-1400,-460,64),null);assert.equal(json.length,2);
  const cherry=await store.view(whole,103,{overview:true});
  const sample=checkedBiomeWitness(cherry.rasters,'minecraft:cherry_grove',128,24,103);
  assert.ok(sample);assert.equal((await store.cell(sample.x,sample.z,103)).name,'minecraft:cherry_grove');
