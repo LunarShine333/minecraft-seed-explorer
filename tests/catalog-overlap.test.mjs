@@ -11,5 +11,5 @@ test('catalog rejects duplicate footprints, partial overlap and negative bucket 
 test('catalog permits touching edges, disjoint small tiles in one bucket and separate heights',()=>{
  const tiles=[tile('a',-128,0),tile('b',0,0),tile('c',0,128),tile('d',0,0,103),tile('e',256,0,64,16,16),tile('f',272,0,64,16,16)];
  assert.deepEqual(validateCatalog(catalog(tiles)).tiles,tiles);
- assert.equal(validateCatalog(original).tiles.length,604);
+ assert.equal(validateCatalog(original).tiles.length,612);
 });
