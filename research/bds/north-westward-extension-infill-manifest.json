@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "nativeVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "planId": "north-westward-extension-infill",
+  "evidenceSha256": "8a8f5e2dac3c3c7680b8bd5941fba66f20d5ce5d12bdbbc406a7a8ccb3625698",
+  "tiles": [
+    {
+      "id": "64_-3072_-1024",
+      "path": "./data/tiles/64_-3072_-1024.json",
+      "x": -3072,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-2944_-1024",
+      "path": "./data/tiles/64_-2944_-1024.json",
+      "x": -2944,
+      "z": -1024,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-3072_-896",
+      "path": "./data/tiles/64_-3072_-896.json",
+      "x": -3072,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-2944_-896",
+      "path": "./data/tiles/64_-2944_-896.json",
+      "x": -2944,
+      "z": -896,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-3072_-768",
+      "path": "./data/tiles/64_-3072_-768.json",
+      "x": -3072,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-2944_-768",
+      "path": "./data/tiles/64_-2944_-768.json",
+      "x": -2944,
+      "z": -768,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-3072_-640",
+      "path": "./data/tiles/64_-3072_-640.json",
+      "x": -3072,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "id": "64_-2944_-640",
+      "path": "./data/tiles/64_-2944_-640.json",
+      "x": -2944,
+      "z": -640,
+      "y": 64,
+      "width": 128,
+      "height": 128
+    }
+  ],
+  "addedDistinctHeightCells": 131072,
+  "controlCells": 16384,
+  "duplicateCellsChecked": 0,
+  "completeNativeCellReadings": 147456,
+  "runReports": [
+    {
+      "runComplete": true,
+      "reportedJobs": 9,
+      "completeTileReadings": 9,
+      "discardedPartialRows": 0,
+      "controlCells": 16384
+    }
+  ],
+  "baselineCommit": "ae8d9930ae03d3dd9971abe766e041a96f0b9548",
+  "baselineRevision": "7c5bea4bbd5d1e6c7a4ebd2e5d9e31441118172eddf5099ad877881608644e70",
+  "olderXboxChunksMayDiffer": true
+}
