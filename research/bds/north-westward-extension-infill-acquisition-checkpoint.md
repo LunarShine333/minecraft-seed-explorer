@@ -1,0 +1,5 @@
+# Extension acquisition checkpoint
+
+Fresh disposable north-westward-extension-20261114 completed9jobs with genuine DONE, zero partialrows and exit0shutdown. Strict importer validated exactseed/experimentsoffsettings,131072newY64readings and16384matching independentcontrolcells. Normalized compressed evidence,exports/control/manifest and deterministic/wrongseed regression saved; new evidence test and pending-plan test pass.
+
+Not registered/published. Next regenerate canonicalgzip using importer, registermanifest, change pending-plan expectation to emptycandidates, add adjoiningstream/unknownborder regression, update totals604→612 /9895936→10027008/Y64587→595/9617408→9748480, rebuildatlas/fulltests/finalCI before merge and both liveverifiers. Currentpublishedcoverage unchanged. Preserve exactseedstring3022187552114785111, sourceBDS1.26.61.1 vs Xbox26.60, experimentsoff, unknownoriginalgeneration/olderXboxchunks and approximateunverifiedhome. Fullworldgenerator unresolved; no Xboxsave modifications.
