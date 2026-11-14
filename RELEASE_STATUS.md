@@ -6,11 +6,9 @@ Personal Overworld site: exact seed `3022187552114785111`, Xbox target Bedrock
 ## Available
 
 - Continuous checked mode loads adjoining tiles on pan/zoom or sample Y changes.
-- 250 native-data tiles: a continuous 3200 × 1152 rectangle at Y64
-  (X -2432..767 and Z -384..767), plus an adjoining 512 × 384 north extension
-  (X -512..-1, Z -768..-385). Y64 totals 3883008 cells. Also 256 × 256 at
-  Y-48/0/128 and 128 × 128 Cherry Grove at Y103. Total 4096000 height cells.
-  Coverage remains bounded.
+- 652 native-data tiles with 10,682,368 height-specific readings; Y64 has
+  635 tiles and 10,403,840 readings. The latest adjoining extension covers
+  X -4352..-4097, Z -1024..-513 at Y64. Coverage remains bounded.
 - Map requests have 15-second deadlines. Failed visible views offer Retry visible
   map and retry on a connection-restored event without resetting the map.
 - 36 selected native locator landmarks across 13 types; Y unknown.
@@ -29,7 +27,9 @@ Personal Overworld site: exact seed `3022187552114785111`, Xbox target Bedrock
 
 ## Verification and limits
 
-65 Node and 27 Python tests pass. Original source cells remain preserved.
+124 Node and 111 Python tests pass for the outerlink integration.
+See `research/bds/north-westward-outerlink-infill-integration-checkpoint.md`
+for current evidence and release state. The acquisition details below are historical. Original source cells remain preserved.
 The west extension adds 127 native tiles (2080768 cells), with three independent
 16384-cell control readings and 229376 repeated cells agreeing across runs.
 Two interrupted acquisitions retain only completed tile records; 124 partial
