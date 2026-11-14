@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-westward-linkage-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north westward linkage infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": -4096,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -3968,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -4096,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -3968,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -4096,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -3968,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -4096,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": -3968,
+      "z": -640,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "d6d9355105e0c8dbf6f8cbbefb2ad58f64fd0ffc",
+  "baselineRevision": "3262b6d560c18ea873c4bcc0e9818ac6bba47522232093b9eaa156e645c9cf8f",
+  "expectedNewCells": 131072
+}

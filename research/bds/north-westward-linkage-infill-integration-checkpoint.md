@@ -1,0 +1,5 @@
+# Linkage integration checkpoint
+
+Integrated8nativeY64tiles;atlas644tiles/10,551,296height-specific readings,Y64627tiles/10,272,768readings. Overview63pages;revisionff9d19e73f93c387eb83c981b81f43a1cfb5fdbdb71ed1654803b4643fdc7fd4. Expanded densewholeatlas regression west to -5000. Strict importer reproduced131072newcells/16384matchingcontrolcells,9completedjobs,zeropartialrows;canonicalgziprestored.
+
+123Node/109Python tests passed locally,including adjoiningstream/unknownborder and deterministic/wrongseed evidence. Pending finalheadCI,merge,BOTHliveverifiers;do not repeatcollection. Seed3022187552114785111remains exactstring;sourceBDS1.26.61.1 vs targetXbox26.60,experimentsoff,unknownoriginalgeneration/olderXboxchunks and approximateunverifiedhome preserved. Fullworldgeneration unresolved;publicsiteunchanged untilrelease.
