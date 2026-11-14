@@ -7,8 +7,8 @@ const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const catalog=read('data/checked-tiles.json'),manifest=read('research/bds/west-area-manifest.json');
 test('west acquisition fills the precise continuous Y64 rectangle and repeats native control',()=>{
  assert.equal(manifest.tiles.length,127);assert.equal(manifest.addedDistinctHeightCells,2080768);assert.equal(manifest.controlCells,49152);
- assert.equal(manifest.seed,'3022187552114785111');assert.equal(manifest.experiments,false);assert.equal(catalog.tiles.length,612);
- const cells=new Set(catalog.tiles.filter(t=>t.y===64).map(t=>`${t.x},${t.z}`));assert.equal(cells.size,595);
+ assert.equal(manifest.seed,'3022187552114785111');assert.equal(manifest.experiments,false);assert.equal(catalog.tiles.length,620);
+ const cells=new Set(catalog.tiles.filter(t=>t.y===64).map(t=>`${t.x},${t.z}`));assert.equal(cells.size,603);
  for(let z=-384;z<768;z+=128)for(let x=-2432;x<768;x+=128)assert.ok(cells.has(`${x},${z}`),`missing ${x},${z}`);
  const a=read('research/bds/west-area-control-64_-256_-256.json'),b=read('research/bds/home-area-control.json');
  for(let z=-256;z<-128;z++)for(let x=-256;x<-128;x++)assert.equal(biomeAt(a,x,z,64).name,biomeAt(b,x,z,64).name);
