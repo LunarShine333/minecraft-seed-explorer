@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-westward-outerlink-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north westward outerlink infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": -4352,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -4224,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -4352,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -4224,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -4352,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -4224,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -4352,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": -4224,
+      "z": -640,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "ef845d2f644a1a1845edc45c09577d849aacf5b4",
+  "baselineRevision": "ff9d19e73f93c387eb83c981b81f43a1cfb5fdbdb71ed1654803b4643fdc7fd4",
+  "expectedNewCells": 131072
+}
