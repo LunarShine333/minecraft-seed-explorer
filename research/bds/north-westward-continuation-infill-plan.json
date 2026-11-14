@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-westward-continuation-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north westward continuation infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": -3584,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -3456,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -3584,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -3456,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -3584,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -3456,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -3584,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": -3456,
+      "z": -640,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "650a26a2bd143d24225e317e724d0de06ec08dc3",
+  "baselineRevision": "28056dc40b212914423946a2f2fdc21fa22fc1153be20238c214dacc6672522f",
+  "expectedNewCells": 131072
+}
