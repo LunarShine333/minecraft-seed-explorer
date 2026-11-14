@@ -1,0 +1,5 @@
+# Continuation integration checkpoint
+
+Integrated8nativeY64tiles;atlas628tiles/10,289,152height-specific readings,Y64611tiles/10,010,624readings. Overview62pages;revisionb45d542187c336a9dce3e879d3971266b9d826c871d234879bbb9f249f6c93e4. Strict importer reproduced131072newcells/16384matchingcontrolcells,9completedjobs,zeropartialrows;canonicalgziprestored.
+
+121Node/105Python tests passed locally,including adjoiningstream/unknownborder and deterministic/wrongseed evidence. Pending finalheadCI,merge,BOTHliveverifiers;do not repeatcollection. Seed3022187552114785111remains exactstring;sourceBDS1.26.61.1 vs targetXbox26.60,experimentsoff,unknownoriginalgeneration/olderXboxchunks and approximateunverifiedhome preserved. Fullworldgeneration unresolved;publicsiteunchanged untilrelease.
