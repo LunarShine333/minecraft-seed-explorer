@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-westward-bridge-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north westward bridge infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": -3328,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -3200,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -3328,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -3200,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -3328,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -3200,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -3328,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": -3200,
+      "z": -640,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "eda21107492f28d96047b7dcc62ef5776f0d08f7",
+  "baselineRevision": "4c21d8b5f52e2dd2c607a8a6551b483e296ccf0f5ae127084c796fad0ca2f665",
+  "expectedNewCells": 131072
+}
