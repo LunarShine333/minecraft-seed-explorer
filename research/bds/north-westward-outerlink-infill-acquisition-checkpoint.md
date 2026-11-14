@@ -1,0 +1,5 @@
+# Outerlink acquisition checkpoint
+
+Freshdisposable north-westward-outerlink-20261114 completed9jobs with genuineDONE,zeropartialrows and exit0shutdown. Strict importer validated exactseed/experimentsoffsettings,131072newY64readings and16384matching independentcontrolcells. Normalizedcompressed evidence,exports/control/manifest and deterministic/wrongseed regression saved;evidence/pendingplan tests pass.
+
+Notregistered/published. Next regenerate canonicalgzip,registermanifest,change pendingplan expectation to emptycandidates,add adjoiningstream/unknownborder regression,update totals644→652/10551296→10682368/Y64627→635/10272768→10403840,rebuild/fulltests/finalCI before merge and BOTHliveverifiers. Densewholeatlas viewport -5000 includes tiles. Publishedcoverage unchanged. Preserve exactseedstring3022187552114785111,sourceBDS1.26.61.1 vs Xbox26.60,experimentsoff,unknownoriginalgeneration/olderXboxchunks and approximateunverifiedhome. Fullworldgenerator unresolved;noXboxsave modifications.
