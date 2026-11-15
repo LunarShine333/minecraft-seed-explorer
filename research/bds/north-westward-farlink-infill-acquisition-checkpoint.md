@@ -1,0 +1,7 @@
+# Farlink acquisition checkpoint
+
+Fresh temporary world farlink-20261115 completed all nine jobs with genuine DONE and clean exit0 shutdown. Native source BDS1.26.61.1 build53069370; strict importer validated exact seed string3022187552114785111 and experiments off. All131072 new Y64 readings and16384 independent control cells reproduced; zero partial rows. Evidence replay/wrong-seed rejection and pending-plan regression tests pass (2 tests). Normalized compressed evidence, eight exports, control and manifest committed on PR73.
+
+Not registered or published. Resume by regenerating canonical gzip with import_native_area.py, registering manifest in build-checked-tiles.mjs, replacing pending-plan expectation with empty candidates, adding stream/unknown-border regression, updating atlas totals660→668/10813440→10944512 and Y64643→651/10534912→10665984. Rebuild overview and inspect page counts. Run full tests/final-head CI, merge with expected head only after checks, verify both live release and eight new dense tiles, retain initial failures and successful retries in final release checkpoint. Do not repeat acquisition.
+
+Published atlas remains660 tiles. Xbox target26.60 differs from source version; original generation unknown/older Xbox chunks and approximate unverified home X128 Z24 caveats preserved. No Xbox save modifications. Full-world generation unresolved and rejected experiments not repeated. No user help required.
