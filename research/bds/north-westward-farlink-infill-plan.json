@@ -1,0 +1,62 @@
+{
+  "schema": "native-checked-area-plan-v1",
+  "id": "north-westward-farlink-infill",
+  "seed": "3022187552114785111",
+  "version": "26.60",
+  "sourceVersion": "1.26.61.1",
+  "build": "53069370",
+  "experiments": false,
+  "name": "native north westward farlink infill",
+  "jobs": [
+    {
+      "x": -256,
+      "z": -256,
+      "y": 64,
+      "control": true,
+      "reference": "research/bds/home-area-control.json"
+    },
+    {
+      "x": -4864,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -4736,
+      "z": -1024,
+      "y": 64
+    },
+    {
+      "x": -4864,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -4736,
+      "z": -896,
+      "y": 64
+    },
+    {
+      "x": -4864,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -4736,
+      "z": -768,
+      "y": 64
+    },
+    {
+      "x": -4864,
+      "z": -640,
+      "y": 64
+    },
+    {
+      "x": -4736,
+      "z": -640,
+      "y": 64
+    }
+  ],
+  "baselineCommit": "bafd82d6321ad1ade7a64b2be4c8da2391e0ab4f",
+  "baselineRevision": "075701ca5552dc90724ffc1d1afa65a08e0af903c82cfab31925f67f90c60166",
+  "expectedNewCells": 131072
+}
