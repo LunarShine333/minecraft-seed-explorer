@@ -11,7 +11,7 @@ class NorthWestwardSpanlinkPlanTests(unittest.TestCase):
     def test_plan_excludes_existing_coverage_and_probe_matches(self):
         plan=json.loads((ROOT/'research/bds/north-westward-spanlink-infill-plan.json').read_text())
         candidates=json.loads(subprocess.check_output([sys.executable,'scripts/plan-native-extension.py','--bounds','-5376','-1024','-5120','-512','--y','64'],cwd=ROOT,text=True))
-        self.assertEqual(plan['jobs'][1:],candidates['jobs'])
+        self.assertEqual(candidates['jobs'],[])
         self.assertEqual(plan['expectedNewCells'],131072)
         self.assertEqual(len(plan['jobs']),9)
         template=(ROOT/'research/bds/east-gap-probe.js').read_text()
