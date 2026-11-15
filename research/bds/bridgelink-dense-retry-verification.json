@@ -1,0 +1,53 @@
+{
+  "verified": true,
+  "files": [
+    {
+      "path": "data/tiles/64_-5632_-1024.json",
+      "matches": true,
+      "expectedSha256": "e7bd09d657e02b01cc91025baf939fd0e49e8c88753529f6cf0f9d35d638ceb5",
+      "receivedSha256": "e7bd09d657e02b01cc91025baf939fd0e49e8c88753529f6cf0f9d35d638ceb5"
+    },
+    {
+      "path": "data/tiles/64_-5504_-1024.json",
+      "matches": true,
+      "expectedSha256": "9389a2c6bbf98f381b0d0b5f35619d9b497555c3a8a4479dedbed57709eee7f7",
+      "receivedSha256": "9389a2c6bbf98f381b0d0b5f35619d9b497555c3a8a4479dedbed57709eee7f7"
+    },
+    {
+      "path": "data/tiles/64_-5632_-896.json",
+      "matches": true,
+      "expectedSha256": "287a7cc9f7ee50abd6256d82f3b3ebbd5cb4f18d8cf5a82653790df24699850d",
+      "receivedSha256": "287a7cc9f7ee50abd6256d82f3b3ebbd5cb4f18d8cf5a82653790df24699850d"
+    },
+    {
+      "path": "data/tiles/64_-5504_-896.json",
+      "matches": true,
+      "expectedSha256": "f8ca9023353880a4318b89e9ce7e4e60c6a4919b1a3d2e84f7d1b294e6fdbd98",
+      "receivedSha256": "f8ca9023353880a4318b89e9ce7e4e60c6a4919b1a3d2e84f7d1b294e6fdbd98"
+    },
+    {
+      "path": "data/tiles/64_-5632_-768.json",
+      "matches": true,
+      "expectedSha256": "1dc21c05e4463951d1812e0a88d4ce6000ebdb0dc66781ed19b47b40599e7081",
+      "receivedSha256": "1dc21c05e4463951d1812e0a88d4ce6000ebdb0dc66781ed19b47b40599e7081"
+    },
+    {
+      "path": "data/tiles/64_-5504_-768.json",
+      "matches": true,
+      "expectedSha256": "67f8b98fcf4f1c2112fe27960f395e22dfb66637695bfadf3ebe5383319d8e10",
+      "receivedSha256": "67f8b98fcf4f1c2112fe27960f395e22dfb66637695bfadf3ebe5383319d8e10"
+    },
+    {
+      "path": "data/tiles/64_-5632_-640.json",
+      "matches": true,
+      "expectedSha256": "06b84259de54502aa819be6c9152bf8e85a2f432336d0fddd16f955c65dd5acd",
+      "receivedSha256": "06b84259de54502aa819be6c9152bf8e85a2f432336d0fddd16f955c65dd5acd"
+    },
+    {
+      "path": "data/tiles/64_-5504_-640.json",
+      "matches": true,
+      "expectedSha256": "d2c606f3de1f152de9bc87f63bb3aa8ad858579d751b715e4a54bb34cc15ae93",
+      "receivedSha256": "d2c606f3de1f152de9bc87f63bb3aa8ad858579d751b715e4a54bb34cc15ae93"
+    }
+  ]
+}
