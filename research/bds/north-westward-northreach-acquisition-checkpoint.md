@@ -1,0 +1,5 @@
+# Northreach acquisition completed
+
+Collected all eight planned adjoining Y64 tiles in exclusive fresh temporary northreach-20261116 world. Genuine DONE and clean server exit0 observed. Strict importer validated exact seed string3022187552114785111, experiments off, sourceBDS1.26.61.1 build53069370,131072 new cells and16384 independent control cells. Two focused tests pass, including deterministic replay, export byte equality and wrong-seed rejection. Normalized compressed evidence, manifest, control, eight exports and regression committed.
+
+Do not recollect. Resume integration per northreach-checkpoint.md: register manifest/canonical gzip; update totals732tiles/11993088height-cells,Y64715tiles/11714560cells; add adjoining stream/unknown-border test and move earlier northlink boundary where now sampled; pending-plan candidates empty; rebuild overview and inspect actual page count. Full tests/final-head CI before merge, then verify release/all dense tiles and checkpoint publication. Not yet registered/published; live remains724tiles. Xbox26.60/source1.26.61.1 and older-chunk caveats retained. No Xbox save access. Full-world generation unresolved.
