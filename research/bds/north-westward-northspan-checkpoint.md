@@ -1,0 +1,7 @@
+# Northspan implementation checkpoint
+
+Resumed main after verified PR81 publication and confirmed no open PRs. Implemented eight adjoining unsampled Y64 jobs X-6400..-6145 Z-2560..-2049 with independent home control, pinned baseline and runnable generated probe. Candidate-exclusion/probe-drift test passes; diff check clean. Expected131072 new cells and16384 control. No acquisition/publication yet; live atlas732tiles.
+
+Resume this branch: inspect BDS access/execution/settings, create exclusive fresh temporary world exact seed string3022187552114785111 experiments off. Require genuine DONE/clean shutdown, read level.dat, strict export_area_runs; save normalized gzip.b64, manifest, control, eight exports and deterministic/wrong-seed regression. Then register manifest/canonical gzip, pending-plan candidates empty, adjoining-stream/unknown-border test; move prior unknown boundary where now sampled. Proposed totals740tiles/12124160height-cells, Y64723tiles/11845632cells. Rebuild overview and inspect actual page count. Full tests/final-head CI before merge; verify live release/all dense exports, preserve initial failures/retries and publication checkpoint. Do not duplicate pending collection.
+
+SourceBDS1.26.61.1 differs from Xbox26.60; original generation unknown and older chunks may differ. Approximate/unverified home preserved. Xbox save untouched. Full-world generation unresolved; rejected experiments not repeated. No user help required.
