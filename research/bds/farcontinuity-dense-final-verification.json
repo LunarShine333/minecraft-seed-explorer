@@ -1,0 +1,53 @@
+{
+  "verified": true,
+  "files": [
+    {
+      "path": "data/tiles/64_-6400_-1024.json",
+      "matches": true,
+      "expectedSha256": "6b5fffd4d544bf14e2d3e55a15b57362292ce1b653940567f8de834765408554",
+      "receivedSha256": "6b5fffd4d544bf14e2d3e55a15b57362292ce1b653940567f8de834765408554"
+    },
+    {
+      "path": "data/tiles/64_-6272_-1024.json",
+      "matches": true,
+      "expectedSha256": "03c4a296e6405b56f913484addb04dc90ce6f26d5366b689b2d49e4039cd89c0",
+      "receivedSha256": "03c4a296e6405b56f913484addb04dc90ce6f26d5366b689b2d49e4039cd89c0"
+    },
+    {
+      "path": "data/tiles/64_-6400_-896.json",
+      "matches": true,
+      "expectedSha256": "8fd4257b15922c28777dd5fdd46389653b9022cc1b8188214fa61e13f38066e3",
+      "receivedSha256": "8fd4257b15922c28777dd5fdd46389653b9022cc1b8188214fa61e13f38066e3"
+    },
+    {
+      "path": "data/tiles/64_-6272_-896.json",
+      "matches": true,
+      "expectedSha256": "f9a459fa20b4e3ffc429fd658f68e7fe30c79caf4ba4e2277a363b3123fd27b2",
+      "receivedSha256": "f9a459fa20b4e3ffc429fd658f68e7fe30c79caf4ba4e2277a363b3123fd27b2"
+    },
+    {
+      "path": "data/tiles/64_-6400_-768.json",
+      "matches": true,
+      "expectedSha256": "9462084d11a1cf73ea94d16c3d8da719a23b21e2d4c5942f54220586d8a99191",
+      "receivedSha256": "9462084d11a1cf73ea94d16c3d8da719a23b21e2d4c5942f54220586d8a99191"
+    },
+    {
+      "path": "data/tiles/64_-6272_-768.json",
+      "matches": true,
+      "expectedSha256": "52ec1b14be994947d28f6ab46e76c035f3eee07aca5ef8c260485ec68f054d88",
+      "receivedSha256": "52ec1b14be994947d28f6ab46e76c035f3eee07aca5ef8c260485ec68f054d88"
+    },
+    {
+      "path": "data/tiles/64_-6400_-640.json",
+      "matches": true,
+      "expectedSha256": "2dedca0e9487bb85fb8203348dc4a3985f635aa4ab182af93a6b051e01f19dcc",
+      "receivedSha256": "2dedca0e9487bb85fb8203348dc4a3985f635aa4ab182af93a6b051e01f19dcc"
+    },
+    {
+      "path": "data/tiles/64_-6272_-640.json",
+      "matches": true,
+      "expectedSha256": "e15dc69fe9e6e5b2bfa34b0d804874deb021c74405ae7ce221a3461519444eea",
+      "receivedSha256": "e15dc69fe9e6e5b2bfa34b0d804874deb021c74405ae7ce221a3461519444eea"
+    }
+  ]
+}
