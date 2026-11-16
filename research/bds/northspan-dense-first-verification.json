@@ -1,0 +1,45 @@
+{
+  "verified": false,
+  "files": [
+    {
+      "path": "data/tiles/64_-6400_-2560.json",
+      "matches": false,
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "path": "data/tiles/64_-6272_-2560.json",
+      "matches": false,
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "path": "data/tiles/64_-6400_-2432.json",
+      "matches": false,
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "path": "data/tiles/64_-6272_-2432.json",
+      "matches": false,
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "path": "data/tiles/64_-6400_-2304.json",
+      "matches": false,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "data/tiles/64_-6272_-2304.json",
+      "matches": false,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "data/tiles/64_-6400_-2176.json",
+      "matches": false,
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "path": "data/tiles/64_-6272_-2176.json",
+      "matches": false,
+      "error": "HTTP Error 503: Service Unavailable"
+    }
+  ]
+}
