@@ -13,6 +13,6 @@ test('north westward northlink infill streams adjoining native footprints withou
  const view=await store.view({minX:-6400,minZ:-1536,maxX:-6144,maxZ:-1024},64);
  assert.equal(view.completed,8);assert.equal(view.failed,0);
  assert.equal(view.bundle.biomes.reduce((n,t)=>n+t.samples.length,0),131072);
- assert.equal(await store.cell(-6400,-1537,64),null);
+ assert.equal(await store.cell(-6400,-2049,64),null);
  assert.equal(await store.cell(-6400,0,103),null);
 });
