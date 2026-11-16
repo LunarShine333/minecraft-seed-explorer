@@ -1,0 +1,7 @@
+# Northreach collection implementation
+
+Resumed main after verified PR80 publication; no open PRs. Implemented eight adjoining unsampled Y64 tiles X-6400..-6145 Z-2048..-1537, independent control, pinned baseline and runnable probe. Candidate-exclusion/probe-drift test passes; diff check clean. Expected131072 new readings plus16384 control. No acquisition/publication this increment; published atlas724tiles.
+
+Resume this branch: inspect BDS execution/settings; use exclusive fresh temporary test world with exact seed string3022187552114785111 and experiments off. Collect genuine DONE, stop cleanly, read level.dat and strict export_area_runs. Preserve normalized gzip.b64, manifest, control, eight exports, deterministic replay/wrong-seed regression. Do not duplicate pending collection. Then register manifest/canonical gzip, update pending-plan candidates empty, add streaming/unknown-border regression and adjust earlier northlink unknown edge if newly covered. Totals724→732 /11862016→11993088; Y64707→715 /11583488→11714560. Rebuild and inspect actual overview-page count, full tests and final-head CI before merge, verify live release/all dense exports and save release checkpoint.
+
+SourceBDS1.26.61.1 differs from Xbox26.60; original generation unknown/older chunks may differ. Approximate unverified home retained. No Xbox-save access. Full-world generation unresolved; rejected fits not repeated. No user help required.

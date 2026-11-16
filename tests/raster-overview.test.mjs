@@ -10,8 +10,8 @@ const image=async()=>({width:512,height:512});
 const settle=()=>new Promise(resolve=>setImmediate(resolve));
 
 test('lossless raster index accounts for all checked tiles and preserves seed/height identity',()=>{
- const index=validateRasterIndex(raw,catalog);assert.equal(index.seed,'3022187552114785111');assert.equal(index.pages.length,69);
- assert.equal(index.pages.reduce((n,p)=>n+p.coverage.length,0),724);
+ const index=validateRasterIndex(raw,catalog);assert.equal(index.seed,'3022187552114785111');assert.equal(index.pages.length,70);
+ assert.equal(index.pages.reduce((n,p)=>n+p.coverage.length,0),732);
  assert.equal(visibleRasterPages(index,whole,64).length,47);
  assert.equal(visibleRasterPages(index,whole,103).length,1);
  assert.equal(visibleRasterPages(index,whole,104).length,0);
