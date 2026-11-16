@@ -1,0 +1,7 @@
+# Northlink collection implementation
+
+Resumed current main after verified PR79 release; no open PRs. Implemented eight unsampled adjoining Y64 jobs at X-6400..-6145 Z-1536..-1025, independent home control, pinned baseline and generated runnable probe. Plan/probe-drift and candidate-exclusion test passes; diff check clean. Expected131072 new readings plus16384 control. No native readings acquired this increment; published atlas716tiles unchanged.
+
+Resume this branch, not another plan: inspect BDS execution/settings, create exclusive fresh disposable world, exact decimal seed3022187552114785111, experiments off. Run probe through genuine DONE and clean shutdown. Strict import_native_area.export_area_runs must validate control/all cells and save normalized gzip.b64, manifest, control, eight exports and deterministic/wrong-seed regression. Then register manifest and canonical gzip, update totals716→724 /11730944→11862016 and Y64699→707 /11452416→11583488, add streaming/unknown-border regression and change pending-plan candidates to empty. Inspect actual overview-page count after rebuild. Full tests/final-head CI required before merge; verify release and every new dense tile, preserve failures/retries and release checkpoint.
+
+SourceBDS1.26.61.1 differs from targetXbox26.60; original world generation unknown and older chunks may differ. Home approximate/unverified. No Xbox save changes. Full-world generation unresolved; rejected experiments not repeated. No user help needed.

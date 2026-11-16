@@ -1,0 +1,5 @@
+# Northlink native acquisition completed
+
+All eight planned tiles collected in exclusive fresh disposable northlink-20261116 world. Genuine DONE and server clean exit0 observed. Strict importer validated exact seed string3022187552114785111, experiments off, source1.26.61.1 build53069370,131072 new readings and16384 independent control readings. Both plan and evidence tests pass, including deterministic replay, export byte equality and wrong-seed rejection. Eight exports, control, manifest and normalized compressed evidence committed.
+
+Do not recollect. Resume integration on this branch per northlink-checkpoint.md: register manifest/canonical gzip, add stream/unknown-border regression, update totals and pending-plan assertion, rebuild overview, run full tests and final-head CI, merge only after checks and verify live release/all eight dense exports. Not yet registered or published; live atlas remains716tiles. Xbox26.60/older-chunk caveats retained; Xbox save untouched. Full-world generation unresolved.
